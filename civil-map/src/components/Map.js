@@ -12,7 +12,7 @@ import {
   
   const Map = ({ setTooltipContent }) => {
     return (
-      <div style={{margin:"auto", width:"90%", marginTop: "-14vh", position:"absolute"}}>
+      <div style={{margin:"auto", width:"90%", marginTop: "0vh", position:"absolute"}}>
         <ComposableMap
             projection="geoEqualEarth"
             data-tip=""
@@ -34,15 +34,15 @@ import {
               }}
               style={{
                 default: {
-                  fill: "#D6D6DA",
+                  fill: "#bbd4bb",
                   outline: "none"
                 },
                 hover: {
-                  fill: "#004b87",
+                  fill: "#5a6e5a",
                   outline: "none"
                 },
                 pressed: {
-                  fill: "#006cc2",
+                  fill: "#abd6ab",
                   outline: "none"
                 }
               }}
