@@ -8,6 +8,7 @@ export const Header = (props) => {
             <h1 >Global Civil Discourse Map</h1>
             <p>Comparing Speech, Press, and Information Sharing Practices Internationally</p>
         </div>
+
     );
 };
 
