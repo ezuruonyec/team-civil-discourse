@@ -1,0 +1,4 @@
+export const GET_COUNTRY = "GET_COUNTRY"
+export const ADD_COUNTRY = "ADD_COUNTRY"
+export const DELETE_COUNTRY = "DELETE_COUNTRY"
+export const ITEMS_LOADING = "ITEMS_LOADING"
