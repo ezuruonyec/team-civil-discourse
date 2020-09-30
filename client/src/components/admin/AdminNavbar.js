@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {Collapse, Navbar, Nav, NavItem, NavLink, Container, NavbarBrand, NavbarToggler} from "reactstrap"
+import {Collapse, Navbar,Container, NavbarBrand, NavbarToggler} from "reactstrap"
 
 const AdminNavbar = () => {
     const [isOpen, setIsOpen] = useState(false)

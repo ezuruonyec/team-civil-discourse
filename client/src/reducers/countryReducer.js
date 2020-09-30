@@ -15,7 +15,7 @@ export default function(state = initialState, action){
         case DELETE_COUNTRY:
             return{
                 ...state,
-                countries: state.countries.filter(country => country._id != action.payload)
+                countries: state.countries.filter(country => country._id !== action.payload)
             }
         case ADD_COUNTRY:
             return {

@@ -20,12 +20,13 @@ const CountrySchema = new Schema({
         ratified: Boolean,
         year: Number
     }],
-    freedom_speech: {
-        type: Boolean,
-        required: true
-    },
+    freedom_speech: [{
+        present: Boolean,
+        restrictions: String
+    }],
     freedom_media: [{
         present: Boolean,
+        restrictions: String,
         year: Number
     }],
     rwb_ranking: {

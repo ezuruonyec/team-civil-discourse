@@ -1,10 +1,9 @@
 import React, { Component } from "react"
 import {Container, ListGroup, Button, ListGroupItem} from "reactstrap"
 import {CSSTransition, TransitionGroup} from "react-transition-group"
-import {connect, useDispatch} from "react-redux"
+import {connect} from "react-redux"
 import {getCountry, deleteCountry} from "../../actions/countryActions"
 import PropTypes from "prop-types"
-import Admin from "./Admin"
 import { Spinner, Alert } from 'reactstrap';
 
 class AdminCountryList extends Component {
@@ -36,19 +35,30 @@ class AdminCountryList extends Component {
             
 
             <ListGroup>
-                <TransitionGroup className="shopping-list"> 
+                <TransitionGroup className="country-list"> 
                     {countries.map(({_id, name}) => (
                         <CSSTransition key={_id} timeout={500} classNames="fade">
                             <ListGroupItem>
+                                {name}
+                                <div style={{float: "right"}}>
+                                <Button
+                                    className="remove-btn"
+                                    color="warning"
+                                    size="sm"
+                                    
+                                >
+                                    edit
+                                </Button>
                                 <Button
                                     className="remove-btn"
                                     color="danger"
                                     size="sm"
                                     onClick={this.onDeleteClick.bind(this, _id)}
                                 >
-                                    &times;
+                                    delete
                                 </Button>
-                                {name}
+                                </div>
+                                
                             </ListGroupItem>
                                 
                         </CSSTransition>

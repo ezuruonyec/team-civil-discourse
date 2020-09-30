@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react"
+import React, {useState} from "react"
 
 import {Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input} from "reactstrap"
 import {connect} from "react-redux"
@@ -13,7 +13,9 @@ const AdminCountryModal = (props) => {
     const [mdRatified, setMdRatified] = useState(true)
     const [mdYear, setMdYear] = useState("")
     const [free_speech, setFreeSpeech] = useState(true)
+    const [fsRestrict, setFsRestrict] = useState("")
     const [fmPresent, setFmPresent] = useState(true)
+    const [fmRestrict, setFmRestrict] = useState("")
     const [fmYear, setFmYear] = useState("")
     const [rwbRank, setRwbRank] = useState(0)
     const [rwbScore, setRwbScore] = useState(0)
@@ -33,9 +35,13 @@ const AdminCountryModal = (props) => {
                 ratified: mdRatified,
                 year: mdYear
             }],
-            freedom_speech: free_speech,
+            freedom_speech: [{
+                present: free_speech,
+                restrictions: fsRestrict
+            }],
             freedom_media: [{
                 present: fmPresent,
+                restrictions: fmRestrict,
                 year: fmYear
             }],
             rwb_ranking: rwbRank,
@@ -69,7 +75,7 @@ const AdminCountryModal = (props) => {
                     <Form onSubmit={onSubmit}>
 
                         <FormGroup>
-                            <Label for="name">Name</Label>
+                            <Label for="name">Country</Label>
                             <Input
                                 type="text"
                                 name="name"
@@ -77,10 +83,7 @@ const AdminCountryModal = (props) => {
                                 placeholder="Name"
                                 onChange={e => setName(e.target.value)} 
                             />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label for="code">Country Code</Label>
+                            <br />
                             <Input
                                 type="text"
                                 name="code"
@@ -88,78 +91,88 @@ const AdminCountryModal = (props) => {
                                 placeholder="Country Code"
                                 onChange={e => setCode(e.target.value)} 
                             />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label for="population">Population</Label>
+                            <br />
                             <Input
                                 type="number"
                                 name="population"
                                 id="population"
-                                placeholder="0"
+                                placeholder="Population"
                                 onChange={e => setPopulation(e.target.value)} 
                             />
                         </FormGroup> 
 
                         <FormGroup>
-                            <Label for="md_rat">Millenium Declaration Ratified</Label>
+                            <Label for="md_rat">Millenium Declaration</Label>
                             <Input type="select" name="md_rat" id="md_rat" onChange={e => setMdRatified(e.target.value)}>
                             <option value={true} selected>Yes</option>
                             <option value={false}>No</option>
                             </Input>
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label for="md_year">Millenium Declaration Year</Label>
+                                <br />
                             <Input
                                 type="number"
                                 name="md_year"
                                 id="md_year"
-                                placeholder="0"
+                                placeholder="Year"
                                 onChange={e => setMdYear(e.target.value)} 
                             />
                         </FormGroup> 
 
                         <FormGroup>
-                            <Label for="free_speech">Free Speech</Label>
+                            <Label for="free_speech">Freedom of Speech</Label>
                             <Input type="select" name="free_speech" id="free_speech" onChange={e => setFreeSpeech(e.target.value)}>
                             <option value={true} selected>Yes</option>
                             <option value={false}>No</option>
                             </Input>
+                                <br />
+                            <Input
+                                type="text"
+                                name="fs_restrictions"
+                                id="fs_restrictions"
+                                placeholder="Restrictions"
+                                onChange={e => setFsRestrict(e.target.value)} 
+                            />
+
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="free_media">Free Media</Label>
+                            <Label for="free_media">Freedom of Media</Label>
                             <Input type="select" name="free_media" id="free_media" onChange={e => setFmPresent(e.target.value)}>
                             <option value={true} selected>Yes</option>
                             <option value={false}>No</option>
                             </Input>
-                        </FormGroup>
-
-                        <FormGroup>
-                            <Label for="fm_year">Free Media Year</Label>
+                            <br />
+                            <Input
+                                type="text"
+                                name="fm_restrictions"
+                                id="fm_restrictions"
+                                placeholder="Restrictions"
+                                onChange={e => setFmRestrict(e.target.value)} 
+                            />
+                            <br />
                             <Input
                                 type="number"
                                 name="fm_year"
                                 id="fm_year"
-                                placeholder="0"
+                                placeholder="Year"
                                 onChange={e => setFmYear(e.target.value)} 
                             />
-                        </FormGroup> 
+                        </FormGroup>
+
+                        
+                            
+                        
 
                         <FormGroup>
-                            <Label for="rwb_rank">Reporters Without Borders Rank</Label>
+                            <Label for="rwb_rank">Reporters Without Borders</Label>
                             <Input
                                 type="number"
                                 name="rwb_rank"
                                 id="rwb_rank"
-                                placeholder="0"
+                                placeholder="Ranking"
                                 onChange={e => setRwbRank(e.target.value)} 
                             />
-                        </FormGroup> 
+                            <br />
 
-                        <FormGroup>
-                            <Label for="rwb_index">Reporters Without Borders Index Score</Label>
                             <Input
                                 type="number"
                                 min="0.00"
@@ -167,7 +180,7 @@ const AdminCountryModal = (props) => {
                                 max="1000.00"
                                 name="rwb_index"
                                 id="rwb_index"
-                                placeholder="0"
+                                placeholder="Score"
                                 onChange={e => setRwbScore(e.target.value)} 
                             />
                         </FormGroup> 
