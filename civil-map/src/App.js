@@ -1,3 +1,4 @@
+
 //import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import ReactTooltip from "react-tooltip";
@@ -20,6 +21,5 @@ function App() {
             </container>
         );
     }
-
 
 export default App;
