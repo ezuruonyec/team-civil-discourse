@@ -1,12 +1,13 @@
 import React, {useState} from "react"
 import ReactTooltip from "react-tooltip"
 import Map from "./Map"
+import Header from "./Header"
 
 const MapWrapper = () => {
     const [content, setContent] = useState("")
     return(
         <div>
-      <h1>Welcome to our Map</h1>
+      <Header />
       <Map setTooltipContent={setContent}/>
       <ReactTooltip>{content}</ReactTooltip>
 
