@@ -9,9 +9,7 @@
 /coverage
 
 # production
-/build
-
-config/keys.js
+config/dev.js
 
 # misc
 .DS_Store
