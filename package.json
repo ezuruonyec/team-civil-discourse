@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "client": "file:client",
     "concurrently": "^5.3.0",
     "create-react-app": "^3.4.1",
     "express": "^4.17.1",
+    "gh-pages": "^3.1.0",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.4"
   },
@@ -21,6 +23,8 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
+    "predeploy": "npm run build --prefix client",
+    "deploy": "gh-pages -d client/build"
   }
 }

@@ -13,7 +13,7 @@ import "./App.css"
 function App() {
   return (
     <Provider store={store}>
-       <BrowserRouter>
+       <BrowserRouter basename={process.env.PUBLIC_URL}>
       <main>
         <Switch>
             <Route path="/" component={MapWrapper} exact />
