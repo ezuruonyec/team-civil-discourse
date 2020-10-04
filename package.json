@@ -21,14 +21,5 @@
     "server": "nodemon server.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lowelljo/team-civil.git"
-  },
-  "author": "Carson",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lowelljo/team-civil/issues"
   }
 }
