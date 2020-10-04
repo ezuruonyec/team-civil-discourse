@@ -2,7 +2,7 @@ import React from 'react'
 import MapWrapper from "./components/MapWrapper"
 import Admin from "./components/admin/Admin"
 
-
+import deleteMe from "./components/deleteMe"
 import {Provider} from "react-redux"
 import store from "./store"
 
@@ -18,9 +18,11 @@ function App() {
         <Switch>
             <Route path="/" component={MapWrapper} exact />
             <Route path="/admin" component={Admin} />
+            <Route path="/deleteme" component={deleteMe} />
         </Switch>
       </main>
     </BrowserRouter>
+   
     </Provider>
   );
 }
