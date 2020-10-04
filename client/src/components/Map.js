@@ -12,11 +12,11 @@ import {
   
   const Map = ({ setTooltipContent }) => {
     return (
-      <div style={{margin:"auto", width:"90%", marginTop: "0vh", position:"absolute"}}>
+      <div style={{margin:"auto", width:"90%", marginTop: "-18vh", position:"absolute"}}>
         <ComposableMap
             projection="geoEqualEarth"
             data-tip=""
-            projectionConfig={{scale: 170}}
+            projectionConfig={{scale: 155}}
         >
           <Geographies geography={geoUrl}>
             {({geographies}) => geographies.map(geo =>

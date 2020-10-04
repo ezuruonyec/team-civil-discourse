@@ -1,19 +1,3 @@
-// import React from "react";
-// /*add links*/
-
-// export const Header = (props) => {
-//     return (
-
-//         <div className="header">
-//             <h1 >Global Civil Discourse Map</h1>
-//             <p>Comparing Speech, Press, and Information Sharing Practices Internationally</p>
-//         </div>
-
-//     );
-// };
-
-// export default Header
-
 import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -45,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              News
+              Civil Discourse Map
             </Typography>
-            <Button color="inherit">Login</Button>
+           
           </Toolbar>
         </AppBar>
       </div>
