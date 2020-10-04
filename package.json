@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "## Link to APP:  https://lowelljo.github.io/team-civil/",
   "main": "server.js",
+  "engines": {
+    "node": "12.x.x",
+    "npm": "6.14.x"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "client": "file:client",
     "concurrently": "^5.3.0",
     "create-react-app": "^3.4.1",
     "express": "^4.17.1",
@@ -17,17 +22,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-   
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lowelljo/team-civil.git"
-  },
-  "author": "Carson",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lowelljo/team-civil/issues"
-  }
+    "client": "npm run start --prefix client",
+    "dev": "NODE_ENV=production concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client" 
+  } 
 }
