@@ -17,7 +17,7 @@ const db = require("./config/keys").mongoURI
 // connect to mongo
 mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true } )
     .then(() => console.log("Mongo connected..."))
-    .catch(err => console.log(err))
+  
 
 // use routes
 app.use("/api/countries", countries)
