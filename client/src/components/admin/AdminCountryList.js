@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import {Container, ListGroup, Button, ListGroupItem} from "reactstrap"
 import {CSSTransition, TransitionGroup} from "react-transition-group"
 import {connect} from "react-redux"
-import {getCountry, deleteCountry} from "../../actions/countryActions"
+import {getCountry, deleteCountry, editCountry} from "../../actions/countryActions"
 import PropTypes from "prop-types"
 import { Spinner, Alert } from 'reactstrap';
 
@@ -14,6 +14,10 @@ class AdminCountryList extends Component {
 
     onDeleteClick = (id) => {
         this.props.deleteCountry(id)
+    }
+
+    onDeleteClick = (id) => {
+        this.props.editCountry(id)
     }
 
     render() {
@@ -45,7 +49,7 @@ class AdminCountryList extends Component {
                                     className="remove-btn"
                                     color="warning"
                                     size="sm"
-                                    
+                                    onClick={this.onEditClick.bind(this, _id)}
                                 >
                                     edit
                                 </Button>
@@ -81,4 +85,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {getCountry, deleteCountry})(AdminCountryList)
+export default connect(mapStateToProps, {getCountry, deleteCountry, editCountry})(AdminCountryList)

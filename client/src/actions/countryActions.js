@@ -1,4 +1,4 @@
-import {GET_COUNTRY, ADD_COUNTRY, DELETE_COUNTRY, ITEMS_LOADING} from "./types"
+import {GET_COUNTRY, ADD_COUNTRY, DELETE_COUNTRY, ITEMS_LOADING, UPDATE_COUNTRY, EDIT_COUNTRY } from "./types"
 import axios from "axios"
 
 export const getCountry = () => dispatch => {
@@ -23,6 +23,14 @@ export const deleteCountry = (id) => dispatch => {
         .then(res => dispatch({
             type: ADD_COUNTRY,
             payload: res.data
+        }))
+ }
+
+ export const editCountry = (id) => dispatch => {
+    axios.put(`/api/countries/update/${id}`)
+        .then(res => dispatch({
+            type: UPDATE_COUNTRY,
+            payload:[id, res.data]
         }))
  }
 
