@@ -4,7 +4,6 @@ const mongoose = require("mongoose")
 const keys = require("../config/keys")
 
 const User = mongoose.model("users")
-const AllowedUsers = mongoose.model("allowed_users")
 
 passport.serializeUser((user, done) => {
     done(null, user.id)
@@ -26,23 +25,29 @@ passport.use(
     }, 
     async (accessToken, refreshToken, profile, done) => {
         
-        const isUserAllowed = await AllowedUsers.findOne({email: profile.emails})
         
-        // User is whitelisted and is allowed to login
-        if(isUserAllowed){
 
-            const existingUser = await User.findOne({googleId: profile.id})
+            const existingUser = await User.findOne({email: profile.emails[0].value})
             
               // user already exists in db 
             if(existingUser){
+               if(existingUser.googleId === ""){
+                  await existingUser.update({
+                      googleId: profile.id, 
+                      displayName: profile.displayName,
+                      name: profile.name,
+                      photos: profile.photos
+                    })
+               }
                 return done(null, existingUser)
             }
 
-            // user does not exist yet - add them to db
-            const user = await new User({googleId: profile.id}).save()
-            done(null, user)
+            // // user does not exist yet - add them to db
+            // const updateUser = isUserAllowed.update({googleId: profile.id})
+            // // const user = await new User({googleId: profile.id}).save()
+            // done(null, updateUser)
+            done(null)
             
         }
-    }
     ))
 

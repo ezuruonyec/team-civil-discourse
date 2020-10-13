@@ -38,10 +38,10 @@ router.post("/", (req, res) => {
 // @desc    Get a single country by the country code
 // @access  Public
 
-router.get("/:code", (req, res) => {
-    Country.findOne({code: req.params.code})
-        .then(country => res.json(country))
-})
+// router.get("/:code", (req, res) => {
+//     Country.findOne({code: req.params.code})
+//         .then(country => res.json(country))
+// })
 
 // @route   PUT api/countries/update
 // @desc    Update a country
@@ -67,9 +67,9 @@ router.put("/update/:id", (req, res) => {
 // @desc    Delete country
 // @access  Public
 router.delete("/:id", (req, res) => {
-   Country.findById(req.params.id)
-    .then(country => country.remove().then(() => res.json({success: true})))
-    .catch(err => res.status(404).json({success: false}))
+   Country.findByIdAndDelete({_id: req.params.id})
+   .then(res.json({sucesss:true}))
+   .catch(err => res.status(404).json({sucess: false}))
 })
     
 

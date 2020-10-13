@@ -2,8 +2,16 @@ const mongoose = require("mongoose")
 const {Schema} = mongoose
 
 const userSchema = new Schema({
+    email:  {
+        type: String,
+        required: true,
+        unique: true,
+        dropDups: true,
+    },
     googleId: String,
-    email: String
+    displayName: String,
+    name: Object,
+    photos: Array
 })
 
-mongoose.model("users", userSchema)
+module.exports = User = mongoose.model("users", userSchema)

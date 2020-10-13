@@ -2,9 +2,10 @@ import React, {useState} from "react"
 
 import {Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input} from "reactstrap"
 import {connect} from "react-redux"
-import {addCountry} from "../../actions/countryActions"
+// import {addCountry} from "../../actions/countryActions"
+import * as actions from "../../actions"
 
-const AdminCountryModal = (props) => {
+const AdminCountryModal = ({addCountry}) => {
     const [isOpen, setIsOpen] = useState(false)
     
     const [name, setName] = useState("")
@@ -49,8 +50,8 @@ const AdminCountryModal = (props) => {
             sources: [sources]
 
         }
-       //console.log(newCountry)
-        props.addCountry(newCountry)
+       console.log(newCountry)
+        addCountry(newCountry)
 
         toggle()
     }
@@ -210,8 +211,13 @@ const AdminCountryModal = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    country: state.country
-})
+// const mapStateToProps = (state) => ({
+//     country: state.country
+// })
 
-export default connect(mapStateToProps, {addCountry})(AdminCountryModal)
+function mapStateToProps({country}) {
+    return {country}
+}
+
+
+export default connect(mapStateToProps, actions)(AdminCountryModal)

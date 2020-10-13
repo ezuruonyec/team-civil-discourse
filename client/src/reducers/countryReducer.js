@@ -3,7 +3,6 @@ const initialState = {
     countries: [],
     loading: false
 }
-
 export default function(state = initialState, action){
     switch(action.type){
         case GET_COUNTRY:
@@ -21,7 +20,9 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 countries: [action.payload, ...state.countries]
+                
             }
+           
         case UPDATE_COUNTRY:
             //const updateCountry = state.countries.map(country => country._id === action.payload[0])
             //const updateCountry = action.payload[1]

@@ -5,10 +5,10 @@ const passport = require("passport")
 const keys = require("./config/keys")
 const bodyParser = require("body-parser")
 const countries = require("./routes/api/countries")
-
+const users = require("./routes/api/users")
 
 require("./models/User")
-require("./models/AllowedUsers")
+
 require("./services/passport")
 
 const app = express()
@@ -43,6 +43,8 @@ app.use(
 
 // use routes
 app.use("/api/countries", countries)
+app.use("/api/users", users)
+
 require("./routes/authRoutes")(app)
 
 if (process.env.NODE_ENV === 'production') {

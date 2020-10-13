@@ -1,10 +1,13 @@
 import React, { Component } from "react"
 import {Container, ListGroup, Button, ListGroupItem} from "reactstrap"
 import {CSSTransition, TransitionGroup} from "react-transition-group"
-import {connect} from "react-redux"
-import {getCountry, deleteCountry, editCountry} from "../../actions/countryActions"
+// import {connect} from "react-redux"
+// import {getCountry, deleteCountry, editCountry} from "../../actions/countryActions"
 import PropTypes from "prop-types"
 import { Spinner, Alert } from 'reactstrap';
+
+import {connect} from "react-redux"
+import * as actions from "../../actions"
 
 class AdminCountryList extends Component {
     
@@ -16,14 +19,14 @@ class AdminCountryList extends Component {
         this.props.deleteCountry(id)
     }
 
-    onDeleteClick = (id) => {
-        this.props.editCountry(id)
-    }
+   
 
     render() {
+        console.log("STATE....", this.props.country)
 
         const {countries} = this.props.country
         const {loading} = this.props.country
+
         return (
             <Container>
 
@@ -49,7 +52,7 @@ class AdminCountryList extends Component {
                                     className="remove-btn"
                                     color="warning"
                                     size="sm"
-                                    onClick={this.onEditClick.bind(this, _id)}
+                                    // onClick={this.onEditClick.bind(this, _id)}
                                 >
                                     edit
                                 </Button>
@@ -75,14 +78,18 @@ class AdminCountryList extends Component {
     }
 }
 
-AdminCountryList.propTypes = {
-    getCountry: PropTypes.func.isRequired,
-    country: PropTypes.object.isRequired
+// AdminCountryList.propTypes = {
+//     // getCountry: PropTypes.func.isRequired,
+//     country: PropTypes.object.isRequired
+// }
+
+// const mapStateToProps = (state) => ({
+//     country: state.country
+// })
+
+function mapStateToProps({country}) {
+    return {country}
 }
 
-const mapStateToProps = (state) => ({
-    country: state.country
-})
 
-
-export default connect(mapStateToProps, {getCountry, deleteCountry, editCountry})(AdminCountryList)
+export default connect(mapStateToProps, actions)(AdminCountryList)
