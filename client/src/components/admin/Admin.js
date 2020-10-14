@@ -1,23 +1,23 @@
 import React, {Component} from "react"
-import {Container} from "reactstrap"
-import AdminCountryList from "./AdminCountryList"
-import AdminCountryModal from "./AdminCountryModal"
-import AdminNavbar from "./AdminNavbar"
+import Nav from "./Nav"
+import {connect} from "react-redux"
+import * as actions from "../../actions"
+
 
 class Admin extends Component {
+    componentDidMount() {
+        this.props.getAllUsers()
+    }
     
-render() {
-    return (
-        <div>
-            <AdminNavbar />
-            <Container>
-                <AdminCountryModal />
-                <AdminCountryList />
-            </Container>
-        </div>
-    )
+    render() {
+        return (
+        <Nav />
+        )
+    }
 }
-    
 
+
+function mapStateToProps({auth, user}) {
+    return {auth, user}
 }
-export default Admin
+export default connect(mapStateToProps, actions)(Admin)

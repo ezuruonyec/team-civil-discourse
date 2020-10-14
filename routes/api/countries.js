@@ -34,13 +34,42 @@ router.post("/", (req, res) => {
         .then(item => res.json(item))
 })
 
+// @route   GET api/countries
+// @desc    Get a single country by the country code
+// @access  Public
+
+// router.get("/:code", (req, res) => {
+//     Country.findOne({code: req.params.code})
+//         .then(country => res.json(country))
+// })
+
+// @route   PUT api/countries/update
+// @desc    Update a country
+// @access  Public
+router.put("/update/:id", (req, res) => {
+    Country.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        code: req.body.code,
+        population: req.body.population,
+        millenium_dec: req.body.millenium_dec,
+        freedom_speech: req.body.freedom_speech,
+        freedom_media: req.body.freedom_media,
+        rwb_ranking: req.body.rwb_ranking,
+        rwb_score: req.body.rwb_score,
+        sources: req.body.sources,
+        updated: Date.now()
+    })
+    .then(res.json({sucesss:true}))
+    .catch(err => res.status(404).json({sucess: false}))
+})
+
 // @route   DELELTE api/countries
 // @desc    Delete country
 // @access  Public
 router.delete("/:id", (req, res) => {
-   Country.findById(req.params.id)
-    .then(country => country.remove().then(() => res.json({success: true})))
-    .catch(err => res.status(404).json({success: false}))
+   Country.findByIdAndDelete({_id: req.params.id})
+   .then(res.json({sucesss:true}))
+   .catch(err => res.status(404).json({sucess: false}))
 })
     
 

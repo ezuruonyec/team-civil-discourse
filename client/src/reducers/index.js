@@ -1,6 +1,10 @@
 import {combineReducers} from "redux"
-import countryReducer from "./countryReducer.js"
+import countryReducer from "./countryReducer"
+import authReducer from "./authReducer"
+import userReducer from "./userReducer"
 
 export default combineReducers({
-    country: countryReducer
+    country: countryReducer,
+    auth: authReducer,
+    user: userReducer
 })

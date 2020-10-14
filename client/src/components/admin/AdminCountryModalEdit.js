@@ -1,10 +1,15 @@
 import React, {useState} from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+
 import {Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input} from "reactstrap"
 import {connect} from "react-redux"
-import * as actions from "../../actions"
+import {updateCountry, getCountry} from "../../actions/countryActions"
+import "bootstrap/dist/css/bootstrap.min.css"
 
-const AdminCountryModal = ({addCountry}) => {
+const AdminCountryModalEdit = (props) => {
+    const {countries} = this.props.country
+
+    const editCountry = countries.filter(country => country._id === id)
+
     const [isOpen, setIsOpen] = useState(false)
     
     const [name, setName] = useState("")
@@ -49,8 +54,8 @@ const AdminCountryModal = ({addCountry}) => {
             sources: [sources]
 
         }
-       console.log(newCountry)
-        addCountry(newCountry)
+       //console.log(newCountry)
+        props.addCountry(newCountry)
 
         toggle()
     }
@@ -69,7 +74,6 @@ const AdminCountryModal = ({addCountry}) => {
             <Modal
                 isOpen={isOpen}
                 toggle={toggle}
-                style={{marginTop: 75}}
             >
                 <ModalHeader toggle={toggle}>Create New Country</ModalHeader>
                 <ModalBody>
@@ -211,13 +215,8 @@ const AdminCountryModal = ({addCountry}) => {
     )
 }
 
-// const mapStateToProps = (state) => ({
-//     country: state.country
-// })
+const mapStateToProps = (state) => ({
+    country: state.country
+})
 
-function mapStateToProps({country}) {
-    return {country}
-}
-
-
-export default connect(mapStateToProps, actions)(AdminCountryModal)
+export default connect(mapStateToProps, {addCountry})(AdminCountryModalEdit)
