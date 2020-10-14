@@ -23,6 +23,7 @@ const db = require("./config/keys").mongoURI
 
 // connect to mongo
 mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true } )
+
     .then(() => console.log("Mongo connected."))
   
 
@@ -38,6 +39,7 @@ app.use(
   
   app.use(passport.initialize())
   app.use(passport.session())
+
 
 
 
