@@ -11,7 +11,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import {Box} from "@material-ui/core"
+import {Box, colors} from "@material-ui/core"
 import CountryIcon from '@material-ui/icons/Public';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -19,6 +19,7 @@ import {connect} from "react-redux"
 import CountryList from "./AdminCountryList"
 import AddCountry from "./AdminCountryModal"
 import Users from "./Users"
+import { grey } from '@material-ui/core/colors';
 
 const drawerWidth = 240;
 
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: grey[900]
   },
   drawer: {
     width: drawerWidth,
@@ -59,12 +61,20 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
   },
+  side: {
+
+    selected:  {
+      backgroundColor: "#000000"
+    }
+  },
+  
 }));
 
-function Sidebar({auth, user}) {
+function Nav({auth, user}) {
   const classes = useStyles();
 
   const [display, setDisplay] = useState(null)
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
 
   const renderContent = () => {
@@ -128,7 +138,15 @@ function Sidebar({auth, user}) {
               {/*-------------------------------------------------------- 
                  Countries 
                 ---------------------------------------------------------*/}
-              <ListItem button onClick={() => setDisplay("countries")}>
+              <ListItem 
+                button 
+                className={{selected: classes.selected}}
+                selected={selectedIndex === 0}
+                onClick={() => {
+                  setSelectedIndex(0)
+                  setDisplay("countries")
+                }}
+              >
                 <ListItemIcon><CountryIcon /></ListItemIcon>
                 <ListItemText primary="Countries" />
               </ListItem>
@@ -136,7 +154,13 @@ function Sidebar({auth, user}) {
               {/*-------------------------------------------------------- 
                  Users 
                 ---------------------------------------------------------*/}
-              <ListItem button onClick={() => setDisplay("users")}>
+              <ListItem 
+                button 
+                selected={selectedIndex === 1}
+                onClick={() => {
+                  setSelectedIndex(1)
+                  setDisplay("users")
+                }}> 
                 <ListItemIcon><AccountCircleIcon /></ListItemIcon>
                 <ListItemText primary="Users" />
               </ListItem>
@@ -168,4 +192,4 @@ function mapStateToProps({auth, user}) {
   return {auth, user}
 }
 
-export default connect(mapStateToProps)(Sidebar)
+export default connect(mapStateToProps)(Nav)

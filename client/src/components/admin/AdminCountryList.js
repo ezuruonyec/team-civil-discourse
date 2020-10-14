@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import {Container, ListGroup, Button, ListGroupItem} from "reactstrap"
 import {CSSTransition, TransitionGroup} from "react-transition-group"
+import "bootstrap/dist/css/bootstrap.min.css"
 // import {connect} from "react-redux"
 // import {getCountry, deleteCountry, editCountry} from "../../actions/countryActions"
 import PropTypes from "prop-types"

@@ -3,6 +3,7 @@ import React, {useState} from "react"
 import {Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input} from "reactstrap"
 import {connect} from "react-redux"
 import {updateCountry, getCountry} from "../../actions/countryActions"
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const AdminCountryModalEdit = (props) => {
     const {countries} = this.props.country

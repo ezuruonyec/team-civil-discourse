@@ -4,7 +4,7 @@ import Admin from "./admin/Admin"
 import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
-import "bootstrap/dist/css/bootstrap.min.css"
+
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "../App.css"
 

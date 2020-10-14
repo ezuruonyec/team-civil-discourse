@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import Sidebar from "./Sidebar"
+import Nav from "./Nav"
 import {connect} from "react-redux"
 import * as actions from "../../actions"
 
@@ -11,7 +11,7 @@ class Admin extends Component {
     
     render() {
         return (
-        <Sidebar />
+        <Nav />
         )
     }
 }

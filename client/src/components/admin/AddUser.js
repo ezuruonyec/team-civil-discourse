@@ -4,12 +4,24 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {connect} from "react-redux"
 import * as actions from "../../actions"
+import { green } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    
+    add: {
+        backgroundColor: green[500],
+        color: "#FFFFFF",
+        marginBottom: 10
+    }
+  
+  }));
 
 function AddUser({addUser}) {
+    const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [email, setEmail] = React.useState("")
 
@@ -28,11 +40,11 @@ function AddUser({addUser}) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="filled" color="default" className={classes.add} onClick={handleClickOpen}>
         Add User
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">Add User</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus

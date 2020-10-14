@@ -1,8 +1,7 @@
 import React, {useState} from "react"
-
+import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input} from "reactstrap"
 import {connect} from "react-redux"
-// import {addCountry} from "../../actions/countryActions"
 import * as actions from "../../actions"
 
 const AdminCountryModal = ({addCountry}) => {
@@ -70,6 +69,7 @@ const AdminCountryModal = ({addCountry}) => {
             <Modal
                 isOpen={isOpen}
                 toggle={toggle}
+                style={{marginTop: 75}}
             >
                 <ModalHeader toggle={toggle}>Create New Country</ModalHeader>
                 <ModalBody>

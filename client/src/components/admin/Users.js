@@ -7,17 +7,24 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {Button} from "@material-ui/core"
+import {Button, ThemeProvider} from "@material-ui/core"
 import {connect} from "react-redux"
 import axios from 'axios';
 import AddUser from "./AddUser"
 import * as actions from "../../actions"
+import { grey } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  tableHead: {
+      backgroundColor: grey[800]
+  },
+  tableHeadCell: {
+      color: "#FFFFFF"
+  }
 });
 
 
@@ -33,11 +40,11 @@ function Users({user, getAllUsers}) {
        <AddUser />
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
-        <TableHead>
+        <TableHead className={classes.tableHead}>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Status</TableCell>
+            <TableCell className={classes.tableHeadCell}>Name</TableCell>
+            <TableCell className={classes.tableHeadCell}>Email</TableCell>
+            <TableCell className={classes.tableHeadCell}>Status</TableCell>
             <TableCell></TableCell>
           </TableRow>
         </TableHead>
