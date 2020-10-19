@@ -22,7 +22,7 @@ app.set('json spaces', 2)
 const db = require("./config/keys").mongoURI
 
 // connect to mongo
-mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true } )
+mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false } )
 
     .then(() => console.log("Mongo connected."))
   
