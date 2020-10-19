@@ -1,39 +1,33 @@
-// import React, { Component } from "react"
-// import {getCountry} from "../actions/countryActions"
-// import PropTypes from "prop-types"
-// import {connect} from "react-redux"
+import React, { Component } from "react"
+import * as actions from "../actions"
+import PropTypes from "prop-types"
+import {connect} from "react-redux"
 
-// class deleteMe extends Component{
+class deleteMe extends Component{
+
+    componentDidMount() {
+        this.props.getCountryByName("Benin")
+    }
 
 
-//     componentDidMount() {
-//         this.props.getCountry()
-//     }
+    render() {
+        const {country} = this.props.country
 
-//     render() {
-//         const {countries} = this.props.country
+        let names = country.map(({name}) => {
+           return <p>{name}</p>
+        })
 
-//         let names = countries.map(({name}) => {
-//            return <p>{name}</p>
-//         })
-
-//         return (
-//             <div>
-//                 {names}
-//             </div>
+        return (
+            <div>
+                {names}
+            </div>
             
-//         )
-//     }
-// }
+        )
+    }
+}
 
-// deleteMe.propTypes = {
-//     getCountry: PropTypes.func.isRequired,
-//     country: PropTypes.object.isRequired
-// }
+function mapStateToProps({country}) {
+    return {country}
+}
 
-// const mapStateToProps = (state) => ({
-//     country: state.country
-// })
-
-
-// export default connect(mapStateToProps, {getCountry})(deleteMe)
+export default connect(mapStateToProps, actions)(deleteMe)

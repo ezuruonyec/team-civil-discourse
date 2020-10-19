@@ -17,9 +17,20 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {connect} from "react-redux"
 import CountryList from "./AdminCountryList"
-import AddCountry from "./AdminCountryModal"
+import CountryForm from "./CountryForm"
 import Users from "./Users"
 import { grey } from '@material-ui/core/colors';
+import CountryTable from './CountryTable';
+import Collapse from '@material-ui/core/Collapse';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
+import AddIcon from '@material-ui/icons/Add';
+import TableChartIcon from '@material-ui/icons/TableChart';
+
 
 const drawerWidth = 240;
 
@@ -67,31 +78,34 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#000000"
     }
   },
+  nested: {
+    paddingLeft: theme.spacing(5),
+  },
   
 }));
 
-function Nav({auth, user}) {
+function Nav({auth}) {
   const classes = useStyles();
 
   const [display, setDisplay] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(null);
-
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState(null)
 
   const renderContent = () => {
     switch (display) {
       case "countries": 
-        return (
-          <>
-            <AddCountry />
-            <CountryList /> 
-          </>
-        )
+        return <CountryTable countryData={setData} disp={setDisplay} />
+      case "add_country": 
+        return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="add" />
+      case "edit_country":
+        return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="edit" data={data} />
       case "users": 
-          return <Users />
+        return <Users />
       default:
         return (
           <div>
-            Home
+            Dashboard
           </div>
         )
         
@@ -138,27 +152,60 @@ function Nav({auth, user}) {
               {/*-------------------------------------------------------- 
                  Countries 
                 ---------------------------------------------------------*/}
-              <ListItem 
-                button 
-                className={{selected: classes.selected}}
-                selected={selectedIndex === 0}
-                onClick={() => {
-                  setSelectedIndex(0)
-                  setDisplay("countries")
-                }}
-              >
-                <ListItemIcon><CountryIcon /></ListItemIcon>
+
+              <ListItem button onClick={() => {
+                  setOpen(!open)
+                }}>
+                <ListItemIcon>
+                  <CountryIcon />
+                </ListItemIcon>
                 <ListItemText primary="Countries" />
+                {open ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+
+                  <ListItem 
+                    button 
+                    className={classes.nested}
+                    selected={selectedIndex === 0}
+                    onClick={() => {
+                      setSelectedIndex(0)
+                      setDisplay("countries")
+                    }}
+                  >
+                    <ListItemIcon >
+                      <TableChartIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="View list" />
+                  </ListItem>
+
+                  <ListItem 
+                    button 
+                    selected={selectedIndex === 1}
+                    className={classes.nested}
+                    onClick={() => {
+                      setSelectedIndex(1)
+                      setDisplay("add_country")
+                    }}
+                  >
+                    <ListItemIcon>
+                      <AddIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Add Country" />
+                  </ListItem>
+
+                </List>
+              </Collapse>
 
               {/*-------------------------------------------------------- 
                  Users 
                 ---------------------------------------------------------*/}
               <ListItem 
                 button 
-                selected={selectedIndex === 1}
+                selected={selectedIndex === 2}
                 onClick={() => {
-                  setSelectedIndex(1)
+                  setSelectedIndex(2)
                   setDisplay("users")
                 }}> 
                 <ListItemIcon><AccountCircleIcon /></ListItemIcon>
@@ -188,8 +235,8 @@ function Nav({auth, user}) {
 
 }
 
-function mapStateToProps({auth, user}) {
-  return {auth, user}
+function mapStateToProps({auth, user, country}) {
+  return {auth, user, country}
 }
 
 export default connect(mapStateToProps)(Nav)
