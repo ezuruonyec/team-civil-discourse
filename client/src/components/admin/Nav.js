@@ -180,7 +180,7 @@ function Nav({auth, country}) {
                     <ListItemIcon >
                       <TableChartIcon />
                     </ListItemIcon>
-                    <ListItemText primary="View list" />
+                    <ListItemText primary="Table" />
                   </ListItem>
 
                   <ListItem 
@@ -195,7 +195,7 @@ function Nav({auth, country}) {
                     <ListItemIcon>
                       <AddIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Add Country" />
+                    <ListItemText primary="Add" />
                   </ListItem>
 
                 </List>
