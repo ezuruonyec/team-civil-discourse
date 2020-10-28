@@ -58,8 +58,6 @@ const useStyles = makeStyles({
     }
   });
 
-  
-
 
 function CountryTable({country, getCountry, disp, countryData, loading}) {
 
