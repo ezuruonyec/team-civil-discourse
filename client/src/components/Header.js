@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     title: {
       flexGrow: 1,
     },
+    appbar: {
+  
+    }
   }));
   
   export default function ButtonAppBar(props) {
@@ -24,14 +27,14 @@ const useStyles = makeStyles((theme) => ({
   
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" className={classes.appbar} elevation={0}>
           <Toolbar>
          
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu"> 
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Civil Discourse Map
+              <a href="/" style={{textDecoration: "none", color: "white"}}>Civil Discourse Map</a>
             </Typography>
             <Button>{props.countryName}</Button>
           </Toolbar>
