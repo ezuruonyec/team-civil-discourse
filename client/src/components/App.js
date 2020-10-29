@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import MapWrapper from "./MapWrapper"
 import Admin from "./admin/Admin"
+import RWBlist from "./RWBlist"
 import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
@@ -19,6 +20,7 @@ class App extends Component {
         <main>
           <Switch>
               <Route path="/" component={MapWrapper} exact />
+              <Route path="/rwb" component={RWBlist} exact />
               <PrivateRoute path="/admin" auth={this.props.auth} component={Admin} />     
           </Switch>
         </main>
