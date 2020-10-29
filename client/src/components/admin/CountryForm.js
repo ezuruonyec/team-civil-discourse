@@ -3,8 +3,39 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Form, FormGroup, Label, Input} from "reactstrap"
 import {connect} from "react-redux"
 import * as actions from "../../actions"
+import {Box, Typography} from "@material-ui/core"
+import { green, grey, pink, blue, orange, teal, indigo } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { Alert } from '@material-ui/lab';
+
+const useStyles = makeStyles({
+    success: {
+        backgroundColor: green[500],
+        color: "#FFFFFF",
+        margin: "auto",
+        alignContent: "center",
+        justifyContent: "center",
+        display: "block",
+        borderRadius: 10,
+        padding: 10,
+        lineHeight: "100%"
+    },
+    
+    successText: {
+        fontSize: "30px"
+    },
+
+    successIcon: {
+        fontSize: "40px",
+        color: "#FFFFFF",
+        marginRight: 20
+    }
+})
 
 const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
+
+    const classes = useStyles();
 
     useEffect(() => {
        if(mode === "edit"){
@@ -88,11 +119,10 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
             addCountry(countryData)
         }
         else {
-            //editCountry(id, countryData)
+            editCountry(id, countryData)
         }
         setShow(false)
-        disp("countries")
-        index(0)
+        
     }
 
         
@@ -240,6 +270,28 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
     </Form>)
     }
 
+
+
+    function success() {
+        const showCountries = () => {
+            
+            setTimeout(() => {
+                disp("countries")
+                index(0)
+            }, 1000);
+        }
+        return(
+            <Box className={classes.success}>
+                <Typography className={classes.successText} >
+                  <CheckCircleOutlineIcon className={classes.successIcon} />
+                  Success
+                  </Typography>
+
+                {showCountries()}
+            </Box>
+            
+        )
+    }
    
 
     return (
@@ -247,7 +299,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
         {show ? 
             form()
             : 
-            <div>Success</div>
+           success()
         }
         </div>
     )

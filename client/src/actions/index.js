@@ -28,7 +28,7 @@ export const deleteCountry = (id) => dispatch => {
  export const editCountry = (id, country) => async dispatch => {
     dispatch(setItemsLoading())
     const res = await axios.put(`/api/countries/update`, country)
-    dispatch({type: UPDATE_COUNTRY, payload: [id, res.data]})
+    dispatch({type: UPDATE_COUNTRY, payload: [id, country]})
  }
 
  export const setItemsLoading = () => {

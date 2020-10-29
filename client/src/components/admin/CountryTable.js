@@ -58,15 +58,13 @@ const useStyles = makeStyles({
     }
   });
 
-  
-
 
 function CountryTable({country, getCountry, disp, countryData, loading}) {
 
     const classes = useStyles();
     useEffect(() => {
-        getCountry()
-    }, [])
+      getCountry()
+  }, [])
 
     const edit = (data) => {
       disp("edit_country")
@@ -82,7 +80,7 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
       <Table className={classes.table} stickyHeader>
         <TableHead className={classes.tableHead}>
 
-          <TableRow>
+          <TableRow key="th1">
             <TableCell colSpan={3}></TableCell>
             <TableCell className={classes.tableHeadMD} style={{textAlign: "center"}} colSpan={2}>Millenium Declaration</TableCell>
             <TableCell className={classes.tableHeadFS} style={{textAlign: "center"}} colSpan={2}>Freedom of Speech</TableCell>
@@ -90,7 +88,7 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
             <TableCell className={classes.tableHeadRWB} style={{textAlign: "center"}} colSpan={2}>Reporters Without Borders</TableCell>
           </TableRow>
 
-        <TableRow >
+        <TableRow key="th2">
             <TableCell className={classes.tableHeadGeneral}>Name</TableCell>
             <TableCell className={classes.tableHeadGeneral}>Code</TableCell>
             <TableCell className={classes.tableHeadGeneral}>Population</TableCell>
@@ -116,7 +114,6 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
                 <TableCell>{country.name}</TableCell>
                 <TableCell>{country.code}</TableCell>
                 <TableCell>{country.population}</TableCell>
-                {console.log({country})}
                 {country.millenium_dec.map((field) => (
                     <>
                     <TableCell>{field.ratified ? "Yes" : "No"}</TableCell>

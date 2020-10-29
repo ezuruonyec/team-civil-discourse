@@ -34,9 +34,24 @@ export default function(state = initialState, action){
             //const updateCountry = state.countries.map(country => country._id === action.payload[0])
             //const updateCountry = action.payload[1]
             const id = action.payload[0]
+            const updatedCountry = state.countries.filter(country => country._id === id)
+            
+            updatedCountry.map(item => {
+                item.name = action.payload[1].name
+                item.code = action.payload[1].code
+                item.population = action.payload[1].population
+                item.millenium_dec = action.payload[1].millenium_dec
+                item.freedom_speech = action.payload[1].freedom_speech
+                item.freedom_media = action.payload[1].freedom_media
+                item.rwb_ranking = action.payload[1].rwb_ranking
+                item.rwb_score = action.payload[1].rwb_score
+                item.sources = action.payload[1].sources
+            })
+
+          
            return {
             ...state,
-            countries: [...state.countries.filter(country => country._id !== id), action.payload[1]],
+            countries: [...state.countries.filter(country => country._id !== action.payload[0])],
             loading: false
            }
            

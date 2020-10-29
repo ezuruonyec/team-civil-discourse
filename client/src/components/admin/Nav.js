@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -16,21 +16,18 @@ import CountryIcon from '@material-ui/icons/Public';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {connect} from "react-redux"
-import CountryList from "./AdminCountryList"
 import CountryForm from "./CountryForm"
 import Users from "./Users"
 import { grey } from '@material-ui/core/colors';
 import CountryTable from './CountryTable';
 import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+
 import AddIcon from '@material-ui/icons/Add';
 import TableChartIcon from '@material-ui/icons/TableChart';
-
+import { getCountry } from '../../actions';
+import * as actions from "../../actions"
 
 const drawerWidth = 240;
 
@@ -84,8 +81,14 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-function Nav({auth}) {
+function Nav({auth, country}) {
+
   const classes = useStyles();
+
+  useEffect(() => {
+    getCountry()
+    
+}, [])
 
   const [display, setDisplay] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -177,7 +180,7 @@ function Nav({auth}) {
                     <ListItemIcon >
                       <TableChartIcon />
                     </ListItemIcon>
-                    <ListItemText primary="View list" />
+                    <ListItemText primary="Table" />
                   </ListItem>
 
                   <ListItem 
@@ -192,7 +195,7 @@ function Nav({auth}) {
                     <ListItemIcon>
                       <AddIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Add Country" />
+                    <ListItemText primary="Add" />
                   </ListItem>
 
                 </List>
@@ -239,4 +242,4 @@ function mapStateToProps({auth, user, country}) {
   return {auth, user, country}
 }
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps, actions)(Nav)
