@@ -4,7 +4,7 @@ import Admin from "./admin/Admin"
 import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
-
+import about from "./AboutUs"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "../App.css"
 
@@ -18,6 +18,7 @@ class App extends Component {
         <main>
           <Switch>
               <Route path="/" component={MapWrapper} exact />
+              <Route path="/about" component={about} exact />
               <PrivateRoute path="/admin" auth={this.props.auth} component={Admin} />     
           </Switch>
         </main>
