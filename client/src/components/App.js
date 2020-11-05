@@ -5,10 +5,9 @@ import RWBlist from "./RWBlist"
 import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
-import deleteMe from "./deleteMe"
-
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "../App.css"
+import Search from './Search'
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +20,7 @@ class App extends Component {
           <Switch>
               <Route path="/" component={MapWrapper} exact />
               <Route path="/rwb" component={RWBlist} exact />
+              <Route path="/search/:term" component={Search} />
               <PrivateRoute path="/admin" auth={this.props.auth} component={Admin} />     
           </Switch>
         </main>

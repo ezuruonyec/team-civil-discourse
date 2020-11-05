@@ -3,7 +3,7 @@ import ReactTooltip from "react-tooltip";
 import '../App.css'
 
 
-export function App() {
+export function AboutUs() {
 
     const [content, setContent] = useState("");
     return (
@@ -21,4 +21,4 @@ export function App() {
 }
 
 
-export default App;
+export default AboutUs

@@ -10,13 +10,14 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 countries: action.payload,
-                loading: false
+                loading: false,
+                country: []
             }
             case GET_COUNTRY_BY_NAME:
             return {
                 ...state,
                 loading: false,
-                country: action.payload
+                country: [action.payload]
             }
         case DELETE_COUNTRY:
             return{
@@ -26,8 +27,8 @@ export default function(state = initialState, action){
         case ADD_COUNTRY:
             return {
                 ...state,
-                countries: [action.payload, ...state.countries]
-                
+                countries: action.payload, ...state.countries,
+                loading: false
             }
            
         case UPDATE_COUNTRY:
