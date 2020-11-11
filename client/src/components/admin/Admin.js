@@ -7,6 +7,7 @@ import * as actions from "../../actions"
 class Admin extends Component {
     componentDidMount() {
         this.props.getAllUsers()
+        this.props.getCountry()
     }
     
     render() {
@@ -17,7 +18,7 @@ class Admin extends Component {
 }
 
 
-function mapStateToProps({auth, user}) {
-    return {auth, user}
+function mapStateToProps({auth, user, country}) {
+    return {auth, user, country}
 }
 export default connect(mapStateToProps, actions)(Admin)

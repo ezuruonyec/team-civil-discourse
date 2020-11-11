@@ -1,4 +1,6 @@
 import React from "react"
+import {Container} from "@material-ui/core"
+import { makeStyles } from '@material-ui/core/styles';
 
 import {
     ComposableMap,
@@ -6,17 +8,31 @@ import {
     Geography,
   } from "react-simple-maps"
   
+ 
+
+
+
+
   // url to a valid topojson file
   const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json"
   
+
+
+   
+
   const Map = ({ setTooltipContent }) => {
+   
+
     return (
-      <div style={{margin:"auto", width:"90%", marginTop: "-18vh", position:"absolute"}}>
+      <Container style={{position: "relative", top: 0, left: 0, right: 0, height: 550, alignContent:"start", alignItems: "start"}}>
         <ComposableMap
             projection="geoEqualEarth"
             data-tip=""
-            projectionConfig={{scale: 155}}
+            projectionConfig={{scale: 170}}
+            height="550"
+            width="900"
+            
         >
           <Geographies geography={geoUrl}>
             {({geographies}) => geographies.map(geo =>
@@ -50,7 +66,7 @@ import {
             )}
           </Geographies>
         </ComposableMap>
-      </div>
+      </Container>
     )
   }
 

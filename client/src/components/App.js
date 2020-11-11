@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import MapWrapper from "./MapWrapper"
 import Admin from "./admin/Admin"
+import RWBlist from "./RWBlist"
 import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
 import about from "./AboutUs"
+import deleteMe from "./deleteMe"
+
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "../App.css"
 
@@ -19,6 +22,7 @@ class App extends Component {
           <Switch>
               <Route path="/" component={MapWrapper} exact />
               <Route path="/about" component={about} exact />
+              <Route path="/rwb" component={RWBlist} exact />
               <PrivateRoute path="/admin" auth={this.props.auth} component={Admin} />     
           </Switch>
         </main>
