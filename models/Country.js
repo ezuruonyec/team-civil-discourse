@@ -30,14 +30,30 @@ const CountrySchema = new Schema({
         restrictions: String,
         year: Number
     }],
-    rwb_ranking: {
+    rwb_ranking: [{
         type: Number,
         required:true
-    },
-    rwb_score: {
+    }],
+    rwb_score: [{
         type: Number,
         required:true
+    }],
+    fake_news: [{
+        present: Boolean,
+        description: String,
+        year: Number,
+        prosecution: Boolean,
+    }],
+    internet_access: {
+        type: Number,
     },
+    censorship_level: {
+        type: Number,
+    },
+    cd_rating: [{
+        type: Number,
+        required: true,
+    }],
     sources: [],
     updated: {
         type: Date,

@@ -36,11 +36,6 @@ const useStyles = makeStyles({
         width: "auto",
         whiteSpace: "nowrap"
     },
-    tableHeadFS: {
-        backgroundColor: orange[500],
-        color: "#FFFFFF",
-        whiteSpace: "nowrap"
-    },
     tableHeadFM: {
         backgroundColor: teal[500],
         color: "#FFFFFF",
@@ -55,7 +50,12 @@ const useStyles = makeStyles({
         backgroundColor: indigo[500],
         color: "#FFFFFF",
         whiteSpace: "nowrap"
-    }
+    },
+    tableHeadFN: {
+      backgroundColor: orange[500],
+      color: "#FFFFFF",
+      whiteSpace: "nowrap"
+    },
   });
 
 
@@ -86,6 +86,7 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
             <TableCell className={classes.tableHeadFS} style={{textAlign: "center"}} colSpan={2}>Freedom of Speech</TableCell>
             <TableCell className={classes.tableHeadFM} style={{textAlign: "center"}} colSpan={3}>Freedom of Media</TableCell>
             <TableCell className={classes.tableHeadRWB} style={{textAlign: "center"}} colSpan={2}>Reporters Without Borders</TableCell>
+            <TableCell className={classes.tableHeadFN} style={{textAlign: "center"}} colSpan={4}>Fake News Laws</TableCell>
           </TableRow>
 
         <TableRow key="th2">
@@ -105,6 +106,16 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
 
             <TableCell className={classes.tableHeadRWB}>Ranking</TableCell>
             <TableCell className={classes.tableHeadRWB}>Score</TableCell>
+            
+            <TableCell className={classes.tableHeadFN}>Y/N</TableCell>
+            <TableCell className={classes.tableHeadFN}>Description</TableCell>
+            <TableCell className={classes.tableHeadFN}>Year</TableCell>
+            <TableCell className={classes.tableHeadFN}>Prosecution Y/N</TableCell>
+
+            <TableCell className={classes.tableHeadGeneral}>Internet Access</TableCell>
+            <TableCell className={classes.tableHeadGeneral}>Censorship Level</TableCell>
+            <TableCell className={classes.tableHeadGeneral}>Civil Discourse Rating</TableCell>
+
             <TableCell className={classes.tableHeadGeneral}>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -136,7 +147,18 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
                   </>
                 ))}
 
-                <TableCell>{country.rwb_ranking}</TableCell> 
+                {country.fake_news.map((field) => (
+                  <>
+                  <TableCell>{field.present ? "Yes" : "No"}</TableCell>
+                  <TableCell>{field.description === "" ? "none" : field.description}</TableCell>
+                  <TableCell>{field.year}</TableCell>
+                  <TableCell>{field.prosecution ? "Yes" : "No"}</TableCell>
+                  </>
+                ))}
+
+                <TableCell>{country.internet_access}</TableCell> 
+                <TableCell>{country.censorship_level}</TableCell> 
+                <TableCell>{country.cd_rating}</TableCell> 
                 <TableCell>{country.rwb_score}</TableCell> 
 
               <TableCell><Button onClick={() => edit(country)}>Edit</Button></TableCell>

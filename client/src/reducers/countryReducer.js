@@ -46,6 +46,13 @@ export default function(state = initialState, action){
                 item.freedom_media = action.payload[1].freedom_media
                 item.rwb_ranking = action.payload[1].rwb_ranking
                 item.rwb_score = action.payload[1].rwb_score
+                item.fake_news = action.payload[1].fake_news
+                item.fn_desc = action.payload[1].fn_desc
+                item.fn_year = action.payload[1].fn_year
+                item.fn_prosecution = action.payload[1].fn_prosecution
+                item.internet_access = action.payload[1].internet_access
+                item.censorship_level = action.payload[1].censorship_level
+                item.cd_rating = action.payload[1].cd_rating
                 item.sources = action.payload[1].sources
             })
 
