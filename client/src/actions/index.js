@@ -10,7 +10,7 @@ export const getCountry = () => async dispatch => {
 }
 
 export const getCountryByName = (name) => async dispatch => {
-
+  dispatch(setItemsLoading())
   const res =  await axios.get(`/api/countries/name/${name}`)
   dispatch({type: GET_COUNTRY_BY_NAME, payload: res.data})
 }
@@ -27,7 +27,7 @@ export const deleteCountry = (id) => dispatch => {
 
  export const editCountry = (id, country) => async dispatch => {
     dispatch(setItemsLoading())
-    const res = await axios.put(`/api/countries/update`, country)
+    await axios.put(`/api/countries/update`, country)
     dispatch({type: UPDATE_COUNTRY, payload: [id, country]})
  }
 

@@ -10,13 +10,14 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 countries: action.payload,
-                loading: false
+                loading: false,
+                country: []
             }
             case GET_COUNTRY_BY_NAME:
             return {
                 ...state,
                 loading: false,
-                country: action.payload
+                country: [action.payload]
             }
         case DELETE_COUNTRY:
             return{
@@ -26,8 +27,8 @@ export default function(state = initialState, action){
         case ADD_COUNTRY:
             return {
                 ...state,
-                countries: [action.payload, ...state.countries]
-                
+                countries: action.payload, ...state.countries,
+                loading: false
             }
            
         case UPDATE_COUNTRY:
@@ -45,6 +46,13 @@ export default function(state = initialState, action){
                 item.freedom_media = action.payload[1].freedom_media
                 item.rwb_ranking = action.payload[1].rwb_ranking
                 item.rwb_score = action.payload[1].rwb_score
+                item.fake_news = action.payload[1].fake_news
+                item.fn_desc = action.payload[1].fn_desc
+                item.fn_year = action.payload[1].fn_year
+                item.fn_prosecution = action.payload[1].fn_prosecution
+                item.internet_access = action.payload[1].internet_access
+                item.censorship_level = action.payload[1].censorship_level
+                item.cd_rating = action.payload[1].cd_rating
                 item.sources = action.payload[1].sources
             })
 
