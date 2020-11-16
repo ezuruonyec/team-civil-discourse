@@ -6,6 +6,7 @@ import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
 import about from "./AboutUs"
+import dashboard from "./admin/Dashboard"
 
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "../App.css"
@@ -24,6 +25,7 @@ class App extends Component {
               <Route path="/about" component={about} exact />
               <Route path="/rwb" component={RWBlist} exact />
               <Route path="/search/:term" component={Search} />
+              <Route path="/admin/dashboard" component={dashboard} exact />
               <PrivateRoute path="/admin" auth={this.props.auth} component={Admin} />     
           </Switch>
         </main>

@@ -18,18 +18,21 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {connect} from "react-redux"
 import CountryForm from "./CountryForm"
 import Users from "./Users"
-import { grey } from '@material-ui/core/colors';
+import { grey, indigo } from '@material-ui/core/colors';
 import CountryTable from './CountryTable';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-
+import DashboardIcon from '@material-ui/icons/Dashboard';
 import AddIcon from '@material-ui/icons/Add';
 import TableChartIcon from '@material-ui/icons/TableChart';
 import { getCountry } from '../../actions';
 import * as actions from "../../actions"
+import Dashboard from './Dashboard';
+import { useHistory } from 'react-router-dom'
 
-const drawerWidth = 240;
+
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +40,14 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    backgroundColor: grey[900]
+    width: `calc(100% - ${drawerWidth}px)`,
+    height: 50,
+    backgroundColor: "#FFFFFF",
+    color: "#333333",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    borderBottom: "1px #e1e1e1 solid"
   },
   drawer: {
     width: drawerWidth,
@@ -52,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    marginTop: theme.spacing(10)
+    marginTop: theme.spacing(5)
   },
   small: {
     width: theme.spacing(3),
@@ -69,20 +79,27 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
   },
-  side: {
-
-    selected:  {
-      backgroundColor: "#000000"
-    }
+  active:  {
+    backgroundColor: "red"
   },
   nested: {
     paddingLeft: theme.spacing(5),
   },
+  header: {
+    fontSize: 20,
+    height: 50,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: indigo[500],
+    color: "#FFFFFF"
+  }
   
 }));
 
 function Nav({auth, country}) {
 
+  let history = useHistory();
   const classes = useStyles();
 
   useEffect(() => {
@@ -91,27 +108,23 @@ function Nav({auth, country}) {
 }, [])
 
   const [display, setDisplay] = useState(null)
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [data, setData] = useState(null)
+  const [headerText, setHeaderText] = useState("Dashboard")
 
   const renderContent = () => {
     switch (display) {
       case "countries": 
         return <CountryTable countryData={setData} disp={setDisplay} />
       case "add_country": 
-        return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="add" />
+        return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="add" headerText={setHeaderText} />
       case "edit_country":
-        return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="edit" data={data} />
+        return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="edit" data={data} headerText={setHeaderText} />
       case "users": 
         return <Users />
       default:
-        return (
-          <div>
-            Dashboard
-          </div>
-        )
-        
+        return <Dashboard />
 
     }
 
@@ -123,10 +136,10 @@ function Nav({auth, country}) {
       <CssBaseline />
 
 
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="absolute" elevation={0} className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" noWrap>
-            Admin Dashboard
+          <Typography variant="h6"  noWrap>
+            {headerText}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -139,8 +152,10 @@ function Nav({auth, country}) {
           paper: classes.drawerPaper,
         }}
       >
-        <Toolbar />
+        <Typography variant="h1" className={classes.header} align="center">Admin Dashboard</Typography>
         <div className={classes.drawerContainer}>
+
+        
           
         {/*-------------------------------------------------------- 
           User Info 
@@ -151,6 +166,23 @@ function Nav({auth, country}) {
         </Box>
 
           <List>
+
+              {/*-------------------------------------------------------- 
+                 Dashboard 
+                ---------------------------------------------------------*/}
+              <ListItem 
+                button 
+                selected={selectedIndex === 0}
+                onClick={() => {
+                  setSelectedIndex(0)
+                  setDisplay("dashboard")
+                  setHeaderText("Dashboard")
+                }}
+              >
+                <ListItemIcon><DashboardIcon /></ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItem>
+
           
               {/*-------------------------------------------------------- 
                  Countries 
@@ -171,10 +203,11 @@ function Nav({auth, country}) {
                   <ListItem 
                     button 
                     className={classes.nested}
-                    selected={selectedIndex === 0}
+                    selected={selectedIndex === 1}
                     onClick={() => {
-                      setSelectedIndex(0)
+                      setSelectedIndex(1)
                       setDisplay("countries")
+                      setHeaderText("Countries")
                     }}
                   >
                     <ListItemIcon >
@@ -185,10 +218,10 @@ function Nav({auth, country}) {
 
                   <ListItem 
                     button 
-                    selected={selectedIndex === 1}
+                    selected={selectedIndex === 2}
                     className={classes.nested}
                     onClick={() => {
-                      setSelectedIndex(1)
+                      setSelectedIndex(2)
                       setDisplay("add_country")
                     }}
                   >
@@ -206,10 +239,11 @@ function Nav({auth, country}) {
                 ---------------------------------------------------------*/}
               <ListItem 
                 button 
-                selected={selectedIndex === 2}
+                selected={selectedIndex === 3}
                 onClick={() => {
-                  setSelectedIndex(2)
+                  setSelectedIndex(3)
                   setDisplay("users")
+                  setHeaderText("Users")
                 }}> 
                 <ListItemIcon><AccountCircleIcon /></ListItemIcon>
                 <ListItemText primary="Users" />
