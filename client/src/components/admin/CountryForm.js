@@ -7,7 +7,9 @@ import {Box, Typography} from "@material-ui/core"
 import { green, grey, pink, blue, orange, teal, indigo } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-// import { Alert } from '@material-ui/lab';
+import TextField from '@material-ui/core/TextField';
+import { DatePicker } from "@material-ui/pickers";
+
 
 const useStyles = makeStyles({
     success: {
@@ -30,17 +32,59 @@ const useStyles = makeStyles({
         fontSize: "40px",
         color: "#FFFFFF",
         marginRight: 20
+    },
+
+    form: {
+        width: "75vw",
+        margin: "auto",
+        backgroundColor: "#FFFFFF",
+        paddingRight: 10,
+        paddingLeft: 10
+    },
+    
+    right: {
+        float: "right",
+        width: "50%",
+        // border: "1px solid black",
+        
+    },
+
+    left: {
+        float: "left",
+        width: "49%",
+        // border: "1px solid black"
+    },
+
+    section: {
+        // backgroundColor: indigo[500], 
+        color: "#333333",
+        display: "block",
+        marginBottom: 5,
+        padding: 5,
+        fontSize: 16
+       
+    },
+
+    textfield: {
+        width: "100%",
+        backgroundColor: "#FFFFFF",
+        marginBottom: 15
     }
 })
 
-const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
+const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerText}) => {
 
     const classes = useStyles();
 
     useEffect(() => {
        if(mode === "edit"){
             editableData()
+            headerText("Edit Country")
        }
+       else {
+        headerText("Add Country")
+       }
+       
     }, [])
 
     const [show, setShow] = useState(true)
@@ -155,11 +199,27 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
 
     function form(){
         return (
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} className={classes.form}>
 
+        <div className={classes.left}>
         <FormGroup>
-            <Label for="name">Country</Label>
-            <Input
+
+
+            <Typography variant="p" className={classes.section}>Country</Typography>
+            {/* <Label for="name">Country</Label> */}
+
+
+            <TextField 
+                size="small"
+                className={classes.textfield}
+                id="outlined-basic" 
+                label="Name" 
+                variant="outlined" 
+                value={name}
+                onChange={e => setName(e.target.value)} 
+                />
+
+            {/* <Input
                 type="text"
                 name="name"
                 id="name"
@@ -167,16 +227,28 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
                 value={name}
                 onChange={e => setName(e.target.value)} 
             />
-            <br />
-            <Input
+            <br /> */}
+            {/* <Input
                 type="text"
                 name="code"
                 id="code"
                 placeholder="Country Code"
                 value={code}
                 onChange={e => setCode(e.target.value)} 
+            /> */}
+
+
+            <TextField 
+                size="small"
+                className={classes.textfield}
+                id="outlined-basic" 
+                label="Code" 
+                variant="outlined" 
+                value={code}
+                onChange={e => setCode(e.target.value)} 
             />
-            <br />
+
+            {/* <br />
             <Input
                 type="number"
                 name="population"
@@ -184,28 +256,52 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
                 placeholder="Population"
                 value={population}
                 onChange={e => setPopulation(e.target.value)} 
+            /> */}
+
+            <TextField 
+                size="small"
+                className={classes.textfield}
+                id="outlined-basic" 
+                label="Population" 
+                variant="outlined" 
+                value={population}
+                type="number"
+                onChange={e => setPopulation(e.target.value)}  
             />
         </FormGroup> 
 
         <FormGroup>
-            <Label for="md_rat">Millenium Declaration</Label>
+            <Typography variant="p" className={classes.section}>Millenium Declaration</Typography>
             <Input type="select" name="md_rat" id="md_rat" value={mdRatified} onChange={e => setMdRatified(e.target.value)}>
             <option value={true}>Yes</option>
             <option value={false}>No</option>
             </Input>
                 <br />
-            <Input
+            {/* <Input
                 type="number"
                 name="md_year"
                 id="md_year"
                 placeholder="Year"
                 value={mdYear}
                 onChange={e => setMdYear(e.target.value)} 
-            />
+            /> */}
+
+        <DatePicker
+            size="small"
+            className={classes.textfield}
+            autoOk
+            inputVariant="outlined"
+            variant="inline"
+            views={["year"]}
+            label="Year"
+            value={mdYear}
+            onChange={date => setMdYear(date)} 
+        />
+
         </FormGroup> 
 
         <FormGroup>
-            <Label for="free_speech">Freedom of Speech</Label>
+        <Typography variant="p" className={classes.section}>Freedom of Speech</Typography>
             <Input type="select" name="free_speech" id="free_speech" value={free_speech} onChange={e => setFreeSpeech(e.target.value)}>
             <option value={true} >Yes</option>
             <option value={false}>No</option>
@@ -223,7 +319,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
         </FormGroup>
 
         <FormGroup>
-            <Label for="free_media">Freedom of Media</Label>
+            <Typography variant="p" className={classes.section}>Freedom of Media</Typography>
             <Input type="select" name="free_media" id="free_media" value={fmPresent} onChange={e => setFmPresent(e.target.value)}>
             <option value={true}>Yes</option>
             <option value={false}>No</option>
@@ -248,8 +344,11 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
             />
         </FormGroup>
 
+        </div>
+
+        <div  className={classes.right}>
         <FormGroup>
-            <Label for="rwb_rank">Reporters Without Borders</Label>
+            <Typography variant="p" className={classes.section}>Reporters without Borders</Typography>
             <Input
                 type="number"
                 name="rwb_rank"
@@ -274,7 +373,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
         </FormGroup> 
 
         <FormGroup>
-            <Label for="fake_news">Fake News Laws</Label>
+            <Typography variant="p" className={classes.section}>Fake News Laws</Typography>
             <Input type="select" name="fake_news" id="fake_news" value={fake_news} onChange={e => setFakeNews(e.target.value)}>
             <option value={true} >Yes</option>
             <option value={false}>No</option>
@@ -305,7 +404,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
         </FormGroup>
 
         <FormGroup>
-            <Label for="internet_access">Internet Access Percentage</Label>
+            <Typography variant="p" className={classes.section}>Internet Access Percentage</Typography>
             <Input
                 type="number"
                 min="0.00"
@@ -320,7 +419,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
         </FormGroup>
 
         <FormGroup>
-            <Label for="censorship_level">Censorship Level</Label>
+            <Typography variant="p" className={classes.section}>Censorship Level</Typography>
             <Input
                 type="number"
                 min="0.0"
@@ -335,7 +434,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
         </FormGroup>
 
         <FormGroup>
-            <Label for="cd_rating">Civil Discourse Rating</Label>
+            <Typography variant="p" className={classes.section}>Civil Discourse Rating</Typography>
             <Input
                 type="number"
                 name="cd_rank"
@@ -345,9 +444,12 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
                 onChange={e => setCivilDiscourseRating(e.target.value)} 
             />
         </FormGroup>
+        </div>
 
+            
         <FormGroup>
-            <Label for="sources">Sources</Label>
+            <br />
+            <Typography variant="p" className={classes.section}>Sources</Typography>
             <Input
                 type="textarea"
                 name="sources"
@@ -357,7 +459,6 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data}) => {
                 onChange={e => setSources(e.target.value)} 
             />
         </FormGroup> 
-
             <Button
                 color="success"
                 style={{marginTop:"2rem"}}

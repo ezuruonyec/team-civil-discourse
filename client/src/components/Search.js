@@ -38,7 +38,13 @@ function Search() {
                             key={item._id} 
                             name={item.name} 
                             population={item.population} 
-                            code={item.code} 
+                            code={item.code}
+                            millenium_dec={item.millenium_dec}
+                            free_speech={item.freedom_speech}
+                            free_media={item.freedom_media}
+                            fake_news={item.fake_news}
+                            internet_access={item.internet_access}
+                            censorship_level={item.censorship_level}
                         />)  
             }  
         </div>
