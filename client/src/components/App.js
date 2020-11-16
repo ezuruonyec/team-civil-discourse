@@ -6,7 +6,7 @@ import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
 import about from "./AboutUs"
-import rating from "./RatingMap"
+import rating from "./RatingMapWrapper"
 import deleteMe from "./deleteMe"
 
 import { BrowserRouter, Route, Switch } from "react-router-dom"
