@@ -120,6 +120,7 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
           </TableRow>
         </TableHead>
         <TableBody>
+          
           {country.countries.map((country) => (
             <TableRow key={country.name}>
                 <TableCell>{country.name}</TableCell>
@@ -147,6 +148,9 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
                   </>
                 ))}
 
+                <TableCell>{country.rwb_score}</TableCell>
+                <TableCell>{country.rwb_ranking}</TableCell>     
+
                 {country.fake_news.map((field) => (
                   <>
                   <TableCell>{field.present ? "Yes" : "No"}</TableCell>
@@ -159,7 +163,7 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
                 <TableCell>{country.internet_access}</TableCell> 
                 <TableCell>{country.censorship_level}</TableCell> 
                 <TableCell>{country.cd_rating}</TableCell> 
-                <TableCell>{country.rwb_score}</TableCell> 
+                
 
               <TableCell><Button onClick={() => edit(country)}>Edit</Button></TableCell>
             </TableRow>
