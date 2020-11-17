@@ -120,6 +120,7 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
           </TableRow>
         </TableHead>
         <TableBody>
+          
           {country.countries.map((country) => (
             <TableRow key={country.name}>
                 <TableCell>{country.name}</TableCell>
