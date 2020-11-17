@@ -15,12 +15,9 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
-<<<<<<< HEAD
     "d3-fetch": "^2.0.0",
     "d3-scale": "^3.2.3",
-=======
     "date-fns": "^2.16.1",
->>>>>>> 8335e6acd8f25397c9fc6e8edfec378f7b82086c
     "emotion-theming": "^10.0.27",
     "fontsource-roboto": "^3.0.3",
     "geojson-world-map": "0.0.2",
