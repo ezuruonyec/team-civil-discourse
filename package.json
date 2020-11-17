@@ -14,6 +14,8 @@
     "concurrently": "^5.3.0",
     "cookie-session": "^1.4.0",
     "create-react-app": "^3.4.1",
+    "d3-fetch": "^2.0.0",
+    "d3-scale": "^3.2.3",
     "express": "^4.17.1",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.4",
