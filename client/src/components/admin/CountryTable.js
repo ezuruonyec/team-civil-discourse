@@ -56,6 +56,11 @@ const useStyles = makeStyles({
       color: "#FFFFFF",
       whiteSpace: "nowrap"
     },
+    tableHeadPL: {
+      backgroundColor: "#9c27b0",
+      color: "#FFFFFF",
+      whiteSpace: "nowrap"
+    },
   });
 
 
@@ -87,6 +92,7 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
             <TableCell className={classes.tableHeadFM} style={{textAlign: "center"}} colSpan={3}>Freedom of Media</TableCell>
             <TableCell className={classes.tableHeadRWB} style={{textAlign: "center"}} colSpan={2}>Reporters Without Borders</TableCell>
             <TableCell className={classes.tableHeadFN} style={{textAlign: "center"}} colSpan={4}>Fake News Laws</TableCell>
+            <TableCell className={classes.tableHeadPL} style={{textAlign: "center"}} colSpan={2}>Poverty Level</TableCell>
           </TableRow>
 
         <TableRow key="th2">
@@ -111,9 +117,11 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
             <TableCell className={classes.tableHeadFN}>Description</TableCell>
             <TableCell className={classes.tableHeadFN}>Year</TableCell>
             <TableCell className={classes.tableHeadFN}>Prosecution Y/N</TableCell>
-
+            <TableCell className={classes.tableHeadPL}>Poverty Level</TableCell>
+            <TableCell className={classes.tableHeadPL}>Year Recorded</TableCell>
             <TableCell className={classes.tableHeadGeneral}>Internet Access</TableCell>
             <TableCell className={classes.tableHeadGeneral}>Censorship Level</TableCell>
+
             <TableCell className={classes.tableHeadGeneral}>Civil Discourse Rating</TableCell>
 
             <TableCell className={classes.tableHeadGeneral}>Actions</TableCell>
@@ -159,9 +167,15 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
                   <TableCell>{field.prosecution ? "Yes" : "No"}</TableCell>
                   </>
                 ))}
-
+                {country.poverty_level.map((field) => (
+                  <>
+                  <TableCell>{field.percent}</TableCell>
+                  <TableCell>{field.year}</TableCell>
+                  </>
+                ))}
                 <TableCell>{country.internet_access}</TableCell> 
                 <TableCell>{country.censorship_level}</TableCell> 
+
                 <TableCell>{country.cd_rating}</TableCell> 
                 
 
