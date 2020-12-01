@@ -75,8 +75,10 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
       disp("edit_country")
       countryData([data])
     }
+   
 
     return (
+      
         <div>
 
       {loading ? "Loading....." :
@@ -169,8 +171,8 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
                 ))}
                 {country.poverty_level.map((field) => (
                   <>
-                  <TableCell>{field.percent}</TableCell>
-                  <TableCell>{field.year}</TableCell>
+                  <TableCell>{field.percent === ""  || null ? "-" : field.percent}</TableCell>
+                  <TableCell>{field.year === "" || null ? "-" : field.year }</TableCell>
                   </>
                 ))}
                 <TableCell>{country.internet_access}</TableCell> 

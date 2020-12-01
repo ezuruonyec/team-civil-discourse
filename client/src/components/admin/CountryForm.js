@@ -211,14 +211,14 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
         return (
         <Form onSubmit={onSubmit} className={classes.form}>
 
-        <div className={classes.left}>
+        <div>
         <FormGroup>
 
 
             <Typography variant="p" className={classes.section}>Country</Typography>
             {/* <Label for="name">Country</Label> */}
 
-
+{/* 
             <TextField 
                 size="small"
                 className={classes.textfield}
@@ -227,9 +227,9 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 variant="outlined" 
                 value={name}
                 onChange={e => setName(e.target.value)} 
-                />
+                /> */}
 
-            {/* <Input
+            <Input
                 type="text"
                 name="name"
                 id="name"
@@ -237,18 +237,18 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={name}
                 onChange={e => setName(e.target.value)} 
             />
-            <br /> */}
-            {/* <Input
+            <br />
+            <Input
                 type="text"
                 name="code"
                 id="code"
                 placeholder="Country Code"
                 value={code}
                 onChange={e => setCode(e.target.value)} 
-            /> */}
+            />
 
 
-            <TextField 
+            {/* <TextField 
                 size="small"
                 className={classes.textfield}
                 id="outlined-basic" 
@@ -256,9 +256,9 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 variant="outlined" 
                 value={code}
                 onChange={e => setCode(e.target.value)} 
-            />
+            /> */}
 
-            {/* <br />
+            <br />
             <Input
                 type="number"
                 name="population"
@@ -266,9 +266,9 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 placeholder="Population"
                 value={population}
                 onChange={e => setPopulation(e.target.value)} 
-            /> */}
+            />
 
-            <TextField 
+            {/* <TextField 
                 size="small"
                 className={classes.textfield}
                 id="outlined-basic" 
@@ -277,7 +277,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={population}
                 type="number"
                 onChange={e => setPopulation(e.target.value)}  
-            />
+            /> */}
         </FormGroup> 
 
         <FormGroup>
@@ -287,16 +287,16 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             <option value={false}>No</option>
             </Input>
                 <br />
-            {/* <Input
+            <Input
                 type="number"
                 name="md_year"
                 id="md_year"
                 placeholder="Year"
                 value={mdYear}
                 onChange={e => setMdYear(e.target.value)} 
-            /> */}
+            />
 
-        <DatePicker
+        {/* <DatePicker
             size="small"
             className={classes.textfield}
             autoOk
@@ -306,7 +306,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             label="Year"
             value={mdYear}
             onChange={date => setMdYear(date)} 
-        />
+        /> */}
 
         </FormGroup> 
 
@@ -356,7 +356,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
 
         </div>
 
-        <div  className={classes.right}>
+        <div>
         <FormGroup>
             <Typography variant="p" className={classes.section}>Reporters without Borders</Typography>
             <Input

@@ -115,8 +115,14 @@ function Nav({auth, country}) {
 
   const renderContent = () => {
     switch (display) {
+      
       case "countries": 
-        return <CountryTable countryData={setData} disp={setDisplay} />
+        return (
+          <>
+          {getCountry()}
+        <CountryTable countryData={setData} disp={setDisplay} />
+        </>
+        )
       case "add_country": 
         return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="add" headerText={setHeaderText} />
       case "edit_country":
