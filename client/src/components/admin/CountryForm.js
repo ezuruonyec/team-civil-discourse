@@ -108,6 +108,8 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
     const [fakeNewsProsecution, setFnProsecution] = useState(true)
     const [internetAccess, setInternetAccess] = useState(0)
     const [censorshipLevel, setCensorshipLevel] = useState(0)
+    const [povertyLevel, setPovertyLevel] = useState(0)
+    const [povertyYear, setPovertyYear] = useState(0)
     const [civilDiscourseRating, setCivilDiscourseRating] = useState(0)
     const [sources, setSources] = useState("")
     const [id, setId] = useState(null)
@@ -142,6 +144,10 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             })
             setInternetAccess(data.internet_Access)
             setCensorshipLevel(data.censorship_level)
+            data.poverty_level.map(info =>{
+                setPovertyLevel(info.percent)
+                setPovertyYear(info.year)
+            })
             setCivilDiscourseRating(data.cd_rating)
             setSources(data.sources)
         })
@@ -178,6 +184,10 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             }],
             internet_access: internetAccess,
             censorship_level: censorshipLevel,
+            poverty_level: [{
+                percent: povertyLevel,
+                year: povertyYear
+            }],
             cd_rating: civilDiscourseRating,
             sources: [sources],
             id: id
@@ -432,7 +442,27 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 onChange={e => setCensorshipLevel(e.target.value)} 
             />
         </FormGroup>
+        <FormGroup>
+            <Typography variant="p" className={classes.section}>Poverty Level</Typography>
+            <Input
+                type="number"
+                name="poverty_level"
+                id="poverty_level"
+                placeholder="Poverty Level"
+                value={povertyLevel}
+                onChange={e => setPovertyLevel(e.target.value)} 
+            />
+            <br />
 
+            <Input
+                type="number"
+                name="poverty_year"
+                id="poverty_year"
+                placeholder="Poverty Year"
+                value={povertyYear}
+                onChange={e => setPovertyYear(e.target.value)} 
+            />
+        </FormGroup> 
         <FormGroup>
             <Typography variant="p" className={classes.section}>Civil Discourse Rating</Typography>
             <Input

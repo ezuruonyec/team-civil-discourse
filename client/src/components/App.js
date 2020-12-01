@@ -6,6 +6,8 @@ import PrivateRoute from "./PrivateRoute"
 import {connect} from "react-redux"
 import * as actions from "../actions"
 import about from "./AboutUs"
+import rating from "./RatingMapWrapper"
+import deleteMe from "./deleteMe"
 import dashboard from "./admin/Dashboard"
 
 import { BrowserRouter, Route, Switch } from "react-router-dom"
@@ -24,6 +26,7 @@ class App extends Component {
               <Route path="/" component={MapWrapper} exact />
               <Route path="/about" component={about} exact />
               <Route path="/rwb" component={RWBlist} exact />
+              <Route path="/rating" component={rating} exact />
               <Route path="/search/:term" component={Search} />
               <Route path="/admin/dashboard" component={dashboard} exact />
               <PrivateRoute path="/admin" auth={this.props.auth} component={Admin} />     
