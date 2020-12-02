@@ -27,7 +27,7 @@ export default function(state = initialState, action){
         case ADD_COUNTRY:
             return {
                 ...state,
-                countries: action.payload, ...state.countries,
+                countries: [action.payload, ...state.countries],
                 loading: false
             }
            
