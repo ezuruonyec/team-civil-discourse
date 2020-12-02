@@ -30,6 +30,7 @@ router.post("/", (req, res) => {
         fake_news: req.body.fake_news,
         internet_access: req.body.internet_access,
         censorship_level: req.body.censorship_level,
+        poverty_level: req.body.poverty_level,
         cd_rating: req.body.cd_rating,
         sources: req.body.sources
     })
@@ -64,6 +65,7 @@ router.put("/update", (req, res) => {
         fake_news: req.body.fake_news,
         internet_access: req.body.internet_access,
         censorship_level: req.body.censorship_level,
+        poverty_level: req.body.poverty_level,
         cd_rating: req.body.cd_rating,
         sources: req.body.sources,
         updated: Date.now()

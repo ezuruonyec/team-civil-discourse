@@ -27,7 +27,7 @@ export default function(state = initialState, action){
         case ADD_COUNTRY:
             return {
                 ...state,
-                countries: action.payload, ...state.countries,
+                countries: [action.payload, ...state.countries],
                 loading: false
             }
            
@@ -52,6 +52,7 @@ export default function(state = initialState, action){
                 item.fn_prosecution = action.payload[1].fn_prosecution
                 item.internet_access = action.payload[1].internet_access
                 item.censorship_level = action.payload[1].censorship_level
+                item.poverty_level = action.payload[1].poverty_level
                 item.cd_rating = action.payload[1].cd_rating
                 item.sources = action.payload[1].sources
             })

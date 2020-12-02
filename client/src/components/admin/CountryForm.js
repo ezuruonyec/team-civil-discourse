@@ -108,6 +108,8 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
     const [fakeNewsProsecution, setFnProsecution] = useState(true)
     const [internetAccess, setInternetAccess] = useState(0)
     const [censorshipLevel, setCensorshipLevel] = useState(0)
+    const [povertyLevel, setPovertyLevel] = useState(0)
+    const [povertyYear, setPovertyYear] = useState(0)
     const [civilDiscourseRating, setCivilDiscourseRating] = useState(0)
     const [sources, setSources] = useState("")
     const [id, setId] = useState(null)
@@ -142,6 +144,10 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             })
             setInternetAccess(data.internet_Access)
             setCensorshipLevel(data.censorship_level)
+            data.poverty_level.map(info =>{
+                setPovertyLevel(info.percent)
+                setPovertyYear(info.year)
+            })
             setCivilDiscourseRating(data.cd_rating)
             setSources(data.sources)
         })
@@ -178,6 +184,10 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             }],
             internet_access: internetAccess,
             censorship_level: censorshipLevel,
+            poverty_level: [{
+                percent: povertyLevel,
+                year: povertyYear
+            }],
             cd_rating: civilDiscourseRating,
             sources: [sources],
             id: id
@@ -201,14 +211,14 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
         return (
         <Form onSubmit={onSubmit} className={classes.form}>
 
-        <div className={classes.left}>
+        <div>
         <FormGroup>
 
 
             <Typography variant="p" className={classes.section}>Country</Typography>
             {/* <Label for="name">Country</Label> */}
 
-
+{/* 
             <TextField 
                 size="small"
                 className={classes.textfield}
@@ -217,9 +227,9 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 variant="outlined" 
                 value={name}
                 onChange={e => setName(e.target.value)} 
-                />
+                /> */}
 
-            {/* <Input
+            <Input
                 type="text"
                 name="name"
                 id="name"
@@ -227,18 +237,18 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={name}
                 onChange={e => setName(e.target.value)} 
             />
-            <br /> */}
-            {/* <Input
+            <br />
+            <Input
                 type="text"
                 name="code"
                 id="code"
                 placeholder="Country Code"
                 value={code}
                 onChange={e => setCode(e.target.value)} 
-            /> */}
+            />
 
 
-            <TextField 
+            {/* <TextField 
                 size="small"
                 className={classes.textfield}
                 id="outlined-basic" 
@@ -246,9 +256,9 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 variant="outlined" 
                 value={code}
                 onChange={e => setCode(e.target.value)} 
-            />
+            /> */}
 
-            {/* <br />
+            <br />
             <Input
                 type="number"
                 name="population"
@@ -256,9 +266,9 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 placeholder="Population"
                 value={population}
                 onChange={e => setPopulation(e.target.value)} 
-            /> */}
+            />
 
-            <TextField 
+            {/* <TextField 
                 size="small"
                 className={classes.textfield}
                 id="outlined-basic" 
@@ -267,7 +277,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={population}
                 type="number"
                 onChange={e => setPopulation(e.target.value)}  
-            />
+            /> */}
         </FormGroup> 
 
         <FormGroup>
@@ -277,16 +287,16 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             <option value={false}>No</option>
             </Input>
                 <br />
-            {/* <Input
+            <Input
                 type="number"
                 name="md_year"
                 id="md_year"
                 placeholder="Year"
                 value={mdYear}
                 onChange={e => setMdYear(e.target.value)} 
-            /> */}
+            />
 
-        <DatePicker
+        {/* <DatePicker
             size="small"
             className={classes.textfield}
             autoOk
@@ -296,7 +306,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             label="Year"
             value={mdYear}
             onChange={date => setMdYear(date)} 
-        />
+        /> */}
 
         </FormGroup> 
 
@@ -346,7 +356,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
 
         </div>
 
-        <div  className={classes.right}>
+        <div>
         <FormGroup>
             <Typography variant="p" className={classes.section}>Reporters without Borders</Typography>
             <Input
@@ -432,7 +442,27 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 onChange={e => setCensorshipLevel(e.target.value)} 
             />
         </FormGroup>
+        <FormGroup>
+            <Typography variant="p" className={classes.section}>Poverty Level</Typography>
+            <Input
+                type="number"
+                name="poverty_level"
+                id="poverty_level"
+                placeholder="Poverty Level"
+                value={povertyLevel}
+                onChange={e => setPovertyLevel(e.target.value)} 
+            />
+            <br />
 
+            <Input
+                type="number"
+                name="poverty_year"
+                id="poverty_year"
+                placeholder="Poverty Year"
+                value={povertyYear}
+                onChange={e => setPovertyYear(e.target.value)} 
+            />
+        </FormGroup> 
         <FormGroup>
             <Typography variant="p" className={classes.section}>Civil Discourse Rating</Typography>
             <Input

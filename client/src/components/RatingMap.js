@@ -7,7 +7,8 @@ import {
   Geographies,
   Geography,
   Sphere,
-  Graticule
+  Graticule,
+  ZoomableGroup
 } from "react-simple-maps";
 
 const geoUrl =
@@ -35,41 +36,43 @@ const MapChart = ({setTooltipContent}) => {
             height="550"
             width="900"
         >
-        <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
-        <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
-        {data.length > 0 && (
-            <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-                geographies.map((geo) => {
-                const d = data.find((s) => s.ISO3 === geo.properties.ISO_A3);
-                return (
-                    <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={d ? colorScale(d["2017"]) : "#F5F4F6"}
-                    onMouseEnter={() => {
-                        const { NAME } = geo.properties;
-                        setTooltipContent(`${NAME}`);
-                      }}
-                      onMouseLeave={() => {
-                        setTooltipContent("");
-                      }}
-                      style={{
-                        hover: {
-                            fill: "#5a6e5a",
-                            outline: "none"
-                        },
-                        pressed: {
-                            fill: "#abd6ab",
-                            outline: "none"
-                        }
-                    }}
-                    />
-                );
-                })
-            }
-            </Geographies>
-        )}
+          <ZoomableGroup zoom={1}>
+            <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
+            <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
+            {data.length > 0 && (
+                <Geographies geography={geoUrl}>
+                {({ geographies }) =>
+                    geographies.map((geo) => {
+                    const d = data.find((s) => s.ISO3 === geo.properties.ISO_A3);
+                    return (
+                        <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill={d ? colorScale(d["2017"]) : "#F5F4F6"}
+                        onMouseEnter={() => {
+                            const { NAME } = geo.properties;
+                            setTooltipContent(`${NAME}`);
+                          }}
+                          onMouseLeave={() => {
+                            setTooltipContent("");
+                          }}
+                          style={{
+                            hover: {
+                                fill: "#5a6e5a",
+                                outline: "none"
+                            },
+                            pressed: {
+                                fill: "#abd6ab",
+                                outline: "none"
+                            }
+                        }}
+                        />
+                    );
+                    })
+                }
+                </Geographies>
+            )}
+          </ZoomableGroup>
         </ComposableMap>
     </Container>
   )

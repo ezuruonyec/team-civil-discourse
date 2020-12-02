@@ -50,6 +50,10 @@ const CountrySchema = new Schema({
     censorship_level: {
         type: Number,
     },
+    poverty_level: [{
+        percent: Number,
+        year: Number,
+    }],
     cd_rating: [{
         type: Number,
         required: true,

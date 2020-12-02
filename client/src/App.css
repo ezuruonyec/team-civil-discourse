@@ -54,3 +54,7 @@ code {
    text-align: center;
    font-family: Verdana;
  }
+
+ .map {
+  height: 100vh;
+}

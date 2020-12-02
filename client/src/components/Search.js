@@ -45,6 +45,8 @@ function Search() {
                             fake_news={item.fake_news}
                             internet_access={item.internet_access}
                             censorship_level={item.censorship_level}
+                            rwb_rank={item.rwb_ranking}
+                            poverty_level={item.poverty_level}
                         />)  
             }  
         </div>
