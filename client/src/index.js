@@ -7,6 +7,8 @@ import reduxThunk from "redux-thunk"
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import 'fontsource-roboto';
+import "leaflet/dist/leaflet.css"
+
 
 import App from './components/App';
 import axios from 'axios';

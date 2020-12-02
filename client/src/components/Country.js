@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Typography} from "@material-ui/core"
 import Grid from '@material-ui/core/Grid';
 import InfoCard from "./InfoCard"
+import ReactCountryFlag from "react-country-flag"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,12 +34,27 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({name, population, code, millenium_dec, free_speech, free_media, fake_news, internet_access, censorship_level}) {
+function Country({name, population, code, millenium_dec, free_speech, free_media, fake_news, internet_access, censorship_level, rwb_rank, poverty_level}) {
     const classes = useStyles();
-   
+    let cdRating = (rwb_rank*.30)+(poverty_level[0].percent*.0125)+(internet_access*.25)+(censorship_level*.20)+(millenium_dec[0].ratified? .075 : 0)+((population/100000)*.05)
     return (
         <Container>
-            <h1>{name} ({code})</h1>
+            <h1>
+            {name} 
+            
+            <ReactCountryFlag 
+                countryCode={code} 
+                style={{
+                    width: '1.2em',
+                    height: '1.2em',
+                    marginLeft: 10
+                }} 
+                svg 
+            />
+            
+            </h1>
+
+
 
             <Grid container spacing={1}>
 
@@ -55,7 +71,7 @@ function Country({name, population, code, millenium_dec, free_speech, free_media
             </Grid>
 
             <Grid item xs={12} sm={3}>
-                <InfoCard title="0" detail="Civil Discourse Rating" />
+                <InfoCard title={Math.round(cdRating)} detail="Civil Discourse Rating" />
             </Grid>
 
             </Grid>
