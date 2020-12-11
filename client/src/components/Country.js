@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Country({name, population, code, millenium_dec, free_speech, free_media, fake_news, internet_access, censorship_level, rwb_rank, poverty_level}) {
     const classes = useStyles();
-    let cdRating = (rwb_rank*.30)+(poverty_level[0].percent*.0125)+(internet_access*.25)+(censorship_level*.20)+(millenium_dec[0].ratified? .075 : 0)+((population/100000)*.05)
+    //let cdRating = (rwb_rank*.30)+(poverty_level[0].percent*.0125)+(internet_access*.25)+(censorship_level*.20)+(millenium_dec[0].ratified? .075 : 0)+((population/100000)*.05)
     return (
         <Container>
             <h1>
@@ -71,7 +71,7 @@ function Country({name, population, code, millenium_dec, free_speech, free_media
             </Grid>
 
             <Grid item xs={12} sm={3}>
-                <InfoCard title={Math.round(cdRating)} detail="Civil Discourse Rating" />
+                <InfoCard title="Rating" detail="Civil Discourse Rating" />
             </Grid>
 
             </Grid>

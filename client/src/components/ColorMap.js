@@ -6,17 +6,18 @@ import ReactCountryFlag from "react-country-flag"
 
 const ColorMap = () => {
   const getColor = (d) => {
-    return d > 1000 ? '#b30000' :
-               d > 500  ? '#e34a33' :
-               d > 200  ? '#fc8d59' :
-               d > 100  ? '#e34a33' :
-               d > 50   ? '#b30000' :
-                          '#e1e1e1';
+    return d >= 112 ? '#b30000' :    // 112 +
+               d >= 91  ? '#e34a33' : // 91 - 111
+               d >= 70  ? '#fc8d59' :  // 70 - 90
+               d >= 49  ? '#fdbb84' :  // 49 - 69
+               d >= 28   ? '#fdd49e' : // 28 - 48
+               d >= 7 ? '#fef0d9' : // 7 - 27
+                          '#e1e1e1'; //  no cd rating
   }
 
   const style = (feature) =>{
         return {
-            fillColor: getColor(10), // add cd rating here to get color
+            fillColor: getColor(12.1), // add cd rating here to get color
             weight: 1,
             opacity: 1,
             color: 'white',
@@ -25,12 +26,10 @@ const ColorMap = () => {
             
         };
     }
-
-
-
+    
   return(
         <MapContainer 
-        style={{margin: "auto", zIndex:"1", marginTop: -10, height: "90vh" }}
+        style={{margin: "auto", zIndex:"1", marginTop: -10, height: "calc(100% - 61px)" }}
         className="map"
         center={[20,0]} 
         zoom={2.5} 
