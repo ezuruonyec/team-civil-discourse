@@ -89,17 +89,16 @@ const ColorMap = ({country, getCountry, loading}) => {
           // popup for onclick
         
 
-          onEachFeature={(feature, layer, ) => {
+          onEachFeature={(feature, layer ) => {
 
-            
-             // popup for onclick
-              onEachFeature={(feature, layer) => layer.bindPopup(
+             // popup for onclick  
+                layer.bindPopup(
                 '<h5>'+feature.properties.name+'</h5>'+
                 '<p>CD Ranking: 12</p>'+
                 '<p>Population: 388,000,000</p>'+
                 '<p>Internet Access Percentage: 88.5</p>'+
                 '<p>Censorship Level: 10 (good)</p>'+
-                '<a href="/search/'+feature.properties.name+'">View more</a>')}
+                '<a href="/search/'+feature.properties.name+'">View more</a>')
 
             layer.on('mouseover', function () {
               this.setStyle({
