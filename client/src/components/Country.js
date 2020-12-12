@@ -34,16 +34,15 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({name, population, code, millenium_dec, free_speech, free_media, fake_news, internet_access, censorship_level, rwb_rank, poverty_level}) {
+function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_rating, internet_access_year, censorship_level, censorship_rating, cd_rating, cd_ranking}) {
     const classes = useStyles();
-    let cdRating = (rwb_rank*.30)+(poverty_level[0].percent*.0125)+(internet_access*.25)+(censorship_level*.20)+(millenium_dec[0].ratified? .075 : 0)+((population/100000)*.05)
     return (
         <Container>
             <h1>
             {name} 
             
             <ReactCountryFlag 
-                countryCode={code} 
+                countryCode={two_digit} 
                 style={{
                     width: '1.2em',
                     height: '1.2em',
@@ -67,32 +66,34 @@ function Country({name, population, code, millenium_dec, free_speech, free_media
             </Grid>
             
             <Grid item xs={12} sm={3}>
-                <InfoCard title={censorship_level} detail="Censorship Level" />
+                <InfoCard title={censorship_level} detail="Censorship Level" subDetail="(Bad) 1 - 10 (Good)"/>
             </Grid>
 
             <Grid item xs={12} sm={3}>
-                <InfoCard title={Math.round(cdRating)} detail="Civil Discourse Rating" />
+
+                <InfoCard title={Math.round(cd_ranking)} detail="Civil Discourse Country Ranking" subDetail="Out of 173"/>
+
             </Grid>
 
             </Grid>
 
             {/* <Typography className={classes.sectionHeader}>Population {population}</Typography> */}
-
+{/* 
             <Typography className={classes.sectionHeader}>Millenium Declaration</Typography>
 
             <Typography className={classes.info}>
-            {( millenium_dec[0].ratified ? 
+            {( millenium_dec_ratified == "Y"? 
                     <Chip label="Passed" className={classes.passed} size="small" variant="outlined" /> :
                     <Chip label="Not Passed" className={classes.notPassed} size="small" variant="outlined" />
                  )}
 
             
-             <span className={classes.info} style={{marginLeft: 10}}>{millenium_dec[0].year}</span>
+             <span className={classes.info} style={{marginLeft: 10}}>{millenium_dec_year}</span>
             </Typography>
           
                   
         
-
+{/* 
 
             <Typography className={classes.sectionHeader}>National Grant of Freedom of Speech</Typography>
             <Typography>
@@ -119,7 +120,7 @@ function Country({name, population, code, millenium_dec, free_speech, free_media
                     <Chip label="Passed" className={classes.passed} size="small" variant="outlined" /> :
                     <Chip label="Not Passed" className={classes.notPassed} size="small" variant="outlined" />
                  )}
-            </p>
+            </p> */}
 
             
 

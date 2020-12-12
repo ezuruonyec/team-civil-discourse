@@ -1,5 +1,5 @@
 import {GET_COUNTRY, ADD_COUNTRY, DELETE_COUNTRY, 
-  ITEMS_LOADING, UPDATE_COUNTRY, EDIT_COUNTRY, FETCH_USER, GET_USERS, ADD_USER, GET_COUNTRY_BY_NAME } from "./types"
+  ITEMS_LOADING, UPDATE_COUNTRY, EDIT_COUNTRY, FETCH_USER, GET_USERS, ADD_USER, GET_COUNTRY_BY_NAME, UPLOAD_CSV } from "./types"
 import axios from "axios"
 
 export const getCountry = () => async dispatch => {
@@ -29,6 +29,10 @@ export const deleteCountry = (id) => dispatch => {
     dispatch(setItemsLoading())
     await axios.put(`/api/countries/update`, country)
     dispatch({type: UPDATE_COUNTRY, payload: [id, country]})
+ }
+ export const uploadCSV = (csv) => async dispatch =>{
+   const res = await axios.post("/api/countries", )
+    dispatch({type: UPLOAD_CSV, payload: csv})
  }
 
  export const setItemsLoading = () => {
