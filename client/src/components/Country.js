@@ -71,13 +71,13 @@ function Country({name, population, code, millenium_dec, free_speech, free_media
             </Grid>
 
             <Grid item xs={12} sm={3}>
-                <InfoCard title="Rating" detail="Civil Discourse Rating" />
+                <InfoCard title="39.3" detail="Civil Discourse Rating" />
             </Grid>
 
             </Grid>
 
             {/* <Typography className={classes.sectionHeader}>Population {population}</Typography> */}
-
+{/* 
             <Typography className={classes.sectionHeader}>Millenium Declaration</Typography>
 
             <Typography className={classes.info}>
@@ -119,7 +119,7 @@ function Country({name, population, code, millenium_dec, free_speech, free_media
                     <Chip label="Passed" className={classes.passed} size="small" variant="outlined" /> :
                     <Chip label="Not Passed" className={classes.notPassed} size="small" variant="outlined" />
                  )}
-            </p>
+            </p> */}
 
             
 

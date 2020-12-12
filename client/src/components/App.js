@@ -14,6 +14,7 @@ import Search from './Search'
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.getCountry();
   }
   render () {
     return (
@@ -34,8 +35,8 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({auth}) {
-  return {auth}
+function mapStateToProps({auth, country}) {
+  return {auth, country}
 }
 
 export default connect(mapStateToProps, actions)(App)
