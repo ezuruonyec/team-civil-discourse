@@ -1,12 +1,9 @@
-import React, {useState} from "react"
-import ReactTooltip from "react-tooltip"
-import Map from "./Map"
+import React, {Suspense} from "react"
 import Header from "./Header"
 import ColorMap from "./ColorMap"
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const MapWrapper = () => {
-    const [content, setContent] = useState("")
-    const [dummy, setDummy] = useState("")
 
     return(
         <div style={{backgroundColor: "#6c757d", height: "100vh", width: "100vw"}}>
@@ -14,7 +11,10 @@ const MapWrapper = () => {
       {/* <Map setTooltipContent={setContent} setHeader={setDummy}/>
       <ReactTooltip>{content}</ReactTooltip> */}
 
-      <ColorMap />
+      <Suspense fallback={<CircularProgress />}>
+        <ColorMap />
+      </Suspense>
+      
       
     </div>
     )

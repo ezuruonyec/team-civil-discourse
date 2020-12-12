@@ -70,13 +70,15 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             </Grid>
 
             <Grid item xs={12} sm={3}>
+
                 <InfoCard title={Math.round(cd_ranking)} detail="Civil Discourse Country Ranking" subDetail="Out of 173"/>
+
             </Grid>
 
             </Grid>
 
             {/* <Typography className={classes.sectionHeader}>Population {population}</Typography> */}
-
+{/* 
             <Typography className={classes.sectionHeader}>Millenium Declaration</Typography>
 
             <Typography className={classes.info}>
