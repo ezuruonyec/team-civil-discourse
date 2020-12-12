@@ -10,6 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 import Avatar from '@material-ui/core/Avatar';
 import {Box, colors} from "@material-ui/core"
 import CountryIcon from '@material-ui/icons/Public';
@@ -18,6 +19,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {connect} from "react-redux"
 import CountryForm from "./CountryForm"
 import Users from "./Users"
+import Upload from "./Upload"
 import { grey, indigo } from '@material-ui/core/colors';
 import CountryTable from './CountryTable';
 import Collapse from '@material-ui/core/Collapse';
@@ -127,6 +129,8 @@ function Nav({auth, country}) {
         return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="add" headerText={setHeaderText} />
       case "edit_country":
         return <CountryForm disp={setDisplay} index={setSelectedIndex} mode="edit" data={data} headerText={setHeaderText} />
+      case "upload_csv":
+        return <Upload />
       case "users": 
         return <Users />
       default:
@@ -236,6 +240,21 @@ function Nav({auth, country}) {
                     </ListItemIcon>
                     <ListItemText primary="Add" />
                   </ListItem>
+
+                  {/* <ListItem 
+                    button 
+                    selected={selectedIndex === 3}
+                    className={classes.nested}
+                    onClick={() => {
+                      setSelectedIndex(3)
+                      setDisplay("upload_csv")
+                    }}
+                  >
+                    <ListItemIcon>
+                      <FileCopyIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Upload CSV" />
+                  </ListItem> */}
 
                 </List>
               </Collapse>

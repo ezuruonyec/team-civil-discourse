@@ -28,6 +28,7 @@ const ColorMap = ({country, getCountry, loading}) => {
 }
 
 
+
   const getColor = (d) => {
     return d >= 112 ? '#b30000' :    // 112 +
                d >= 91  ? '#e34a33' : // 91 - 111
@@ -70,6 +71,7 @@ const ColorMap = ({country, getCountry, loading}) => {
         touchZoom
         >
           
+
             
         <TileLayer
           id='mapbox.dark'
@@ -90,10 +92,14 @@ const ColorMap = ({country, getCountry, loading}) => {
           onEachFeature={(feature, layer, ) => {
 
             
-            layer.bindPopup(
-              '<h5>'+feature.properties.name +'</h5>' +
-              '<p>CD Rating...</p>'+
-              '<a href="/search/'+feature.properties.name+'">View more</a>')
+             // popup for onclick
+              onEachFeature={(feature, layer) => layer.bindPopup(
+                '<h5>'+feature.properties.name+'</h5>'+
+                '<p>CD Ranking: 12</p>'+
+                '<p>Population: 388,000,000</p>'+
+                '<p>Internet Access Percentage: 88.5</p>'+
+                '<p>Censorship Level: 10 (good)</p>'+
+                '<a href="/search/'+feature.properties.name+'">View more</a>')}
 
             layer.on('mouseover', function () {
               this.setStyle({

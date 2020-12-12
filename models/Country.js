@@ -10,59 +10,76 @@ const CountrySchema = new Schema({
         dropDups: true,
         
     },
-    code: {
+    two_digit: {
         type: String,
-        required:true
+    },
+    three_digit: {
+        type: String,
     },
     population: {
         type: Number
     },
-    millenium_dec: [{
-        ratified: Boolean,
-        year: Number
-    }],
-    freedom_speech: [{
-        present: Boolean,
-        restrictions: String
-    }],
-    freedom_media: [{
-        present: Boolean,
-        restrictions: String,
-        year: Number
-    }],
-    rwb_ranking: [{
+    millenium_dec_ranking: {
+        type: Number
+    },
+    millenium_dec_ratified: {
+        type: String
+    },
+    millenium_dec_year: {
+        type: Number
+    },
+    rwb_ranking: {
         type: Number,
-        required:true
-    }],
-    rwb_score: [{
+    },
+    rwb_score: {
         type: Number,
-        required:true
-    }],
-    fake_news: [{
-        present: Boolean,
-        description: String,
-        year: Number,
-        prosecution: Boolean,
-    }],
+    },
     internet_access: {
+        type: Number,
+    },
+    internet_access_ranking: {
+        type: Number,
+    },
+    internet_access_year: {
         type: Number,
     },
     censorship_level: {
         type: Number,
     },
-    poverty_level: [{
-        percent: Number,
-        year: Number,
-    }],
-    cd_rating: [{
+    censorship_ranking: {
         type: Number,
-        required: true,
-    }],
-    sources: [],
-    updated: {
-        type: Date,
-        default: Date.now
-    }
+    },
+    cd_rating: {
+        type: Number,
+    },
+    cd_ranking: {
+        type: Number,
+    },
+    // sources: [],
+    // updated: {
+    //     type: Date,
+    //     default: Date.now
+    // }
+    // freedom_speech: [{
+    //     present: Boolean,
+    //     restrictions: String
+    // }],
+    // freedom_media: [{
+    //     present: Boolean,
+    //     restrictions: String,
+    //     year: Number
+    // }],
+    // fake_news: [{
+    //     present: Boolean,
+    //     description: String,
+    //     year: Number,
+    //     prosecution: Boolean,
+    // }],
+    // poverty_level: [{
+    //     percent: Number,
+    //     year: Number,
+    // }],
+
 })
 
 module.exports = Country = mongoose.model("country", CountrySchema)
