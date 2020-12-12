@@ -54,7 +54,10 @@ class ColorMap extends Component{
               // popup for onclick
               onEachFeature={(feature, layer) => layer.bindPopup(
                 '<h5>'+feature.properties.ADMIN+'</h5>'+
-                '<p>CD Rating...</p>'+
+                '<p>CD Ranking: 12</p>'+
+                '<p>Population: 388,000,000</p>'+
+                '<p>Internet Access Percentage: 88.5</p>'+
+                '<p>Censorship Level: 10 (good)</p>'+
                 '<a href="/search/'+feature.properties.ADMIN+'">View more</a>')}
             />
             

@@ -91,65 +91,74 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
     
     
     const [name, setName] = useState("")
-    const [code, setCode] = useState("")
+    const [code2, setCode2] = useState("")
+    const [code3, setCode3] = useState("")
     const [population, setPopulation] = useState("")
-    const [mdRatified, setMdRatified] = useState(true)
+    const [mdRatified, setMdRatified] = useState("")
     const [mdYear, setMdYear] = useState("")
-    const [free_speech, setFreeSpeech] = useState(true)
-    const [fsRestrict, setFsRestrict] = useState("")
-    const [fmPresent, setFmPresent] = useState(true)
-    const [fmRestrict, setFmRestrict] = useState("")
-    const [fmYear, setFmYear] = useState("")
     const [rwbRank, setRwbRank] = useState(0)
     const [rwbScore, setRwbScore] = useState(0)
-    const [fake_news, setFakeNews] = useState(true)
-    const [fakeNewsDescription, setFnDescription] = useState("")
-    const [fakeNewsYear, setFnYear] = useState(0)
-    const [fakeNewsProsecution, setFnProsecution] = useState(true)
-    const [internetAccess, setInternetAccess] = useState(0)
+    const [internetAccessPercent, setInternetAccessPercent] = useState(0)
+    const [internetAccessRanking, setInternetAccessRanking] = useState(0)
+    const [internetAccessYear, setInternetAccessYear] = useState(0)
     const [censorshipLevel, setCensorshipLevel] = useState(0)
-    const [povertyLevel, setPovertyLevel] = useState(0)
-    const [povertyYear, setPovertyYear] = useState(0)
+    const [censorshipRanking, setCensorshipRanking] = useState(0)
     const [civilDiscourseRating, setCivilDiscourseRating] = useState(0)
-    const [sources, setSources] = useState("")
+    const [civilDiscourseRanking, setCivilDiscourseRanking] = useState(0)
     const [id, setId] = useState(null)
 
+    // const [free_speech, setFreeSpeech] = useState(true)
+    // const [fsRestrict, setFsRestrict] = useState("")
+    // const [fmPresent, setFmPresent] = useState(true)
+    // const [fmRestrict, setFmRestrict] = useState("")
+    // const [fmYear, setFmYear] = useState("")
+    // const [fake_news, setFakeNews] = useState(true)
+    // const [fakeNewsDescription, setFnDescription] = useState("")
+    // const [fakeNewsYear, setFnYear] = useState(0)
+    // const [fakeNewsProsecution, setFnProsecution] = useState(true)
+    // const [povertyLevel, setPovertyLevel] = useState(0)
+    // const [povertyYear, setPovertyYear] = useState(0)
+    // const [sources, setSources] = useState("")
 
     const editableData = () => {
         data.map(data => {
             setId(data._id)
             setName(data.name)
-            setCode(data.code)
+            setCode2(data.two_digit)
+            setCode3(data.three_digit)
             setPopulation(data.population)
-            data.millenium_dec.map(info => {
-                setMdRatified(info.ratified)
-                setMdYear(info.year)
-            })
-            data.freedom_speech.map(info => {
-                setFreeSpeech(info.present)
-                setFsRestrict(info.restrictions)
-            })
-            data.freedom_media.map(info => {
-                setFmPresent(info.present)
-                setFmRestrict(info.restrictions)
-                setFmYear(info.year)
-            })
+            setMdRatified(data.millenium_dec_ratified)
+            setMdYear(data.millenium_dec_year)
             setRwbRank(data.rwb_ranking)
             setRwbScore(data.rwb_score)
-            data.fake_news.map(info => {
-                setFakeNews(info.present)
-                setFnDescription(info.description)
-                setFnYear(info.year)
-                setFnProsecution(info.prosecution)
-            })
-            setInternetAccess(data.internet_Access)
+            setInternetAccessPercent(data.internet_access)
+            setInternetAccessRanking(data.internet_access_ranking)
+            setInternetAccessYear(data.internet_access_year)
             setCensorshipLevel(data.censorship_level)
-            data.poverty_level.map(info =>{
-                setPovertyLevel(info.percent)
-                setPovertyYear(info.year)
-            })
+            setCensorshipRanking(data.censorship_ranking)
             setCivilDiscourseRating(data.cd_rating)
-            setSources(data.sources)
+            setCivilDiscourseRanking(data.cd_ranking)
+
+            // data.freedom_speech.map(info => {
+            //     setFreeSpeech(info.present)
+            //     setFsRestrict(info.restrictions)
+            // })
+            // data.freedom_media.map(info => {
+            //     setFmPresent(info.present)
+            //     setFmRestrict(info.restrictions)
+            //     setFmYear(info.year)
+            // })
+            // data.fake_news.map(info => {
+            //     setFakeNews(info.present)
+            //     setFnDescription(info.description)
+            //     setFnYear(info.year)
+            //     setFnProsecution(info.prosecution)
+            // })
+            // data.poverty_level.map(info =>{
+            //     setPovertyLevel(info.percent)
+            //     setPovertyYear(info.year)
+            // })
+            // setSources(data.sources)
         })
     }
 
@@ -159,38 +168,43 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
         e.preventDefault()
         const countryData = {
             name: name,
-            code: code,
+            two_digit: code2,
+            three_digit: code3,
             population: population,
-            millenium_dec: [{
-                ratified: mdRatified,
-                year: mdYear
-            }],
-            freedom_speech: [{
-                present: free_speech,
-                restrictions: fsRestrict
-            }],
-            freedom_media: [{
-                present: fmPresent,
-                restrictions: fmRestrict,
-                year: fmYear
-            }],
+            millenium_dec_ratified: mdRatified,
+            millenium_dec_year: mdYear,
             rwb_ranking: rwbRank,
             rwb_score: rwbScore,
-            fake_news: [{
-                present: fake_news,
-                description: fakeNewsDescription,
-                year: fakeNewsYear,
-                prosecution: fakeNewsProsecution,
-            }],
-            internet_access: internetAccess,
+            internet_access: internetAccessPercent,
+            internet_access_ranking: internetAccessRanking,
+            internet_access_year: internetAccessYear,
             censorship_level: censorshipLevel,
-            poverty_level: [{
-                percent: povertyLevel,
-                year: povertyYear
-            }],
+            censorship_ranking: censorshipRanking,
             cd_rating: civilDiscourseRating,
-            sources: [sources],
-            id: id
+            cd_ranking: civilDiscourseRanking,
+            id: id,
+
+            // freedom_speech: [{
+            //     present: free_speech,
+            //     restrictions: fsRestrict
+            // }],
+            // freedom_media: [{
+            //     present: fmPresent,
+            //     restrictions: fmRestrict,
+            //     year: fmYear
+            // }],
+            // fake_news: [{
+            //     present: fake_news,
+            //     description: fakeNewsDescription,
+            //     year: fakeNewsYear,
+            //     prosecution: fakeNewsProsecution,
+            // }],
+            // poverty_level: [{
+            //     percent: povertyLevel,
+            //     year: povertyYear
+            // }],
+            // sources: [sources],
+
         }
 
        
@@ -238,13 +252,25 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 onChange={e => setName(e.target.value)} 
             />
             <br />
+            <Typography variant="p" className={classes.section}>2 Digit Code</Typography>
+
             <Input
                 type="text"
-                name="code"
-                id="code"
-                placeholder="Country Code"
-                value={code}
-                onChange={e => setCode(e.target.value)} 
+                name="code2"
+                id="code2"
+                placeholder="Country Code 2-Digit"
+                value={code2}
+                onChange={e => setCode2(e.target.value)} 
+            />
+            <Typography variant="p" className={classes.section}>3 Digit Code</Typography>
+
+            <Input
+                type="text"
+                name="code3"
+                id="code3"
+                placeholder="Country Code 3-Digit"
+                value={code3}
+                onChange={e => setCode3(e.target.value)} 
             />
 
 
@@ -259,6 +285,8 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             /> */}
 
             <br />
+            <Typography variant="p" className={classes.section}>Population</Typography>
+
             <Input
                 type="number"
                 name="population"
@@ -283,8 +311,8 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
         <FormGroup>
             <Typography variant="p" className={classes.section}>Millenium Declaration</Typography>
             <Input type="select" name="md_rat" id="md_rat" value={mdRatified} onChange={e => setMdRatified(e.target.value)}>
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
             </Input>
                 <br />
             <Input
@@ -309,7 +337,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
         /> */}
 
         </FormGroup> 
-
+{/* 
         <FormGroup>
         <Typography variant="p" className={classes.section}>Freedom of Speech</Typography>
             <Input type="select" name="free_speech" id="free_speech" value={free_speech} onChange={e => setFreeSpeech(e.target.value)}>
@@ -352,13 +380,13 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={fmYear}
                 onChange={e => setFmYear(e.target.value)} 
             />
-        </FormGroup>
+        </FormGroup> */}
 
         </div>
 
         <div>
         <FormGroup>
-            <Typography variant="p" className={classes.section}>Reporters without Borders</Typography>
+            <Typography variant="p" className={classes.section}>Reporters without Borders Ranking</Typography>
             <Input
                 type="number"
                 name="rwb_rank"
@@ -367,7 +395,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={rwbRank}
                 onChange={e => setRwbRank(e.target.value)} 
             />
-            <br />
+            <Typography variant="p" className={classes.section}>Reporters without Borders Score</Typography>
 
             <Input
                 type="number"
@@ -382,7 +410,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             />
         </FormGroup> 
 
-        <FormGroup>
+        {/* <FormGroup>
             <Typography variant="p" className={classes.section}>Fake News Laws</Typography>
             <Input type="select" name="fake_news" id="fake_news" value={fake_news} onChange={e => setFakeNews(e.target.value)}>
             <option value={true} >Yes</option>
@@ -411,7 +439,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             <option value={true} >Yes</option>
             <option value={false}>No</option>
             </Input>
-        </FormGroup>
+        </FormGroup> */}
 
         <FormGroup>
             <Typography variant="p" className={classes.section}>Internet Access Percentage</Typography>
@@ -423,8 +451,28 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 name="internet_access_per"
                 id="internet_access_per"
                 placeholder="Percentage"
-                value={internetAccess}
-                onChange={e => setInternetAccess(e.target.value)} 
+                value={internetAccessPercent}
+                onChange={e => setInternetAccessPercent(e.target.value)} 
+            />
+
+            <Typography variant="p" className={classes.section}>Internet Access Ranking</Typography>
+            <Input
+                type="number"
+                name="internet_access_rank"
+                id="internet_access_rank"
+                placeholder="Ranking"
+                value={internetAccessRanking}
+                onChange={e => setInternetAccessRanking(e.target.value)} 
+            />
+
+            <Typography variant="p" className={classes.section}>Internet Access Year</Typography>
+            <Input
+                type="number"
+                name="internet_access_year"
+                id="internet_access_year"
+                placeholder="Internet Access Year"
+                value={internetAccessYear}
+                onChange={e => setInternetAccessYear(e.target.value)} 
             />
         </FormGroup>
 
@@ -441,8 +489,18 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={censorshipLevel}
                 onChange={e => setCensorshipLevel(e.target.value)} 
             />
+            <Typography variant="p" className={classes.section}>Censorship Ranking</Typography>
+            <Input
+                type="number"
+                name="censorship_rank"
+                id="censorship_rank"
+                placeholder="Ranking"
+                value={censorshipRanking}
+                onChange={e => setCensorshipRanking(e.target.value)} 
+            />
         </FormGroup>
-        <FormGroup>
+
+        {/* <FormGroup>
             <Typography variant="p" className={classes.section}>Poverty Level</Typography>
             <Input
                 type="number"
@@ -453,7 +511,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 onChange={e => setPovertyLevel(e.target.value)} 
             />
             <br />
-
+            <Typography variant="p" className={classes.section}>Poverty Level Year</Typography>
             <Input
                 type="number"
                 name="poverty_year"
@@ -462,22 +520,34 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={povertyYear}
                 onChange={e => setPovertyYear(e.target.value)} 
             />
-        </FormGroup> 
+        </FormGroup>  */}
+
         <FormGroup>
             <Typography variant="p" className={classes.section}>Civil Discourse Rating</Typography>
             <Input
                 type="number"
-                name="cd_rank"
-                id="cd_rank"
-                placeholder="Ranking"
+                name="cd_rating"
+                id="cd_rating"
+                min="0.00"
+                step="0.01"
+                placeholder="Rating"
                 value={civilDiscourseRating}
                 onChange={e => setCivilDiscourseRating(e.target.value)} 
+            />
+            <Typography variant="p" className={classes.section}>Civil Discourse Ranking</Typography>
+            <Input
+                type="number"
+                name="cd_ranking"
+                id="cd_ranking"
+                placeholder="Ranking"
+                value={civilDiscourseRanking}
+                onChange={e => setCivilDiscourseRanking(e.target.value)} 
             />
         </FormGroup>
         </div>
 
             
-        <FormGroup>
+        {/* <FormGroup>
             <br />
             <Typography variant="p" className={classes.section}>Sources</Typography>
             <Input
@@ -488,7 +558,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={sources}
                 onChange={e => setSources(e.target.value)} 
             />
-        </FormGroup> 
+        </FormGroup>  */}
             <Button
                 color="success"
                 style={{marginTop:"2rem"}}

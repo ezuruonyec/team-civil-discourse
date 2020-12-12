@@ -19,10 +19,14 @@ const useStyles = makeStyles((theme) => ({
     detail: {
         fontSize: theme.spacing(2),
         textAlign: "center"
-    }
+    },
+    subDetail: {
+        fontSize: theme.spacing(1),
+        textAlign: "center"
+    },
 }))
 
-function InfoCard({title, detail}) {
+function InfoCard({title, detail, subDetail}) {
 
     const classes = useStyles();
 
@@ -30,6 +34,7 @@ function InfoCard({title, detail}) {
         <Paper className={classes.root}>
             <Paper className={classes.title} elevation={0}>{title}</Paper>
             <Paper className={classes.detail} elevation={0}>{detail}</Paper>
+            <Paper className={classes.subDetail} elevation={0}>{subDetail}</Paper>
         </Paper>
     )
 }

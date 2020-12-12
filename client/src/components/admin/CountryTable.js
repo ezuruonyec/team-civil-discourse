@@ -36,12 +36,12 @@ const useStyles = makeStyles({
         width: "auto",
         whiteSpace: "nowrap"
     },
-    tableHeadFM: {
+    tableHeadCC: {
         backgroundColor: teal[500],
         color: "#FFFFFF",
         whiteSpace: "nowrap"
     },
-    tableHeadFS: {
+    tableHeadIA: {
         backgroundColor: pink[500],
         color: "#FFFFFF",
         whiteSpace: "nowrap"
@@ -51,12 +51,12 @@ const useStyles = makeStyles({
         color: "#FFFFFF",
         whiteSpace: "nowrap"
     },
-    tableHeadFN: {
+    tableHeadCL: {
       backgroundColor: orange[500],
       color: "#FFFFFF",
       whiteSpace: "nowrap"
     },
-    tableHeadPL: {
+    tableHeadCDR: {
       backgroundColor: "#9c27b0",
       color: "#FFFFFF",
       whiteSpace: "nowrap"
@@ -88,43 +88,37 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
         <TableHead className={classes.tableHead}>
 
           <TableRow key="th1">
-            <TableCell colSpan={3}></TableCell>
+            <TableCell colSpan={2}></TableCell>
+            <TableCell className={classes.tableHeadCC} style={{textAlign: "center"}} colSpan={2}>Country Code</TableCell>
             <TableCell className={classes.tableHeadMD} style={{textAlign: "center"}} colSpan={2}>Millenium Declaration</TableCell>
-            <TableCell className={classes.tableHeadFS} style={{textAlign: "center"}} colSpan={2}>Freedom of Speech</TableCell>
-            <TableCell className={classes.tableHeadFM} style={{textAlign: "center"}} colSpan={3}>Freedom of Media</TableCell>
             <TableCell className={classes.tableHeadRWB} style={{textAlign: "center"}} colSpan={2}>Reporters Without Borders</TableCell>
-            <TableCell className={classes.tableHeadFN} style={{textAlign: "center"}} colSpan={4}>Fake News Laws</TableCell>
-            <TableCell className={classes.tableHeadPL} style={{textAlign: "center"}} colSpan={2}>Poverty Level</TableCell>
+            <TableCell className={classes.tableHeadIA} style={{textAlign: "center"}} colSpan={3}>Internet Access</TableCell>
+            <TableCell className={classes.tableHeadCL} style={{textAlign: "center"}} colSpan={2}>Censorship Level</TableCell>
+            <TableCell className={classes.tableHeadCDR} style={{textAlign: "center"}} colSpan={2}>Civil Discourse Ranking</TableCell>
           </TableRow>
 
         <TableRow key="th2">
             <TableCell className={classes.tableHeadGeneral}>Name</TableCell>
-            <TableCell className={classes.tableHeadGeneral}>Code</TableCell>
             <TableCell className={classes.tableHeadGeneral}>Population</TableCell>
 
-            <TableCell className={classes.tableHeadMD}>Y/N</TableCell>
-            <TableCell className={classes.tableHeadMD}>Year</TableCell>
+            <TableCell className={classes.tableHeadCC}>Two Digit Country Code</TableCell>
+            <TableCell className={classes.tableHeadCC}>Three Digit Country Code</TableCell>
 
-            <TableCell className={classes.tableHeadFS}>Y/N</TableCell>
-            <TableCell className={classes.tableHeadFS}>Restrictions</TableCell>
-
-            <TableCell className={classes.tableHeadFM}>Y/N</TableCell>
-            <TableCell className={classes.tableHeadFM}>Restrictions</TableCell>
-            <TableCell className={classes.tableHeadFM}>Year</TableCell>
+            <TableCell className={classes.tableHeadMD}>Millenium Declaration Ratified</TableCell>
+            <TableCell className={classes.tableHeadMD}>Millenium Declaration Year</TableCell>
 
             <TableCell className={classes.tableHeadRWB}>Ranking</TableCell>
             <TableCell className={classes.tableHeadRWB}>Score</TableCell>
-            
-            <TableCell className={classes.tableHeadFN}>Y/N</TableCell>
-            <TableCell className={classes.tableHeadFN}>Description</TableCell>
-            <TableCell className={classes.tableHeadFN}>Year</TableCell>
-            <TableCell className={classes.tableHeadFN}>Prosecution Y/N</TableCell>
-            <TableCell className={classes.tableHeadPL}>Poverty Level</TableCell>
-            <TableCell className={classes.tableHeadPL}>Year Recorded</TableCell>
-            <TableCell className={classes.tableHeadGeneral}>Internet Access</TableCell>
-            <TableCell className={classes.tableHeadGeneral}>Censorship Level</TableCell>
 
-            <TableCell className={classes.tableHeadGeneral}>Civil Discourse Rating</TableCell>
+            <TableCell className={classes.tableHeadIA}>Percentage</TableCell>
+            <TableCell className={classes.tableHeadIA}>Ranking</TableCell>
+            <TableCell className={classes.tableHeadIA}>Year</TableCell>
+            
+            <TableCell className={classes.tableHeadCL}>Level</TableCell>
+            <TableCell className={classes.tableHeadCL}>Ranking</TableCell>
+
+            <TableCell className={classes.tableHeadCDR}>Rating</TableCell>
+            <TableCell className={classes.tableHeadCDR}>Ranking</TableCell>
 
             <TableCell className={classes.tableHeadGeneral}>Actions</TableCell>
           </TableRow>
@@ -134,54 +128,33 @@ function CountryTable({country, getCountry, disp, countryData, loading}) {
           {country.countries.map((country) => (
             <TableRow key={country.name}>
                 <TableCell>{country.name}</TableCell>
-                <TableCell>{country.code}</TableCell>
                 <TableCell>{country.population}</TableCell>
-                {country.millenium_dec.map((field) => (
-                    <>
-                    <TableCell>{field.ratified ? "Yes" : "No"}</TableCell>
-                    <TableCell>{field.year}</TableCell>
-                    </>
-                ))}
 
-                {country.freedom_speech.map((field) => (
-                  <>
-                  <TableCell>{field.present ? "Yes" : "No"}</TableCell>
-                  <TableCell>{field.restrictions === "" ? "none" : field.restrictions}</TableCell>
-                  </>
-                ))}
 
-                {country.freedom_media.map((field) => (
-                  <>
-                  <TableCell>{field.present ? "Yes" : "No"}</TableCell>
-                  <TableCell>{field.restrictions === "" ? "none" : field.restrictions}</TableCell>
-                  <TableCell>{field.year}</TableCell>
-                  </>
-                ))}
+                    <TableCell>{country.two_digit}</TableCell>
+                    <TableCell>{country.three_digit}</TableCell>
+
+
+                    <TableCell>{country.millenium_dec_ratified}</TableCell>
+                    <TableCell>{country.millenium_dec_year}</TableCell>
 
                 <TableCell>{country.rwb_score}</TableCell>
                 <TableCell>{country.rwb_ranking}</TableCell>     
 
-                {country.fake_news.map((field) => (
-                  <>
-                  <TableCell>{field.present ? "Yes" : "No"}</TableCell>
-                  <TableCell>{field.description === "" ? "none" : field.description}</TableCell>
-                  <TableCell>{field.year}</TableCell>
-                  <TableCell>{field.prosecution ? "Yes" : "No"}</TableCell>
-                  </>
-                ))}
-                {country.poverty_level.map((field) => (
-                  <>
-                  <TableCell>{field.percent === ""  || null ? "-" : field.percent}</TableCell>
-                  <TableCell>{field.year === "" || null ? "-" : field.year }</TableCell>
-                  </>
-                ))}
-                <TableCell>{country.internet_access}</TableCell> 
-                <TableCell>{country.censorship_level}</TableCell> 
+                  <TableCell>{country.internet_access}</TableCell>
+                  <TableCell>{country.internet_access_ranking}</TableCell>
+                  <TableCell>{country.internet_access_year}</TableCell>
+
+
+                  <TableCell>{country.censorship_level}</TableCell>
+                  <TableCell>{country.censorship_ranking}</TableCell>
+
 
                 <TableCell>{country.cd_rating}</TableCell> 
-                
+                <TableCell>{country.cd_ranking}</TableCell> 
 
               <TableCell><Button onClick={() => edit(country)}>Edit</Button></TableCell>
+
             </TableRow>
           ))}
         </TableBody>
