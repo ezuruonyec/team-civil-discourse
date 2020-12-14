@@ -1,20 +1,15 @@
-import React, {useState} from 'react';
-import ReactTooltip from "react-tooltip";
-import '../App.css'
-
+import React from 'react';
+import Header from "./Header"
 
 export function AboutUs() {
-
-    const [content, setContent] = useState("");
     return (
-        <div className="container">
-            <div className="header">
-                <h1>Global Civil Discourse Map</h1>
-            </div>
-            <div className="body">
+
+            <div>
+                <Header />
+
                 <h1>Background</h1>
                 <p>
-                    "The Padnos/Sarosik Civil Discourse Program was founded through 
+                    The Padnos/Sarosik Civil Discourse Program was founded through 
                     the generous gift of Shelley E. Padnos and Carol Sarosik to help 
                     create more inclusive, tolerant, and peaceful communities"(GVSU 2020). 
                     The current professor of civil discourse is Jeff Kelly Lowenstein, and 
@@ -35,12 +30,8 @@ export function AboutUs() {
                     the application, updating it and refining it to a polished, professional website. 
                 </p>
             </div>
-            <div className="footer">
-                <p> For more information, please visit the civil discourse page.</p>
-                
-            </div>
-        </div>
-    );
+
+    )
 }
 
 
