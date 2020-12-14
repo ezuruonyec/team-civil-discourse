@@ -58,3 +58,33 @@ code {
  .map {
   height: 100vh;
 }
+
+.info {
+  padding: 8px 10px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 1 1 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+  right: 0;
+  bottom: 0;
+  z-index: 999999999;
+  position: absolute;
+  float: right;
+}
+
+.legend {
+  height: 104px;
+  line-height: 18px;
+  color: #555;
+  text-align: left;
+}
+.i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 1;
+}

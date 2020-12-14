@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import world from "../geoJson/world.json"
-import {MapContainer, TileLayer, GeoJSON} from 'react-leaflet';
+import {MapContainer, TileLayer, GeoJSON, } from 'react-leaflet';
 import {connect} from "react-redux"
 import * as actions from "../actions"
 import ReactCountryFlag from "react-country-flag"
+import Legend from "./Legend"
 
 const ColorMap = ({mode, country, info}) => {
 
@@ -64,6 +65,7 @@ touchZoom
 
 >
   
+<Legend />
 
 <TileLayer
   id={mapMode}
@@ -72,9 +74,6 @@ touchZoom
   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   
   noWrap
-
-  
-  
 />
 
 <GeoJSON 
