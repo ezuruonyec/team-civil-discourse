@@ -27,6 +27,7 @@ import {Link} from "react-router-dom"
 import InfoIcon from '@material-ui/icons/Info';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Switch from "react-switch";
 
 const drawerWidth = 240;
 
@@ -156,11 +157,12 @@ const useStyles = makeStyles((theme) => ({
 
   }));
   
-  export default function ButtonAppBar(props) {
+  export default function ButtonAppBar({mode, setMode, currentTerm}) {
     const classes = useStyles();
     let history = useHistory();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
+    
   
     const handleDrawerOpen = () => {
       setOpen(true);
@@ -169,10 +171,10 @@ const useStyles = makeStyles((theme) => ({
     const handleDrawerClose = () => {
       setOpen(false);
     };
-    const [searchTerm, setSearchTerm] = useState(props.currentTerm ? props.currentTerm : "")
+    const [searchTerm, setSearchTerm] = useState(currentTerm ? currentTerm : "")
 
-    const [searchTermInput, setSearchTermInput] = useState(props.currentTerm ? props.currentTerm : "")
-    
+    const [searchTermInput, setSearchTermInput] = useState(currentTerm ? currentTerm : "")
+    const [checked, setChecked] = useState(false)
     
 
     const handleSubmit = (e) => {
@@ -202,6 +204,13 @@ const useStyles = makeStyles((theme) => ({
               <a href="/" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
             {/* <Link href="/rwb" className={classes.links}>Reporters Without Borders</Link> */}
+            {/* <label>
+            <span>Switch with default style</span>
+            <Switch onChange={() => {
+              setMode(!mode)
+              alert(mode)
+              }} checked={mode}/>
+          </label> */}
             <div>
 
             {/* Search Form */}
