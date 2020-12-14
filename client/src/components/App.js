@@ -10,6 +10,7 @@ import dashboard from "./admin/Dashboard"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "../App.css"
 import Search from './Search'
+import Sources from "./Sources"
 
 class App extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class App extends Component {
           <Switch>
               <Route path="/" component={MapWrapper} exact />
               <Route path="/about" component={about} exact />
-              <Route path="/sources" exact/>
+              <Route path="/sources" component={Sources} exact/>
 
               <Route path="/search/:term" component={Search} />
               <Route path="/admin/dashboard" component={dashboard} exact />
