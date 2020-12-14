@@ -93,8 +93,6 @@ touchZoom
   }} 
   
   // popup for onclick
-
-
   onEachFeature={(feature, layer, ) => {
 
    
@@ -136,7 +134,6 @@ touchZoom
 />
 
 </MapContainer> 
-        
         
        
     ) 
