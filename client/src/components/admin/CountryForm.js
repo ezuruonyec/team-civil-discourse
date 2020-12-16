@@ -4,11 +4,10 @@ import {Button, Form, FormGroup, Label, Input} from "reactstrap"
 import {connect} from "react-redux"
 import * as actions from "../../actions"
 import {Box, Typography} from "@material-ui/core"
-import { green, grey, pink, blue, orange, teal, indigo } from '@material-ui/core/colors';
+import { green} from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import TextField from '@material-ui/core/TextField';
-import { DatePicker } from "@material-ui/pickers";
+
 
 
 const useStyles = makeStyles({

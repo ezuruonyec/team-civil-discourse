@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Container from "@material-ui/core/Container"
-import { green, grey, pink, blue, orange, teal, indigo, yellow, red, } from '@material-ui/core/colors';
+import { green, grey, orange, yellow, red, } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import Header from "./Header"
 
@@ -58,21 +58,19 @@ function RWBlist({country, getCountry}) {
         getCountry()
     }, [])
 
-    const data = country.countries.filter(item => item.rwb_score !== 0)
-    const sortedData = data.sort((a,b) => a.rwb_score - b.rwb_score)
+    const data = country.countries.filter(item => item.cd_ranking !== 0)
+    const sortedData = data.sort((a,b) => a.cd_ranking- b.cd_ranking)
 
 
-    const rankcolor = (rank) => {
-        if(rank >= 55)
-            return grey[700]
-        else if(rank > 35)
-            return red[400]
-        else if(rank > 25)
-            return orange[400]
-        else if(rank >15)
-            return yellow[400]
-        return green[400]
-    }
+    function getColor(d){
+        return d >= 146 ? '#b30000' :    // 112 +
+                   d >= 117  ? '#e34a33' : // 91 - 111
+                   d >= 88  ? '#fc8d59' :  // 70 - 90
+                   d >= 58  ? '#fdbb84' :  // 49 - 69
+                   d >= 29   ? '#fdd49e' : // 28 - 48
+                   d >= 1 ? '#fef0d9' : // 7 - 27
+                              '#757575'; //  no cd rating
+      }
 
     return (
         <div>
@@ -86,9 +84,9 @@ function RWBlist({country, getCountry}) {
                     <TableBody >
                     {sortedData.map((country, index) => (
                         <TableRow key={country.name} hover>
-                            <TableCell className={classes.number} style={{borderLeft: "10px solid", borderLeftColor: rankcolor(country.rwb_score)}}>{index+1}</TableCell>
+                            <TableCell className={classes.number} style={{borderLeft: "10px solid", borderLeftColor: getColor(country.cd_ranking)}}>{index+1}</TableCell>
                             <TableCell className={classes.cell}>{country.name}</TableCell>
-                            <TableCell className={classes.cell}>{country.rwb_score}</TableCell>
+                            <TableCell className={classes.cell}>{country.cd_rating}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

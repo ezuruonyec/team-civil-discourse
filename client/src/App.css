@@ -88,3 +88,16 @@ code {
   margin-right: 8px;
   opacity: 1;
 }
+
+.legend .title {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.countryLabel{
+  background: rgba(255, 255, 255, 0);
+  border:0;
+  border-radius:0px;
+  box-shadow: 0 0px 0px;
+}
