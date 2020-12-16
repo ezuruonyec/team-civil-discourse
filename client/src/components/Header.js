@@ -283,12 +283,12 @@ const useStyles = makeStyles((theme) => ({
             </ListItem>
             </Link>
 
-            <Link to="/sources" style={{color: "black", textDecoration: "none"}}>
+            {/* <Link to="/sources" style={{color: "black", textDecoration: "none"}}>
             <ListItem button>
               <ListItemIcon><ListAltIcon /></ListItemIcon>
               <ListItemText primary="Sources" />
             </ListItem>
-            </Link>
+            </Link> */}
 
             <Divider />
 
