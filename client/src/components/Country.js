@@ -7,6 +7,7 @@ import {Typography} from "@material-ui/core"
 import Grid from '@material-ui/core/Grid';
 import InfoCard from "./InfoCard"
 import ReactCountryFlag from "react-country-flag"
+import numeral from "numeral"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_rating, internet_access_year, censorship_level, censorship_rating, cd_rating, cd_ranking}) {
+function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking}) {
     const classes = useStyles();
     return (
         <Container>
@@ -50,33 +51,60 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
                 }} 
                 svg 
             />
-            
             </h1>
+            <h2>Population: {numeral(population).format('0,0')}</h2>
 
 
 
             <Grid container spacing={1}>
 
             <Grid item xs={12} sm={3}>
-            <InfoCard title={population} detail="Population " />
+            <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
             </Grid>
 
             <Grid item xs={12} sm={3}>
-            <InfoCard title={`${internet_access}%`} detail="Internet Access " />
+            <InfoCard title={`${internet_access}%`} detail="Internet Access Percentage" subDetail={'As of ' + internet_access_year}/>
             </Grid>
             
             <Grid item xs={12} sm={3}>
-                <InfoCard title={censorship_level} detail="Censorship Level" subDetail="(Bad) 1 - 10 (Good)"/>
+                <InfoCard title={censorship_level} detail="Online Censorship Level" subDetail="(Highest) 1 - 10 (Lowest)"/>
             </Grid>
 
             <Grid item xs={12} sm={3}>
 
-                <InfoCard title={Math.round(cd_ranking)} detail="Civil Discourse Country Ranking" subDetail="Out of 173"/>
+                <InfoCard title={millenium_dec_ratified} detail="Millenium Declaration Signed" subDetail="As of 2000"/>
 
             </Grid>
 
             </Grid>
 
+            <br></br>
+
+            <InfoCard title={cd_ranking} detail="Civil Discourse Ranking" subDetail="Out of 173 Countries"/>
+
+            <br></br>
+
+            <Grid container spacing={1}>
+
+            <Grid item xs={12} sm={3}>
+            <InfoCard title={rwb_score} detail="Reporters W/O Borders Rating" subDetail="(Best) 0 - 100 (Worst)" />
+            </Grid>
+
+            <Grid item xs={12} sm={3}>
+            <InfoCard title={internet_access_ranking} detail="Internet Access Ranking" subDetail={'Out of 173 Countries'}/>
+            </Grid>
+            
+            <Grid item xs={12} sm={3}>
+                <InfoCard title={censorship_ranking} detail="Online Censorship Level Ranking" subDetail="Out of 173 Countries"/>
+            </Grid>
+
+            <Grid item xs={12} sm={3}>
+
+                <InfoCard title={cd_rating} detail="Civil Discourse Rating" subDetail="(Best) Low - High (Worst)"/>
+
+            </Grid>
+
+            </Grid>
             {/* <Typography className={classes.sectionHeader}>Population {population}</Typography> */}
 {/* 
             <Typography className={classes.sectionHeader}>Millenium Declaration</Typography>
