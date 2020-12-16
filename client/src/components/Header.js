@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
 import Paper from '@material-ui/core/Paper';
 import { useHistory } from 'react-router-dom'
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -18,8 +17,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -27,7 +24,7 @@ import {Link} from "react-router-dom"
 import InfoIcon from '@material-ui/icons/Info';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Switch from "react-switch";
+
 
 const drawerWidth = 240;
 
@@ -157,7 +154,7 @@ const useStyles = makeStyles((theme) => ({
 
   }));
   
-  export default function ButtonAppBar({mode, setMode, currentTerm}) {
+  export default function ButtonAppBar({currentTerm}) {
     const classes = useStyles();
     let history = useHistory();
     const theme = useTheme();
@@ -174,7 +171,7 @@ const useStyles = makeStyles((theme) => ({
     const [searchTerm, setSearchTerm] = useState(currentTerm ? currentTerm : "")
 
     const [searchTermInput, setSearchTermInput] = useState(currentTerm ? currentTerm : "")
-    const [checked, setChecked] = useState(false)
+  
     
 
     const handleSubmit = (e) => {
