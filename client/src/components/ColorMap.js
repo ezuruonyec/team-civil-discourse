@@ -4,6 +4,7 @@ import {MapContainer, TileLayer, GeoJSON} from 'react-leaflet';
 import {connect} from "react-redux"
 import * as actions from "../actions"
 import ReactCountryFlag from "react-country-flag"
+import numeral from "numeral"
 
 const ColorMap = ({mode, country, info}) => {
 
@@ -49,7 +50,14 @@ const ColorMap = ({mode, country, info}) => {
   function getPopulation(name) {
     return info.filter(item => item.name === name).map(f => f.population)
   }
-    
+
+  function getInternetPercent(name) {
+    return info.filter(item => item.name === name).map(f => f.internet_access)
+  }
+
+  function getCensorshipLevel(name) {
+    return info.filter(item => item.name === name).map(f => f.censorship_level)
+  }
   return (
    
 <MapContainer 
@@ -102,9 +110,9 @@ touchZoom
         
         '<h5>'+feature.properties.name+'</h5>'+
         '<p>CD Ranking: '+ getRank(feature.properties.name) +'</p>'+
-        '<p>Population: '+ getPopulation(feature.properties.name) +'</p>'+
-        '<p>Internet Access Percentage: 88.5</p>'+
-        '<p>Censorship Level: 10 (good)</p>'+
+        '<p>Population: '+ numeral(getPopulation(feature.properties.name)).format('0,0') +'</p>'+
+        '<p>Internet Access Percentage: ' + getInternetPercent(feature.properties.name) + '</p>'+
+        '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>'+
         '<a href="/search/'+feature.properties.name+'">View more</a>')
 
     layer.on('mouseover', function () {

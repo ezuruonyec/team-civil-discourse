@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center"
     },
     subDetail: {
-        fontSize: theme.spacing(1),
+        fontSize: theme.spacing(2),
         textAlign: "center"
     },
 }))
