@@ -93,9 +93,9 @@ zoomAnimation
 
         
         '<h5>'+feature.properties.name+'</h5>'+
-        '<p>CD Ranking: '+ getRank(feature.properties.name) +'</p>'+
+        '<p>Civil Discourse Ranking: '+ getRank(feature.properties.name) +'</p>'+
         '<p>Population: '+ numeral(getPopulation(feature.properties.name)).format('0,0') +'</p>'+
-        '<p>Internet Access Percentage: ' + getInternetPercent(feature.properties.name) + '</p>'+
+        '<p>Internet Access: ' + getInternetPercent(feature.properties.name)+'%</p>'+
         '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>'+
         '<a href="/search/'+feature.properties.name+'">View more</a>')
 
