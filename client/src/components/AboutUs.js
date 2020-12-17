@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from "./Header"
-
+import Container from '@material-ui/core/Container';
 export function AboutUs() {
     return (
-
-            <div>
-                <Header />
+            <>
+            <Header />
+            <Container>
+                
 
                 <h1>Background</h1>
                 <p>
@@ -41,8 +42,8 @@ export function AboutUs() {
                 <p>
                     Eventually, we decided to include the Reporters Without Borders Press Freedom Index, the level of internet access, the online censorship level and whether the country signed the Millennium Declaration.  After discussing the relative weight each variable should receive, we decided that that the press freedom index should be 37.5% of the score, the internet access should be 30% of the score, the online censorship should be 22.5% of the score, and the Millennium Declaration should be 10% of the score.  Since each of the variables used different scales, we based our calculation on the country’s ranking on that variable relative to other countries. We included the country’s population and poverty rate in its individual profile, but did not include them in the final calculation.  We used the most recent year for the level of internet access. However, those years varied in the database we used, so that portion of the rating based on that variable is not completely consistent. 
                 </p>
-            </div>
-
+            </Container>
+            </>
     )
 }
 
