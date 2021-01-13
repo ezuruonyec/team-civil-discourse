@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
         // freedom_speech: req.body.freedom_speech,
         // freedom_media: req.body.freedom_media,
         // fake_news: req.body.fake_news,
-        // poverty_level: req.body.poverty_level,
+        poverty_level: req.body.poverty_level,
     })
 
     newCountry.save()
@@ -78,12 +78,13 @@ router.put("/update", (req, res) => {
         millenium_dec_ratified: req.body.millenium_dec_ratified,
         millenium_dec_year: req.body.millenium_dec_year,
         population: req.body.population,
+        poverty_level: req.body.poverty_level,
+
         updated: Date.now()
         // sources: req.body.sources,
         // freedom_speech: req.body.freedom_speech,
         // freedom_media: req.body.freedom_media,
         // fake_news: req.body.fake_news,
-        // poverty_level: req.body.poverty_level,
     },
     {upsert: true}
     )

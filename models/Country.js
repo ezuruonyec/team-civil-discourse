@@ -55,6 +55,9 @@ const CountrySchema = new Schema({
     cd_ranking: {
         type: Number,
     },
+    poverty_level: {
+        type: Number,
+    }
     // sources: [],
     // updated: {
     //     type: Date,
@@ -75,10 +78,7 @@ const CountrySchema = new Schema({
     //     year: Number,
     //     prosecution: Boolean,
     // }],
-    // poverty_level: [{
-    //     percent: Number,
-    //     year: Number,
-    // }],
+
 
 })
 

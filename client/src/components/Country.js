@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking}) {
+function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate}) {
     const classes = useStyles();
     return (
         <Container>
@@ -53,7 +53,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             />
             </h1>
             <h2>Population: {numeral(population).format('0,0')}</h2>
-
+            <h2>Poverty Rate: N/A</h2>
 
 
             <Grid container spacing={1}>
@@ -82,7 +82,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
 
             <InfoCard title={cd_ranking} detail="Civil Discourse Ranking" subDetail="Out of 173 Countries"/>
 
-            <br></br>
+            {/* <br></br>
 
             <Grid container spacing={1}>
 
@@ -104,7 +104,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
 
             </Grid>
 
-            </Grid>
+            </Grid> */}
             {/* <Typography className={classes.sectionHeader}>Population {population}</Typography> */}
 {/* 
             <Typography className={classes.sectionHeader}>Millenium Declaration</Typography>

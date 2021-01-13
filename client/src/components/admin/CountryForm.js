@@ -104,6 +104,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
     const [censorshipRanking, setCensorshipRanking] = useState(0)
     const [civilDiscourseRating, setCivilDiscourseRating] = useState(0)
     const [civilDiscourseRanking, setCivilDiscourseRanking] = useState(0)
+    const [povertyLevel, setPovertyLevel] = useState(0)
     const [id, setId] = useState(null)
 
     // const [free_speech, setFreeSpeech] = useState(true)
@@ -115,7 +116,6 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
     // const [fakeNewsDescription, setFnDescription] = useState("")
     // const [fakeNewsYear, setFnYear] = useState(0)
     // const [fakeNewsProsecution, setFnProsecution] = useState(true)
-    // const [povertyLevel, setPovertyLevel] = useState(0)
     // const [povertyYear, setPovertyYear] = useState(0)
     // const [sources, setSources] = useState("")
 
@@ -137,7 +137,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             setCensorshipRanking(data.censorship_ranking)
             setCivilDiscourseRating(data.cd_rating)
             setCivilDiscourseRanking(data.cd_ranking)
-
+            setPovertyLevel(data.poverty_level)
             // data.freedom_speech.map(info => {
             //     setFreeSpeech(info.present)
             //     setFsRestrict(info.restrictions)
@@ -181,6 +181,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             censorship_ranking: censorshipRanking,
             cd_rating: civilDiscourseRating,
             cd_ranking: civilDiscourseRanking,
+            poverty_level: povertyLevel,
             id: id,
 
             // freedom_speech: [{
@@ -197,10 +198,6 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             //     description: fakeNewsDescription,
             //     year: fakeNewsYear,
             //     prosecution: fakeNewsProsecution,
-            // }],
-            // poverty_level: [{
-            //     percent: povertyLevel,
-            //     year: povertyYear
             // }],
             // sources: [sources],
 
@@ -499,7 +496,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
             />
         </FormGroup>
 
-        {/* <FormGroup>
+        <FormGroup>
             <Typography variant="p" className={classes.section}>Poverty Level</Typography>
             <Input
                 type="number"
@@ -509,17 +506,7 @@ const CountryForm = ({addCountry, editCountry, disp, index, mode, data, headerTe
                 value={povertyLevel}
                 onChange={e => setPovertyLevel(e.target.value)} 
             />
-            <br />
-            <Typography variant="p" className={classes.section}>Poverty Level Year</Typography>
-            <Input
-                type="number"
-                name="poverty_year"
-                id="poverty_year"
-                placeholder="Poverty Year"
-                value={povertyYear}
-                onChange={e => setPovertyYear(e.target.value)} 
-            />
-        </FormGroup>  */}
+        </FormGroup> 
 
         <FormGroup>
             <Typography variant="p" className={classes.section}>Civil Discourse Rating</Typography>
