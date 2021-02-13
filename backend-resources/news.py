@@ -1,7 +1,9 @@
-import requests
-import json
-import sys
-import config 
+import requests # for API requests
+import json # for parsing JSON data if needed
+import sys # for parsing command line arguments
+import config  # seperate file for holding keys 
+import boto3 # for accessing S3 (and lambda functions?
+
 # TODO implement lambda functions 
 def news():
     print('Starting Program') 
@@ -18,9 +20,14 @@ def news():
             news_request = requests.get(request_url)
             print(news_request)
         # TODO: send to cache instead of writing to file on local system
-            f = open('return.json', 'w')
+            f = open(country + '_return.json', 'w')
             f.write(news_request.text)
             f.close()
+            # s3_client = boto3.client('s3')
+            # try:
+            #    response = s3_client.upload_file(country + '_return.json', bucket, news_request.text) 
+            # catch: 
+            # do some stuff here 
 
 def main():
     news()
