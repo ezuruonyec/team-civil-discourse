@@ -12,19 +12,19 @@ const useStyles = makeStyles((theme) => ({
 
     title: {
         fontSize: theme.spacing(5),
-        textAlign: "left",
+        textAlign: "center",
         fontFamily: "Roboto",
     },
 
     detail: {
         fontSize: theme.spacing(4),
-        textAlign: "center",
-        fontFamily: "Roboto",
+        textAlign: "left",
+        fontFamily: "Times New Roman",
     }, 
 
-   subdetail: {
+   subDetail: {
         fontSize: theme.spacing(2),
-        textAlign: "right",
+        textAlign: "left",
         fontFamily: "Times New Roman",
    }
 

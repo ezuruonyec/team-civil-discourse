@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import InfoCard from "./InfoCard"
 import ReactCountryFlag from "react-country-flag"
 import numeral from "numeral"
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "./ArticleCard"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array}) {
     const classes = useStyles();
+    console.log('Article:', article_array)
     return (
         <Container>
             <h1>
@@ -85,8 +86,10 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
 
             <br></br>
             
+            <Grid item xs={12} sm = {6}>
+                <ArticleCard title="Default Title" detail="Default Description" subDetail="Default Date"/>
+            </Grid>
             
-            <ArticleCard title={article_array[0].title} detail="Default Description" subdetail="Default Date"/>
             
 
             {/* <br></br>
