@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import InfoCard from "./InfoCard"
 import ReactCountryFlag from "react-country-flag"
 import numeral from "numeral"
+import ArticleCard from "./ArticleCard";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate}) {
+function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array}) {
     const classes = useStyles();
     return (
         <Container>
@@ -72,7 +73,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
 
             <Grid item xs={12} sm={3}>
 
-                <InfoCard title={millenium_dec_ratified} detail="Millenium Declaration Signed" subDetail="As of 2000"/>
+            <InfoCard title={millenium_dec_ratified} detail="Millenium Declaration Signed" subDetail="As of 2000"/>
 
             </Grid>
 
@@ -81,6 +82,12 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             <br></br>
 
             <InfoCard title={cd_ranking} detail="Civil Discourse Ranking" subDetail="Out of 173 Countries"/>
+
+            <br></br>
+            
+            
+            <ArticleCard title={article_array[0].title} detail="Default Description" subdetail="Default Date"/>
+            
 
             {/* <br></br>
 
