@@ -15,14 +15,23 @@ def news():
         print(country)
         if country == 'United-States':
             domains ='washingtonpost.com,nytimes.com'
-            request_url = ('https://newsapi.org/v2/everything?q=' + keywords  
-            + '&domains=' + domains +'&pageSize=15&apiKey=' + config.newsAPI_key)
+            request_url = ('https://newsapi.org/v2/everything?qInTitle=' + keywords  
+            + '&domains=' + domains +'&pageSize=5&apiKey=' + config.newsAPI_key)
             news_request = requests.get(request_url)
             print(news_request)
         # TODO: send to cache instead of writing to file on local system
-            f = open(country + '_return.json', 'w')
-            f.write(news_request.text)
-            f.close()
+        elif country == 'United-Kingdom':
+            country_code = 'uk'
+            domains = 'washingtonpost.com,bbc.com'
+            request_url = ('https://newsapi.org/v2/everything?q=' + keywords  
+             +'&domains=' + domains +'&pageSize=5&apiKey=' + config.newsAPI_key)
+            news_request = requests.get(request_url) 
+            # do stuff here
+        elif country == 'Canada':
+            domains = 'washingtonpost.com'
+        f = open(country + '_return.json', 'w')
+        f.write(news_request.text)
+        f.close()
             # s3_client = boto3.client('s3')
             # try:
             #    response = s3_client.upload_file(country + '_return.json', bucket, news_request.text) 
