@@ -1,20 +1,86 @@
+/** Express router providing country related routes
+ * @module routes/api/countries
+ * @requires express
+ */
+
+//  ██╗███╗   ███╗██████╗  ██████╗ ██████╗ ████████╗███████╗
+//  ██║████╗ ████║██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝
+//  ██║██╔████╔██║██████╔╝██║   ██║██████╔╝   ██║   ███████╗
+//  ██║██║╚██╔╝██║██╔═══╝ ██║   ██║██╔══██╗   ██║   ╚════██║
+//  ██║██║ ╚═╝ ██║██║     ╚██████╔╝██║  ██║   ██║   ███████║
+//  ╚═╝╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+//     
+
+/**
+ * Express module
+ * @const
+ */
 const express = require("express")
-const { count } = require("../../models/Country")
+
+/**
+ * Express router to mount country related functions on.
+ * @type {object}
+ * @const
+ */
 const router = express.Router()
 
-// item model
+/**
+ * Country model
+ * @const
+ */
 const Country = require("../../models/Country")
 
-// @route GET api/countries
-// @desc Get All Countries
-// @access Public
+
+//   ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ ██╗   ██╗██████╗ ███████╗    ██████╗  ██████╗ ██╗   ██╗████████╗██╗███╗   ██╗ ██████╗ 
+//  ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ ██║   ██║██╔══██╗██╔════╝    ██╔══██╗██╔═══██╗██║   ██║╚══██╔══╝██║████╗  ██║██╔════╝ 
+//  ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗██║   ██║██████╔╝█████╗      ██████╔╝██║   ██║██║   ██║   ██║   ██║██╔██╗ ██║██║  ███╗
+//  ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║██║   ██║██╔══██╗██╔══╝      ██╔══██╗██║   ██║██║   ██║   ██║   ██║██║╚██╗██║██║   ██║
+//  ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝╚██████╔╝██║  ██║███████╗    ██║  ██║╚██████╔╝╚██████╔╝   ██║   ██║██║ ╚████║╚██████╔╝
+//   ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
+//                                                                                                                                       
+
+/**
+ * Routing to get ALL countries
+ * @name api/countries/
+ * @function
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ * @access public
+ */
 router.get("/", (req, res) => {
     Country.find()
-        .sort({name: 1})
+        .sort({ name: 1 })
         .then(country => res.json(country))
 })
 
-// @route   GET api/countries
+/**
+ * Routing to get a country by a given ISO-3166 Country Code
+ * @name api/countries/code/:code
+ * @function
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ * @access public
+ */
+router.get("/:code", (req, res) => {
+    Country.findOne({code: req.params.code})
+        .then(country => res.json(country))
+})
+
+/**
+ * Routing to get a country by a given country name
+ * @name api/countries/name/:name
+ * @function
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ * @access public
+ */
+router.get("/name/:name", (req, res) => {
+    Country.findOne({ name: req.params.name })
+        .then(country => res.json(country))
+})
+
+// TODO: WHY IS THIS HERE???
+// @route   POST api/countries
 // @desc    Create countries
 // @access  Public
 router.post("/", (req, res) => {
@@ -35,11 +101,6 @@ router.post("/", (req, res) => {
         millenium_dec_ratified: req.body.millenium_dec_ratified,
         millenium_dec_year: req.body.millenium_dec_year,
         population: req.body.population,
-
-        // sources: req.body.sources,
-        // freedom_speech: req.body.freedom_speech,
-        // freedom_media: req.body.freedom_media,
-        // fake_news: req.body.fake_news,
         poverty_level: req.body.poverty_level,
     })
 
@@ -47,18 +108,15 @@ router.post("/", (req, res) => {
         .then(item => res.json(item))
 })
 
-// @route   GET api/countries
-// @desc    Get a single country by the country code
-// @access  Public
-
-// router.get("/:code", (req, res) => {
-//     Country.findOne({code: req.params.code})
-//         .then(country => res.json(country))
-// })
-
-// @route   PUT api/countries/update
-// @desc    Update a country
-// @access  Public
+// TODO: Do we even need put functions? All update functionality *should* be performed through AWS
+/**
+ * Routing to update a country. Country is determined by whatever Country Code is provided in the given request body.
+ * @name api/countries/update
+ * @function
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ * @access public
+ */
 router.put("/update", (req, res) => {
     console.log(req.body)
     Country.findByIdAndUpdate(req.body.id, {
@@ -86,31 +144,26 @@ router.put("/update", (req, res) => {
         // freedom_media: req.body.freedom_media,
         // fake_news: req.body.fake_news,
     },
-    {upsert: true}
+        { upsert: true }
     )
-    .then(res.json({sucesss:true}))
-    .catch(err => res.status(404).json({sucess: false}))
+        .then(res.json({ sucesss: true }))
+        .catch(err => res.status(404).json({ sucess: false }))
 })
 
-
-// @route   DELELTE api/countries
-// @desc    Delete country
-// @access  Public
+// TODO: WHY ARE THESE ALL PUBLIC
+/**
+ * Routing to delete a country by a given country name
+ * @name api/countries/:id
+ * @function
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ * @access public
+ */
 router.delete("/:id", (req, res) => {
-   Country.findByIdAndDelete({_id: req.params.id})
-   .then(res.json({sucesss:true}))
-   .catch(err => res.status(404).json({sucess: false}))
+    Country.findByIdAndDelete({ _id: req.params.id })
+        .then(res.json({ sucesss: true }))
+        .catch(err => res.status(404).json({ sucess: false }))
 })
 
-// @route GET api/countries/:name
-// @desc Get All Countries
-// @access Public
-router.get("/name/:name", (req, res) => {
-    Country.findOne({name: req.params.name})
-        .then(country => res.json(country))
-})
-
-    
-
-
+// Making it so our routings are all available to be imported by other modules
 module.exports = router
