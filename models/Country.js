@@ -1,14 +1,37 @@
+/** MongoDB Schema providing data about a country
+ * @module models/Country
+ * @requires mongoose
+ */
+
+/**
+ * Mongoose module
+ * @const
+ */
 const mongoose = require("mongoose")
+
+/**
+ * Generic Mongoose Schema
+ * @const
+ */
 const Schema = mongoose.Schema
 
-// create schema
+//  ███████╗ ██████╗██╗  ██╗███████╗███╗   ███╗ █████╗ 
+//  ██╔════╝██╔════╝██║  ██║██╔════╝████╗ ████║██╔══██╗
+//  ███████╗██║     ███████║█████╗  ██╔████╔██║███████║
+//  ╚════██║██║     ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══██║
+//  ███████║╚██████╗██║  ██║███████╗██║ ╚═╝ ██║██║  ██║
+//  ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝
+//                                                     
+/**
+ * A Country Schema
+ * @const
+ */
 const CountrySchema = new Schema({
     name: {
         type: String,
         required: true,
         unique: true,
         dropDups: true,
-        
     },
     two_digit: {
         type: String,
@@ -58,28 +81,6 @@ const CountrySchema = new Schema({
     poverty_level: {
         type: Number,
     }
-    // sources: [],
-    // updated: {
-    //     type: Date,
-    //     default: Date.now
-    // }
-    // freedom_speech: [{
-    //     present: Boolean,
-    //     restrictions: String
-    // }],
-    // freedom_media: [{
-    //     present: Boolean,
-    //     restrictions: String,
-    //     year: Number
-    // }],
-    // fake_news: [{
-    //     present: Boolean,
-    //     description: String,
-    //     year: Number,
-    //     prosecution: Boolean,
-    // }],
-
-
 })
 
 module.exports = Country = mongoose.model("country", CountrySchema)
