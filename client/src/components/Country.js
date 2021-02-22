@@ -36,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array1}) {
+function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array}) {
     const classes = useStyles();
-    //console.log('Article:', article_array[0], article_array[1], article_array[2])
+    console.log('Article:', article_array[0], article_array[1], article_array[2])
     return (
         <Container>
             <h1>
@@ -87,7 +87,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             <br></br>
             
             <Grid item xs={12} sm = {6}>
-                <ArticleCard title={article_array1} detail="Default Description" subDetail="Default Date"/>
+                <ArticleCard title={article_array[0]} detail="Default Description" subDetail="Default Date"/>
             </Grid>
             
             
