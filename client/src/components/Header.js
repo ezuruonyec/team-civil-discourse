@@ -179,6 +179,10 @@ const useStyles = makeStyles((theme) => ({
       if ( searchTerm !== "" )
       return history.push(`/search/${searchTerm}`);
     }
+    const handleBack = (e) => {
+      e.preventDefault()
+      return history.goBack();
+    }
 
     const handleBack = (e) => {
       e.preventDefault()
@@ -206,17 +210,15 @@ const useStyles = makeStyles((theme) => ({
             <Typography variant="h6" className={classes.title}>
               <a href="/" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
-            
 
-            {/*Info Button */}
-            <Link to="/about" style={{color: "black", textDecoration: "none"}}>
-            
-            
-              <ListItemIcon ><InfoIcon /></ListItemIcon>
-              {/* <ListItemText primary="About Us" /> */}
+
+            {/* About Us Button */}
+            <Link to="/about" style={{color: "white", textDecoration: "none"}}>
+       
               
-            
+             <IconButton color = "inherit"><InfoIcon/></IconButton> 
             </Link>
+
             <div>
             {/* Search Form */}
             <Paper component="form" elevation={0} className={classes.search} onSubmit={handleSubmit} >
@@ -264,7 +266,7 @@ const useStyles = makeStyles((theme) => ({
         </AppBar>
 
 
-        <Drawer
+        {/* <Drawer
         className={classes.drawer}
         variant="persistent"
         anchor="left"
@@ -291,13 +293,6 @@ const useStyles = makeStyles((theme) => ({
             </ListItem>
             </Link> */}
 
-            {/* <Link to="/sources" style={{color: "black", textDecoration: "none"}}>
-            <ListItem button>
-              <ListItemIcon><ListAltIcon /></ListItemIcon>
-              <ListItemText primary="Sources" />
-            </ListItem>
-            </Link> */}
-
             <Divider />
 
             <Link to="/admin" style={{color: "black", textDecoration: "none"}}>
@@ -308,7 +303,7 @@ const useStyles = makeStyles((theme) => ({
             </Link>
           
         </List>
-      </Drawer>
+      </Drawer> */}
 
        
         
