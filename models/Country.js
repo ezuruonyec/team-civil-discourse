@@ -55,7 +55,107 @@ const CountrySchema = new Schema({
     cd_ranking: {
         type: Number,
     },
-    // sources: [],
+    poverty_level: {
+        type: Number,
+    },
+    article_array: {
+	    type: Array,
+    },
+    article_1_title: {
+        type: String,
+    },
+    article_1_author: {
+        type: String,
+    },
+    article_1_description: {
+        type: String,
+    },
+    article_1_date: {
+        type: String,
+    },
+    article_1_source: {
+        type: String,
+    },
+    article_1_url: {
+        type: String,
+    },
+    article_2_title: {
+        type: String,
+    },
+    article_2_author: {
+        type: String,
+    },
+    article_2_description: {
+        type: String,
+    },
+    article_2_date: {
+        type: String,
+    },
+    article_2_source: {
+        type: String,
+    },
+    article_2_url: {
+        type: String,
+    },
+    article_3_title: {
+        type: String,
+    },
+    article_3_author: {
+        type: String,
+    },
+    article_3_description: {
+        type: String,
+    },
+    article_3_date: {
+        type: String,
+    },
+    article_3_source: {
+        type: String,
+    },
+    article_3_url: {
+        type: String,
+    },
+    article_4_title: {
+        type: String,
+    },
+    article_4_author: {
+        type: String,
+    },
+    article_4_description: {
+        type: String,
+    },
+    article_4_date: {
+        type: String,
+    },
+    article_4_source: {
+        type: String,
+    },
+    article_4_url: {
+        type: String,
+    },
+    article_5_title: {
+        type: String,
+    },
+    article_5_author: {
+        type: String,
+    },
+    article_5_description: {
+        type: String,
+    },
+    article_5_date: {
+        type: String,
+    },
+    article_5_source: {
+        type: String,
+    },
+    article_5_url: {
+        type: String,
+    },
+
+
+    
+
+	// sources: [],
     // updated: {
     //     type: Date,
     //     default: Date.now
@@ -75,10 +175,7 @@ const CountrySchema = new Schema({
     //     year: Number,
     //     prosecution: Boolean,
     // }],
-    // poverty_level: [{
-    //     percent: Number,
-    //     year: Number,
-    // }],
+
 
 })
 

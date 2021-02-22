@@ -25,7 +25,7 @@ class App extends Component {
           <Switch>
               <Route path="/" component={MapWrapper} exact />
               <Route path="/about" component={about} exact />
-              <Route path="/sources" component={Sources} exact/>
+              {/* <Route path="/sources" component={Sources} exact/> */}
               <Route path="/list" component={RWBlist} exact />
 
               <Route path="/search/:term" component={Search} />

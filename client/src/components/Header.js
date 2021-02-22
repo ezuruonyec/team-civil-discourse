@@ -180,6 +180,12 @@ const useStyles = makeStyles((theme) => ({
       return history.push(`/search/${searchTerm}`);
     }
 
+    const handleBack = (e) => {
+      e.preventDefault()
+      return history.goBack();
+    }
+
+
   
     return (
       <div className={classes.root}>
@@ -194,22 +200,24 @@ const useStyles = makeStyles((theme) => ({
         >
           <Toolbar>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu"
-             onClick={handleDrawerOpen}> 
-              <MenuIcon />
+             onClick={handleBack}> 
+              <ChevronLeftIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
               <a href="/" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
-            {/* <Link href="/rwb" className={classes.links}>Reporters Without Borders</Link> */}
-            {/* <label>
-            <span>Switch with default style</span>
-            <Switch onChange={() => {
-              setMode(!mode)
-              alert(mode)
-              }} checked={mode}/>
-          </label> */}
-            <div>
+            
 
+            {/*Info Button */}
+            <Link to="/about" style={{color: "black", textDecoration: "none"}}>
+            
+            
+              <ListItemIcon ><InfoIcon /></ListItemIcon>
+              {/* <ListItemText primary="About Us" /> */}
+              
+            
+            </Link>
+            <div>
             {/* Search Form */}
             <Paper component="form" elevation={0} className={classes.search} onSubmit={handleSubmit} >
       
@@ -274,21 +282,21 @@ const useStyles = makeStyles((theme) => ({
      
         <List>
          
-            <Link to="/about" style={{color: "black", textDecoration: "none"}}>
+            {/* <Link to="/about" style={{color: "black", textDecoration: "none"}}>
             <ListItem button>
             
               <ListItemIcon ><InfoIcon /></ListItemIcon>
               <ListItemText primary="About Us" />
               
             </ListItem>
-            </Link>
+            </Link> */}
 
-            <Link to="/sources" style={{color: "black", textDecoration: "none"}}>
+            {/* <Link to="/sources" style={{color: "black", textDecoration: "none"}}>
             <ListItem button>
               <ListItemIcon><ListAltIcon /></ListItemIcon>
               <ListItemText primary="Sources" />
             </ListItem>
-            </Link>
+            </Link> */}
 
             <Divider />
 

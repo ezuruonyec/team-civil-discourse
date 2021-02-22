@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import InfoCard from "./InfoCard"
 import ReactCountryFlag from "react-country-flag"
 import numeral from "numeral"
+import ArticleCard from "./ArticleCard"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,8 +36,15 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking}) {
+//console.log("Before country function")
+function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array,
+                  article_1_title, article_1_description, article_1_author, article_1_date, article_1_source, article_1_url,
+                  article_2_title, article_2_description, article_2_author, article_2_date, article_2_source, article_2_url,
+                  article_3_title, article_3_description, article_3_author, article_3_date, article_3_source, article_3_url,
+                  article_4_title, article_4_description, article_4_author, article_4_date, article_4_source, article_4_url,
+                  article_5_title, article_5_description, article_5_author, article_5_date, article_5_source, article_5_url}) {
     const classes = useStyles();
+    //console.log('IN THE COUNTRY FUNCTION', article_array1)
     return (
         <Container>
             <h1>
@@ -53,7 +61,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             />
             </h1>
             <h2>Population: {numeral(population).format('0,0')}</h2>
-
+            <h2>Poverty Rate: N/A</h2>
 
 
             <Grid container spacing={1}>
@@ -72,7 +80,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
 
             <Grid item xs={12} sm={3}>
 
-                <InfoCard title={millenium_dec_ratified} detail="Millenium Declaration Signed" subDetail="As of 2000"/>
+            <InfoCard title={millenium_dec_ratified} detail="Millenium Declaration Signed" subDetail="As of 2000"/>
 
             </Grid>
 
@@ -83,6 +91,29 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             <InfoCard title={cd_ranking} detail="Civil Discourse Ranking" subDetail="Out of 173 Countries"/>
 
             <br></br>
+            
+            <Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_1_title} detail={article_1_author} subDetail= {article_1_date}
+	    articleUrl = {article_1_url}/>
+            </Grid>
+            
+           <Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_2_title} detail={article_2_author} subDetail= {article_2_date}
+	    articleUrl = {article_2_url}/>
+            </Grid>
+
+<Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_3_title} detail={article_3_author} subDetail= {article_3_date}
+	    articleUrl = {article_3_url}/>
+            </Grid>
+
+<Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_4_title} detail={article_4_author} subDetail={article_4_date}
+	    articleUrl = {article_4_url}/>
+            </Grid>
+
+
+            {/* <br></br>
 
             <Grid container spacing={1}>
 
@@ -104,7 +135,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
 
             </Grid>
 
-            </Grid>
+            </Grid> */}
             {/* <Typography className={classes.sectionHeader}>Population {population}</Typography> */}
 {/* 
             <Typography className={classes.sectionHeader}>Millenium Declaration</Typography>

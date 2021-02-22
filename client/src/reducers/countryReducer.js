@@ -54,6 +54,7 @@ export default function(state = initialState, action){
                 item.censorship_ranking = action.payload[1].censorship_ranking
                 item.cd_rating = action.payload[1].cd_rating
                 item.cd_ranking = action.payload[1].cd_ranking
+                item.poverty_level = action.payload[1].poverty_level
 
                 // item.freedom_speech = action.payload[1].freedom_speech
                 // item.freedom_media = action.payload[1].freedom_media
@@ -61,7 +62,6 @@ export default function(state = initialState, action){
                 // item.fn_desc = action.payload[1].fn_desc
                 // item.fn_year = action.payload[1].fn_year
                 // item.fn_prosecution = action.payload[1].fn_prosecution
-                // item.poverty_level = action.payload[1].poverty_level
                 // item.sources = action.payload[1].sources
             })
 
