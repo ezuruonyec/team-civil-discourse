@@ -1,3 +1,7 @@
+/**
+ * Passport allows us to use Google Accounts through the OAUTH 2.0 Standard
+ */
+
 const passport = require("passport")
 const GoogleStrategy = require("passport-google-oauth20").Strategy
 const mongoose = require("mongoose")
@@ -24,9 +28,6 @@ passport.use(
         proxy: true
     }, 
     async (accessToken, refreshToken, profile, done) => {
-        
-        
-
             const existingUser = await User.findOne({email: profile.emails[0].value})
             
               // user already exists in db 
@@ -47,7 +48,5 @@ passport.use(
             // // const user = await new User({googleId: profile.id}).save()
             // done(null, updateUser)
             done(null)
-            
         }
     ))
-
