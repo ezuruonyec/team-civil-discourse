@@ -44,7 +44,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
                   article_4_title, article_4_description, article_4_author, article_4_date, article_4_source, article_4_url,
                   article_5_title, article_5_description, article_5_author, article_5_date, article_5_source, article_5_url}) {
     const classes = useStyles();
-    console.log('IN THE COUNTRY FUNCTION', article_array1)
+    //console.log('IN THE COUNTRY FUNCTION', article_array1)
     return (
         <Container>
             <h1>
@@ -92,11 +92,26 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
 
             <br></br>
             
-            <Grid item xs={12} sm = {6}>
-                <ArticleCard title={article_array1} detail="Default Description" subDetail="Default Date"/>
+            <Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_1_title} detail={article_1_author} subDetail= {article_1_date}
+	    articleUrl = {article_1_url}/>
             </Grid>
             
-            
+           <Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_2_title} detail={article_2_author} subDetail= {article_2_date}
+	    articleUrl = {article_2_url}/>
+            </Grid>
+
+<Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_3_title} detail={article_3_author} subDetail= {article_3_date}
+	    articleUrl = {article_3_url}/>
+            </Grid>
+
+<Grid item xs={12} sm = {12}>
+                <ArticleCard title={article_4_title} detail={article_4_author} subDetail={article_4_date}
+	    articleUrl = {article_4_url}/>
+            </Grid>
+
 
             {/* <br></br>
 

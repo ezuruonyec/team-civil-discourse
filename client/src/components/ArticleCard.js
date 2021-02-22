@@ -1,6 +1,7 @@
 import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom' 
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
 
     detail: {
         fontSize: theme.spacing(4),
-        textAlign: "left",
+        textAlign: "center",
         fontFamily: "Times New Roman",
     }, 
 
    subDetail: {
         fontSize: theme.spacing(2),
-        textAlign: "left",
+        textAlign: "center",
         fontFamily: "Times New Roman",
    }
 
@@ -46,13 +47,13 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function ArticleCard({title, detail, subDetail}) {
+function ArticleCard({title, detail, subDetail, articleUrl}) {
 
     const classes = useStyles();
 
     return(
         <Paper className={classes.root}>
-            <Paper className={classes.title} elevation={0}>{title}</Paper>
+            <a href={articleUrl}> <Paper className={classes.title} elevation={0}>{title}</Paper> </a>
             <Paper className={classes.detail} elevation={0}>{detail}</Paper>
             <Paper className={classes.subDetail} elevation={0}>{subDetail}</Paper>
         </Paper>
