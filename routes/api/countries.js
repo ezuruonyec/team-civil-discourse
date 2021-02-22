@@ -16,6 +16,7 @@
  * @const
  */
 const express = require("express")
+const requireLogin = require("../../middlewares/requireLogin")
 
 /**
  * Express router to mount country related functions on.
@@ -61,7 +62,7 @@ router.get("/", (req, res) => {
  * @param {callback} middleware - Express middleware.
  * @access public
  */
-router.get("/:code", (req, res) => {
+router.get("/code/:code", requireLogin, (req, res) => {
     Country.findOne({code: req.params.code})
         .then(country => res.json(country))
 })
