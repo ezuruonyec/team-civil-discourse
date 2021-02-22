@@ -42,7 +42,7 @@ const Country = require("../../models/Country")
 
 /**
  * Routing to get ALL countries
- * @name api/countries/
+ * @name /api/countries/
  * @function
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
@@ -56,7 +56,7 @@ router.get("/", (req, res) => {
 
 /**
  * Routing to get a country by a given ISO-3166 Country Code
- * @name api/countries/code/:code
+ * @name /api/countries/code/:code
  * @function
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
@@ -69,7 +69,7 @@ router.get("/code/:code", requireLogin, (req, res) => {
 
 /**
  * Routing to get a country by a given country name
- * @name api/countries/name/:name
+ * @name /api/countries/name/:name
  * @function
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
@@ -81,9 +81,14 @@ router.get("/name/:name", (req, res) => {
 })
 
 // TODO: WHY IS THIS HERE???
-// @route   POST api/countries
-// @desc    Create countries
-// @access  Public
+/**
+ * Routing to add a new country to the database
+ * @name /api/countries/
+ * @function
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ * @access public
+ */
 router.post("/", (req, res) => {
     const newCountry = new Country({
         name: req.body.name,
@@ -112,7 +117,7 @@ router.post("/", (req, res) => {
 // TODO: Do we even need put functions? All update functionality *should* be performed through AWS
 /**
  * Routing to update a country. Country is determined by whatever Country Code is provided in the given request body.
- * @name api/countries/update
+ * @name /api/countries/update
  * @function
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
@@ -154,7 +159,7 @@ router.put("/update", (req, res) => {
 // TODO: WHY ARE THESE ALL PUBLIC
 /**
  * Routing to delete a country by a given country name
- * @name api/countries/:id
+ * @name /api/countries/:id
  * @function
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
