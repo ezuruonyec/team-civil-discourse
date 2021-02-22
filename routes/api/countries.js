@@ -10,7 +10,7 @@ fs.readFile('./dummy_file.json', 'utf8', (err, jsonString) => {
     }
     try {
         const parsed_data = JSON.parse(jsonString)
-        console.log('Article Data:', parsed_data.articles)
+      //  console.log('Article Data:', parsed_data.articles)
         const article_array = parsed_data.articles 
     } catch(err) {
         console.log("Error parsing JSON string:", err)
@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
         millenium_dec_ratified: req.body.millenium_dec_ratified,
         millenium_dec_year: req.body.millenium_dec_year,
         population: req.body.population,
-        //article_array: req.body.article_array,
+        article_array: req.body.article_array,
         // sources: req.body.sources,
         // freedom_speech: req.body.freedom_speech,
         // freedom_media: req.body.freedom_media,
@@ -62,6 +62,8 @@ router.post("/", (req, res) => {
     newCountry.save()
         .then(item => res.json(item))
 })
+
+// router.post("../../", (req, res) => 
 
 // @route   GET api/countries
 // @desc    Get a single country by the country code
@@ -95,7 +97,7 @@ router.put("/update", (req, res) => {
         millenium_dec_year: req.body.millenium_dec_year,
         population: req.body.population,
         poverty_level: req.body.poverty_level,
-        //article_array: req.body.article_array,
+        article_array: req.body.article_array,
         updated: Date.now()
         // sources: req.body.sources,
         // freedom_speech: req.body.freedom_speech,
@@ -107,6 +109,7 @@ router.put("/update", (req, res) => {
     .then(res.json({sucesss:true}))
     .catch(err => res.status(404).json({sucess: false}))
 })
+
 
 
 // @route   DELELTE api/countries
