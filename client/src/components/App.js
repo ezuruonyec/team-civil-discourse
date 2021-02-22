@@ -15,7 +15,7 @@ import RWBlist from './RWBlist'
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchUser();
+    this.props.getCurrentUser();
     this.props.getCountry();
   }
   render () {
