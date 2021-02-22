@@ -36,9 +36,15 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array}) {
+//console.log("Before country function")
+function Country({id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array,
+                  article_1_title, article_1_description, article_1_author, article_1_date, article_1_source, article_1_url,
+                  article_2_title, article_2_description, article_2_author, article_2_date, article_2_source, article_2_url,
+                  article_3_title, article_3_description, article_3_author, article_3_date, article_3_source, article_3_url,
+                  article_4_title, article_4_description, article_4_author, article_4_date, article_4_source, article_4_url,
+                  article_5_title, article_5_description, article_5_author, article_5_date, article_5_source, article_5_url}) {
     const classes = useStyles();
-    console.log('Article:', article_array[0], article_array[1], article_array[2])
+    console.log('IN THE COUNTRY FUNCTION', article_array1)
     return (
         <Container>
             <h1>
@@ -87,7 +93,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             <br></br>
             
             <Grid item xs={12} sm = {6}>
-                <ArticleCard title={article_array[0]} detail="Default Description" subDetail="Default Date"/>
+                <ArticleCard title={article_array1} detail="Default Description" subDetail="Default Date"/>
             </Grid>
             
             
