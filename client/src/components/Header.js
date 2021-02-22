@@ -184,6 +184,12 @@ const useStyles = makeStyles((theme) => ({
       return history.goBack();
     }
 
+    const handleBack = (e) => {
+      e.preventDefault()
+      return history.goBack();
+    }
+
+
   
     return (
       <div className={classes.root}>
@@ -205,11 +211,12 @@ const useStyles = makeStyles((theme) => ({
               <a href="/" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
 
+
             {/* About Us Button */}
             <Link to="/about" style={{color: "white", textDecoration: "none"}}>
-            
-              <IconButton color = "inherit"><InfoIcon/></IconButton>
+       
               
+             <IconButton color = "inherit"><InfoIcon/></IconButton> 
             </Link>
 
             <div>
@@ -277,14 +284,14 @@ const useStyles = makeStyles((theme) => ({
      
         <List>
          
-            <Link to="/about" style={{color: "black", textDecoration: "none"}}>
+            {/* <Link to="/about" style={{color: "black", textDecoration: "none"}}>
             <ListItem button>
             
               <ListItemIcon ><InfoIcon /></ListItemIcon>
               <ListItemText primary="About Us" />
               
             </ListItem>
-            </Link>
+            </Link> */}
 
             <Divider />
 

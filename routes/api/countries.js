@@ -25,6 +25,25 @@ const requireLogin = require("../../middlewares/requireLogin")
  */
 const router = express.Router()
 
+
+
+
+// const fs = require('fs')
+// fs.readFile('./dummy_file.json', 'utf8', (err, jsonString) => {
+//     if(err) {
+//         console.log("File read Failed:", err)
+//         return
+//     }
+//     try {
+//         const parsed_data = JSON.parse(jsonString)
+//       //  console.log('Article Data:', parsed_data.articles)
+//         const article_array = parsed_data.articles 
+//     } catch(err) {
+//         console.log("Error parsing JSON string:", err)
+//     }
+    
+// })
+
 /**
  * Country model
  * @const
@@ -107,11 +126,47 @@ router.post("/", (req, res) => {
         millenium_dec_ratified: req.body.millenium_dec_ratified,
         millenium_dec_year: req.body.millenium_dec_year,
         population: req.body.population,
+
+        article_1_title: req.body.article_1_title,
+        article_1_author: req.body.article_1_author,
+        article_1_description: req.body.article_1_description,
+        article_1_date: req.body.article_1_date,
+        article_1_source: req.body.article_1_source,
+        article_1_url: req.body.article_1_url,
+        article_2_title: req.body.article_2_title,
+        article_2_author: req.body.article_2_author,
+        article_2_description: req.body.article_2_description,
+        article_2_date: req.body.article_2_date,
+        article_2_source: req.body.article_2_source,
+        article_2_url: req.body.article_2_url,
+        article_3_title: req.body.article_3_title,
+        article_3_author: req.body.article_3_author,
+        article_3_description: req.body.article_3_description,
+        article_3_date: req.body.article_3_date,
+        article_3_source: req.body.article_3_source,
+        article_3_url: req.body.article_3_url,
+        article_4_title: req.body.article_4_title,
+        article_4_author: req.body.article_4_author,
+        article_4_description: req.body.article_4_description,
+        article_4_date: req.body.article_4_date,
+        article_4_source: req.body.article_4_source,
+        article_4_url: req.body.article_4_url,
+        article_5_title: req.body.article_5_title,
+        article_5_author: req.body.article_5_author,
+        article_5_description: req.body.article_5_description,
+        article_5_date: req.body.article_5_date,
+        article_5_source: req.body.article_5_source,
+        article_5_url: req.body.article_5_url,
         poverty_level: req.body.poverty_level,
+        article_array: req.body.article_array,
+        article_array1: req.body.article_array1.articles.title,
     })
 
     newCountry.save()
         .then(item => res.json(item))
+
+    
+    
 })
 
 // TODO: Do we even need put functions? All update functionality *should* be performed through AWS
@@ -123,6 +178,7 @@ router.post("/", (req, res) => {
  * @param {callback} middleware - Express middleware.
  * @access public
  */
+
 router.put("/update", (req, res) => {
     console.log(req.body)
     Country.findByIdAndUpdate(req.body.id, {
@@ -143,7 +199,8 @@ router.put("/update", (req, res) => {
         millenium_dec_year: req.body.millenium_dec_year,
         population: req.body.population,
         poverty_level: req.body.poverty_level,
-
+        article_array: req.body.article_array,
+        article_array1: req.body.article_array1.articles.title,
         updated: Date.now()
         // sources: req.body.sources,
         // freedom_speech: req.body.freedom_speech,
@@ -165,11 +222,13 @@ router.put("/update", (req, res) => {
  * @param {callback} middleware - Express middleware.
  * @access public
  */
+
 router.delete("/:id", (req, res) => {
     Country.findByIdAndDelete({ _id: req.params.id })
         .then(res.json({ sucesss: true }))
         .catch(err => res.status(404).json({ sucess: false }))
 })
+
 
 // Making it so our routings are all available to be imported by other modules
 module.exports = router
