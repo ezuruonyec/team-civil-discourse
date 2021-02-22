@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
         millenium_dec_ratified: req.body.millenium_dec_ratified,
         millenium_dec_year: req.body.millenium_dec_year,
         population: req.body.population,
-        article_array: req.body.article_array,
+        article_array1: req.body.article_array1,
         // sources: req.body.sources,
         // freedom_speech: req.body.freedom_speech,
         // freedom_media: req.body.freedom_media,

@@ -53,7 +53,7 @@ function Search() {
                             cd_rating={item.cd_rating}
                             cd_ranking={item.cd_ranking}
                             poverty_level={item.poverty_level}
-			    article_array={item.article_array}
+			    article_array1={item.article_array1}
                             // free_speech={item.freedom_speech}
                             // free_media={item.freedom_media}
                             // fake_news={item.fake_news}

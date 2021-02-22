@@ -58,8 +58,17 @@ const CountrySchema = new Schema({
     poverty_level: {
         type: Number,
     },
-    article_array: {
-	type: Array,
+    article_array1: {
+	    results: Number, 
+	    status_val: String, 
+	    article: {
+		    title: String,
+		    author: String, 
+		    Description: String, 
+		    date: String, 
+		    source: String, 
+		    url: String, 
+	    },
     }
 
 	// sources: [],
