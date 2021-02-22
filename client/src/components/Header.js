@@ -260,48 +260,7 @@ const useStyles = makeStyles((theme) => ({
           </div>
           </Toolbar>
         </AppBar>
-
-
-        {/* <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-      
-     
-        <List>
-         
-            {/* <Link to="/about" style={{color: "black", textDecoration: "none"}}>
-            <ListItem button>
-            
-              <ListItemIcon ><InfoIcon /></ListItemIcon>
-              <ListItemText primary="About Us" />
-              
-            </ListItem>
-            </Link> */}
-
-            <Divider />
-
-            <Link to="/admin" style={{color: "black", textDecoration: "none"}}>
-            <ListItem button>
-              <ListItemIcon><AccountCircleIcon /></ListItemIcon>
-              <ListItemText primary="Login" />
-            </ListItem>
-            </Link>
-          
-        </List>
-      </Drawer> */}
-
-       
+  
         
       </div>
     );
