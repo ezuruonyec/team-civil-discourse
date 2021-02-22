@@ -184,10 +184,6 @@ const useStyles = makeStyles((theme) => ({
       return history.goBack();
     }
 
-    const handleBack = (e) => {
-      e.preventDefault()
-      return history.goBack();
-    }
 
 
   
