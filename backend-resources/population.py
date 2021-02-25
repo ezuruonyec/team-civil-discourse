@@ -18,6 +18,9 @@ def get_population(country:str):
     year = str(date.today().year)
     url = 'api.census.gov/data/timeseries/idb/1year?get=POP&GENC=' + country + '&YR=' + year + '&key=' + config.censusAPI_key
     data = request(url) 
+    
     print(data.data)
 
+    first_column = True
+    population = 0
 main() 
