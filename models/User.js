@@ -1,8 +1,33 @@
-const mongoose = require("mongoose")
-const {Schema} = mongoose
+/** MongoDB Schema providing data about a country
+ * @module models/Country
+ * @requires mongoose
+ */
 
+/**
+ * Mongoose module
+ * @const
+ */
+const mongoose = require("mongoose")
+
+/**
+ * Generic Mongoose Schema
+ * @const
+ */
+const { Schema } = mongoose
+
+//  ███████╗ ██████╗██╗  ██╗███████╗███╗   ███╗ █████╗ 
+//  ██╔════╝██╔════╝██║  ██║██╔════╝████╗ ████║██╔══██╗
+//  ███████╗██║     ███████║█████╗  ██╔████╔██║███████║
+//  ╚════██║██║     ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══██║
+//  ███████║╚██████╗██║  ██║███████╗██║ ╚═╝ ██║██║  ██║
+//  ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝
+//                                                      
+/**
+ * A User Schema
+ * @const
+ */
 const userSchema = new Schema({
-    email:  {
+    email: {
         type: String,
         required: true,
         unique: true,
