@@ -22,7 +22,7 @@ def request(request_url):
 
 def get_population(country:str):
     year = str(date.today().year)
-    url = 'api.census.gov/data/timeseries/idb/1year?get=POP&FIPS=' + country + '&YR=' + '2020' + '&AREA_KM2&SEX=0' + '&key=' + config.censusAPI_key
+    url = 'api.census.gov/data/timeseries/idb/1year?get=POP&GENC=' + country + '&YR=' + '2020' + '&AREA_KM2&SEX=0' + '&key=' + config.censusAPI_key
     data = request(url)
 
     print(data)
