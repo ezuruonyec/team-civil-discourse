@@ -209,7 +209,7 @@ const useStyles = makeStyles((theme) => ({
 
 
             {/* About Us Button */}
-            <Link to="/about" style={{color: "white", textDecoration: "none"}}>
+            <Link to="/about" title='About Us Button' style={{color: "white", textDecoration: "none"}}>
        
               
              <IconButton color = "inherit"><InfoIcon/></IconButton> 
