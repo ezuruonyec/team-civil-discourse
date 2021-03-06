@@ -1,14 +1,37 @@
+/** MongoDB Schema providing data about a country
+ * @module models/Country
+ * @requires mongoose
+ */
+
+/**
+ * Mongoose module
+ * @const
+ */
 const mongoose = require("mongoose")
+
+/**
+ * Generic Mongoose Schema
+ * @const
+ */
 const Schema = mongoose.Schema
 
-// create schema
+//  ███████╗ ██████╗██╗  ██╗███████╗███╗   ███╗ █████╗ 
+//  ██╔════╝██╔════╝██║  ██║██╔════╝████╗ ████║██╔══██╗
+//  ███████╗██║     ███████║█████╗  ██╔████╔██║███████║
+//  ╚════██║██║     ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══██║
+//  ███████║╚██████╗██║  ██║███████╗██║ ╚═╝ ██║██║  ██║
+//  ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝
+//                                                     
+/**
+ * A Country Schema
+ * @const
+ */
 const CountrySchema = new Schema({
     name: {
         type: String,
         required: true,
         unique: true,
         dropDups: true,
-        
     },
     two_digit: {
         type: String,
@@ -57,6 +80,7 @@ const CountrySchema = new Schema({
     },
     poverty_level: {
         type: Number,
+
     },
     article_array: {
 	    type: Array,
@@ -150,7 +174,7 @@ const CountrySchema = new Schema({
     },
     article_5_url: {
         type: String,
-    },
+    }
 
 
     
@@ -175,6 +199,7 @@ const CountrySchema = new Schema({
     //     year: Number,
     //     prosecution: Boolean,
     // }],
+
 
 
 })
