@@ -40,10 +40,10 @@ export const getCountry = () => async dispatch => {
       console.log(res.data["Items"]);
     }
 
-    const res2 = await axios.get("/api/countries")
-    console.log("Server Call: \n");
-    console.log(res2.data);
-    
+    // const res2 = await axios.get("/api/countries")
+    // console.log("Server Call: \n");
+    // console.log(res2.data);
+
     dispatch({ type: GET_COUNTRY, payload: res.data["Items"] })
   }
   catch (error) {
