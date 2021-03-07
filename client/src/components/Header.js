@@ -21,9 +21,11 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import {Link} from "react-router-dom"
+import HelpIcon from '@material-ui/icons/Help';
 import InfoIcon from '@material-ui/icons/Info';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { FontIcon } from "material-ui";
 
 
 const drawerWidth = 240;
@@ -199,23 +201,30 @@ const useStyles = makeStyles((theme) => ({
           })}
         >
           <Toolbar>
+            {/* Back Button */}
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu"
              onClick={handleBack}> 
               <ChevronLeftIcon />
             </IconButton>
+
+            {/* Home Title Button */}
             <Typography variant="h6" className={classes.title}>
               <a href="/" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
 
 
+            {/* DELETE ME - Development Button */}
+            <a href="https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributes" style={{color: "white", textDecoration: "none"}}>
+             <IconButton color = "inherit"><HelpIcon/></IconButton> 
+            </a>
+
             {/* About Us Button */}
             <Link to="/about" style={{color: "white", textDecoration: "none"}}>
-       
-              
              <IconButton color = "inherit"><InfoIcon/></IconButton> 
             </Link>
 
             <div>
+              
             {/* Search Form */}
             <Paper component="form" elevation={0} className={classes.search} onSubmit={handleSubmit} >
       
