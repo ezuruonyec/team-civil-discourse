@@ -27,6 +27,8 @@ export const getCountry = () => async dispatch => {
   dispatch(setItemsLoading())
 
   const res = await axios.get("/api/countries")
+  //const res = await axios.get("https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAllAttributes")
+  // const res2 = await axios.get("/api/countries") 
   dispatch({ type: GET_COUNTRY, payload: res.data })
 }
 
