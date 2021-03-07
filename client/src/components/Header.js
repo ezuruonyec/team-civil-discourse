@@ -214,9 +214,6 @@ const useStyles = makeStyles((theme) => ({
 
 
             {/* DELETE ME - Development Button */}
-            <a href="https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributes" style={{color: "white", textDecoration: "none"}}>
-             <IconButton color = "inherit"><HelpIcon/></IconButton> 
-            </a>
 
             {/* About Us Button */}
             <Link to="/about" style={{color: "white", textDecoration: "none"}}>
