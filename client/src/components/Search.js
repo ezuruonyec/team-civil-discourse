@@ -35,12 +35,12 @@ function Search() {
                             :
                         // valid search term. Country was found, display Country Component
                         results.map((item) => <Country 
-                            key={item._id} 
-                            name={item.name} 
-                            two_digit={item.two_digit}
-                            three_digit={item.three_digit}
-                            population={item.population}
-                            millenium_dec_ranking={item.millenium_dec_ranking}
+                            key={item["two_digit"]} 
+                            name={item["CountryName"]} 
+                            two_digit={item["CountryCode"]}
+                            //three_digit={item.three_digit}
+                            population={item["Population"]}
+                            // millenium_dec_ranking={item[]}
                             millenium_dec_ratified={item.millenium_dec_ratified}
                             millenium_dec_year={item.millenium_dec_year}
                             rwb_rank={item.rwb_ranking}
@@ -53,7 +53,7 @@ function Search() {
                             cd_rating={item.cd_rating}
                             cd_ranking={item.cd_ranking}
                             poverty_level={item.poverty_level}
-			                article_array={item.article_array}
+			    /*            article_array={item.article_array}
                             article_array1={item.article_array1}
                             article_1_title={item.article_1_title}
                             article_1_author={item.article_1_author}
@@ -84,7 +84,7 @@ function Search() {
                             article_5_description={item.article_5_description}
                             article_5_date={item.article_5_date}
                             article_5_source={item.article_5_source}
-                            article_5_url={item.article_5_url}
+                            article_5_url={item.article_5_url} */
                             // free_speech={item.freedom_speech}
                             // free_media={item.freedom_media}
                             // fake_news={item.fake_news}
