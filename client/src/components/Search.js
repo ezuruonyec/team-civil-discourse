@@ -14,9 +14,9 @@ function Search() {
     let {term} = useParams()
     
     useEffect(() => {
-       axios.get(`/api/countries/name/${term}`)
-        .then(res => setResults([res.data]))
-        .then(setLoading(false))
+        const country = getCountryByName(term);
+        setResults(country);
+        setLoading(false);
     },[term])    
 
     return (
