@@ -35,7 +35,7 @@ function Search() {
                             :
                         // valid search term. Country was found, display Country Component
                         results.map((item) => <Country 
-                            key={item["two_digit"]} 
+                            key={item["CountryCode"]} 
                             name={item["CountryName"]} 
                             two_digit={item["CountryCode"]}
                             //three_digit={item.three_digit}
