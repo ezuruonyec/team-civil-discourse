@@ -25,7 +25,7 @@ export function AboutUs() {
                     Our initial steps involved researching and recording each country’s national and 
                     international promises to freedom of speech and media.  For the international level this 
                     consisted of seeing which countries that belonged to the United Nations had supported the 
-                    <a href="https://www.un.org/en/member-states/"> 2000 Millenium Declaration.</a> The declaration reaffirmed the 
+                    <a href="https://www.un.org/en/member-states/"> 2000 Millennium Declaration.</a> The declaration reaffirmed the 
                     <a href="https://www.un.org/en/universal-declaration-human-rights/"> 1948 Universal Declaration of Human Rights</a> that included freedom of speech and media.  For the national level we looked at each country’s constitution to determine if it supported these rights.  
                 </p>
                 <p>
