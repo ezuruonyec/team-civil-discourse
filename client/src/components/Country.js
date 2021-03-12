@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({id, name, two_digit, three_digit, population, millennium_dec_ranking, millennium_dec_ratified, millennium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array,
+function Country({id, name, two_digit, three_digit, population, millennium_dec_ranking, millenium_dec_ratified, millennium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array,
                   article_1_title, article_1_description, article_1_author, article_1_date, article_1_source, article_1_url,
                   article_2_title, article_2_description, article_2_author, article_2_date, article_2_source, article_2_url,
                   article_3_title, article_3_description, article_3_author, article_3_date, article_3_source, article_3_url,
@@ -99,7 +99,7 @@ function Country({id, name, two_digit, three_digit, population, millennium_dec_r
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard title={millennium_dec_ratified} detail="Millennium Declaration Signed" subDetail="As of 2000"/>
+                    <InfoCard title={millenium_dec_ratified} detail="Millennium Declaration Signed" subDetail="As of 2000"/>
                 </Grid>
 
             </Grid>
