@@ -10,11 +10,11 @@ export function AboutUs() {
 
                 <h1>Background</h1>
                 <p>
-                The Padnos/Sarosik Civil Discourse Program was founded through the generous gift of Shelley E. Padnos and Carol Sarosik to help create “more inclusive, tolerant, and peaceful communities."(GVSU 2020).
-                 The current civil discourse professor is Jeff Kelly Lowenstein, who noticed that there was no global map ranking the level of civil discourse by country. 
-                 He thought that building such a map could help create a civil discourse rating and make the subject more accessible to people who did not have prior knowledge in this area. 
-                 With the help of students from GVSU, this map seeks to communicate the implications for civil discourse of the tension between those people working to share accurate information and those individuals, organizations and governments seeking to misinform and disinform the public.  
-                 We hope this tool will play a positive in helping people engage in civil discourse and have thought provoking, potentially mind-changing, conversations.
+                    The Padnos/Sarosik Civil Discourse Program was founded through the generous gift of Shelley E. Padnos and Carol Sarosik to help create “more inclusive, tolerant, and peaceful communities."(GVSU 2020).
+                    Current Padnos/Sarosik Endowed Professor of Civil Discourse Jeff Kelly Lowenstein noticed that there was no global map ranking the level of civil discourse by country. 
+                    He thought that building such a map could help make the subject more accessible to people who did not have prior knowledge in this area and provide a standard for meaningful dialogue. 
+                    With the help of students from GVSU, this map seeks to communicate the implications for civil discourse of the tension between those people working to share accurate information and those individuals, organizations and governments seeking to misinform and disinform the public.  
+                    We hope this tool will play a positive role in helping people engage in civil discourse and have thought provoking conversations.
                 </p>    
                 <h1>Methodology</h1>
                 <p>
