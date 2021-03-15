@@ -26,23 +26,39 @@ const ColorMap = ({ allCountries }) => {
     return getColor(getRank(name))
   }
 
+  // function getMatchingCountries(name)
+  // {
+  //   var matchingCountries = allCountries.filter(country => 
+  //     ("CountryAliases" in country && country["CountryAliases"].includes(name)) || 
+  //     (country["CountryName"] === name));
+  //   return matchingCountries;
+  // }
+
   function getRank(name) {
+    // var matchingCountries = getMatchingCountries(name);
+    // return matchingCountries.map(filtered => filtered["DiscourseRanking"]);
     return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["DiscourseRanking"])
   }
-
+  
   function getPopulation(name) {
+    // var matchingCountries = getMatchingCountries(name);
+    // return matchingCountries.map(filtered => filtered["Population"])
     return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["Population"])
   }
-
+  
   function getInternetPercent(name) {
+    // var matchingCountries = getMatchingCountries(name);
+    // return matchingCountries.map(filtered => filtered["InternetAccessPercent"])
     return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["InternetAccessPercent"])
   }
-
+  
   function getCensorshipLevel(name) {
+    // var matchingCountries = getMatchingCountries(name);
+    // return matchingCountries.map(filtered => filtered["CensorshipLevel"])
     return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["CensorshipLevel"])
   }
+  
   return (
-
     <MapContainer
       style={{ margin: "auto", zIndex: "1", marginTop: -10, height: "calc(100% - 61px)" }}
       className="map"
@@ -70,7 +86,6 @@ const ColorMap = ({ allCountries }) => {
       </Pane>
 
       <Legend />
-
 
       <GeoJSON
         data={world}
