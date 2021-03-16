@@ -12,13 +12,13 @@ function Search() {
 
     // search term from URI parameter /search/:term
     let {term} = useParams()
-    
+    // TODO
     useEffect(() => {
        axios.get(`/api/countries/name/${term}`)
         .then(res => setResults([res.data]))
         .then(setLoading(false))
     },[term])    
-
+    // TODO
     return (
         <div>
             <Header currentTerm={term} />
@@ -34,7 +34,7 @@ function Search() {
                         <h1>Not found: {term} </h1> 
                             :
                         // valid search term. Country was found, display Country Component
-                        results.map((item) => <Country 
+                        results.map((item) => <Country // TODO
                             key={item._id} 
                             name={item.name} 
                             two_digit={item.two_digit}
