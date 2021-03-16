@@ -10,11 +10,11 @@ export function AboutUs() {
 
                 <h1>Background</h1>
                 <p>
-                The Padnos/Sarosik Civil Discourse Program was founded through the generous gift of Shelley E. Padnos and Carol Sarosik to help create “more inclusive, tolerant, and peaceful communities."(GVSU 2020).
-                 The current civil discourse professor is Jeff Kelly Lowenstein, who noticed that there was no global map ranking the level of civil discourse by country. 
-                 He thought that building such a map could help create a civil discourse rating and make the subject more accessible to people who did not have prior knowledge in this area. 
-                 With the help of students from GVSU, this map seeks to communicate the implications for civil discourse of the tension between those people working to share accurate information and those individuals, organizations and governments seeking to misinform and disinform the public.  
-                 We hope this tool will play a positive in helping people engage in civil discourse and have thought provoking, potentially mind-changing, conversations.
+                    The Padnos/Sarosik Civil Discourse Program was founded through the generous gift of Shelley E. Padnos and Carol Sarosik to help create “more inclusive, tolerant, and peaceful communities."(GVSU 2020).
+                    Current Padnos/Sarosik Endowed Professor of Civil Discourse Jeff Kelly Lowenstein noticed that there was no global map ranking the level of civil discourse by country. 
+                    He thought that building such a map could help make the subject more accessible to people who did not have prior knowledge in this area and provide a standard for meaningful dialogue. 
+                    With the help of students from GVSU, this map seeks to communicate the implications for civil discourse of the tension between those people working to share accurate information and those individuals, organizations and governments seeking to misinform and disinform the public.  
+                    We hope this tool will play a positive role in helping people engage in civil discourse and have thought provoking conversations.
                 </p>    
                 <h1>Methodology</h1>
                 <p>
@@ -38,27 +38,22 @@ export function AboutUs() {
                 </p>
                 <h1>Contributors</h1>
                 <p>
-                    The IDS 350 class taught by Professor Kelly Lowenstein contributed all of the information used in the Civil Discourse Map. We would like to recognize each student in the class, as well as the 3 computer science students who worked on the web application.
+                This project began in the summer of 2020, when Padnos/Sarosik Intern Samantha Johnson and Lanthorn Editor-In-Chief Nicholas Moran looking up and entering information about each country’s national and international promises of press and media freedoms.
+                </p>
+                <p>
+                    The IDS 350 class taught by Professor Kelly Lowenstein contributed all of the information used in the Civil Discourse Map. We would like to recognize each student in the class, as well as the seven computer science students who worked on the web application, and Computer Science Professor Jonathan Englsma.
                 </p>
                 <p>
                     The IDS class: Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
                 </p>
                 <p>
-                    The CIS class: Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
+                    The CIS students during the Fall 2020 semester: Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
+                    The CIS students during the Winter 2020 semester: Aaron Bager, Stephen Kiser, Nicholas Sheehan, Omar Tiba.
                 </p>
-                
-                <h1>Next Steps</h1>
-                <p>
-                This project will continue for the forseeable future. It began in the summer of 2020, when Padnos/Sarosik Intern Samantha Johnson and Lanthorn Editor-In-Chief Nicholas Moran looking up and entering information about each country’s national and international promises of press and media freedoms.  
-                It progressed in the fall, when students in the Civil Discourse class provided the information for the map while a group of three Computer Science students built the map and website that houses it.  
-                After this semester is over, Professor Kelly Lowenstein plans to work with another group of students in order to further develop the application, updating it and refining it to a polished, professional website.
-                </p>
-                
-            </Container>
+                </Container>
             </>
     )
 }
 
 
 export default AboutUs;
-
