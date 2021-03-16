@@ -26,15 +26,15 @@ export function AboutUs() {
                     international promises to freedom of speech and media.  For the international level this 
                     consisted of seeing which countries that belonged to the United Nations had supported the 
                     <a href="https://www.un.org/en/member-states/"> 2000 Millenium Declaration.</a> The declaration reaffirmed the 
-                    <a href="https://www.un.org/en/universal-declaration-human-rights/"> 1948 Universal Declaration of Human Rights</a> that included freedom of speech and media.  For the national level we looked at each country’s constitution to determine if it supported these rights.  
+                    <a href="https://www.un.org/en/universal-declaration-human-rights/"> 1948 Universal Declaration of Human Rights</a> that included freedom of speech and media.   
                 </p>
                 <p>
                     We also looked into nations’ <a href="https://rsf.org/en/ranking">Reporters Without Borders 2020 World Press Freedom Index </a>ranking, <a href="https://www.census.gov/data-tools/demo/idb/region.php">population, </a><a href="https://data.worldbank.org/indicator/IT.NET.USER.ZS">internet access, </a>
-                    <a href="https://www.vpnmentor.com/blog/online-censorship-country-rank/">online censorship, </a> and <a href="https://data.worldbank.org/country/">poverty levels.</a> 
+                    <a href="https://www.vpnmentor.com/blog/online-censorship-country-rank/"> and online censorship, </a>
                     For each of these variables we sought to find a database that would include as many countries as possible.  We also explored whether countries had passed fake news laws, but did not find a single database that contained a comprehensive listing of these measures.  
                 </p>
                 <p>
-                    Eventually, we decided to include the Reporters Without Borders Press Freedom Index, the level of internet access, the online censorship level and whether the country signed the Millennium Declaration.  After discussing the relative weight each variable should receive, we decided that that the press freedom index should be 37.5% of the score, the internet access should be 30% of the score, the online censorship should be 22.5% of the score, and the Millennium Declaration should be 10% of the score.  Since each of the variables used different scales, we based our calculation on the country’s ranking on that variable relative to other countries. We included the country’s population and poverty rate in its individual profile, but did not include them in the final calculation.  We used the most recent year for the level of internet access. However, those years varied in the database we used, so that portion of the rating based on that variable is not completely consistent. 
+                    Eventually, we decided to include the Reporters Without Borders Press Freedom Index, the level of internet access, the online censorship level and whether the country signed the Millennium Declaration.  After discussing the relative weight each variable should receive, we decided that that the press freedom index should be 37.5% of the score, the internet access should be 30% of the score, the online censorship should be 22.5% of the score, and the Millennium Declaration signature should be 10% of the score.  Since each of the variables used different scales, we based our calculation on the country’s ranking on that variable relative to other countries. We included the country’s population in its individual profile, but did not include them in the final calculation.
                 </p>
                 <h1>Contributors</h1>
                 <p>
