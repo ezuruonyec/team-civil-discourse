@@ -18,8 +18,8 @@ export function AboutUs() {
                 </p>    
                 <h1>Methodology</h1>
                 <p>
-                    We went through an extensive process to identify the variables we used to arrive at each country’s civil discourse rating.  
-                    We sought to find variables that would illustrate the intersection between national commitments to freedom of speech and media with the reality that residents experience with press freedom, internet access and online censorship.  
+                    We went through an extensive process to identify the variables we used for each country’s civil discourse rating.  
+                    We sought to find variables that would illustrate the intersection between national commitments to freedom of speech and media with the reality residents experience in the areas of press freedom, internet access and online censorship.  
                 </p>
                 <p>
                     Our initial steps involved researching and recording each country’s national and 
