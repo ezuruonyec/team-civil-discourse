@@ -59,7 +59,7 @@ export const getCountryByName = (name) => async dispatch => {
     const request = {
       host: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development',
       method: 'GET',
-      url: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributes?CountryCode=' + name,
+      url: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributes?CountryCode=US',// + name,
       path: '/CivilDiscourseMap-GetAttributes',
       crossdomain: true
     }

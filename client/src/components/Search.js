@@ -5,6 +5,20 @@ import Header from "./Header"
 import axios from "axios"
 import {connect} from "react-redux"
 import * as actions from "../actions"
+import {GET_COUNTRY} from "../actions/types";
+import {getCountryByName} from "../actions";
+
+const GetCountryByName = async () => {
+    let {name} = useParams()
+    try {
+        const res = await axios.get('https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributes?CountryCode=US')
+        return res
+    } catch (error) {
+        console.log(error);
+        console.log(error.response);
+    }
+
+}
 
 function Search() {
     const [loading, setLoading] = useState(true)
@@ -14,11 +28,15 @@ function Search() {
     let {term} = useParams()
     // TODO
     useEffect(() => {
-       axios.get(`/api/countries/name/${term}`)
+        getCountryByName()
+            //.then(res => setResults([res.data]))
+            //.then(setLoading(false))
+    /*   axios.get(`/api/countries/name/${term}`)
         .then(res => setResults([res.data]))
-        .then(setLoading(false))
+        .then(setLoading(false)) */
     },[term])    
     // TODO
+
     return (
         <div>
             <Header currentTerm={term} />
@@ -35,15 +53,15 @@ function Search() {
                             :
                         // valid search term. Country was found, display Country Component
                         results.map((item) => <Country // TODO
-                            key={item._id} 
-                            name={item.name} 
-                            two_digit={item.two_digit}
-                            three_digit={item.three_digit}
-                            population={item.population}
-                            millenium_dec_ranking={item.millenium_dec_ranking}
-                            millenium_dec_ratified={item.millenium_dec_ratified}
-                            millenium_dec_year={item.millenium_dec_year}
-                            rwb_rank={item.rwb_ranking}
+                            // key={item._id}
+                            name={item.CountryName}
+                            two_digit={item.CountryCode}
+                            // three_digit={item.three_digit}
+                            population={item.Population}
+                            // millenium_dec_ranking={item.millenium_dec_ranking}
+                            millenium_dec_ratified={item.MilleniumDeclarationRatified}
+                            millenium_dec_year={item.MilleniumDeclarationYear}
+                            /*rwb_rank={item.rwb_ranking}
                             rwb_score={item.rwb_score}
                             internet_access={item.internet_access}
                             internet_access_ranking={item.internet_access_ranking}
@@ -84,7 +102,7 @@ function Search() {
                             article_5_description={item.article_5_description}
                             article_5_date={item.article_5_date}
                             article_5_source={item.article_5_source}
-                            article_5_url={item.article_5_url}
+                            article_5_url={item.article_5_url}*/
                             // free_speech={item.freedom_speech}
                             // free_media={item.freedom_media}
                             // fake_news={item.fake_news}
