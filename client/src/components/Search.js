@@ -28,12 +28,11 @@ function Search() {
     let {term} = useParams()
     // TODO
     useEffect(() => {
-        getCountryByName()
-            //.then(res => setResults([res.data]))
-            //.then(setLoading(false))
-    /*   axios.get(`/api/countries/name/${term}`)
+
+        // axios.get(`/api/countries/name/${term}`)
+        axios.get(`https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=${term}`)
         .then(res => setResults([res.data]))
-        .then(setLoading(false)) */
+        .then(setLoading(false))
     },[term])    
     // TODO
 
@@ -52,16 +51,16 @@ function Search() {
                         <h1>Not found: {term} </h1> 
                             :
                         // valid search term. Country was found, display Country Component
-                        results.map((item) => <Country // TODO
+                         <Country // TODO
                             // key={item._id}
-                            name={item.CountryName}
-                            two_digit={item.CountryCode}
+                            name={results[0][0]['CountryName']}
+                            two_digit={results[0][0]['CountryCode']}
                             // three_digit={item.three_digit}
-                            population={item.Population}
+                            population={results[0][0]['Population']}
                             // millenium_dec_ranking={item.millenium_dec_ranking}
-                            millenium_dec_ratified={item.MilleniumDeclarationRatified}
-                            millenium_dec_year={item.MilleniumDeclarationYear}
-                            /*rwb_rank={item.rwb_ranking}
+                            millenium_dec_ratified={results[0][0]['MilleniumDeclarationRatified']}
+                            millenium_dec_year={results[0][0]['MilleniumDeclarationYear']}
+                            rwb_rank={results[0][0]['']}
                             rwb_score={item.rwb_score}
                             internet_access={item.internet_access}
                             internet_access_ranking={item.internet_access_ranking}
@@ -71,7 +70,7 @@ function Search() {
                             cd_rating={item.cd_rating}
                             cd_ranking={item.cd_ranking}
                             poverty_level={item.poverty_level}
-			                article_array={item.article_array}
+			    /*            article_array={item.article_array}
                             article_array1={item.article_array1}
                             article_1_title={item.article_1_title}
                             article_1_author={item.article_1_author}
@@ -106,7 +105,7 @@ function Search() {
                             // free_speech={item.freedom_speech}
                             // free_media={item.freedom_media}
                             // fake_news={item.fake_news}
-                        />)  
+                        />  
             }  
         </div>
     )
