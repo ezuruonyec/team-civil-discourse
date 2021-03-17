@@ -6,10 +6,9 @@ import * as actions from "../actions"
 import Legend from "./Legend"
 import ReactCountryFlag from "react-country-flag"
 import numeral from "numeral"
+import * as ColorScheme from "../ColorScheme.js"
 
 const ColorMap = ({info}) => {
-
-
 
   function getColor(d){
     return d >= 146 ? '#b30000' :    // 112 +
@@ -23,7 +22,7 @@ const ColorMap = ({info}) => {
 
 
   function getCountryColor(name){
-    return getColor(info.filter(item => item.name === name).map(filtered =>filtered.cd_rating))
+    return getColor(info.filter(item => item.name === name).map(filtered =>filtered.cd_ranking))
   }
 
   function getRank(name) {
@@ -41,8 +40,9 @@ const ColorMap = ({info}) => {
   function getCensorshipLevel(name) {
     return info.filter(item => item.name === name).map(f => f.censorship_level)
   }
-  return (
-   
+
+return (
+
 <MapContainer 
 style={{margin: "auto", zIndex:"1", marginTop: -10, height: "calc(100% - 61px)" }}
 className="map"
@@ -74,10 +74,11 @@ zoomAnimation
 
 <GeoJSON 
   data={world}
+  id="GeoJSON"
   //pane="labels"
   style={function(data){
       return {
-        fillColor: getColor(info.filter(item => item.name === data.properties.name).map(filtered =>filtered.cd_ranking)), // add cd rating here to get color
+        fillColor: getCountryColor(data.properties.name),
         weight: 1,
         opacity: .5,
         color: 'white',
@@ -111,20 +112,19 @@ zoomAnimation
       });
     });
 
-  
+    ColorScheme.subscribe( 
+      this.setStyle({
+        'fillColor': getCountryColor(feature.properties.name)
+      })
+    );
 
     
   }}
 />
 
-
-
- 
-
 </MapContainer> 
         
        
-    ) 
-    
-}
+  )}
+
 export default connect(null, actions)(ColorMap)
