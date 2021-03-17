@@ -132,6 +132,33 @@ const Legend = () => {
             }
             </>)
           })
+	/*<form> 
+		<div className="radio">
+		<label>
+
+		<input 
+		type="radio" 
+		name="Colorblind" 
+		value="Deuter" 
+		checked={false}
+		/> 
+		Deuter Colorblind
+		</label> 
+		</div>
+		
+		<div className="radio> 
+		<label>
+		<input 
+		type="radio"
+		name="Colorblind"
+		value="Proto"
+		checked={false}
+		/>
+		Proto Colorblind 
+		</label>
+		</div>
+		<input type="radio" name="Proto Colorblind" value="no"/> 
+	</form>*/
         }
             
         </div>

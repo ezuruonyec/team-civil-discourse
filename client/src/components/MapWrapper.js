@@ -19,8 +19,8 @@ const MapWrapper = ({country, getCountry}) => {
       <Header />
 
         <Suspense >
-        {country.countries.length >= 173 ? 
-            <ColorMap info={country.countries} /> : 
+        {country.countries.length >= 171 ? 
+            <ColorMap allCountries={country.countries} /> : 
             <CircularProgress 
               
               style={{
