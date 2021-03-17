@@ -6,8 +6,6 @@ export function AboutUs() {
             <>
             <Header />
             <Container>
-                
-
                 <h1>Background</h1>
                 <p>
                     The Padnos/Sarosik Civil Discourse Program was founded through the generous gift of Shelley E. Padnos and Carol Sarosik to help create “more inclusive, tolerant, and peaceful communities."(GVSU 2020).
@@ -56,6 +54,5 @@ export function AboutUs() {
             </>
     )
 }
-
 
 export default AboutUs;

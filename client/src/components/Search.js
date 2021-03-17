@@ -85,6 +85,9 @@ function Search() {
                             article_5_date={item.article_5_date}
                             article_5_source={item.article_5_source}
                             article_5_url={item.article_5_url}
+			    article_1_image_url={item.article_1_image_url}
+			    article_2_image_url={item.article_2_image_url}
+			    article_3_image_url={item.article_3_image_url}
                             // free_speech={item.freedom_speech}
                             // free_media={item.freedom_media}
                             // fake_news={item.fake_news}
