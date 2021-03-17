@@ -26,6 +26,7 @@ import axios from "axios"
 export const getCountry = () => async dispatch => {
   dispatch(setItemsLoading())
 
+
   try {
     const request = {
       host: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development',
@@ -50,6 +51,7 @@ export const getCountry = () => async dispatch => {
     console.log(error);
     console.log(error.response);
   }
+
 }
 
 export const getCountryByName = (name) => async dispatch => {

@@ -11,31 +11,21 @@ const ColorMap = ({ allCountries }) => {
 
 
 
-  function getColor(discourseRank, colorScheme) {
-    if(colorScheme == 1){
-      return discourseRank >= 146 ? '#08519c' :    // 112 +
-      discourseRank >= 117  ? '#3182bd' : // 91 - 111
-      discourseRank >= 88  ? '#6baed6' :  // 70 - 90
-      discourseRank >= 58  ? '#9ecae1' :  // 49 - 69
-      discourseRank >= 29   ? '#c6dbef' : // 28 - 48
-      discourseRank >= 1 ? '#eff3ff' : // 7 - 27
-                            '#757575'; //  no cd rating
-    }
-    else{
-      return discourseRank >= 146 ? '#b30000' :    // 112 +
-      discourseRank >= 117  ? '#e34a33' : // 91 - 111
-      discourseRank >= 88  ? '#fc8d59' :  // 70 - 90
-      discourseRank >= 58  ? '#fdbb84' :  // 49 - 69
-      discourseRank >= 29   ? '#fdd49e' : // 28 - 48
-      discourseRank >= 1 ? '#fef0d9' : // 7 - 27
-                          '#757575'; //  no cd rating
-    }
+
+  function getColor(discourseRank) {
+    return discourseRank >= 146 ? '#b30000' :    // 112 +
+      discourseRank >= 117 ? '#e34a33' : // 91 - 111
+        discourseRank >= 88 ? '#fc8d59' :  // 70 - 90
+          discourseRank >= 58 ? '#fdbb84' :  // 49 - 69
+            discourseRank >= 29 ? '#fdd49e' : // 28 - 48
+              discourseRank >= 1 ? '#fef0d9' : // 7 - 27
+                '#757575'; //  no cd rating
+
   }
 
-  var colorScheme = 1;
 
   function getCountryColor(name) {
-    return getColor(getRank(name), colorScheme)
+    return getColor(getRank(name))
   }
 
   function getRank(name) {
