@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import world from "../geoJson/world.json"
 import { MapContainer, TileLayer, GeoJSON, Pane } from 'react-leaflet';
 import { connect } from "react-redux"
@@ -10,15 +10,15 @@ import * as ColorScheme from "../ColorScheme.js"
 
 const ColorMap = ({ allCountries }) => {
 
-  function getColor(discourseRank) {
-    return discourseRank >= 146 ? '#b30000' :    // 112 +
-      discourseRank >= 117 ? '#e34a33' : // 91 - 111
-        discourseRank >= 88 ? '#fc8d59' :  // 70 - 90
-          discourseRank >= 58 ? '#fdbb84' :  // 49 - 69
-            discourseRank >= 29 ? '#fdd49e' : // 28 - 48
-              discourseRank >= 1 ? '#fef0d9' : // 7 - 27
-                '#757575'; //  no cd rating
-
+  function getColor(ranking) {
+    var newColors = ColorScheme.getActiveColorScheme();
+    if (ranking >= 146) return newColors.colorTheme[5];
+    else if (ranking >= 117) return newColors.colorTheme[4];
+    else if (ranking >= 88) return newColors.colorTheme[3];
+    else if (ranking >= 58) return newColors.colorTheme[2];
+    else if (ranking >= 29) return newColors.colorTheme[1];
+    else if (ranking >= 1) return newColors.colorTheme[0];
+    else return newColors.colorTheme[6];
   }
 
   function getCountryColor(name) {
@@ -74,8 +74,7 @@ const ColorMap = ({ allCountries }) => {
 
       <GeoJSON
         data={world}
-        id="GeoJSON"
-        //pane="labels"
+        key={keyToTriggerReRender}
         style={function (data) {
           return {
             fillColor: getCountryColor(data.properties.name),
@@ -84,14 +83,13 @@ const ColorMap = ({ allCountries }) => {
             color: 'white',
             dashArray: '0',
             fillOpacity: 1
-          }
+          };
         }}
 
         onEachFeature={(feature, layer,) => {
 
           // popup for onclick
           layer.bindPopup(
-
 
             '<h5>' + feature.properties.name + '</h5>' +
             '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
@@ -111,19 +109,10 @@ const ColorMap = ({ allCountries }) => {
               'fillOpacity': 1
             });
           });
-
-          ColorScheme.subscribe(
-            this.setStyle({
-              'fillColor': getCountryColor(feature.properties.name)
-            })
-          );
-
-
         }}
       />
 
     </MapContainer>
-
 
   )
 }

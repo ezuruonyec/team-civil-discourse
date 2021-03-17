@@ -6,7 +6,7 @@ import {connect} from "react-redux"
 import * as actions from "../actions"
 import LinearProgress from '@material-ui/core/LinearProgress';
 
-const MapWrapper = ({country, getCountry}) => {
+const MapWrapper = ({country: world, getCountry}) => {
 
   useEffect(() => {
     getCountry()
@@ -19,8 +19,8 @@ const MapWrapper = ({country, getCountry}) => {
       <Header />
 
         <Suspense >
-        {country.countries.length >= 171 ? 
-            <ColorMap allCountries={country.countries} /> : 
+        {world.countries.length >= 171 ? 
+            <ColorMap allCountries={world.countries} /> : 
             <CircularProgress 
               
               style={{

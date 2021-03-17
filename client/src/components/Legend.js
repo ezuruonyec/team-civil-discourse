@@ -9,46 +9,23 @@ import * as ColorScheme from "../ColorScheme.js"
 
 const Legend = () => {
 
-  // function getColorScreen(){
-  //   return color.colorScreen;
-  // }
-
-  function getColor(ranking, newColors){
-    if(newColors.colorScreen == 1){
-      return ranking >= 146 ? newColors.colorTheme[5] :    // 112 +
-                ranking >= 117  ? newColors.colorTheme[4] : // 91 - 111
-                ranking >= 88  ? newColors.colorTheme[3] :  // 70 - 90
-                ranking >= 58  ? newColors.colorTheme[2] :  // 49 - 69
-                ranking >= 29   ? newColors.colorTheme[1] : // 28 - 48
-                ranking >= 1 ? newColors.colorTheme[0] : // 7 - 27
-                newColors.colorTheme[6]; //  no cd rating
-    }
-    else{
-      return ranking >= 146 ? newColors.colorTheme[5] :    // 112 +
-                ranking >= 117  ? newColors.colorTheme[4] : // 91 - 111
-                ranking >= 88  ? newColors.colorTheme[3] :  // 70 - 90
-                ranking >= 58  ? newColors.colorTheme[2] :  // 49 - 69
-                ranking >= 29   ? newColors.colorTheme[1] : // 28 - 48
-                ranking >= 1 ? newColors.colorTheme[0] : // 7 - 27
-                newColors.colorTheme[6]; //  no cd rating
-    }
+  function getColor(ranking, newColors) {
+    if (ranking >= 146) return newColors.colorTheme[5];
+    else if (ranking >= 117) return newColors.colorTheme[4];
+    else if (ranking >= 88) return newColors.colorTheme[3];
+    else if (ranking >= 58) return newColors.colorTheme[2];
+    else if (ranking >= 29) return newColors.colorTheme[1];
+    else if (ranking >= 1) return newColors.colorTheme[0];
+    else return newColors.colorTheme[6];
   }
 
-//   #eff3ff
-// #c6dbef
-// #9ecae1
-// #6baed6
-// #3182bd
-// #08519c
-
-  //const grades  = [0, 7, 28, 49, 70, 91, 112]
-  const grades  = [1, 29, 58, 88, 117, 146, 174, "None"]
+  const grades = [1, 29, 58, 88, 117, 146, 174, "None"]
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const onColorChange = (newColors) => {
-    Array.from(document.querySelectorAll('#a')).map(function(value, index){
+    Array.from(document.querySelectorAll('#a')).map(function (value, index) {
       return value.style.backgroundColor = getColor(grades[index], newColors);
     });
   }
@@ -57,19 +34,18 @@ const Legend = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const deuter= (e) => {
+  const deuter = (e) => {
     setAnchorEl(null);
-
     ColorScheme.setColorDeuter();
-    onColorChange(ColorScheme.getActiveColorScheme().colorScreen);
+    onColorChange(ColorScheme.getActiveColorScheme());
   };
 
   const protan = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorProtan();
-    onColorChange(ColorScheme.getActiveColorScheme().colorScreen);
+    onColorChange(ColorScheme.getActiveColorScheme());
   };
-  
+
   const handleClose = (e) => {
     setAnchorEl(null);
   };
@@ -77,96 +53,96 @@ const Legend = () => {
   const tritan = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorTritan();
-    onColorChange(ColorScheme.getActiveColorScheme().colorScreen);
+    onColorChange(ColorScheme.getActiveColorScheme());
   };
 
-  const Default= (e) => {
+  const Default = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorDefault();
-    onColorChange(ColorScheme.getActiveColorScheme().colorScreen);
+    onColorChange(ColorScheme.getActiveColorScheme());
   };
 
   return (
     <div className="info">
-      <div  className="legend">
+      <div className="legend">
         <span className="title">Rank
         <Button title="Theme Selection" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
-          <MoreVertIcon/>
-        </Button>
-        <Menu
-          id="fade-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Fade}
-        >
-          <MenuItem onClick={deuter}>Deu</MenuItem>
-          <MenuItem onClick={protan}>Pro</MenuItem>
-          <MenuItem onClick={tritan}>Tri</MenuItem>
-          <MenuItem onClick={Default}>Default</MenuItem>
-        </Menu>
+            <MoreVertIcon />
+          </Button>
+          <Menu
+            id="fade-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Fade}
+          >
+            <MenuItem onClick={deuter}>Deu</MenuItem>
+            <MenuItem onClick={protan}>Pro</MenuItem>
+            <MenuItem onClick={tritan}>Tri</MenuItem>
+            <MenuItem onClick={Default}>Default</MenuItem>
+          </Menu>
         </span>
 
         {
           //ColorScheme.subscribe(onColorChange)
-        
+
           grades.map((value, i) => {
             return (
-            <>
-            { 
-              i <= 5 ?  
               <>
-                <span>
-                  <span className="i" id="a" style={{backgroundColor: getColor(grades[i]+1,ColorScheme.getActiveColorScheme())}}></span>
-                  {grades[i]} &ndash; {grades[i+1]-1}
-                </span><br />
-              </> :
-              i === 7 ?
-              <>
-                <span>
-                  <span className="i" id="na" style={{backgroundColor: getColor(grades[7],ColorScheme.getActiveColorScheme())}}></span>
-                  {"NA"}
-                </span><br />
-              </> : ""
-            }
-            </>)
+                {
+                  i <= 5 ?
+                    <>
+                      <span>
+                        <span className="i" id="a" style={{ backgroundColor: getColor(grades[i] + 1, ColorScheme.getActiveColorScheme()) }}></span>
+                        {grades[i]} &ndash; {grades[i + 1] - 1}
+                      </span><br />
+                    </> :
+                    i === 7 ?
+                      <>
+                        <span>
+                          <span className="i" id="na" style={{ backgroundColor: getColor(grades[7], ColorScheme.getActiveColorScheme()) }}></span>
+                          {"NA"}
+                        </span><br />
+                      </> : ""
+                }
+              </>)
           })
-	/*<form> 
-		<div className="radio">
-		<label>
-
-		<input 
-		type="radio" 
-		name="Colorblind" 
-		value="Deuter" 
-		checked={false}
-		/> 
-		Deuter Colorblind
-		</label> 
-		</div>
-		
-		<div className="radio> 
-		<label>
-		<input 
-		type="radio"
-		name="Colorblind"
-		value="Proto"
-		checked={false}
-		/>
-		Proto Colorblind 
-		</label>
-		</div>
-		<input type="radio" name="Proto Colorblind" value="no"/> 
-	</form>*/
+          /*<form> 
+            <div className="radio">
+            <label>
+        
+            <input 
+            type="radio" 
+            name="Colorblind" 
+            value="Deuter" 
+            checked={false}
+            /> 
+            Deuter Colorblind
+            </label> 
+            </div>
+          	
+            <div className="radio> 
+            <label>
+            <input 
+            type="radio"
+            name="Colorblind"
+            value="Proto"
+            checked={false}
+            />
+            Proto Colorblind 
+            </label>
+            </div>
+            <input type="radio" name="Proto Colorblind" value="no"/> 
+          </form>*/
         }
-            
-        </div>
+
+      </div>
 
     </div>
-  
+
   )
-  
+
 }
 
 export default Legend
