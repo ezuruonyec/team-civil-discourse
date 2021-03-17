@@ -79,7 +79,7 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
             </h1>
             <h2 >Civil Discourse Ranking: {cd_ranking} </h2>
             <h2 >Population: {numeral(population).format('0,0')} </h2>
-            //<h2 >Poverty Rate: {poverty_rate} </h2>
+
             
 
 
