@@ -46,6 +46,8 @@ export function AboutUs() {
                 </p>
                 <p>
                     The CIS students during the Fall 2020 semester: Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
+                </p>
+                <p>
                     The CIS students during the Winter 2020 semester: Aaron Bager, Stephen Kiser, Nicholas Sheehan, Omar Tiba.
                 </p>
                 </Container>
