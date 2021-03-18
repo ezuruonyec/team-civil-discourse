@@ -35,7 +35,11 @@ function Search() {
         .then(setLoading(false))
     },[term])    
     // TODO
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     return (
         <div>
             <Header currentTerm={term} />

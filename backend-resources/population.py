@@ -10,7 +10,7 @@ def main():
     for country in sys.argv[1:]:
         pop = get_population(country)
         print(country)
-        print(pop)
+        # print(pop)
         insert_into_mongo(pop, country)
 
 def request(request_url):
@@ -25,7 +25,7 @@ def get_population(country:str):
     url = 'api.census.gov/data/timeseries/idb/1year?get=POP&GENC=' + country + '&YR=' + '2020' + '&AREA_KM2&SEX=0' + '&key=' + config.censusAPI_key
     data = request(url)
 
-    print(data)
+    # print(data)
     total_pop = 0
     first_column = True
     for region_pop in data:
@@ -34,6 +34,7 @@ def get_population(country:str):
             continue
         region_pop_int = int(region_pop[0])
         total_pop += region_pop_int
+    print(total_pop)
     return total_pop
 
 def insert_into_mongo(pop:int, country:str):
