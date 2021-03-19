@@ -30,7 +30,7 @@ function Search() {
     useEffect(() => {
         // axios.get(`/api/countries/name/${term}`)
         axios.get(`https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=${term}`)
-        .then(res => setResults([res.data]))
+        .then(res => setResults(res.data))
         .then(setLoading(false))
     },[term])    
   
@@ -49,7 +49,7 @@ function Search() {
                         : 
                     // loading is complete
                     // check if term is valid
-                    results[0] === null || results[0][0] === undefined || results[0] === undefined || results[0][0] === null ? 
+                    results === null || results === undefined ? 
                         // invalid search term. Not a country
                         <h1>Not found: {term} </h1> 
                             :
@@ -57,22 +57,22 @@ function Search() {
 
                          <Country 
                             // key={item._id}
-                            name={results[0][0]['CountryName']}
-                            two_digit={results[0][0]['CountryCode']}
+                            name={results['CountryName']}
+                            two_digit={results['CountryCode']}
                             // three_digit={item.three_digit}
-                            population={results[0][0]['Population']}
+                            population={results['Population']}
                             // millenium_dec_ranking={item.millenium_dec_ranking}
-                            millenium_dec_ratified={results[0][0]['MilleniumDeclarationRatified']}
-                            millenium_dec_year={results[0][0]['MilleniumDeclarationYear']}
-                            rwb_rank={results[0][0]['RwbRank']}
-                            rwb_score={results[0][0]['RwbScore']}
-                            internet_access={results[0][0]['InternetAccessPercent']}
-                            internet_access_ranking={results[0][0]['InternetAccessRank']}
-                            internet_access_year={results[0][0]['InternetAccessYear']}
-                            censorship_level={results[0][0]['CensorshipLevel']}
-                            censorship_ranking={results[0][0]['CensorshipRank']}
-                            cd_rating={results[0][0]['DiscourseRating']}
-                            cd_ranking={results[0][0]['DiscourseRanking']}
+                            millenium_dec_ratified={results['MilleniumDeclarationRatified']}
+                            millenium_dec_year={results['MilleniumDeclarationYear']}
+                            rwb_rank={results['RwbRank']}
+                            rwb_score={results['RwbScore']}
+                            internet_access={results['InternetAccessPercent']}
+                            internet_access_ranking={results['InternetAccessRank']}
+                            internet_access_year={results['InternetAccessYear']}
+                            censorship_level={results['CensorshipLevel']}
+                            censorship_ranking={results['CensorshipRank']}
+                            cd_rating={results['DiscourseRating']}
+                            cd_ranking={results['DiscourseRanking']}
                             // TODO  
 			    /*            article_array={item.article_array}
                             article_array1={item.article_array1}
