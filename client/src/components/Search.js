@@ -1,61 +1,65 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import { useParams } from "react-router";
 import Country from "./Country";
 import Header from "./Header"
 import axios from "axios"
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import * as actions from "../actions"
-import {GET_COUNTRY} from "../actions/types";
-import {getCountryByName} from "../actions";
-
-const GetCountryByName = async () => {
-    let {name} = useParams()
-    try {
-        const res = await axios.get('https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributes?CountryCode=US')
-        return res
-    } catch (error) {
-        console.log(error);
-        console.log(error.response);
-    }
-
-}
 
 function Search() {
     const [loading, setLoading] = useState(true)
     const [results, setResults] = useState([null])
 
     // search term from URI parameter /search/:term
-    let {term} = useParams()
- 
-    useEffect(() => {
-        // axios.get(`/api/countries/name/${term}`)
-        axios.get(`https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=${term}`)
-        .then(res => setResults(res.data))
-        .then(setLoading(false))
-    },[term])    
-  
+    let { term } = useParams()
 
+    // TODO - Update News Articles Lambda functions to take in Country NAME rather than CODE
+    async function getCountryByName(countryName) {
+        try {
+            // Create the request URLs
+            let attributesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
+            // let articlesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
 
+            // Start both of our requests
+            var attributesHandler = axios.get(attributesRequestURL);
+            // var articlesHandler = axios.get(articlesRequestURL);
 
-    
+            // Await both of our handlers we just initiated
+            const attributes = await attributesHandler;
+            // const articles = await articlesHandler;
+
+            // Construct our results data to be both the attributes and news data
+            const mergedResponse = attributes.data /* + articles.data */;
+
+            // Update our state
+            setResults(mergedResponse);
+            setLoading(false);
+            return
+        } catch (error) {
+            console.log(error);
+            console.log(error.response);
+        }
+    }
+
+    useEffect(() => { getCountryByName(term); }, [term])
 
     return (
         <div>
             <Header currentTerm={term} />
-            { 
-                loading ? 
+            {
+                loading ?
                     // still loading 
-                    "searching...." 
-                        : 
+                    "Searching...."
+                    :
                     // loading is complete
                     // check if term is valid
-                    results === null || results === undefined ? 
+                    results === null || results === undefined ?
                         // invalid search term. Not a country
-                        <h1>Not found: {term} </h1> 
-                            :
+                        <h1>Not found: {term} </h1>
+                        :
                         // valid search term. Country was found, display Country Component
 
-                         <Country 
+                        <Country
                             // key={item._id}
                             name={results['CountryName']}
                             two_digit={results['CountryCode']}
@@ -73,52 +77,52 @@ function Search() {
                             censorship_ranking={results['CensorshipRank']}
                             cd_rating={results['DiscourseRating']}
                             cd_ranking={results['DiscourseRanking']}
-                            // TODO  
-			    /*            article_array={item.article_array}
-                            article_array1={item.article_array1}
-                            article_1_title={item.article_1_title}
-                            article_1_author={item.article_1_author}
-                            article_1_description={item.article_1_description}
-                            article_1_date={item.article_1_date}
-                            article_1_source={item.article_1_source}
-                            article_1_url={item.article_1_url}
-                            article_2_title={item.article_2_title}
-                            article_2_author={item.article_2_author}
-                            article_2_description={item.article_2_description}
-                            article_2_date={item.article_2_date}
-                            article_2_source={item.article_2_source}
-                            article_2_url={item.article_2_url}
-                            article_3_title={item.article_3_title}
-                            article_3_author={item.article_3_author}
-                            article_3_description={item.article_3_description}
-                            article_3_date={item.article_3_date}
-                            article_3_source={item.article_3_source}
-                            article_3_url={item.article_3_url}
-                            article_4_title={item.article_4_title}
-                            article_4_author={item.article_4_author}
-                            article_4_description={item.article_4_description}
-                            article_4_date={item.article_4_date}
-                            article_4_source={item.article_4_source}
-                            article_4_url={item.article_4_url}
-                            article_5_title={item.article_5_title}
-                            article_5_author={item.article_5_author}
-                            article_5_description={item.article_5_description}
-                            article_5_date={item.article_5_date}
-                            article_5_source={item.article_5_source}
+                        // TODO  
+                        /*            article_array={item.article_array}
+                                    article_array1={item.article_array1}
+                                    article_1_title={item.article_1_title}
+                                    article_1_author={item.article_1_author}
+                                    article_1_description={item.article_1_description}
+                                    article_1_date={item.article_1_date}
+                                    article_1_source={item.article_1_source}
+                                    article_1_url={item.article_1_url}
+                                    article_2_title={item.article_2_title}
+                                    article_2_author={item.article_2_author}
+                                    article_2_description={item.article_2_description}
+                                    article_2_date={item.article_2_date}
+                                    article_2_source={item.article_2_source}
+                                    article_2_url={item.article_2_url}
+                                    article_3_title={item.article_3_title}
+                                    article_3_author={item.article_3_author}
+                                    article_3_description={item.article_3_description}
+                                    article_3_date={item.article_3_date}
+                                    article_3_source={item.article_3_source}
+                                    article_3_url={item.article_3_url}
+                                    article_4_title={item.article_4_title}
+                                    article_4_author={item.article_4_author}
+                                    article_4_description={item.article_4_description}
+                                    article_4_date={item.article_4_date}
+                                    article_4_source={item.article_4_source}
+                                    article_4_url={item.article_4_url}
+                                    article_5_title={item.article_5_title}
+                                    article_5_author={item.article_5_author}
+                                    article_5_description={item.article_5_description}
+                                    article_5_date={item.article_5_date}
+                                    article_5_source={item.article_5_source}
+        
+                                    article_5_url={item.article_5_url}*/
 
-                            article_5_url={item.article_5_url}*/
-
-                            // free_speech={item.freedom_speech}
-                            // free_media={item.freedom_media}
-                            // fake_news={item.fake_news}
-                        />  
-            }  
+                        // free_speech={item.freedom_speech}
+                        // free_media={item.freedom_media}
+                        // fake_news={item.fake_news}
+                        />
+            }
         </div>
     )
 }
 
-function mapStateToProps({country}) {
-    return {country}
-  }
-  
-  export default connect(mapStateToProps, actions)(Search)
+function mapStateToProps({ country }) {
+    return { country }
+}
+
+export default connect(mapStateToProps, actions)(Search)
