@@ -29,6 +29,7 @@ function Search() {
     // TODO
     useEffect(() => {
 
+
         // axios.get(`/api/countries/name/${term}`)
         axios.get(`https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=${term}`)
         .then(res => setResults([res.data]))
@@ -55,6 +56,7 @@ function Search() {
                         <h1>Not found: {term} </h1> 
                             :
                         // valid search term. Country was found, display Country Component
+
                          <Country // TODO
                             // key={item._id}
                             name={results[0][0]['CountryName']}
@@ -73,7 +75,7 @@ function Search() {
                             censorship_ranking={results[0][0]['CensorshipRank']}
                             cd_rating={results[0][0]['DiscourseRating']}
                             cd_ranking={results[0][0]['DiscourseRanking']}
-                            //poverty_level={}
+                       
 			    /*            article_array={item.article_array}
                             article_array1={item.article_array1}
                             article_1_title={item.article_1_title}
@@ -105,7 +107,9 @@ function Search() {
                             article_5_description={item.article_5_description}
                             article_5_date={item.article_5_date}
                             article_5_source={item.article_5_source}
+
                             article_5_url={item.article_5_url}*/
+
                             // free_speech={item.freedom_speech}
                             // free_media={item.freedom_media}
                             // fake_news={item.fake_news}
