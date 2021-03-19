@@ -46,7 +46,7 @@ export const unsubscribe = (listenerToCall) => {
 
 export const fallbackColor = "#757575";
 export const defaultColors = ["#fef0d9", "#fdd49e", "#fdbb84", "#fc8d59", "#e34a33", "#b30000"];
-export const greyscaleColors = ["#FAFAFA", "#C8C8C8", "#969696", "#646464", "#323232", "#000000"];
+export const greyscaleColors = ["#FAFAFA", "#E9E9E9", "#C8C8C8", "#969696", "#646464", "#323232"];
 export const deuterColors = ["#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#3182bd", "#08519c"];
 export const tritanColors = ["#A1FE00", "#A1FE00", "#FFF500", "#FFCE00", "#FF0000", "#C60301"];
 
