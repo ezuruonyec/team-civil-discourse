@@ -1,62 +1,83 @@
 import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import { Link } from 'react-router-dom' 
+import { Link } from "@material-ui/core"
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import {Typography} from "@material-ui/core"
+import { withStyles } from "@material-ui/core/styles";
+//import {Link} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: theme.spacing(3)
-    },
+root:{
+    maxWidth: 345,
+    
+},
 
-    title: {
-        fontSize: theme.spacing(5),
-        textAlign: "center",
-        fontFamily: "Roboto",
-    },
+media: {
+    height: 0,
+    paddingTop: '75.00%',
+},
 
-    detail: {
-        fontSize: theme.spacing(4),
-        textAlign: "center",
-        fontFamily: "Times New Roman",
-    }, 
-
-   subDetail: {
-        fontSize: theme.spacing(2),
-        textAlign: "center",
-        fontFamily: "Times New Roman",
-   }
-
-//    source: {
-       
-//    },
-
-//    author: {
-
-//    },
-
-//    content: {
-
-//    },
-
-//    image: {
-
-//    }
+actionArea: {
+    "&:hover $focusHighlight": {
+      opacity: 0.5
+    }
+  },
+  focusHighlight: {}
 
 }))
 
-function ArticleCard({title, detail, subDetail, articleUrl}) {
+function ArticleCard({title, description, date, articleUrl, author, imageUrl}) {
 
     const classes = useStyles();
 
     return(
-        <Paper className={classes.root}>
-            <a href={articleUrl}> <Paper className={classes.title} elevation={0}>{title}</Paper> </a>
-            <Paper className={classes.detail} elevation={0}>{detail}</Paper>
-            <Paper className={classes.subDetail} elevation={0}>{subDetail}</Paper>
-        </Paper>
+        <Link href = {articleUrl} varient = "inherit" color = "textPrimary" underline = "none">
+            <Card className={classes.root}>
+                <CardActionArea className={
+                    classes.actionArea,
+                    classes.focusHighlight}>
+
+                    <CardMedia
+                    className={classes.media}
+                    image={imageUrl}
+                    // title="image"
+                    />
+                    <CardContent>
+                    <Typography gutterBottom variant="h5" color="textPrimary" component="h2">
+                        {title}
+                    </Typography>
+
+                    <Typography variant ="subtitle2" color="textPrimary" component="sub">
+                            {date}
+                    </Typography>
+
+                    <Typography variant="body1" color="textSecondary" component="p">
+                        {description}
+                    </Typography>
+
+                    <Typography variant="overline" color="initial" component="p">
+                        {author}
+
+                    </Typography>
+
+                    </CardContent>
+                </CardActionArea>
+                {/* <CardActions>
+                    <Button size="small" color="primary">
+                    Share
+                    </Button>
+                    <Button size="small" color="primary">
+                    Learn More
+                    </Button>
+                </CardActions> */}
+            </Card>
+        </Link>
     )
 }
 

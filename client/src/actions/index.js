@@ -26,6 +26,7 @@ import axios from "axios"
 export const getCountry = () => async dispatch => {
   dispatch(setItemsLoading())
 
+
   try {
     const request = {
       host: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development',
@@ -50,10 +51,10 @@ export const getCountry = () => async dispatch => {
     console.log(error);
     console.log(error.response);
   }
+
 }
 
 export const getCountryByName = (name) => async dispatch => {
-  dispatch(setItemsLoading())
 
   try {
     const request = {
@@ -74,6 +75,7 @@ export const getCountryByName = (name) => async dispatch => {
 
     // const res = await axios.get(`/api/countries/name/${name}`)
     dispatch({ type: GET_COUNTRY_BY_NAME, payload: res.data })
+
   }
   catch (error) {
     console.log(error);

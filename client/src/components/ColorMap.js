@@ -11,6 +11,7 @@ const ColorMap = ({ allCountries }) => {
 
 
 
+
   function getColor(discourseRank) {
     return discourseRank >= 146 ? '#b30000' :    // 112 +
       discourseRank >= 117 ? '#e34a33' : // 91 - 111
@@ -19,6 +20,7 @@ const ColorMap = ({ allCountries }) => {
             discourseRank >= 29 ? '#fdd49e' : // 28 - 48
               discourseRank >= 1 ? '#fef0d9' : // 7 - 27
                 '#757575'; //  no cd rating
+
   }
 
 
