@@ -10,12 +10,9 @@ import * as ColorScheme from "../ColorScheme.js"
 
 const ColorMap = ({ allCountries }) => {
 
-  // var ourKey = "";
   var jsonReference = useRef(null);
 
   const onColorChange = (notUsed) => {
-    // ourKey = new String(Math.random());
-    // console.log("New ourKey: " + ourKey);
     jsonReference.current.setStyle(geoJsonStyle);
   }
 
@@ -39,22 +36,34 @@ const ColorMap = ({ allCountries }) => {
     return getColor(getRank(name))
   }
 
+  function getMatchingCountries(name)
+  {
+    var matchingCountries = allCountries.filter(country => 
+      ("CountryAliases" in country && country["CountryAliases"].includes(name)) || 
+      (country["CountryName"] === name));
+    return matchingCountries;
+  }
+
   function getRank(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["DiscourseRanking"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => filtered["DiscourseRanking"]);
   }
-
+  
   function getPopulation(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["Population"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => filtered["Population"])
   }
-
+  
   function getInternetPercent(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["InternetAccessPercent"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => filtered["InternetAccessPercent"])
   }
-
+  
   function getCensorshipLevel(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["CensorshipLevel"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => filtered["CensorshipLevel"])
   }
-
+  
   function geoJsonStyle(country) {
     return {
       fillColor: getCountryColor(country.properties.name),
@@ -95,10 +104,8 @@ const ColorMap = ({ allCountries }) => {
 
       <Legend />
 
-
       <GeoJSON
         data={world}
-        // key={ourKey}
         ref={jsonReference}
         style={geoJsonStyle}
 
