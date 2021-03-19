@@ -10,3 +10,8 @@ backend-resources/config.py
 .idea/workspace.xml
 backend-resources/__pycache__/config.cpython-38.pyc
 .idea/team-civil-discourse.iml
+modules.xml
+runConfigurations
+team-civil-discourse.iml
+vcs.xml
+workspace.xml
