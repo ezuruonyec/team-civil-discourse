@@ -44,10 +44,11 @@ export const unsubscribe = (listenerToCall) => {
     callOnColorChange.unsubscribe(listenerToCall);
 }
 
-export const fallbackColor = "757575";
-const deuterColors = ["#08519c", "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#eff3ff", "#757575"];
-const tritanColors = ["#08519c", "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#eff3ff", "#757575"];
-const defaultColors = ["#fef0d9", "#fdd49e", "#fdbb84", "#fc8d59", "#e34a33", "#b30000", "#757575"];
+export const fallbackColor = "#757575";
+export const defaultColors = ["#fef0d9", "#fdd49e", "#fdbb84", "#fc8d59", "#e34a33", "#b30000"];
+export const greyscaleColors = ["#FAFAFA", "#C8C8C8", "#969696", "#646464", "#323232", "#000000"];
+export const deuterColors = ["#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#3182bd", "#08519c"];
+export const tritanColors = ["#A1FE00", "#A1FE00", "#FFF500", "#FFCE00", "#FF0000", "#C60301"];
 
 var activeColor = {
     colorScreen: 0,
@@ -58,31 +59,41 @@ export const getActiveColorScheme = () => {
     return activeColor;
 }
 
-export const setColorDeuter = () => {
-
-    activeColor.colorScreen = 1;
-    activeColor.colorTheme = deuterColors;
-    if (callOnColorChange !== null && callOnColorChange !== undefined) {
-        callOnColorChange.fire(activeColor.colorScreen);
-    }
-    
-};
-
-export const setColorTritan = () => {
-
-    activeColor.colorScreen = 0;
-    activeColor.colorTheme = defaultColors;
-    if (callOnColorChange !== null && callOnColorChange !== undefined) {
-        callOnColorChange.fire(activeColor.colorScreen);
-    }
-};
-
 export const setColorDefault = () => {
 
     activeColor.colorScreen = 0;
     activeColor.colorTheme = defaultColors;
 
     if (callOnColorChange !== null && callOnColorChange !== undefined) {
-        callOnColorChange.fire(activeColor.colorScreen);
+        callOnColorChange.fire(activeColor);
+    }
+};
+
+export const setColorGreyscale = () => {
+
+    activeColor.colorScreen = 1;
+    activeColor.colorTheme = greyscaleColors;
+
+    if (callOnColorChange !== null && callOnColorChange !== undefined) {
+        callOnColorChange.fire(activeColor);
+    }
+};
+
+export const setColorDeuter = () => {
+
+    activeColor.colorScreen = 2;
+    activeColor.colorTheme = deuterColors;
+    if (callOnColorChange !== null && callOnColorChange !== undefined) {
+        callOnColorChange.fire(activeColor);
+    }
+
+};
+
+export const setColorTritan = () => {
+
+    activeColor.colorScreen = 3;
+    activeColor.colorTheme = tritanColors;
+    if (callOnColorChange !== null && callOnColorChange !== undefined) {
+        callOnColorChange.fire(activeColor);
     }
 };
