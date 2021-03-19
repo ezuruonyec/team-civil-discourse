@@ -1,4 +1,12 @@
 node_modules
 dev.js
 /lib
-
+.idea
+backend-resources/config.py
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+backend-resources/__pycache__/config.cpython-38.pyc
+.idea/team-civil-discourse.iml
