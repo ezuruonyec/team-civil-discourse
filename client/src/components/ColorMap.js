@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import world from "../geoJson/world.json"
 import { MapContainer, TileLayer, GeoJSON, Pane } from 'react-leaflet';
 import { connect } from "react-redux"
@@ -41,8 +41,18 @@ const ColorMap = ({ allCountries }) => {
     return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["CensorshipLevel"])
   }
 
-  return (
+  function geoJsonStyle(country) {
+    return {
+      fillColor: getCountryColor(country.properties.name),
+      weight: 1,
+      opacity: .5,
+      color: 'white',
+      dashArray: '0',
+      fillOpacity: 1
+    };
+  }
 
+  return (
     <MapContainer
       style={{ margin: "auto", zIndex: "1", marginTop: -10, height: "calc(100% - 61px)" }}
       className="map"
@@ -74,29 +84,19 @@ const ColorMap = ({ allCountries }) => {
 
       <GeoJSON
         data={world}
-        key={keyToTriggerReRender}
-        style={function (data) {
-          return {
-            fillColor: getCountryColor(data.properties.name),
-            weight: 1,
-            opacity: .5,
-            color: 'white',
-            dashArray: '0',
-            fillOpacity: 1
-          };
-        }}
+        style={geoJsonStyle}
 
-        onEachFeature={(feature, layer,) => {
+        onEachFeature={(feature, layer) => {
 
           // popup for onclick
           layer.bindPopup(
-
             '<h5>' + feature.properties.name + '</h5>' +
             '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
             '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
             '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
             '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
-            '<a href="/search/' + feature.properties.name + '">View more</a>')
+            '<a href="/search/' + feature.properties.name + '">View more</a>'
+          );
 
           layer.on('mouseover', function () {
             this.setStyle({
@@ -113,7 +113,6 @@ const ColorMap = ({ allCountries }) => {
       />
 
     </MapContainer>
-
   )
 }
 
