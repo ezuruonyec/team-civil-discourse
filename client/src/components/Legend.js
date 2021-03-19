@@ -27,7 +27,7 @@ const Legend = () => {
     else if (ranking >= 58) return newColors.colorTheme[2];
     else if (ranking >= 29) return newColors.colorTheme[1];
     else if (ranking >= 1) return newColors.colorTheme[0];
-    else return newColors.colorTheme[6];
+    else return ColorScheme.fallbackColor;
   }
 
   const grades = [1, 29, 58, 88, 117, 146, 174, "None"]
@@ -43,19 +43,24 @@ const Legend = () => {
     setAnchorEl(null);
   };
 
-  const deutran = (e) => {
+  const Default = (e) => {
+    setAnchorEl(null);
+    ColorScheme.setColorDefault();
+  };
+
+  const Greyscale = (e) => {
+    setAnchorEl(null);
+    ColorScheme.setColorGreyscale();
+  };
+
+  const Deutran = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorDeuter();
   };
 
-  const tritan = (e) => {
+  const Tritan = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorTritan();
-  };
-
-  const Default = (e) => {
-    setAnchorEl(null);
-    ColorScheme.setColorDefault();
   };
 
   return (
@@ -73,9 +78,10 @@ const Legend = () => {
             onClose={handleClose}
             TransitionComponent={Fade}
           >
-            <MenuItem onClick={deutran}>Deutran</MenuItem>
-            <MenuItem onClick={tritan}>Tritan</MenuItem>
             <MenuItem onClick={Default}>Default</MenuItem>
+            <MenuItem onClick={Greyscale}>Greyscale</MenuItem>
+            <MenuItem onClick={Deutran}>Deutran</MenuItem>
+            <MenuItem onClick={Tritan}>Tritan</MenuItem>
           </Menu>
         </span>
 
