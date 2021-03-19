@@ -10,8 +10,22 @@ import * as ColorScheme from "../ColorScheme.js"
 
 const ColorMap = ({ allCountries }) => {
 
+  // var ourKey = "";
+  var jsonReference = useRef(null);
+
+  const onColorChange = (notUsed) => {
+    // ourKey = new String(Math.random());
+    // console.log("New ourKey: " + ourKey);
+    jsonReference.current.setStyle(geoJsonStyle);
+  }
+
+  ColorScheme.subscribe(onColorChange);
+
   function getColor(ranking) {
     var newColors = ColorScheme.getActiveColorScheme();
+    if(newColors === null || newColors === undefined || newColors.colorTheme === null || newColors.colorTheme === undefined)
+      return ColorScheme.fallbackColor;
+
     if (ranking >= 146) return newColors.colorTheme[5];
     else if (ranking >= 117) return newColors.colorTheme[4];
     else if (ranking >= 88) return newColors.colorTheme[3];
@@ -84,6 +98,8 @@ const ColorMap = ({ allCountries }) => {
 
       <GeoJSON
         data={world}
+        // key={ourKey}
+        ref={jsonReference}
         style={geoJsonStyle}
 
         onEachFeature={(feature, layer) => {

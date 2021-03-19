@@ -9,7 +9,18 @@ import * as ColorScheme from "../ColorScheme.js"
 
 const Legend = () => {
 
+  const onColorChange = (newColors) => {
+    Array.from(document.querySelectorAll('#a')).map(function (value, index) {
+      return value.style.backgroundColor = getColor(grades[index], newColors);
+    });
+  }
+
+  ColorScheme.subscribe(onColorChange);
+
   function getColor(ranking, newColors) {
+    if (newColors === null || newColors === undefined || newColors.colorTheme === null || newColors.colorTheme === undefined)
+      return ColorScheme.fallbackColor;
+
     if (ranking >= 146) return newColors.colorTheme[5];
     else if (ranking >= 117) return newColors.colorTheme[4];
     else if (ranking >= 88) return newColors.colorTheme[3];
@@ -24,48 +35,33 @@ const Legend = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const onColorChange = (newColors) => {
-    Array.from(document.querySelectorAll('#a')).map(function (value, index) {
-      return value.style.backgroundColor = getColor(grades[index], newColors);
-    });
-  }
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-  };
-
-  const deuter = (e) => {
-    setAnchorEl(null);
-    ColorScheme.setColorDeuter();
-    onColorChange(ColorScheme.getActiveColorScheme());
-  };
-
-  const protan = (e) => {
-    setAnchorEl(null);
-    ColorScheme.setColorProtan();
-    onColorChange(ColorScheme.getActiveColorScheme());
   };
 
   const handleClose = (e) => {
     setAnchorEl(null);
   };
 
+  const deutran = (e) => {
+    setAnchorEl(null);
+    ColorScheme.setColorDeuter();
+  };
+
   const tritan = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorTritan();
-    onColorChange(ColorScheme.getActiveColorScheme());
   };
 
   const Default = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorDefault();
-    onColorChange(ColorScheme.getActiveColorScheme());
   };
 
   return (
     <div className="info">
       <div className="legend">
-        <span className="title">Rank
+        <span className="title">Legend
         <Button title="Theme Selection" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
             <MoreVertIcon />
           </Button>
@@ -77,16 +73,13 @@ const Legend = () => {
             onClose={handleClose}
             TransitionComponent={Fade}
           >
-            <MenuItem onClick={deuter}>Deu</MenuItem>
-            <MenuItem onClick={protan}>Pro</MenuItem>
-            <MenuItem onClick={tritan}>Tri</MenuItem>
+            <MenuItem onClick={deutran}>Deutran</MenuItem>
+            <MenuItem onClick={tritan}>Tritan</MenuItem>
             <MenuItem onClick={Default}>Default</MenuItem>
           </Menu>
         </span>
 
         {
-          //ColorScheme.subscribe(onColorChange)
-
           grades.map((value, i) => {
             return (
               <>
@@ -108,33 +101,6 @@ const Legend = () => {
                 }
               </>)
           })
-          /*<form> 
-            <div className="radio">
-            <label>
-        
-            <input 
-            type="radio" 
-            name="Colorblind" 
-            value="Deuter" 
-            checked={false}
-            /> 
-            Deuter Colorblind
-            </label> 
-            </div>
-          	
-            <div className="radio> 
-            <label>
-            <input 
-            type="radio"
-            name="Colorblind"
-            value="Proto"
-            checked={false}
-            />
-            Proto Colorblind 
-            </label>
-            </div>
-            <input type="radio" name="Proto Colorblind" value="no"/> 
-          </form>*/
         }
 
       </div>

@@ -20,10 +20,10 @@ CallOnColorChange.prototype = {
         );
     },
 
-    fire: function (o, thisObj) {
+    fire: function (whateverParameters, thisObj) {
         var scope = thisObj || window;
         this.handlers.forEach(function (item) {
-            item.call(scope, o);
+            item.call(scope, whateverParameters);
         });
     }
 }
@@ -44,14 +44,14 @@ export const unsubscribe = (listenerToCall) => {
     callOnColorChange.unsubscribe(listenerToCall);
 }
 
-const deuterColors = ["#08519c", "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#eff3ff", "#757575"]
-
-const defaultColors = ["#fef0d9", "#fdd49e", "#fdbb84", "#fc8d59", "#e34a33", "#b30000", "#757575"]
+export const fallbackColor = "757575";
+const deuterColors = ["#08519c", "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#eff3ff", "#757575"];
+const tritanColors = ["#08519c", "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#eff3ff", "#757575"];
+const defaultColors = ["#fef0d9", "#fdd49e", "#fdbb84", "#fc8d59", "#e34a33", "#b30000", "#757575"];
 
 var activeColor = {
     colorScreen: 0,
     colorTheme: defaultColors
-
 };
 
 export const getActiveColorScheme = () => {
@@ -66,15 +66,6 @@ export const setColorDeuter = () => {
         callOnColorChange.fire(activeColor.colorScreen);
     }
     
-};
-
-export const setColorProtan = () => {
-    
-    activeColor.colorScreen = 1;
-    activeColor.colorTheme = deuterColors;
-    if (callOnColorChange !== null && callOnColorChange !== undefined) {
-        callOnColorChange.fire(activeColor.colorScreen);
-    }
 };
 
 export const setColorTritan = () => {
