@@ -28,8 +28,6 @@ function Search() {
     let {term} = useParams()
  
     useEffect(() => {
-
-
         // axios.get(`/api/countries/name/${term}`)
         axios.get(`https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=${term}`)
         .then(res => setResults([res.data]))
