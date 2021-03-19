@@ -216,7 +216,9 @@ const useStyles = makeStyles((theme) => ({
             {/* DELETE ME - Development Button */}
 
             {/* About Us Button */}
+
             <Link to="/about" style={{color: "white", textDecoration: "none"}}>
+
              <IconButton color = "inherit"><InfoIcon/></IconButton> 
             </Link>
 

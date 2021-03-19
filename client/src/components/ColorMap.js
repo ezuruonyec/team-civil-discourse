@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import world from "../geoJson/world.json"
 import { MapContainer, TileLayer, GeoJSON, Pane } from 'react-leaflet';
 import { connect } from "react-redux"
@@ -6,21 +6,31 @@ import * as actions from "../actions"
 import Legend from "./Legend"
 import ReactCountryFlag from "react-country-flag"
 import numeral from "numeral"
+import * as ColorScheme from "../ColorScheme.js"
 
 const ColorMap = ({ allCountries }) => {
 
+  var jsonReference = useRef(null);
 
-
-  function getColor(discourseRank) {
-    return discourseRank >= 146 ? '#b30000' :    // 112 +
-      discourseRank >= 117 ? '#e34a33' : // 91 - 111
-        discourseRank >= 88 ? '#fc8d59' :  // 70 - 90
-          discourseRank >= 58 ? '#fdbb84' :  // 49 - 69
-            discourseRank >= 29 ? '#fdd49e' : // 28 - 48
-              discourseRank >= 1 ? '#fef0d9' : // 7 - 27
-                '#757575'; //  no cd rating
+  const onColorChange = (notUsed) => {
+    jsonReference.current.setStyle(geoJsonStyle);
   }
 
+  ColorScheme.subscribe(onColorChange);
+
+  function getColor(ranking) {
+    var newColors = ColorScheme.getActiveColorScheme();
+    if(newColors === null || newColors === undefined || newColors.colorTheme === null || newColors.colorTheme === undefined)
+      return ColorScheme.fallbackColor;
+
+    if (ranking >= 146) return newColors.colorTheme[5];
+    else if (ranking >= 117) return newColors.colorTheme[4];
+    else if (ranking >= 88) return newColors.colorTheme[3];
+    else if (ranking >= 58) return newColors.colorTheme[2];
+    else if (ranking >= 29) return newColors.colorTheme[1];
+    else if (ranking >= 1) return newColors.colorTheme[0];
+    else return newColors.colorTheme[6];
+  }
 
   function getCountryColor(name) {
     return getColor(getRank(name))
@@ -54,6 +64,17 @@ const ColorMap = ({ allCountries }) => {
     return matchingCountries.map(filtered => filtered["CensorshipLevel"])
   }
   
+  function geoJsonStyle(country) {
+    return {
+      fillColor: getCountryColor(country.properties.name),
+      weight: 1,
+      opacity: .5,
+      color: 'white',
+      dashArray: '0',
+      fillOpacity: 1
+    };
+  }
+
   return (
     <MapContainer
       style={{ margin: "auto", zIndex: "1", marginTop: -10, height: "calc(100% - 61px)" }}
@@ -85,31 +106,20 @@ const ColorMap = ({ allCountries }) => {
 
       <GeoJSON
         data={world}
-        //pane="labels"
-        style={function (data) {
-          return {
-            // fillColor: getColor(allCountries.filter(country => country.CountryName === data.properties.name).map(filteredCountry => filteredCountry["DiscourseRanking"])), // add cd rating here to get color
-            fillColor: getCountryColor(data.properties.name),
-            weight: 1,
-            opacity: .5,
-            color: 'white',
-            dashArray: '0',
-            fillOpacity: 1
-          }
-        }}
+        ref={jsonReference}
+        style={geoJsonStyle}
 
-        onEachFeature={(feature, layer,) => {
+        onEachFeature={(feature, layer) => {
 
           // popup for onclick
           layer.bindPopup(
-
-
             '<h5>' + feature.properties.name + '</h5>' +
             '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
             '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
             '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
             '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
-            '<a href="/search/' + feature.properties.name + '">View more</a>')
+            '<a href="/search/' + feature.properties.name + '">View more</a>'
+          );
 
           layer.on('mouseover', function () {
             this.setStyle({
@@ -122,21 +132,11 @@ const ColorMap = ({ allCountries }) => {
               'fillOpacity': 1
             });
           });
-
-
-
-
         }}
       />
 
-
-
-
-
     </MapContainer>
-
-
   )
-
 }
+
 export default connect(null, actions)(ColorMap)

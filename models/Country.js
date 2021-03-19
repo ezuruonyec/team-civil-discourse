@@ -174,6 +174,15 @@ const CountrySchema = new Schema({
     },
     article_5_url: {
         type: String,
+    },
+    article_1_image_url: {
+	type: String,
+    },
+    article_2_image_url: {
+	type: String, 
+    },
+    article_3_image_url: {
+	type: String, 
     }
 
 
