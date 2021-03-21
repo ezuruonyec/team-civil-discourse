@@ -33,7 +33,7 @@ function Search() {
             // Update our state
             setResults(mergedResponse);
             setLoading(false);
-            
+
             return
         } catch (error) {
             console.log(error);
@@ -50,7 +50,7 @@ function Search() {
             {
                 loading ?
                     // still loading 
-                    "Searching...."
+                    <h2>Loading . . . </h2>
                     :
                     // loading is complete
                     // check if term is valid
