@@ -18,19 +18,19 @@ function Search() {
         try {
             // Create the request URLs
             let attributesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
-            // let articlesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
+            let articlesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
 
             // Start both of our requests
             var attributesHandler = axios.get(attributesRequestURL);
-            // var articlesHandler = axios.get(articlesRequestURL);
+            var articlesHandler = axios.get(articlesRequestURL);
 
             // Await both of our handlers we just initiated
             const attributes = await attributesHandler;
-            // const articles = await articlesHandler;
+            const articles = await articlesHandler;
 
             // Construct our results data to be both the attributes and news data
-            const mergedResponse = attributes.data /* + articles.data */;
-
+            //const mergedResponse = attributes.data + articles.data;
+            const mergedResponse = Object.assign(attributes.data, articles.data)
             // Update our state
             setResults(mergedResponse);
             setLoading(false);
@@ -40,6 +40,21 @@ function Search() {
             console.log(error.response);
         }
     }
+
+    /*async function getArticleByName(countryName) {
+		try {
+			let articlesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
+	 		var articleHandler = axios.get(articlesRequestURL); 
+			const articles = await articleHandler; 
+			const mergedResponse = articles.data
+			setLoading(false); 
+			return 
+		}
+	        catch (error) {
+			console.log(error); 
+			console.log(error.response); 
+		}
+    }*/
 
     useEffect(() => { getCountryByName(term); }, [term])
 
@@ -63,9 +78,7 @@ function Search() {
                             // key={item._id}
                             name={results['CountryName']}
                             two_digit={results['CountryCode']}
-                            // three_digit={item.three_digit}
                             population={results['Population']}
-                            // millenium_dec_ranking={item.millenium_dec_ranking}
                             millenium_dec_ratified={results['MilleniumDeclarationRatified']}
                             millenium_dec_year={results['MilleniumDeclarationYear']}
                             rwb_rank={results['RwbRank']}
@@ -77,7 +90,9 @@ function Search() {
                             censorship_ranking={results['CensorshipRank']}
                             cd_rating={results['DiscourseRating']}
                             cd_ranking={results['DiscourseRanking']}
-                        // TODO  
+                            article_1_title={results['articles'][0]['title']}
+				
+		    // TODO  
                         /*            article_array={item.article_array}
                                     article_array1={item.article_array1}
                                     article_1_title={item.article_1_title}
@@ -112,9 +127,6 @@ function Search() {
         
                                     article_5_url={item.article_5_url}*/
 
-                        // free_speech={item.freedom_speech}
-                        // free_media={item.freedom_media}
-                        // fake_news={item.fake_news}
                         />
             }
         </div>
