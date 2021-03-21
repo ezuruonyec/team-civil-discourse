@@ -34,8 +34,6 @@ function Search() {
             // Update our state
             	setResults(mergedResponse);
             	setLoading(false);
-		//setResults(attributes)
-		//setLoading(false)
             return
         } catch (error) {
             console.log(error);
@@ -62,9 +60,8 @@ function Search() {
                         :
                         // valid search term. Country was found, display Country Component
 		     results['articles'] === null || results['articles'] === undefined ?
-
+			// check if country has articles 
 			<Country
-                            // key={item._id}
                             name={results['CountryName']}
                             two_digit={results['CountryCode']}
                             population={results['Population']}
@@ -119,42 +116,6 @@ function Search() {
 		            	article_2_image_url={results['articles'][1]['urlToImage']}
 		            	article_3_image_url={results['articles'][2]['urlToImage']}
 		            	article_4_image_url={results['articles'][3]['urlToImage']}
-
-		    // TODO  
-                        /*            article_array={item.article_array}
-                                    article_array1={item.article_array1}
-                                    article_1_title={item.article_1_title}
-                                    article_1_author={item.article_1_author}
-                                    article_1_description={item.article_1_description}
-                                    article_1_date={item.article_1_date}
-                                    article_1_source={item.article_1_source}
-                                    article_1_url={item.article_1_url}
-                                    article_2_title={item.article_2_title}
-                                    article_2_author={item.article_2_author}
-                                    article_2_description={item.article_2_description}
-                                    article_2_date={item.article_2_date}
-                                    article_2_source={item.article_2_source}
-                                    article_2_url={item.article_2_url}
-                                    article_3_title={item.article_3_title}
-                                    article_3_author={item.article_3_author}
-                                    article_3_description={item.article_3_description}
-                                    article_3_date={item.article_3_date}
-                                    article_3_source={item.article_3_source}
-                                    article_3_url={item.article_3_url}
-                                    article_4_title={item.article_4_title}
-                                    article_4_author={item.article_4_author}
-                                    article_4_description={item.article_4_description}
-                                    article_4_date={item.article_4_date}
-                                    article_4_source={item.article_4_source}
-                                    article_4_url={item.article_4_url}
-                                    article_5_title={item.article_5_title}
-                                    article_5_author={item.article_5_author}
-                                    article_5_description={item.article_5_description}
-                                    article_5_date={item.article_5_date}
-                                    article_5_source={item.article_5_source}
-        
-                                    article_5_url={item.article_5_url}*/
-
                         />
             }
         </div>
