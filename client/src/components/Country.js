@@ -100,7 +100,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard title='N'  detail="Millennium Declaration Signed" subDetail="As of 2000" />
+                    <InfoCard title={millenium_dec_ratified}  detail="Millennium Declaration Signed" subDetail="As of 2000" />
                 </Grid>
 		
             </Grid>
