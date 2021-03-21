@@ -91,7 +91,27 @@ function Search() {
                             cd_rating={results['DiscourseRating']}
                             cd_ranking={results['DiscourseRanking']}
                             article_1_title={results['articles'][0]['title']}
-				
+                            article_2_title={results['articles'][1]['title']}
+                            article_3_title={results['articles'][2]['title']}
+                            article_4_title={results['articles'][3]['title']}
+                            article_1_description={results['articles'][0]['description']}
+		    	    article_2_description={results['articles'][1]['description']}
+		    	    article_3_description={results['articles'][2]['description']}
+		    	    article_4_description={results['articles'][3]['description']}
+		            article_1_url={results['articles'][0]['url']}
+		    	    article_2_url={results['articles'][1]['url']}
+		            article_3_url={results['articles'][2]['url']}
+		            article_4_url={results['articles'][3]['url']} 
+			    article_1_date={results['articles'][0]['publishedAt']}
+			    article_2_date={results['articles'][1]['publishedAt']}
+			    article_3_date={results['articles'][2]['publishedAt']}
+			    article_4_date={results['articles'][3]['publishedAt']}
+		            article_1_image_url={results['articles'][0]['urlToImage']}
+		            article_2_image_url={results['articles'][1]['urlToImage']}
+		            article_3_image_url={results['articles'][2]['urlToImage']}
+		            article_4_image_url={results['articles'][3]['urlToImage']}
+
+
 		    // TODO  
                         /*            article_array={item.article_array}
                                     article_array1={item.article_array1}
