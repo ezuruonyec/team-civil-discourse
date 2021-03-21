@@ -3,6 +3,7 @@ import Header from "./Header"
 import Container from '@material-ui/core/Container';
 import team1Image from "../images/Team1.png";
 import team2Image from "../images/Team2.png";
+import Grid from '@material-ui/core/Grid';
 
 export function AboutUs() {
     return (
