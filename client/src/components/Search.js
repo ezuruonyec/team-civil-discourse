@@ -30,10 +30,15 @@ function Search() {
 
             // Construct our results data to be both the attributes and news data
             //const mergedResponse = attributes.data + articles.data;
-            const mergedResponse = Object.assign(attributes.data, articles.data)
+	    if (articles != null || articles != undefined) {
+            	const mergedResponse = Object.assign(attributes.data, articles.data)
             // Update our state
-            setResults(mergedResponse);
-            setLoading(false);
+            	setResults(mergedResponse);
+            	setLoading(false);
+	    } else {
+		setResults(attributes)
+		setLoading(false)
+	    }
             return
         } catch (error) {
             console.log(error);
