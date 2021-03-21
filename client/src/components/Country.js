@@ -55,7 +55,8 @@ function Country({id, name, two_digit, three_digit, population, millenium_dec_ra
                   article_2_title, article_2_description, article_2_author, article_2_date, article_2_source, article_2_url,
                   article_3_title, article_3_description, article_3_author, article_3_date, article_3_source, article_3_url,
                   article_4_title, article_4_description, article_4_author, article_4_date, article_4_source, article_4_url,
-                  article_5_title, article_5_description, article_5_author, article_5_date, article_5_source, article_5_url, article_1_image_url, article_2_image_url, article_3_image_url}) {
+                  article_5_title, article_5_description, article_5_author, article_5_date, article_5_source, article_5_url,
+	          article_1_image_url, article_2_image_url, article_3_image_url}) {
     const classes = useStyles();
     
     return (

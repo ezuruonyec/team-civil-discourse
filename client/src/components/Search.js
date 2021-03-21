@@ -59,6 +59,7 @@ function Search() {
                         <h1>Not found: {term} </h1>
                         :
                         // valid search term. Country was found, display Country Component
+
 		     results['articles'] === null || results['articles'] === undefined ?
 			// check if country has articles 
 			<Country
@@ -118,6 +119,7 @@ function Search() {
 		            	article_4_image_url={results['articles'][3]['urlToImage']}
                         />
             }
+
         </div>
     )
 }
