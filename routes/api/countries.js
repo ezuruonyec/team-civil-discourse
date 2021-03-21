@@ -30,7 +30,7 @@ const router = express.Router()
  * @const
  */
 const Country = require("../../models/Country")
-
+const axios = require("axios") 
 
 //   ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ ██╗   ██╗██████╗ ███████╗    ██████╗  ██████╗ ██╗   ██╗████████╗██╗███╗   ██╗ ██████╗ 
 //  ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ ██║   ██║██╔══██╗██╔════╝    ██╔══██╗██╔═══██╗██║   ██║╚══██╔══╝██║████╗  ██║██╔════╝ 
@@ -52,6 +52,9 @@ router.get("/", (req, res) => {
     Country.find()
         .sort({ name: 1 })
         .then(country => res.json(country))
+	//axios.get("https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAllAttributes")
+	//	.sort({ name: 1})
+	//	.then(data => res.json(data))
 })
 
 /**
