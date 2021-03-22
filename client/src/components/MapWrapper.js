@@ -34,6 +34,7 @@ const MapWrapper = ({ country: world, getCountry }) => {
           />
         }
       </Suspense>
+     <Footer />
     </div>
   )
 }
