@@ -1,5 +1,6 @@
 import React, { Suspense, useState, useEffect } from "react"
 import Header from "./Header"
+import Footer from "./Footer"
 import ColorMap from "./ColorMap"
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { connect } from "react-redux"
