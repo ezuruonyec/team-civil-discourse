@@ -42,7 +42,9 @@ const ColorMap = ({ allCountries }) => {
     var matchingCountries = allCountries.filter(country => 
       ("CountryAliases" in country && country["CountryAliases"].includes(name)) || 
       (country["CountryName"] === name));
-    return matchingCountries;
+    if(matchingCountries.length > 1)
+      matchingCountries.length = 1
+    return matchingCountries[0];
   }
 
   function getRank(name) {
