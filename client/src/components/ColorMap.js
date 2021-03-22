@@ -44,7 +44,7 @@ const ColorMap = ({ allCountries }) => {
       (country["CountryName"] === name));
     if(matchingCountries.length > 1)
       matchingCountries.length = 1
-    return matchingCountries[0];
+    return matchingCountries;
   }
 
   function getRank(name) {
