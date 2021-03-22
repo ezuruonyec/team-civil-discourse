@@ -56,7 +56,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
     article_3_title, article_3_description, article_3_author, article_3_date, article_3_source, article_3_url,
     article_4_title, article_4_description, article_4_author, article_4_date, article_4_source, article_4_url,
     article_5_title, article_5_description, article_5_author, article_5_date, article_5_source, article_5_url,
-    article_1_image_url, article_2_image_url, article_3_image_url }) {
+    article_1_image_url, article_2_image_url, article_3_image_url, article_4_image_url }) {
     const classes = useStyles();
 
     return (
@@ -100,11 +100,11 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard title={millenium_dec_ratified} detail="Millenium Declaration Signed" subDetail="As of 2000" />
+                    <InfoCard title={millenium_dec_ratified}  detail="Millennium Declaration Signed" subDetail="As of 2000" />
                 </Grid>
-
+		
             </Grid>
-
+		
             <br></br>
 
             {/* <InfoCard title={cd_ranking} detail="Civil Discourse Ranking" subDetail="Out of 173 Countries"/>*/}
@@ -120,20 +120,28 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                     :
 
                     <Grid container spacing={1}>
+
+
                         <Grid item xs={12} sm={3}>
-                            <ArticleCard title={article_2_title} author={article_2_author} date={article_2_date} articleUrl={article_2_url} description={article_2_description}
+                            <ArticleCard title={article_1_title} author={article_1_author} date={article_1_date} articleUrl={article_1_url} description={article_1_description}
                                 imageUrl={article_1_image_url} />
                         </Grid>
 
                         <Grid item xs={12} sm={3}>
-                            <ArticleCard title={article_1_title} author={article_1_author} date={article_1_date} articleUrl={article_1_url} description={article_1_description}
-                                imageUrl={article_2_image_url} />
+                            <ArticleCard title={article_2_title} author={article_2_author} date={article_2_date} articleUrl={article_2_url} description={article_2_description}
+                                         imageUrl={article_2_image_url} />
                         </Grid>
 
                         <Grid item xs={12} sm={3}>
                             <ArticleCard title={article_3_title} author={article_3_author} date={article_3_date} articleUrl={article_3_url} description={article_3_description}
                                 imageUrl={article_3_image_url} />
                         </Grid>
+
+                        <Grid item xs={12} sm={3}>
+                            <ArticleCard title={article_4_title} author={article_4_author} date={article_4_date} articleUrl={article_4_url} description={article_4_description}
+                                         imageUrl={article_4_image_url} />
+                        </Grid>
+
                     </Grid>
             }
 

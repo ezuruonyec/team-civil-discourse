@@ -54,7 +54,7 @@ function ArticleCard({title, description, date, articleUrl, author, imageUrl}) {
                     </Typography>
 
                     <Typography variant ="subtitle2" color="textPrimary" component="sub">
-                            {date}
+                            {new Date(date).toDateString()}
                     </Typography>
 
                     <Typography variant="body1" color="textSecondary" component="p">

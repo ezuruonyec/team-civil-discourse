@@ -77,6 +77,7 @@ function Search() {
                                 censorship_ranking={results['CensorshipRank']}
                                 cd_rating={results['DiscourseRating']}
                                 cd_ranking={results['DiscourseRanking']}
+		    		millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N':'Y'}
 
                             />
                             :
@@ -97,6 +98,8 @@ function Search() {
                                 censorship_ranking={results['CensorshipRank']}
                                 cd_rating={results['DiscourseRating']}
                                 cd_ranking={results['DiscourseRanking']}
+		    		millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N':'Y'}
+
                                 article_1_title={results['articles'][0]['title']}
                                 article_2_title={results['articles'][1]['title']}
                                 article_3_title={results['articles'][2]['title']}
