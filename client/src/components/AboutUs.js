@@ -54,6 +54,14 @@ export function AboutUs() {
                 <p>
                     This is an ongoing project. Next steps include adding relevant news articles for more countries and short videos in which journalists speak about living and working in their country. Grand Valley French and Spanish faculty are planning to collaborate on this aspect of the project.
                 </p>
+                <h1>Sources</h1>
+                <h2>
+                    <a href="https://rsf.org/en/ranking">Reporters Without Borders</a><br />
+                    <a href="https://data.worldbank.org/indicator/IT.NET.USER.ZS">Internet Access</a><br />
+                    <a href="https://www.vpnmentor.com/blog/online-censorship-country-rank/">Online Censorship</a><br />
+                    <a href="https://www.un.org/en/member-states/">Millennium Declaration (United Nations)</a><br />
+                    <a href="https://www.census.gov/topics/population.html">Population Data</a><br />
+                </h2>
             </Container>
         </>
     )
