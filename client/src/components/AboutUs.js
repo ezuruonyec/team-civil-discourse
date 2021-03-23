@@ -55,8 +55,8 @@ export function AboutUs() {
 
                 <Grid container spacing={1}>
 
-                    <img src={team1Image} alt="Fall 2020 CIS Team"></img>
-                    <img src={team2Image} alt="Winter 2020 CIS Team"></img>
+                    <img src={team1Image} alt="Fall 2020 CIS Team" width="1640" height="800"></img>
+                    <img src={team2Image} alt="Winter 2020 CIS Team" width="1640" height="800"></img>
 
                 </Grid>
 
