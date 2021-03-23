@@ -1,6 +1,10 @@
 import React from 'react';
 import Header from "./Header"
 import Container from '@material-ui/core/Container';
+import team1Image from "../images/Team1.png";
+import team2Image from "../images/Team2.png";
+import Grid from '@material-ui/core/Grid';
+
 export function AboutUs() {
     return (
         <>
@@ -48,8 +52,16 @@ export function AboutUs() {
                     The CIS students during the Fall 2020 semester: Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
                 </p>
                 <p>
-                    The CIS students during the Winter 2021 semester: Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
+                    The CIS students during the Winter 2020 semester: Aaron Bager, Stephen Kiser, Nicholas Sheehan, Omar Tiba.
                 </p>
+
+                <Grid container spacing={1}>
+
+                    <img src={team1Image} alt="Fall 2020 CIS Team" width="1640" height="800"></img>
+                    <img src={team2Image} alt="Winter 2020 CIS Team" width="1640" height="800"></img>
+
+                </Grid>
+
                 <h1>Next Steps</h1>
                 <p>
                     This is an ongoing project. Next steps include adding relevant news articles for more countries and short videos in which journalists speak about living and working in their country. Grand Valley French and Spanish faculty are planning to collaborate on this aspect of the project.
