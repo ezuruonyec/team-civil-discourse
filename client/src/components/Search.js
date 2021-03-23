@@ -68,15 +68,15 @@ function Search() {
                                 population={results['Population']}
                                 millenium_dec_ratified={results['MilleniumDeclarationRatified']}
                                 millenium_dec_year={results['MilleniumDeclarationYear']}
-                                rwb_rank={results['RwbRank']}
-                                rwb_score={results['RwbScore']}
-                                internet_access={results['InternetAccessPercent']}
-                                internet_access_ranking={results['InternetAccessRank']}
-                                internet_access_year={results['InternetAccessYear']}
-                                censorship_level={results['CensorshipLevel']}
-                                censorship_ranking={results['CensorshipRank']}
-                                cd_rating={results['DiscourseRating']}
-                                cd_ranking={results['DiscourseRanking']}
+                                rwb_rank={Math.trunc(results['RwbRank'])}
+                                rwb_score={Math.trunc(results['RwbScore'])}
+                                internet_access={Math.trunc(results['InternetAccessPercent'])}
+                                internet_access_ranking={Math.trunc(results['InternetAccessRank'])}
+                                internet_access_year={Math.trunc(results['InternetAccessYear'])}
+                                censorship_level={Math.trunc(results['CensorshipLevel'])}
+                                censorship_ranking={Math.trunc(results['CensorshipRank'])}
+                                cd_rating={Math.trunc(results['DiscourseRating'])}
+                                cd_ranking={Math.trunc(results['DiscourseRanking'])}
 		    		millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N':'Y'}
 
                             />
@@ -89,15 +89,15 @@ function Search() {
                                 population={results['Population']}
                                 millenium_dec_ratified={results['MilleniumDeclarationRatified']}
                                 millenium_dec_year={results['MilleniumDeclarationYear']}
-                                rwb_rank={results['RwbRank']}
-                                rwb_score={results['RwbScore']}
-                                internet_access={results['InternetAccessPercent']}
-                                internet_access_ranking={results['InternetAccessRank']}
-                                internet_access_year={results['InternetAccessYear']}
-                                censorship_level={results['CensorshipLevel']}
-                                censorship_ranking={results['CensorshipRank']}
-                                cd_rating={results['DiscourseRating']}
-                                cd_ranking={results['DiscourseRanking']}
+                                rwb_rank={Math.trunc(results['RwbRank'])}
+                                rwb_score={Math.trunc(results['RwbScore'])}
+                                internet_access={Math.trunc(results['InternetAccessPercent'])}
+                                internet_access_ranking={Math.trunc(results['InternetAccessRank'])}
+                                internet_access_year={Math.trunc(results['InternetAccessYear'])}
+                                censorship_level={Math.trunc(results['CensorshipLevel'])}
+                                censorship_ranking={Math.trunc(results['CensorshipRank'])}
+                                cd_rating={Math.trunc(results['DiscourseRating'])}
+                                cd_ranking={Math.trunc(results['DiscourseRanking'])}
 		    		millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N':'Y'}
 
                                 article_1_title={results['articles'][0]['title']}
