@@ -49,7 +49,7 @@ const ColorMap = ({ allCountries }) => {
 
   function getRank(name) {
     var matchingCountries = getMatchingCountries(name);
-    return matchingCountries.map(filtered => filtered["DiscourseRanking"]);
+    return matchingCountries.map(filtered => Math.trunc(filtered["DiscourseRanking"]));
   }
   
   function getPopulation(name) {
@@ -59,12 +59,12 @@ const ColorMap = ({ allCountries }) => {
   
   function getInternetPercent(name) {
     var matchingCountries = getMatchingCountries(name);
-    return matchingCountries.map(filtered => filtered["InternetAccessPercent"])
+    return matchingCountries.map(filtered => Math.trunc(filtered["InternetAccessPercent"]))
   }
   
   function getCensorshipLevel(name) {
     var matchingCountries = getMatchingCountries(name);
-    return matchingCountries.map(filtered => filtered["CensorshipLevel"])
+    return matchingCountries.map(filtered => Math.trunc(filtered["CensorshipLevel"]))
   }
   
   function geoJsonStyle(country) {
