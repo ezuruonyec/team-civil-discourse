@@ -10,20 +10,19 @@ import * as ColorScheme from "../ColorScheme.js"
 
 const ColorMap = ({ allCountries }) => {
 
-  // var ourKey = "";
   var jsonReference = useRef(null);
 
   const onColorChange = (notUsed) => {
-    // ourKey = new String(Math.random());
-    // console.log("New ourKey: " + ourKey);
-    jsonReference.current.setStyle(geoJsonStyle);
+    if (jsonReference.current !== null && jsonReference.current !== undefined)
+      jsonReference.current.setStyle(geoJsonStyle);
   }
 
   ColorScheme.subscribe(onColorChange);
 
   function getColor(ranking) {
     var newColors = ColorScheme.getActiveColorScheme();
-    if(newColors === null || newColors === undefined || newColors.colorTheme === null || newColors.colorTheme === undefined)
+
+    if (newColors === null || newColors === undefined || newColors.colorTheme === null || newColors.colorTheme === undefined)
       return ColorScheme.fallbackColor;
 
     if (ranking >= 146) return newColors.colorTheme[5];
@@ -32,27 +31,40 @@ const ColorMap = ({ allCountries }) => {
     else if (ranking >= 58) return newColors.colorTheme[2];
     else if (ranking >= 29) return newColors.colorTheme[1];
     else if (ranking >= 1) return newColors.colorTheme[0];
-    else return newColors.colorTheme[6];
+    else return ColorScheme.fallbackColor;
   }
 
   function getCountryColor(name) {
     return getColor(getRank(name))
   }
 
+  function getMatchingCountries(name) {
+    var matchingCountries = allCountries.filter(country =>
+      ("CountryAliases" in country && country["CountryAliases"].includes(name)) ||
+      (country["CountryName"] === name));
+    if (matchingCountries.length > 1)
+      matchingCountries.length = 1
+    return matchingCountries;
+  }
+
   function getRank(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["DiscourseRanking"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => Math.trunc(filtered["DiscourseRanking"]));
   }
 
   function getPopulation(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["Population"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => filtered["Population"])
   }
 
   function getInternetPercent(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["InternetAccessPercent"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => Math.trunc(filtered["InternetAccessPercent"]))
   }
 
   function getCensorshipLevel(name) {
-    return allCountries.filter(country => country["CountryName"] === name).map(filtered => filtered["CensorshipLevel"])
+    var matchingCountries = getMatchingCountries(name);
+    return matchingCountries.map(filtered => Math.trunc(filtered["CensorshipLevel"]))
   }
 
   function geoJsonStyle(country) {
@@ -95,10 +107,8 @@ const ColorMap = ({ allCountries }) => {
 
       <Legend />
 
-
       <GeoJSON
         data={world}
-        // key={ourKey}
         ref={jsonReference}
         style={geoJsonStyle}
 
