@@ -15,3 +15,4 @@ runConfigurations
 team-civil-discourse.iml
 vcs.xml
 workspace.xml
+client/.gitignore
