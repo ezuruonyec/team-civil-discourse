@@ -202,14 +202,14 @@ const useStyles = makeStyles((theme) => ({
         >
           <Toolbar>
             {/* Back Button */}
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu"
+            <IconButton edge="start" title="Previous page" className={classes.menuButton} color="inherit" aria-label="menu"
              onClick={handleBack}> 
               <ChevronLeftIcon />
             </IconButton>
 
             {/* Home Title Button */}
             <Typography variant="h6" className={classes.title}>
-              <a href="/" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
+              <a href="/" title="Global Discourse Map" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
 
 
@@ -217,7 +217,7 @@ const useStyles = makeStyles((theme) => ({
 
             {/* About Us Button */}
 
-            <Link to="/about" style={{color: "white", textDecoration: "none"}}>
+            <Link to="/about" title="About Us" style={{color: "white", textDecoration: "none"}}>
 
              <IconButton color = "inherit"><InfoIcon/></IconButton> 
             </Link>
@@ -225,7 +225,7 @@ const useStyles = makeStyles((theme) => ({
             <div>
               
             {/* Search Form */}
-            <Paper component="form" elevation={0} className={classes.search} onSubmit={handleSubmit} >
+            <Paper component="form" title="Search" elevation={0} className={classes.search} onSubmit={handleSubmit} >
       
     
             <Autocomplete
