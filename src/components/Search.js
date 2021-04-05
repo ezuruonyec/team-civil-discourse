@@ -16,9 +16,13 @@ function Search() {
     async function getCountryByName(countryName) {
         try {
             // Create the request URLs
-            let attributesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
-            let articlesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
+	    // DEV 
+            // let attributesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
+            // let articlesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
 
+            // PROD 
+	    let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName
+	    let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName  
             // Start both of our requests
             var attributesHandler = axios.get(attributesRequestURL);
             var articlesHandler = axios.get(articlesRequestURL);
