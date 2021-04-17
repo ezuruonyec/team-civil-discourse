@@ -1,3 +1,9 @@
+# Running the app
+
+Below is information about running the app, automatically generated.
+
+Very useful if you haven't used react:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -75,3 +81,9 @@ Package.json includes lines "bootstrap": "^4.3.1",
                             "react-scripts": "3.1.1",
                             "styled-components": "^4.3.2"
                             which have been used to test the navigation bar...may remove later
+
+# Information for Next Team
+
+* General app information
+* Contact Information
+* Improvements/To Do
