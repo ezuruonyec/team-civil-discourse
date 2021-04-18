@@ -86,4 +86,4 @@ Package.json includes lines "bootstrap": "^4.3.1",
 
 * General app information
 * Contact Information
-* Improvements/To Do
+* (Improvements/To Do)[https://github.com/AaronHaNasi/team-civil-discourse/blob/master/to-do]
