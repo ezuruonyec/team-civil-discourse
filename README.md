@@ -86,6 +86,20 @@ Package.json includes lines "bootstrap": "^4.3.1",
 
 # Information for Next Team
 
-* General app information
 * [Contact Information](https://github.com/AaronHaNasi/team-civil-discourse/blob/master/previous-team-contact-info.md)
 * [Improvements/To Do](https://github.com/AaronHaNasi/team-civil-discourse/blob/master/to-do)
+
+## Services 
+
+These are a list of services our app use, you should try to familiarize yourselves before continuing development. 
+
+* [NewsAPI](https://newsapi.org/): Used on the AWS side as a lambda function, Refresh-NewsCache
+* [Census.gov API](https://www.census.gov/data/developers/data-sets.html): Used on AWS side as lambda function, UpdatePopulationData
+* GeoJSON: For the actual rendering of the map. 
+* Material UI for look and feel of app
+
+## AWS
+* AWS Lambda: For making requests to the DynamoDB and updating DynamoDB, as well as updating S3 cache of articles. All of our Lambda's are written in Python. 
+* AWS DynamoDB: For holding country specific info that is not news articles
+* AWS S3: Holding json info for news articles
+* AWS CloudWatch: For daily updates of population data and weekly of News Cache 
