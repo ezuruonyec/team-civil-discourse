@@ -87,5 +87,5 @@ Package.json includes lines "bootstrap": "^4.3.1",
 # Information for Next Team
 
 * General app information
-* Contact Information
-* (Improvements/To Do)[https://github.com/AaronHaNasi/team-civil-discourse/blob/master/to-do]
+* [Contact Information](https://github.com/AaronHaNasi/team-civil-discourse/blob/master/previous-team-contact-info.md)
+* [Improvements/To Do](https://github.com/AaronHaNasi/team-civil-discourse/blob/master/to-do)
