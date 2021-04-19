@@ -2,6 +2,8 @@
 
 Below is information about running the app, automatically generated.
 
+**For the next team (presumably Fall 2021), there are links at the bottom of the page**
+
 Very useful if you haven't used react:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
