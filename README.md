@@ -97,6 +97,7 @@ These are a list of services our app use, you should try to familiarize yourselv
 * [Census.gov API](https://www.census.gov/data/developers/data-sets.html): Used on AWS side as lambda function, UpdatePopulationData
 * GeoJSON: For the actual rendering of the map. 
 * Material UI for look and feel of app
+* Heroku: AWS Wrapper for an EC2 Instance, that hosts the app. There are two apps running: one for testing and one for the actually deployed app. 
 
 ## AWS
 * AWS Lambda: For making requests to the DynamoDB and updating DynamoDB Table, as well as updating the S3 Cache (News Articles). All of our Lambda's are written in Python. 
