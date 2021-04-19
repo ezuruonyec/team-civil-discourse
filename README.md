@@ -99,7 +99,7 @@ These are a list of services our app use, you should try to familiarize yourselv
 * Material UI for look and feel of app
 
 ## AWS
-* AWS Lambda: For making requests to the DynamoDB and updating DynamoDB, as well as updating S3 cache of articles. All of our Lambda's are written in Python. 
-* AWS DynamoDB: For holding country specific info that is not news articles
-* AWS S3: Holding json info for news articles
+* AWS Lambda: For making requests to the DynamoDB and updating DynamoDB Table, as well as updating the S3 Cache (News Articles). All of our Lambda's are written in Python. 
+* AWS DynamoDB: For holding country specific info that is not news articles (ie - Population, Civil Discourse Ranking, ISO Country Code, etc)
+* AWS S3: JSON Files containing info for news articles
 * AWS CloudWatch: For daily updates of population data and weekly of News Cache 
