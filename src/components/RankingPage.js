@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import ColorMap from "./ColorMap"
 import axios from 'axios';
 import { TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Paper } from '@material-ui/core';
-// import { DataGrid } from '@mui/x-data-grid';
 
 export default function RankingPage(props) {
     const [allCountries, setAllCountries] = useState([]);
@@ -30,22 +29,23 @@ export default function RankingPage(props) {
         fetchData();
     }, []);
 
-    const columns = [
-        {
-            field: 'country',
-            headerName: 'Country',
-            width: 150,
-            editable: false,
-        }, {
-            field: 'ranking',
-            headerName: 'Ranking',
-            width: 150,
-            editable: false,
+    const colorCodeRows = ranking => {
+        if (ranking <= 28) {
+            return '#00FF80';
+        } else if (ranking > 28 && ranking <= 57) {
+            return '#A7FF00';
+        } else if (ranking > 57 && ranking <= 87) {
+            return '#FFFC00';
+        } else if (ranking > 87 && ranking <= 116) {
+            return '#FF8000';
+        } else if (ranking > 116 && ranking <= 145) {
+            return '#FF5E00';
+        } else if (ranking > 145 && ranking <= 173) {
+            return '#EB1414';
+        } else {
+            return '#999999';
         }
-    ]
-    
-    let rankings = allCountries.map((country, key) => <TableRow key={key} >{country.DiscourseRanking}</TableRow>);
-    let countries = allCountries.map((country, key) => <TableRow key={key}  >{country.CountryName}</TableRow>);
+    }
 
     return (
         <>
@@ -65,7 +65,11 @@ export default function RankingPage(props) {
                                 <TableCell component="th" scope="row">
                                     {country.CountryName}
                                 </TableCell>                     
-                                <TableCell component="th" scope="row">
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        style={{backgroundColor: colorCodeRows(country.DiscourseRanking)}}
+                                    >
                                     {country.DiscourseRanking}
                                 </TableCell>
                             </TableRow>
