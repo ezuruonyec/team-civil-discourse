@@ -30,48 +30,76 @@ export default function RankingPage(props) {
     }, []);
 
     const colorCodeRows = ranking => {
+        let color;
         if (ranking <= 28) {
-            return '#00FF80';
+            color = '#00FF00';
         } else if (ranking > 28 && ranking <= 57) {
-            return '#A7FF00';
+            color = '#A3FF00';
         } else if (ranking > 57 && ranking <= 87) {
-            return '#FFFC00';
+            color = '#FFFC00';
         } else if (ranking > 87 && ranking <= 116) {
-            return '#FF8000';
+            color = '#FF8000';
         } else if (ranking > 116 && ranking <= 145) {
-            return '#FF5E00';
-        } else if (ranking > 145 && ranking <= 173) {
-            return '#EB1414';
+            color = '#FF4F00';
+        } else if (ranking > 145) {
+            color = '#EB1414';
         } else {
-            return '#999999';
+            color = '#999999';
         }
+        return color;
     }
 
     return (
         <>
-            <h2>Country Civil Discourse Rankings</h2>
+            <h2 align="center">Country Civil Discourse Rankings</h2>
             <Paper>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
-                    <TableRow>
-                        <TableCell>Country</TableCell>
-                        <TableCell>Ranking</TableCell>
-                    </TableRow>
+                        <TableRow>
+                            <TableCell style={{ width: '25%' }} >Country</TableCell>
+                            <TableCell style={{ width: '25%' }} >Population</TableCell>
+                            <TableCell style={{ width: '25%' }} >Ranking</TableCell>
+                            <TableCell style={{ width: '25%' }} >Censorship Level</TableCell>
+                        </TableRow>
                     </TableHead>
                     <TableBody>
                         {allCountries.map((country) => (
                         <>
-                            <TableRow key={country.CountryName} >
-                                <TableCell component="th" scope="row">
-                                    {country.CountryName}
-                                </TableCell>                     
+                            <TableRow >
                                     <TableCell
                                         component="th"
                                         scope="row"
-                                        style={{backgroundColor: colorCodeRows(country.DiscourseRanking)}}
+                                        style={{ width: '25%' }}
+                                        key={country.CountryName}
+                                    >
+                                    {country.CountryName}
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        style={{ width: '25%' }}
+                                        key={country.Population}
+                                    >
+                                    {country.Population}
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        style={{ backgroundColor: colorCodeRows(country.DiscourseRanking), width: '25%' }}
+                                        align="center"
+                                        key={country.DiscourseRanking}
                                     >
                                     {country.DiscourseRanking}
-                                </TableCell>
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        style={{ width: '25%' }}
+                                        align="center"
+                                        key={country.CensorshipLevel}
+                                    >
+                                    {country.CensorshipLevel}
+                                    </TableCell>
                             </TableRow>
                         </>
                     ))}
