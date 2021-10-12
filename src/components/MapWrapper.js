@@ -16,7 +16,6 @@ const MapWrapper = ({ country: world, getCountry }) => {
 
 
   return (
-
     <div style={{ backgroundColor: "#6c757d", height: "100vh", width: "100vw" }}>
       <Header />
       <Suspense>

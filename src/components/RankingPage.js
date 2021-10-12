@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Paper, TableSortLabel, Toolbar } from '@material-ui/core';
+import numeral from 'numeral';
 // import InfoPane from './InfoPane.js';
-import Header from './Header';
+// import Header from './Header';
 
 export default function RankingPage() {
     const [allCountries, setAllCountries] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [isFetched, setIsFetched] = useState(false);
 
     const columns = [
         'Country',
@@ -52,6 +54,7 @@ export default function RankingPage() {
                 const res = await axios.request(request);
                 if (isMounted && "Items" in res.data) {
                     setAllCountries(res.data["Items"]);
+                    setIsFetched(true);
                 }
             } catch (error) {
                 console.log(error);
@@ -161,7 +164,7 @@ export default function RankingPage() {
 
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <h2 align="center">Country Civil Discourse Rankings</h2>
             {/* <button onClick={() => setIsOpen(true)}>Click to open pane</button>
             <InfoPane isOpen={isOpen} /> */}
@@ -191,14 +194,14 @@ export default function RankingPage() {
                                     scope="row"
                                     key={country.CountryName}
                                 >
-                                    {country.CountryName}
+                                    <a href={`/search/${country.CountryName}`} style={{ textDecoration: 'none' }}>{country.CountryName}</a>
                                 </TableCell>
                                 <TableCell
                                     component="th"
                                     scope="row"                                        
                                     key={`${country.CountryName}_population`}
                                 >
-                                    {parseInt(country.Population)}
+                                    {numeral(country.Population).format('0,0')}
                                 </TableCell>
                                 <TableCell
                                     component="th"
@@ -244,7 +247,7 @@ export default function RankingPage() {
                                     align="center"
                                 >
                                     {country.MilleniumDeclarationRatified ? <>Signed in {`${parseInt(country.MilleniumDeclarationYear)}`}</> : <>Not signed</>}
-                                </TableCell>     
+                                </TableCell>
                             </TableRow>
                         </>
                     ))}

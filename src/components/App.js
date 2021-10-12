@@ -3,7 +3,7 @@ import MapWrapper from "./MapWrapper"
 import {connect} from "react-redux"
 import * as actions from "../actions"
 import about from "./AboutUs"
-import RankingPage from './RankingPage'
+import RankingPageWrapper from './RankingPageWrapper'
 
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "../App.css"
@@ -21,7 +21,7 @@ class App extends Component {
             <Route path="/" component={MapWrapper} exact />
             <Route path="/about" component={about} exact />
             <Route path="/search/:term" component={Search} />
-            <Route path="/rankings" component={RankingPage} />
+            <Route path="/rankings" component={RankingPageWrapper} />
           </Switch>
         </main>
       </BrowserRouter>
