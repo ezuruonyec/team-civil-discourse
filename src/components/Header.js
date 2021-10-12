@@ -160,21 +160,17 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
     let history = useHistory();
     const theme = useTheme();
-    const [open, setOpen] = useState(false);
     
+    const [open, setOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState(currentTerm ? currentTerm : "")
+    const [searchTermInput, setSearchTermInput] = useState(currentTerm ? currentTerm : "")
   
     const handleDrawerOpen = () => {
       setOpen(true);
     };
-  
     const handleDrawerClose = () => {
       setOpen(false);
     };
-    const [searchTerm, setSearchTerm] = useState(currentTerm ? currentTerm : "")
-
-    const [searchTermInput, setSearchTermInput] = useState(currentTerm ? currentTerm : "")
-  
-    
 
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -186,9 +182,6 @@ const useStyles = makeStyles((theme) => ({
       return history.goBack();
     }
 
-
-
-  
     return (
       <div className={classes.root}>
          <CssBaseline />
@@ -212,7 +205,9 @@ const useStyles = makeStyles((theme) => ({
               <a href="/" title="Global Discourse Map" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
 
-
+            <Typography variant="h8">
+              <a href="/rankings" title="Country Rankings" style={{textDecoration: "none", color: "white"}}>Country Rankings</a>
+            </Typography>
             {/* DELETE ME - Development Button */}
 
             {/* About Us Button */}
