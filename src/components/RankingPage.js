@@ -5,10 +5,12 @@ import numeral from 'numeral';
 // import InfoPane from './InfoPane.js';
 // import Header from './Header';
 
-export default function RankingPage() {
+export default function RankingPage(/*{ allCountries }*/) {
     const [allCountries, setAllCountries] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [isFetched, setIsFetched] = useState(false);
+
+    // console.log(allCountries);
 
     const columns = [
         'Country',
@@ -22,14 +24,23 @@ export default function RankingPage() {
 
     const measurements = {
         belowIdeal: {
-
+            discourseRanking: 145,
+            censorship: 4,
+            internetAccess: 25,
+            rwbRating: 150,
         },
         ideal: {
-
+            discourseRanking: {from: 88, to: 144},
+            censorship: {from: 5, to: 7},
+            internetAccess: {from: 26, to: 75},
+            rwbRating: {from: 100, to: 149},
         },
         aboveIdeal: {
-
-        }
+            discourseRanking: {from: 88, to: 144},
+            censorship: {from: 5, to: 7},
+            internetAccess: {from: 26, to: 75},
+            rwbRating: {from: 100, to: 149},
+        },
     }
     
     useEffect(() => {
@@ -134,13 +145,13 @@ export default function RankingPage() {
         return color;
     }
 
-    const handleSort = () => {
-        try {
-            setAllCountries(allCountries.sort((a, b) => a.CountryName > b.CountryName ? 1 : -1))
-        } catch(err) {
-            console.log(`Error: Could not sort by country name. ${err}`);
-        }
-    }
+    // const handleSort = () => {
+    //     try {
+    //         setAllCountries(allCountries.sort((a, b) => a.CountryName > b.CountryName ? 1 : -1))
+    //     } catch(err) {
+    //         console.log(`Error: Could not sort by country name. ${err}`);
+    //     }
+    // }
 
     const descendSort = (a, b, orderBy) => {
         if (b[orderBy] < a[orderBy]) {
@@ -160,12 +171,13 @@ export default function RankingPage() {
 
     const sortBy = (column) => {
         console.log(`Sorted ${column} column.`);
+        // column.data.sort((a, b) => a < b ? 1 : -1);
     }
 
     return (
         <>
             {/* <Header /> */}
-            <h2 align="center">Country Civil Discourse Rankings</h2>
+            <h2 align="center">Country-Level Rankings</h2>
             {/* <button onClick={() => setIsOpen(true)}>Click to open pane</button>
             <InfoPane isOpen={isOpen} /> */}
             <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
@@ -187,7 +199,7 @@ export default function RankingPage() {
                 </TableHead>
                 <TableBody>
                     {allCountries.map((country, key) => (
-                        <>
+                        <React.Fragment key={key}>
                             <TableRow>
                                 <TableCell
                                     component="th"
@@ -249,7 +261,7 @@ export default function RankingPage() {
                                     {country.MilleniumDeclarationRatified ? <>Signed in {`${parseInt(country.MilleniumDeclarationYear)}`}</> : <>Not signed</>}
                                 </TableCell>
                             </TableRow>
-                        </>
+                        </React.Fragment>
                     ))}
                 </TableBody>
             </Table>

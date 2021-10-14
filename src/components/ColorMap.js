@@ -89,7 +89,6 @@ const ColorMap = ({ allCountries }) => {
       touchZoom
       placeholder
       zoomAnimation
-
     >
       <Pane
         name="labels"
