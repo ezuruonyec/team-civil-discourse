@@ -2,15 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Paper, TableSortLabel, Toolbar } from '@material-ui/core';
 import numeral from 'numeral';
-// import InfoPane from './InfoPane.js';
-// import Header from './Header';
 
 export default function RankingPage(/*{ allCountries }*/) {
     const [allCountries, setAllCountries] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [isFetched, setIsFetched] = useState(false);
-
-    // console.log(allCountries);
 
     const columns = [
         'Country',
@@ -176,10 +172,7 @@ export default function RankingPage(/*{ allCountries }*/) {
 
     return (
         <>
-            {/* <Header /> */}
             <h2 align="center">Country-Level Rankings</h2>
-            {/* <button onClick={() => setIsOpen(true)}>Click to open pane</button>
-            <InfoPane isOpen={isOpen} /> */}
             <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
                 <TableHead>
                     <TableRow>
