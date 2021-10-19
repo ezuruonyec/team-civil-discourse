@@ -1,43 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Paper, TableSortLabel, Toolbar } from '@material-ui/core';
+import { Table, TableRow, TableHead, TableCell, TableBody } from '@material-ui/core';
 import numeral from 'numeral';
 
-export default function RankingPage(/*{ allCountries }*/) {
+export default function RankingPage() {
     const [allCountries, setAllCountries] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
-    const [isFetched, setIsFetched] = useState(false);
-
-    const columns = [
-        'Country',
-        'Population',
-        'Discourse Ranking',
-        'Censorship Level',
-        'Internet Access',
-        'RWB Rating',
-        'Millenium Declaration',
-    ]
-
-    const measurements = {
-        belowIdeal: {
-            discourseRanking: 145,
-            censorship: 4,
-            internetAccess: 25,
-            rwbRating: 150,
-        },
-        ideal: {
-            discourseRanking: {from: 88, to: 144},
-            censorship: {from: 5, to: 7},
-            internetAccess: {from: 26, to: 75},
-            rwbRating: {from: 100, to: 149},
-        },
-        aboveIdeal: {
-            discourseRanking: {from: 88, to: 144},
-            censorship: {from: 5, to: 7},
-            internetAccess: {from: 26, to: 75},
-            rwbRating: {from: 100, to: 149},
-        },
-    }
     
     useEffect(() => {
         let isMounted = true;
@@ -61,7 +28,6 @@ export default function RankingPage(/*{ allCountries }*/) {
                 const res = await axios.request(request);
                 if (isMounted && "Items" in res.data) {
                     setAllCountries(res.data["Items"]);
-                    setIsFetched(true);
                 }
             } catch (error) {
                 console.log(error);
@@ -71,7 +37,17 @@ export default function RankingPage(/*{ allCountries }*/) {
         fetchData();
     }, []);
 
-    //FIX: Consolidate color-coding functions into one.
+    const columns = [
+        'Country',
+        'Population',
+        'Discourse Ranking',
+        'Censorship Level',
+        'Internet Access',
+        'RWB Rating',
+        'Millenium Declaration',
+    ]
+
+    //TODO: Consolidate color-coding functions into one.
 
     const colorCodeRows = ranking => {
         let color;
@@ -106,7 +82,7 @@ export default function RankingPage(/*{ allCountries }*/) {
         }
         return color;
     }
-
+    
     const colorCodeInternet = access => {
         let color;
         if (access > 90) {
@@ -141,35 +117,6 @@ export default function RankingPage(/*{ allCountries }*/) {
         return color;
     }
 
-    // const handleSort = () => {
-    //     try {
-    //         setAllCountries(allCountries.sort((a, b) => a.CountryName > b.CountryName ? 1 : -1))
-    //     } catch(err) {
-    //         console.log(`Error: Could not sort by country name. ${err}`);
-    //     }
-    // }
-
-    const descendSort = (a, b, orderBy) => {
-        if (b[orderBy] < a[orderBy]) {
-            return -1;
-        } else if (b[orderBy] > a[orderBy]) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    const getComparator = (order, orderBy) => {
-        return order === 'desc'
-            ? (a, b) => descendSort(a, b, orderBy)
-            : (a, b) => -descendSort(a, b, orderBy);
-    }
-
-    const sortBy = (column) => {
-        console.log(`Sorted ${column} column.`);
-        // column.data.sort((a, b) => a < b ? 1 : -1);
-    }
-
     return (
         <>
             <h2 align="center">Country-Level Rankings</h2>
@@ -182,11 +129,6 @@ export default function RankingPage(/*{ allCountries }*/) {
                                 style={{ fontWeight: 'bold' }}
                             >
                                 {columnName}
-                                <TableSortLabel
-                                    active={true}
-                                    onClick={() => sortBy(columnName)}
-                                >
-                                </TableSortLabel>
                             </TableCell>)}
                     </TableRow>
                 </TableHead>
