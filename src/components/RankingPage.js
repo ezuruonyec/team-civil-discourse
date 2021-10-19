@@ -1,34 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Paper, TableSortLabel, Toolbar } from '@material-ui/core';
-import InfoPane from './InfoPane.js';
-import Header from './Header';
+import { Table, TableRow, TableHead, TableCell, TableBody } from '@material-ui/core';
+import numeral from 'numeral';
 
 export default function RankingPage() {
     const [allCountries, setAllCountries] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
-
-    const columns = [
-        'Country',
-        'Population',
-        'Discourse Ranking',
-        'Censorship Level',
-        'Internet Access',
-        'RWB Rating',
-        'Millenium Declaration',
-    ]
-
-    const measurements = {
-        belowIdeal: {
-
-        },
-        ideal: {
-
-        },
-        aboveIdeal: {
-
-        }
-    }
     
     useEffect(() => {
         let isMounted = true;
@@ -61,8 +37,17 @@ export default function RankingPage() {
         fetchData();
     }, []);
 
-    //FIX: Consolidate color-coding functions into one.
+    const columns = [
+        'Country',
+        'Population',
+        'Discourse Ranking',
+        'Censorship Level',
+        'Internet Access',
+        'RWB Rating',
+        'Millenium Declaration',
+    ]
 
+    //TODO: Consolidate color-coding functions into one.
     const colorCodeRows = ranking => {
         let color;
         if (ranking <= 28) {
@@ -96,7 +81,7 @@ export default function RankingPage() {
         }
         return color;
     }
-
+    
     const colorCodeInternet = access => {
         let color;
         if (access > 90) {
@@ -131,40 +116,9 @@ export default function RankingPage() {
         return color;
     }
 
-    const handleSort = () => {
-        try {
-            setAllCountries(allCountries.sort((a, b) => a.CountryName > b.CountryName ? 1 : -1))
-        } catch(err) {
-            console.log(`Error: Could not sort by country name. ${err}`);
-        }
-    }
-
-    const descendSort = (a, b, orderBy) => {
-        if (b[orderBy] < a[orderBy]) {
-            return -1;
-        } else if (b[orderBy] > a[orderBy]) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    const getComparator = (order, orderBy) => {
-        return order === 'desc'
-            ? (a, b) => descendSort(a, b, orderBy)
-            : (a, b) => -descendSort(a, b, orderBy);
-    }
-
-    const sortBy = (column) => {
-        console.log(`Sorted ${column} column.`);
-    }
-
     return (
         <>
-            <Header />
-            <h2 align="center">Country Civil Discourse Rankings</h2>
-            {/* <button onClick={() => setIsOpen(true)}>Click to open pane</button>
-            <InfoPane isOpen={isOpen} /> */}
+            <h2 align="center">Country-Level Rankings</h2>
             <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
                 <TableHead>
                     <TableRow>
@@ -174,31 +128,26 @@ export default function RankingPage() {
                                 style={{ fontWeight: 'bold' }}
                             >
                                 {columnName}
-                                <TableSortLabel
-                                    active={true}
-                                    onClick={() => sortBy(columnName)}
-                                >
-                                </TableSortLabel>
                             </TableCell>)}
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {allCountries.map((country, key) => (
-                        <>
+                        <React.Fragment key={key}>
                             <TableRow>
                                 <TableCell
                                     component="th"
                                     scope="row"
                                     key={country.CountryName}
                                 >
-                                    {country.CountryName}
+                                    <a href={`/search/${country.CountryName}`} style={{ textDecoration: 'none' }}>{country.CountryName}</a>
                                 </TableCell>
                                 <TableCell
                                     component="th"
                                     scope="row"                                        
                                     key={`${country.CountryName}_population`}
                                 >
-                                    {parseInt(country.Population)}
+                                    {numeral(country.Population).format('0,0')}
                                 </TableCell>
                                 <TableCell
                                     component="th"
@@ -244,9 +193,9 @@ export default function RankingPage() {
                                     align="center"
                                 >
                                     {country.MilleniumDeclarationRatified ? <>Signed in {`${parseInt(country.MilleniumDeclarationYear)}`}</> : <>Not signed</>}
-                                </TableCell>     
+                                </TableCell>
                             </TableRow>
-                        </>
+                        </React.Fragment>
                     ))}
                 </TableBody>
             </Table>

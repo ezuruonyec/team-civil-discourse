@@ -4,7 +4,6 @@ import { MapContainer, TileLayer, GeoJSON, Pane } from 'react-leaflet';
 import { connect } from "react-redux"
 import * as actions from "../actions"
 import Legend from "./Legend"
-import ReactCountryFlag from "react-country-flag"
 import numeral from "numeral"
 import * as ColorScheme from "../ColorScheme.js"
 
@@ -89,7 +88,6 @@ const ColorMap = ({ allCountries }) => {
       touchZoom
       placeholder
       zoomAnimation
-
     >
       <Pane
         name="labels"
