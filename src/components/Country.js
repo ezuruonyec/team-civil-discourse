@@ -111,11 +111,11 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard title="Freedom of Press" detail="Not available"  subDetail="" />
+                    <InfoCard title="Not available" detail="Freedom of Press"  subDetail="" />
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard title="Freedom of Speech" detail="Not available" subDetail="" />
+                    <InfoCard title="Not available" detail="Freedom of Speech" subDetail="" />
                 </Grid>
 		
             </Grid>

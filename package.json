@@ -6,9 +6,11 @@
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "@material-ui/core": "^4.11.0",
+    "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/pickers": "^3.2.10",
+    "@table-library/react-table-library": "^1.10.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -32,9 +34,12 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-simple-maps": "^2.3.0",
+    "react-sliding-side-panel": "^2.0.3",
+    "react-table": "^7.7.0",
     "reactstrap": "^8.6.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.3.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -20,13 +20,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import HelpIcon from '@material-ui/icons/Help';
 import InfoIcon from '@material-ui/icons/Info';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { FontIcon } from "material-ui";
-
+import LanguageIcon from "@material-ui/icons/Language";
 
 const drawerWidth = 240;
 
@@ -160,21 +160,17 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
     let history = useHistory();
     const theme = useTheme();
-    const [open, setOpen] = useState(false);
     
+    const [open, setOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState(currentTerm ? currentTerm : "")
+    const [searchTermInput, setSearchTermInput] = useState(currentTerm ? currentTerm : "")
   
     const handleDrawerOpen = () => {
       setOpen(true);
     };
-  
     const handleDrawerClose = () => {
       setOpen(false);
     };
-    const [searchTerm, setSearchTerm] = useState(currentTerm ? currentTerm : "")
-
-    const [searchTermInput, setSearchTermInput] = useState(currentTerm ? currentTerm : "")
-  
-    
 
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -186,9 +182,6 @@ const useStyles = makeStyles((theme) => ({
       return history.goBack();
     }
 
-
-
-  
     return (
       <div className={classes.root}>
          <CssBaseline />
@@ -212,22 +205,22 @@ const useStyles = makeStyles((theme) => ({
               <a href="/" title="Global Discourse Map" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
 
-
+            <Link to="/rankings" title="Country-Level Metrics" style={{color: "white", textDecoration: "none"}}>
+              <IconButton color="inherit" ><LanguageIcon/></IconButton>
+            </Link>
             {/* DELETE ME - Development Button */}
 
             {/* About Us Button */}
 
             <Link to="/about" title="About Us" style={{color: "white", textDecoration: "none"}}>
 
-             <IconButton color = "inherit"><InfoIcon/></IconButton> 
+             <IconButton color="inherit"><InfoIcon/></IconButton> 
             </Link>
-
             <div>
               
             {/* Search Form */}
             <Paper component="form" title="Search" elevation={0} className={classes.search} onSubmit={handleSubmit} >
       
-    
             <Autocomplete
               value={searchTerm}
               onChange={(event, newValue) => {
@@ -261,9 +254,6 @@ const useStyles = makeStyles((theme) => ({
                 />
               )}
             />
-
-
-
             </Paper>
           </div>
           </Toolbar>

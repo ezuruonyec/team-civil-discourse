@@ -63,10 +63,15 @@ const Legend = () => {
     ColorScheme.setColorTritan();
   };
 
+  const Protan = (e) => {
+    setAnchorEl(null);
+    ColorScheme.setColorProtan();
+  };
+
   return (
     <div className="info">
       <div className="legend">
-        <span className="title">Legend
+        <span className="title">Civil Discourse Ranking
         <Button title="Theme Selection" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
             <MoreVertIcon />
           </Button>
@@ -82,7 +87,7 @@ const Legend = () => {
             <MenuItem onClick={Greyscale}>Greyscale</MenuItem>
             <MenuItem onClick={Deutran}>Deutran</MenuItem>
             <MenuItem onClick={Tritan}>Tritan</MenuItem>
-            <MenuItem onClick={Tritan}>Protan</MenuItem>
+            <MenuItem onClick={Protan}>Protan</MenuItem>
           </Menu>
         </span>
 
@@ -102,7 +107,7 @@ const Legend = () => {
                       <>
                         <span>
                           <span className="i" id="na" style={{ backgroundColor: getColor(grades[7], ColorScheme.getActiveColorScheme()) }}></span>
-                          {"NA"}
+                          {"Not available"}
                         </span><br />
                       </> : ""
                 }
