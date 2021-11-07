@@ -1,13 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react'
 import world from "../geoJson/world.json"
-import { MapContainer, TileLayer, GeoJSON, Pane } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, Pane, Marker, Popup } from 'react-leaflet'
 import { connect } from "react-redux"
 import * as actions from "../actions"
 import Legend from "./Legend"
 import numeral from "numeral"
 import * as ColorScheme from "../ColorScheme.js"
+// import { SettingsPhoneTwoTone } from '@material-ui/icons'
+// import InfoPane from './InfoPane';
+// import SlidingPane from 'react-sliding-pane'
+import '../ColorMap.css'
 
 const ColorMap = ({ allCountries }) => {
+  const [paneOpen, setPaneOpen] = useState(false);
 
   var jsonReference = useRef(null);
 
@@ -78,61 +83,87 @@ const ColorMap = ({ allCountries }) => {
   }
 
   return (
-    <MapContainer
-      style={{ margin: "auto", zIndex: "1", marginTop: -10, height: "calc(100% - 61px)" }}
-      className="map"
-      center={[20, 0]}
-      zoom={2.5}
-      minZoom={2.5}
-      scrollWheelZoom={true}
-      touchZoom
-      placeholder
-      zoomAnimation
-    >
-      <Pane
-        name="labels"
-        style={{ zIndex: 650, pointerEvents: "none", opacity: .7 }}
+    <>
+      <div
+
       >
-        <TileLayer
-          url='https://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}{r}.png'
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          minZoom={2}
-          noWrap
+        {/* <SlidingPane
+          className="some-custom-class"
+          overlayClassName="some-custom-overlay-class"
+          isOpen={true}
+          title="Hey, it is optional pane title.  I can be React component too."
+          subtitle="Optional subtitle."
+                  style={{
+          zIndex: 10000
+        }}  
+          onRequestClose={() => {
+              // triggered on "<" on left top click or on outside click
+            setPaneOpen(false);
+            
+          }}
+        >
+          <div>And I am pane content.</div>
+        </SlidingPane> */}
+        {/* <InfoPane isOpen={paneOpen} /> */}
+      </div>
+      <MapContainer
+        style={{ margin: "auto", zIndex: 1, marginTop: -10, height: "calc(100% - 61px)" }}
+        className="map"
+        center={[20, 0]}
+        zoom={2.5}
+        minZoom={2.5}
+        scrollWheelZoom={true}
+        touchZoom
+        placeholder
+        zoomAnimation
+      >
+        <Pane
+          name="labels"
+          style={{ zIndex: 650, pointerEvents: "none", opacity: .7 }}
+        >
+          <TileLayer
+            url='https://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}{r}.png'
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            minZoom={2}
+            noWrap
+          />
+        </Pane>
+        <Legend />
+        <GeoJSON
+          data={world}
+          ref={jsonReference}
+          style={geoJsonStyle}
+
+          onEachFeature={(feature, layer) => {
+
+            // popup for onclick
+            layer.bindPopup(
+              '<h5>' + feature.properties.name + '</h5>' +
+              '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
+              '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
+              '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
+              '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
+              '<a href="/search/' + feature.properties.name + '">View more</a>'
+            );
+
+            layer.on('mouseover', function () {
+              this.setStyle({
+                'fillOpacity': 0.8
+              });
+            });
+
+            layer.on('mouseout', function () {
+              this.setStyle({
+                'fillOpacity': 1
+              });
+            });
+          }}
         />
-      </Pane>
-      <Legend />
-      <GeoJSON
-        data={world}
-        ref={jsonReference}
-        style={geoJsonStyle}
-
-        onEachFeature={(feature, layer) => {
-
-          // popup for onclick
-          layer.bindPopup(
-            '<h5>' + feature.properties.name + '</h5>' +
-            '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
-            '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
-            '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
-            '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
-            '<a href="/search/' + feature.properties.name + '">View more</a>'
-          );
-
-          layer.on('mouseover', function () {
-            this.setStyle({
-              'fillOpacity': 0.8
-            });
-          });
-
-          layer.on('mouseout', function () {
-            this.setStyle({
-              'fillOpacity': 1
-            });
-          });
-        }}
-      />
-
-    </MapContainer>
+        {/* <Pane style={{ zIndex: 800 }}>
+          <InfoPane isOpen={paneOpen} />
+        </Pane> */}
+      </MapContainer>
+    </>
   )
 }
 

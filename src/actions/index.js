@@ -55,7 +55,6 @@ export const getCountry = () => async dispatch => {
     console.log(error);
     console.log(error.response);
   }
-
 }
 
 export const setItemsLoading = () => {

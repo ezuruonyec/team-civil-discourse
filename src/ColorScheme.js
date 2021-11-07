@@ -15,7 +15,7 @@ CallOnColorChange.prototype = {
             function (item) {
                 if (item !== fn) {
                     return item;
-                }
+                } else return null;
             }
         );
     },
