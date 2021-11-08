@@ -88,6 +88,8 @@ const ColorMap = ({ allCountries }) => {
       touchZoom
       placeholder
       zoomAnimation
+      maxBounds={[[-90, -180], [90, 180]]}
+      //worldCopyJump --> how I made it originally for wrapping, but didn't work correctly due to a known issue. 
     >
       <Pane
         name="labels"
