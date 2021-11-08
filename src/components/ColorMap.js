@@ -89,7 +89,12 @@ const ColorMap = ({ allCountries }) => {
       touchZoom
       placeholder
       zoomAnimation
+<<<<<<< Updated upstream
 
+=======
+      maxBounds={[[-90, -180], [90, 180]]}
+      //worldCopyJump --> this is how I attempted to make the map scroll and wrap around, but it wasn't working correctly. 
+>>>>>>> Stashed changes
     >
       <Pane
         name="labels"
