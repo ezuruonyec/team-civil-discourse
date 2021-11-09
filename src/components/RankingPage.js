@@ -10,9 +10,9 @@ const useStyles = makeStyles({
         "width": '100%',
         "& .MuiDataGrid-renderingZone": {
             "& .MuiDataGrid-row": {
-                backgroundColor: 'lightGreen',
+                backgroundColor: '#51A6B990',
                 "&:hover": {
-                    backgroundColor: '#00FF00'
+                    backgroundColor: '#06BBE380'
                 }
             }
         }

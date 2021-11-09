@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
       marginRight: theme.spacing(2),
+      color: 'white'
     },
     title: {
       flexGrow: 1,
@@ -184,7 +185,7 @@ const useStyles = makeStyles((theme) => ({
 
     return (
       <div className={classes.root}>
-         <CssBaseline />
+        <CssBaseline />
         <AppBar 
           position="sticky" 
           //className={classes.appbar} 
@@ -205,7 +206,7 @@ const useStyles = makeStyles((theme) => ({
               <a href="/" title="Global Discourse Map" style={{textDecoration: "none", color: "white"}}>Global Civil Discourse Map</a>
             </Typography>
 
-            <Link to="/rankings" title="Country-Level Metrics" style={{color: "white", textDecoration: "none"}}>
+            <Link to="/rankings" title="Country-Level Metrics" className={classes.menuButton} color="white">
               <IconButton color="inherit" ><LanguageIcon/></IconButton>
             </Link>
             {/* DELETE ME - Development Button */}
@@ -213,50 +214,45 @@ const useStyles = makeStyles((theme) => ({
             {/* About Us Button */}
 
             <Link to="/about" title="About Us" style={{color: "white", textDecoration: "none"}}>
-
-             <IconButton color="inherit"><InfoIcon/></IconButton> 
+              <IconButton color="inherit"><InfoIcon/></IconButton> 
             </Link>
             <div>
               
             {/* Search Form */}
             <Paper component="form" title="Search" elevation={0} className={classes.search} onSubmit={handleSubmit} >
-      
-            <Autocomplete
-              value={searchTerm}
-              onChange={(event, newValue) => {
-                setSearchTerm(newValue)
-              }}
-              autoComplete
-              autoCapitalize
-              autoCorrect
-              freeSolo
-              disableClearable
-              className={classes.autocomplete}
-              size="small"
-              options={countries.map((option) => option.label)}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  margin="normal"
-                  variant="outlined"
-                  placeholder="Search..."
-                  size="small"
-                
-                  className={classes.inputInput}
-                  InputProps={{ ...params.InputProps, type: 'search',
-                    startAdornment:   <IconButton type="submit" className={classes.searchIcon} aria-label="search">
-                    <SearchIcon  />
-                  </IconButton>,
-                  classes: {
-                    root: classes.inputRoot
-                 }
-                 }}
-                />
-              )}
-            />
-
-
-
+              <Autocomplete
+                value={searchTerm}
+                onChange={(event, newValue) => {
+                  setSearchTerm(newValue)
+                }}
+                autoComplete
+                autoCapitalize
+                autoCorrect
+                freeSolo
+                disableClearable
+                className={classes.autocomplete}
+                size="small"
+                options={countries.map((option) => option.label)}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    margin="normal"
+                    variant="outlined"
+                    placeholder="Search..."
+                    size="small"
+                  
+                    className={classes.inputInput}
+                    InputProps={{ ...params.InputProps, type: 'search',
+                      startAdornment:   <IconButton type="submit" className={classes.searchIcon} aria-label="search">
+                      <SearchIcon  />
+                    </IconButton>,
+                    classes: {
+                      root: classes.inputRoot
+                  }
+                  }}
+                  />
+                )}
+              />
             </Paper>
           </div>
           </Toolbar>
