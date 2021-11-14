@@ -84,7 +84,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
 
 
-            <Grid container spacing={1}>
+            <Grid container spacing={1} justify="center">
 
 
                 <Grid item xs={12} sm={3}>
@@ -99,24 +99,30 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                     <InfoCard title={censorship_level} detail="Online Censorship Level" subDetail="(Highest) 1 - 10 (Lowest)" />
                 </Grid>
 
-                <Grid item xs={12} sm={3}>
-                    <InfoCard title={millenium_dec_ratified}  detail="Millennium Declaration Signed" subDetail="As of 2000" />
-                </Grid>
-		
             </Grid>
 
             <br></br>
 
             <Grid container spacing={1} justify="center">
-
+                
+                <Grid item xs={12} sm={3}>
+                    <InfoCard src="https://disinformationindex.org/" title="Not Available" detail="Average Global Disinformation Index Rating" subDetail=""/>
+                    <a href="https://disinformationindex.org/"><Button>Visit GDI's website for more information</Button></a>
+                </Grid>
 
                 <Grid item xs={12} sm={3}>
+                    <InfoCard title={millenium_dec_ratified}  detail="Millennium Declaration Signed" subDetail="As of 2000" />
+                </Grid>
+
+             {/*  <Grid item xs={12} sm={3}>
                     <InfoCard title="Not available" detail="Freedom of Press"  subDetail="" />
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title="Not available" detail="Freedom of Speech" subDetail="" />
                 </Grid>
+                    */}
+
 		
             </Grid>
 		

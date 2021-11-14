@@ -117,6 +117,7 @@ const ColorMap = ({ allCountries }) => {
             '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
             '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
             '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
+            //'<p>GDI Average Rating: 79' + '</p>' +
             '<a href="/search/' + feature.properties.name + '">View more</a>'
           );
 
