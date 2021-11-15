@@ -1,53 +1,105 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { Table, TableRow, TableHead, TableCell, TableBody } from '@material-ui/core';
 import numeral from 'numeral';
+import { DataGrid } from '@material-ui/data-grid';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    root: {
+        "height": 800,
+        "width": '100%',
+        "& .MuiDataGrid-renderingZone": {
+            "& .MuiDataGrid-row": {
+                backgroundColor: '#51A6B990',
+                "&:hover": {
+                    backgroundColor: '#06BBE380'
+                }
+            }
+        }
+    }
+});
 
 export default function RankingPage() {
     const [allCountries, setAllCountries] = useState([]);
+    const classes = useStyles();
     
     useEffect(() => {
         let isMounted = true;
-
         const fetchData = async () => {
             try {
                 const request = {
-                    // DEV
                     host: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development',
                     method: 'GET',
                     url: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAllAttributes',
                     path: '/CivilDiscourseMap-GetAllAttributes',
                     crossdomain: true
-                    // PROD
-                    // host: 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/', 
-                    // method: 'GET',
-                    // url: 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAllAttributes', 
-                    // path: '/CivilDiscourseMap-GetAllAttributes',
-                    // crossdomain: true
                 }
                 const res = await axios.request(request);
                 if (isMounted && "Items" in res.data) {
                     setAllCountries(res.data["Items"]);
                 }
             } catch (error) {
-                console.log(error);
+                console.log(`Error in RankingPage useEffect: ${error}`);
                 console.log(error.response);
             }
         };
         fetchData();
+        return () => { isMounted = false };
     }, []);
 
-    const columns = [
-        'Country',
-        'Population',
-        'Discourse Ranking',
-        'Censorship Level',
-        'Internet Access',
-        'RWB Rating',
-        'Millenium Declaration',
-    ]
+    const mappedRows = [allCountries.map((country) => {
+        return ({
+            id: country.CountryName,
+            population: numeral(country.Population).format('0,0'),
+            discourse: parseInt(country.DiscourseRanking),
+            censorship: country.CensorshipLevel,
+            internet: `${country.InternetAccessPercent}%`,
+            rwb: parseInt(country.RwbRank),
+            millenium: country.MilleniumDeclarationRatified ?
+                `Signed in ${parseInt(country.MilleniumDeclarationYear)}` :
+                'Not signed',
+        })
+    }
+    )];
 
-    //TODO: Consolidate color-coding functions into one.
+    const columns = [
+        {
+            field: 'id',
+            headerName: 'Country',
+            width: 140,
+        },
+        {
+            field: 'population',
+            headerName: 'Population',
+            width: 150,
+        },
+        {
+            field: 'discourse',
+            headerName: 'Discourse Ranking',
+            width: 200,
+        },
+        {
+            field: 'censorship',
+            headerName: 'Censorship Level',
+            width: 200,
+        },
+        {
+            field: 'internet',
+            headerName: 'Internet Access',
+            width: 190,
+        },
+        {
+            field: 'rwb',
+            headerName: 'RWB Rating',
+            width: 160,
+        },
+        {
+            field: 'millenium',
+            headerName: 'Millenium Declaration',
+            width: 225,
+        },
+    ];
+
     const colorCodeRows = ranking => {
         let color;
         if (ranking <= 28) {
@@ -68,137 +120,18 @@ export default function RankingPage() {
         return color;
     }
 
-    const colorCodeCensor = censorship => {
-        let color;
-        if (censorship > 7) {
-            color = '#00FF00';
-        } else if (censorship <= 7 && censorship > 4) {
-            color = '#FFFC00';
-        } else if (censorship <= 4) {
-            color = '#EB1414';
-        } else {
-            color = '#999999';
-        }
-        return color;
-    }
-    
-    const colorCodeInternet = access => {
-        let color;
-        if (access > 90) {
-            color = '#00FF00';
-        } else if (access <= 90 && access > 75) {
-            color = '#A3FF00';
-        } else if (access <= 75 && access > 50) {
-            color = '#FFFC00';
-        } else if (access <= 50 && access > 25) {
-            color = '#FF4F00';
-        } else if (access <= 25) {
-            color = '#EB1414';
-        } else {
-            color = '#999999';
-        }
-        return color;
-    }
-
-    const colorCodeRWB = rwbRating => {
-        let color;
-        if (rwbRating <= 50) {
-            color = '#00FF00';
-        } else if (rwbRating <= 100 && rwbRating > 50) {
-            color = '#FFFC00';
-        } else if (rwbRating <= 150 && rwbRating > 100) {
-            color = '#FF4F00';
-        } else if (rwbRating > 150) {
-            color = '#EB1414';
-        } else {
-            color = '#999999';
-        }
-        return color;
-    }
-
     return (
-        <>
+        <div style={{ height: '100%' }}>
             <h2 align="center">Country-Level Rankings</h2>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table" stickyHeader>
-                <TableHead>
-                    <TableRow>
-                        {columns.map((columnName) =>
-                            <TableCell
-                                align="center"
-                                style={{ fontWeight: 'bold' }}
-                            >
-                                {columnName}
-                            </TableCell>)}
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {allCountries.map((country, key) => (
-                        <React.Fragment key={key}>
-                            <TableRow>
-                                <TableCell
-                                    component="th"
-                                    scope="row"
-                                    key={country.CountryName}
-                                >
-                                    <a href={`/search/${country.CountryName}`} style={{ textDecoration: 'none' }}>{country.CountryName}</a>
-                                </TableCell>
-                                <TableCell
-                                    component="th"
-                                    scope="row"                                        
-                                    key={`${country.CountryName}_population`}
-                                >
-                                    {numeral(country.Population).format('0,0')}
-                                </TableCell>
-                                <TableCell
-                                    component="th"
-                                    scope="row"
-                                    key={`${country.CountryName}_ranking`}
-                                    style={{ backgroundColor: colorCodeRows(country.DiscourseRanking)}}
-                                    align="center"
-                                >
-                                    {parseInt(country.DiscourseRanking)}
-                                </TableCell>
-                                <TableCell
-                                    component="th"
-                                    scope="row"
-                                    key={`${country.CountryName}_censorship`}
-                                    style={{ backgroundColor: colorCodeCensor(country.CensorshipLevel)}}
-                                    align="center"
-                                >
-                                    {country.CensorshipLevel}
-                                </TableCell>
-                                <TableCell
-                                    component="th"
-                                    scope="row"
-                                    key={`${country.CountryName}_internet`}
-                                    style={{ backgroundColor: colorCodeInternet(country.InternetAccessPercent)}}
-                                    align="center"
-                                >
-                                    {country.InternetAccessPercent}%
-                                </TableCell>
-                                <TableCell
-                                    component="th"
-                                    scope="row"
-                                    key={`${country.CountryName}_RWB`}
-                                    style={{ backgroundColor: colorCodeRWB(country.RwbRank)}}
-                                    align="center"
-                                >
-                                    {parseInt(country.RwbRank)}
-                                </TableCell>
-                                <TableCell
-                                    component="th"
-                                    scope="row"
-                                    key={`${country.CountryName}_millenium`}
-                                    style={{ backgroundColor: country.MilleniumDeclarationRatified ? '#00FF00' : '#EB1414'}}
-                                    align="center"
-                                >
-                                    {country.MilleniumDeclarationRatified ? <>Signed in {`${parseInt(country.MilleniumDeclarationYear)}`}</> : <>Not signed</>}
-                                </TableCell>
-                            </TableRow>
-                        </React.Fragment>
-                    ))}
-                </TableBody>
-            </Table>
-        </>
+            <div className={classes.root}>
+                <DataGrid
+                    rows={mappedRows[0]}
+                    columns={columns}
+                    pageSize={50}
+                    rowsPerPageOptions={[50]}
+                    disableSelectionOnClick
+                />
+            </div>
+        </div>
     )
 }
