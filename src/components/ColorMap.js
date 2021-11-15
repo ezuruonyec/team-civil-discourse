@@ -63,7 +63,7 @@ const ColorMap = ({ allCountries }) => {
 
   function getCensorshipLevel(name) {
     var matchingCountries = getMatchingCountries(name);
-    return matchingCountries.map(filtered => Math.trunc(filtered["CensorshipLevel"]))
+    return 11 - (matchingCountries.map(filtered => Math.trunc(filtered["CensorshipLevel"])))
   }
 
   function geoJsonStyle(country) {
@@ -116,7 +116,7 @@ const ColorMap = ({ allCountries }) => {
             '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
             '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
             '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
-            '<p>Online Censorship Level: ' + Math.abs(getCensorshipLevel(feature.properties.name)-11) + '</p>' +
+              '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
             //'<p>GDI Average Rating: 79' + '</p>' +
             '<a href="/search/' + feature.properties.name + '">View more</a>'
           );

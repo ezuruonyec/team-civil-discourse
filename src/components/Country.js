@@ -96,7 +96,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard title={Math.abs(censorship_level-11)} detail="Online Censorship Level" subDetail="1 - 10" />
+                    <InfoCard title={11 - censorship_level} detail="Online Censorship Level" subDetail="1 - 10" />
                 </Grid>
 
             </Grid>
