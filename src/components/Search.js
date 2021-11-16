@@ -18,7 +18,7 @@ function Search() {
             // Create the request URLs
 	    // DEV 
             // let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
-            // let articlesRequestURL = 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
+            // let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
 
             // PROD 
 	    let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName
