@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-function Country({ id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array,
+function Country({ id, name, two_digit, three_digit, population, millenium_dec_ranking, millenium_dec_ratified, millenium_dec_year, rwb_rank, rwb_score, internet_access, internet_access_ranking, internet_access_year, censorship_level, censorship_ranking, cd_rating, cd_ranking, poverty_rate, article_array, Gdi_Value, Gdi_Link,
     article_1_title, article_1_description, article_1_author, article_1_date, article_1_source, article_1_url,
     article_2_title, article_2_description, article_2_author, article_2_date, article_2_source, article_2_url,
     article_3_title, article_3_description, article_3_author, article_3_date, article_3_source, article_3_url,
@@ -106,8 +106,8 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
             <Grid container spacing={1} justify="center">
                 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard src="https://disinformationindex.org/" title="Not Available" detail="Average Global Disinformation Index Rating" subDetail=""/>
-                    <a href="https://disinformationindex.org/"><Button>Visit GDI's website for more information</Button></a>
+                    <InfoCard title={Gdi_Value} detail="Average Global Disinformation Index Rating" subDetail=""/>
+                    <a href={Gdi_Link} ><Button>Visit GDI's website for more information</Button></a>
                 </Grid>
 
                 <Grid item xs={12} sm={3}>

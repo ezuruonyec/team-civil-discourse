@@ -16,13 +16,13 @@ function Search() {
     async function getCountryByName(countryName) {
         try {
             // Create the request URLs
-	    // DEV 
-            // let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
-            // let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
+	    //DEV 
+             let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
+             let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
 
             // PROD 
-	    let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName
-	    let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName  
+	    //let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName
+	    //let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName  
             // Start both of our requests
             var attributesHandler = axios.get(attributesRequestURL);
             var articlesHandler = axios.get(articlesRequestURL);
@@ -83,7 +83,9 @@ function Search() {
                                 censorship_ranking={Math.trunc(results['CensorshipRank'])}
                                 cd_rating={Math.trunc(results['DiscourseRating'])}
                                 cd_ranking={Math.trunc(results['DiscourseRanking'])}
-		    		millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N':'Y'}
+                                millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N' : 'Y'}
+                                Gdi_Value={Math.trunc(results['GdiValue'])}
+                                Gdi_Link={results['GdiLink']}
 
                             />
                             :
@@ -104,7 +106,10 @@ function Search() {
                                 censorship_ranking={Math.trunc(results['CensorshipRank'])}
                                 cd_rating={Math.trunc(results['DiscourseRating'])}
                                 cd_ranking={Math.trunc(results['DiscourseRanking'])}
-		    		millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N':'Y'}
+                                millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N' : 'Y'}
+                                Gdi_Value={Math.trunc(results['GdiValue'])}
+                                Gdi_Link={results['GdiLink']}
+
 
                                 article_1_title={results['articles'][0]['title']}
                                 article_2_title={results['articles'][1]['title']}
