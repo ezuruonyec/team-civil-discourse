@@ -24,7 +24,7 @@ def request(request_url, country):
     "lang":"en","sort_by":"relevancy","page":"1","media":"True"}
 
     headers = {
-    'x-rapidapi-key': "9acd56b7e9mshdf710506eb6cdb6p1a6f14jsn54463c41f74d",
+    'x-rapidapi-key': "",
     'x-rapidapi-host': "newscatcher.p.rapidapi.com"
     }
     http = urllib3.PoolManager()
@@ -40,7 +40,7 @@ def news(country):
     elif country == 'United Kingdom':
         sources='the-guardian.co.uk,reauters.com,bbc.co.uk'
         code = 'gb'
-    newscatcher_key = '9acd56b7e9mshdf710506eb6cdb6p1a6f14jsn54463c41f74d'
+    newscatcher_key = ''
     keywords = ('fake news OR misinformation OR  freedom of '
     + 'speech OR free speech OR journalism OR freedom of press OR free press OR journalist OR human rights')
     news_catcher_url = 'https://newscatcher.p.rapidapi.com/v1/search?q=' + keywords + '&sort_by=relevancy&sources=' + sources
