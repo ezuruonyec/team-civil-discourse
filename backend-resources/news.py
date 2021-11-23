@@ -39,7 +39,7 @@ def news(country):
         sources = 'nzherald.co.nz'
     elif country == 'South Africa':
         sources = 'news24.com'
-    news_api_key = 'd6c99d731fbd4f1d8c286ff567748ed2'
+    news_api_key = ''
     keywords = ('"fake news" OR misinformation OR  "freedom of speech" OR "free speech" OR journalism OR "freedom of press" OR "free press" OR journalist OR "human rights"')
     request_url = ('https://newsapi.org/v2/everything?q= ' + keywords + '&domains=' + sources + '&pageSize=5&apiKey=' + news_api_key)
     response = request(request_url)
