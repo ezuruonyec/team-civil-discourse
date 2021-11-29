@@ -107,7 +107,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={Gdi_Value} detail="Average Global Disinformation Index Rating" subDetail=""/>
-                    <a href={Gdi_Link} ><Button>Visit GDI's website for more information</Button></a>
+                    <a href={Gdi_Link} ><Button>Visit GDI's site to see a country-level report.</Button></a>
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
