@@ -86,17 +86,16 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
             <Grid container spacing={1} justify="center">
 
-
-                <Grid item xs={12} sm={3}>
-                    <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
-                </Grid>
-
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={`${internet_access}%`} detail="Internet Access Percentage" subDetail={'As of ' + internet_access_year} />
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={11 - censorship_level} detail="Online Censorship Level" subDetail="1 (Lowest) - 10 (Highest)" />
+                </Grid>
+
+                <Grid item xs={12} sm={3}>
+                    <InfoCard title={millenium_dec_ratified}  detail="Millennium Declaration Signed" subDetail="As of 2000" />
                 </Grid>
 
             </Grid>
@@ -111,12 +110,16 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 </Grid>
 
                 <Grid item xs={12} sm={3}>
-                    <InfoCard title={millenium_dec_ratified}  detail="Millennium Declaration Signed" subDetail="As of 2000" />
+                    <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
+                    <a href={'https://rsf.org/'} ><Button>Visit RSF's site for more information.</Button></a>
                 </Grid>
+
 
              {  <Grid item xs={12} sm={3}>
                     <InfoCard title={`${Lit_Rate}%`} detail="Literacy Rate"  subDetail={'As of '+ Lit_Year} />
                 </Grid>
+
+                
 
                 /*<Grid item xs={12} sm={3}>
                     <InfoCard title="Not available" detail="Freedom of Speech" subDetail="" />
