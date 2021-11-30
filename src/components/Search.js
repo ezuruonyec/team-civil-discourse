@@ -83,9 +83,11 @@ function Search() {
                                 censorship_ranking={Math.trunc(results['CensorshipRank'])}
                                 cd_rating={Math.trunc(results['DiscourseRating'])}
                                 cd_ranking={Math.trunc(results['DiscourseRanking'])}
-                                millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N' : 'Y'}
+                                millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? "Not signed" : "Signed"}
                                 Gdi_Value={Math.trunc(results['GdiValue'])}
                                 Gdi_Link={results['GdiLink']}
+                                Lit_Rate={Math.trunc(results['LitRate'])}
+                                Lit_Year={Math.trunc(results['LitYear'])}
 
                             />
                             :
@@ -106,9 +108,11 @@ function Search() {
                                 censorship_ranking={Math.trunc(results['CensorshipRank'])}
                                 cd_rating={Math.trunc(results['DiscourseRating'])}
                                 cd_ranking={Math.trunc(results['DiscourseRanking'])}
-                                millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? 'N' : 'Y'}
+                                millenium_dec_ratified={results['MilleniumDeclarationYear'] === 0 ? "Not Signed" : "Signed"}
                                 Gdi_Value={Math.trunc(results['GdiValue'])}
                                 Gdi_Link={results['GdiLink']}
+                                Lit_Rate={Math.trunc(results['LitRate'])}
+                                Lit_Year={Math.trunc(results['LitYear'])}
 
 
                                 article_1_title={results['articles'][0]['title']}
@@ -142,3 +146,4 @@ function mapStateToProps({ country }) {
 }
 
 export default connect(mapStateToProps, actions)(Search)
+
