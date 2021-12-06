@@ -111,7 +111,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
-                    <a href={'https://rsf.org/'} ><Button>Visit RSF's site for more information.</Button></a>
+                    <a href={'https://rsf.org/en'} ><Button>Visit RSF's site for more information.</Button></a>
                 </Grid>
 
 
