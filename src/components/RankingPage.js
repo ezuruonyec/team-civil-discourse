@@ -52,7 +52,7 @@ export default function RankingPage() {
             id: country.CountryName,
             population: numeral(country.Population).format('0,0'),
             discourse: parseInt(country.DiscourseRanking),
-            censorship: country.CensorshipLevel,
+            censorship: (11-(country.CensorshipLevel)).toFixed(2),
             internet: `${country.InternetAccessPercent}%`,
             rwb: parseInt(country.RwbRank),
             millenium: country.MilleniumDeclarationRatified ?
