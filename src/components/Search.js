@@ -17,11 +17,11 @@ function Search() {
         try {
             // Create the request URLs
 	    //DEV 
-             let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
+             //let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName;
              //let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Dev-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName;
 
             // PROD 
-	    //let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName
+	    let attributesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAttributesByName?CountryName=' + countryName
 	    let articlesRequestURL = 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetNewsByName?CountryName=' + countryName  
             // Start both of our requests
             var attributesHandler = axios.get(attributesRequestURL);
