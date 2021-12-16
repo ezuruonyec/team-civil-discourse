@@ -28,9 +28,9 @@ export default function RankingPage() {
         const fetchData = async () => {
             try {
                 const request = {
-                    host: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development',
+                    host: 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/', 
                     method: 'GET',
-                    url: 'https://h5kxmgz3lc.execute-api.us-east-1.amazonaws.com/development/CivilDiscourseMap-GetAllAttributes',
+                    url: 'https://3iixzbu86i.execute-api.us-east-1.amazonaws.com/Prod-CivilDiscourseMap-GetAllAttributes', 
                     path: '/CivilDiscourseMap-GetAllAttributes',
                     crossdomain: true
                 }
