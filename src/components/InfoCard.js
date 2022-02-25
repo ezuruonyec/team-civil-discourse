@@ -3,23 +3,24 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root: { /*basic information for each aspect of country data*/ 
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: theme.spacing(3)
+        padding: theme.spacing(3),
+        fontFamily: "Courier ",
     },
-    title: {
+    title: { /*info titles*/
         fontSize: theme.spacing(5),
         textAlign: "center",
-        fontFamily: "Roboto",
+        fontFamily: "Georgia",
         fontWeight: 300
-    }, /*font change to Courier? */
-    detail: {
+    }, /*font change from Roboto */
+    detail: { 
         fontSize: theme.spacing(2),
-        textAlign: "center"
+        textAlign: "center",
     },
-    subDetail: {
+    subDetail: { //"As of ..."
         fontSize: theme.spacing(2),
         textAlign: "center"
     },
