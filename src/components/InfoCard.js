@@ -13,9 +13,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.spacing(5),
         textAlign: "center",
         fontFamily: "Roboto",
-  
         fontWeight: 300
-    },
+    }, /*font change to Courier? */
     detail: {
         fontSize: theme.spacing(2),
         textAlign: "center"
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.spacing(2),
         textAlign: "center"
     },
-}))
+})) 
 
 function InfoCard({title, detail, subDetail}) {
 

@@ -106,8 +106,8 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={Gdi_Value} detail="Average Global Disinformation Index Rating" subDetail=""/>
-                    <a href={Gdi_Link} ><Button>Visit GDI's site to see a country-level report.</Button></a>
-                </Grid>
+                    <a href={'https://disinformationindex.org/research/'} ><Button>Visit GDI's site to see a country-level report...</Button></a>
+                </Grid> 
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
@@ -132,7 +132,8 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
             <br></br>
 
             {/* <InfoCard title={cd_ranking} detail="Civil Discourse Ranking" subDetail="Out of 173 Countries"/>*/}
-            <h2>Recent Headlines</h2>
+            <h2> - Recent Headlines - </h2>
+            <h2> - Included Interviews - </h2>
 
             <br></br>
 
