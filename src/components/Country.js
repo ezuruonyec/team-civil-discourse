@@ -141,10 +141,6 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 fontSize: "30px", 
                 fontFamily: "Courier"
                 }}> - Recent Headlines - </h2>
-            <h2 style= {{
-                fontSize: "30px", 
-                fontFamily: "Courier"
-                }}> - Included Interviews - </h2>
 
             <br></br>
 
@@ -179,7 +175,13 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                         </Grid>
 
                     </Grid>
+                    
             }
+             <h2 style= {{
+                fontSize: "30px", 
+                fontFamily: "Courier"
+                }}> - Included Interviews - </h2>
+                <p> </p>
 
         </Container>
     )
