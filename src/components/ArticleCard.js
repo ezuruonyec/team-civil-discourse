@@ -25,8 +25,8 @@ media: {
 
 actionArea: {
     "&:hover $focusHighlight": {
-      opacity: 0.5
-    }
+      opacity: 0.5,
+    } //opacity increases
   },
   focusHighlight: {}
 
@@ -48,8 +48,11 @@ function ArticleCard({title, description, date, articleUrl, author, imageUrl}) {
                     image={imageUrl}
                     // title="image"
                     />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" color="textPrimary" component="h2">
+                    <CardContent >
+                    <Typography style= {{ fontFamily: "Verdana", 
+                        fontStyle: "bold", 
+                        fontSize: "20px"}} //font changes added
+                            gutterBottom variant="h5" color="textPrimary" component="h2">
                         {title}
                     </Typography>
 
