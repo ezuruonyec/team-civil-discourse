@@ -63,8 +63,8 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
         <Container>
             <h1 style={{
                 fontSize: "48px",
-                fontFamily: "Arial"
-            }}>
+                fontFamily: "Courier" //font change from Ariel
+            }}> 
                 <center>
                     {name}
 
@@ -78,10 +78,13 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                         svg />
                 </center>
             </h1>
-            <h2 >Civil Discourse Ranking: {cd_ranking} </h2>
-            <h2 >Population: {numeral(population).format('0,0')} </h2>
-
-
+            <h2  style ={{ //font changes
+                fontFamily: "Courier"
+            }}> Civil Discourse Ranking: {cd_ranking} </h2>
+            <h2  style ={{ //font changes
+                fontFamily: "Courier"
+                }}> Population: {numeral(population).format('0,0')} </h2>
+            
 
 
             <Grid container spacing={1} justify="center">
@@ -104,14 +107,16 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
             <Grid container spacing={1} justify="center">
                 
-                <Grid item xs={12} sm={3}>
+                <Grid item xs={12} sm={3}>  
                     <InfoCard title={Gdi_Value} detail="Average Global Disinformation Index Rating" subDetail=""/>
-                    <a href={'https://disinformationindex.org/research/'} ><Button>Visit GDI's site to see a country-level report...</Button></a>
+                    <a href={'https://disinformationindex.org/research/'} ><Button style={{ fontFamily: "Courier New" //font changed
+                        }}> Visit GDI's site to see a country-level report... </Button></a> 
                 </Grid> 
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
-                    <a href={'https://rsf.org/en'} ><Button>Visit RSF's site for more information.</Button></a>
+                    <a href={'https://rsf.org/en'} ><Button style={{ fontFamily: "Courier New" //font changed
+                        }}> Visit RSF's site for more information... </Button></a>
                 </Grid>
 
 
@@ -132,8 +137,14 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
             <br></br>
 
             {/* <InfoCard title={cd_ranking} detail="Civil Discourse Ranking" subDetail="Out of 173 Countries"/>*/}
-            <h2> - Recent Headlines - </h2>
-            <h2> - Included Interviews - </h2>
+            <h2 style= {{
+                fontSize: "30px", 
+                fontFamily: "Courier"
+                }}> - Recent Headlines - </h2>
+            <h2 style= {{
+                fontSize: "30px", 
+                fontFamily: "Courier"
+                }}> - Included Interviews - </h2>
 
             <br></br>
 
