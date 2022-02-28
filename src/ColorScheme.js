@@ -43,7 +43,7 @@ export const unsubscribe = (listenerToCall) => {
 
     callOnColorChange.unsubscribe(listenerToCall);
 }
-
+//for color blindness and accessibility
 export const fallbackColor = "#757575";
 export const defaultColors = ["#ffffcc", "#c7e9b4", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494"];
 export const greyscaleColors = ["#FAFAFA", "#E9E9E9", "#C8C8C8", "#969696", "#646464", "#323232"];

@@ -71,10 +71,10 @@ const Legend = () => {
   return (
     <div className="info">
       <div className="legend">
-        <span className="title">Civil Discourse Ranking
+        <span className="title"> Civil Discourse Ranking
         <Button title="Theme Selection" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
             <MoreVertIcon />
-          </Button>
+          </Button> 
           <Menu
             id="fade-menu"
             anchorEl={anchorEl}
@@ -82,7 +82,7 @@ const Legend = () => {
             open={open}
             onClose={handleClose}
             TransitionComponent={Fade}
-          >
+          > 
             <MenuItem onClick={Default}>Default</MenuItem>
             <MenuItem onClick={Greyscale}>Greyscale</MenuItem>
             <MenuItem onClick={Deutran}>Deutran</MenuItem>

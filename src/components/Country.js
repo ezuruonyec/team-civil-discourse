@@ -181,7 +181,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 fontSize: "30px", 
                 fontFamily: "Courier"
                 }}> - Included Interviews - </h2>
-                <p> </p>
+                <p> - Soon to be included.... </p>
 
         </Container>
     )
