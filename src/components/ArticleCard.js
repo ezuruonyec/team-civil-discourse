@@ -15,20 +15,22 @@ import { withStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
 root:{
     maxWidth: 345,
+    height: 500
     
-},
+}, //height added
 
 media: {
-    height: 0,
+    height: 100, //height change added
     paddingTop: '75.00%',
 },
-
-actionArea: {
-    "&:hover $focusHighlight": {
-      opacity: 0.5,
-    } //opacity increases
-  },
-  focusHighlight: {}
+// actionArea: {
+//     "&:hover $focusHighlight": {
+//       //opacity: 0.5,
+//     } 
+//   },
+focusHighlight: {
+    opacity: 1.0,
+} //added opacity
 
 }))
 
