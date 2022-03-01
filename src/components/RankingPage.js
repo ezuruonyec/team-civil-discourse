@@ -100,7 +100,7 @@ export default function RankingPage() {
         },
     ];
 
-    const colorCodeRows = ranking => {
+   const colorCodeRows = ranking => {
         let color;
         if (ranking <= 28) {
             color = '#00FF00';
@@ -119,6 +119,7 @@ export default function RankingPage() {
         }
         return color;
     }
+    colorCodeRows();
 
     return (
         <div style={{ height: '100%' }}>

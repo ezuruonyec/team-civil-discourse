@@ -1,8 +1,10 @@
 import React from "react"
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import makeStyles from '@mui/styles/makeStyles';
+import Paper from '@mui/material/Paper';
+import { createTheme } from "@mui/material";
+const theme = createTheme();
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     root: {
         display: "flex",
         flexDirection: "column",
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.spacing(2),
         textAlign: "center"
     },
-}))
+})
 
 function InfoCard({title, detail, subDetail}) {
 

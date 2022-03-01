@@ -1,4 +1,3 @@
-import InfoIcon from '@material-ui/icons/Info';
 import SlidingPane from 'react-sliding-pane';
 
 import React, { useState } from 'react'

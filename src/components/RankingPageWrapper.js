@@ -1,12 +1,12 @@
-import React, { Suspense, useEffect } from 'react'
-import CircularProgress from '@material-ui/core/CircularProgress';
+import React, { Suspense } from 'react'
+import CircularProgress from '@mui/material/CircularProgress';
 import RankingPage from './RankingPage';
 import Header from './Header';
 
 export default function RankingPageWrapper(/*{ country: world, getCountry }*/) {
     // useEffect(() => {
-    //     getCountry()
-    // }, [getCountry])
+    //    getCountry()
+    //}, [getCountry]);
 
     return (
         <div>

@@ -10,11 +10,15 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/pickers": "^3.2.10",
+    "@mui/icons-material": "^5.4.4",
+    "@mui/material": "^5.4.4",
+    "@mui/styles": "^5.4.4",
     "@table-library/react-table-library": "^1.10.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
+    "babel-jest": "^27.5.1",
     "bootstrap": "^4.5.2",
     "emotion-theming": "^10.0.27",
     "fontsource-roboto": "^3.0.3",
@@ -32,7 +36,7 @@
     "react-number-format": "^4.4.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^3.4.4",
     "react-simple-maps": "^2.3.0",
     "react-sliding-side-panel": "^2.0.3",
     "react-table": "^7.7.0",
@@ -51,10 +55,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist":  [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ]
-  
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

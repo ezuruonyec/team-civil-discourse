@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import world from "../geoJson/world.json"
 import { MapContainer, TileLayer, GeoJSON, Pane } from 'react-leaflet';
 import { connect } from "react-redux"
@@ -11,9 +11,9 @@ const ColorMap = ({ allCountries }) => {
 
   var jsonReference = useRef(null);
 
-  const onColorChange = (notUsed) => {
+  const onColorChange = () => {
     if (jsonReference.current !== null && jsonReference.current !== undefined)
-      jsonReference.current.setStyle(geoJsonStyle);
+      return jsonReference.current.setStyle(geoJsonStyle);
   }
 
   ColorScheme.subscribe(onColorChange);

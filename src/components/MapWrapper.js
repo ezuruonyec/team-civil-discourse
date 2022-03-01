@@ -1,15 +1,15 @@
-import React, { Suspense, useEffect } from "react"
+import React, { Suspense } from "react"
 import Header from "./Header"
 import ColorMap from "./ColorMap"
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 import { connect } from "react-redux"
 import * as actions from "../actions"
 
 const MapWrapper = ({ country: world, getCountry }) => {
 
-  useEffect(() => {
-    getCountry()
-  }, [])
+  //useEffect(() => {
+  //  getCountry()
+  //}, [getCountry])
 
 
   return (

@@ -6,22 +6,22 @@
 //  ╚═╝╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝
 //                                                          
 import React from "react"
-import { Container } from "@material-ui/core"
-import Chip from '@material-ui/core/Chip';
-import { green, red } from "@material-ui/core/colors";
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from "@material-ui/core"
-import Grid from '@material-ui/core/Grid';
+import { Container } from "@mui/material"
+//import Chip from '@material-ui/core/Chip';
+import { green, red } from "@mui/material/colors";
+import Grid from '@mui/material/Grid';
 import InfoCard from "./InfoCard"
 import ReactCountryFlag from "react-country-flag"
 import numeral from "numeral"
 import ArticleCard from "./ArticleCard"
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+//import Card from '@material-ui/core/Card';
+//import CardActionArea from '@material-ui/core/CardActionArea';
+//import CardActions from '@material-ui/core/CardActions';
+//import CardContent from '@material-ui/core/CardContent';
+//import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@mui/material/Button';
+
+import { makeStyles } from '@mui/styles';
 
 
 
@@ -84,7 +84,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
 
 
-            <Grid container spacing={1} justify="center">
+            <Grid container spacing={1} justifyContent="center">
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={`${internet_access}%`} detail="Internet Access Percentage" subDetail={'As of ' + internet_access_year} />
@@ -102,7 +102,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
             <br></br>
 
-            <Grid container spacing={1} justify="center">
+            <Grid container spacing={1} justifyContent="center">
                 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={Gdi_Value} detail="Average Global Disinformation Index Rating" subDetail=""/>

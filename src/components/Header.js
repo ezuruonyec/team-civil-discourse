@@ -1,32 +1,22 @@
 import React, {useState} from "react"
 import clsx from 'clsx';
-import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import { alpha, makeStyles, useTheme } from '@material-ui/core/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import Paper from '@material-ui/core/Paper';
-import { useHistory } from 'react-router-dom'
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import {TextField} from "@material-ui/core"
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Drawer from '@material-ui/core/Drawer';
+import SearchIcon from '@mui/icons-material/Search';
+import Paper from '@mui/material/Paper';
+import { useHistory } from 'react-router-dom';
+import Autocomplete from '@mui/material/Autocomplete';
+import {TextField} from "@material-ui/core";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
 import { Link } from "react-router-dom"
 import HelpIcon from '@material-ui/icons/Help';
-import InfoIcon from '@material-ui/icons/Info';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { FontIcon } from "material-ui";
-import LanguageIcon from "@material-ui/icons/Language";
+import InfoIcon from '@mui/icons-material/Info';
+import LanguageIcon from "@mui/icons-material/Language";
 
 const drawerWidth = 240;
 
@@ -77,9 +67,9 @@ const useStyles = makeStyles((theme) => ({
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0),
+      backgroundColor: alpha(theme.palette.common.white, 0),
       '&:hover': {
-        backgroundColor: fade(theme.palette.common.white, 0),
+        backgroundColor: alpha(theme.palette.common.white, 0),
       },
       padding: 0,
       margin: 0,
@@ -92,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
     },
     searchIcon: {
       padding: theme.spacing(0, 1),
-      color: fade(theme.palette.common.white, .45),
+      color: alpha(theme.palette.common.white, .45),
     },
     inputRoot: {
       color: "#FFFFFF",
@@ -101,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
         borderColor: "#FFFFFF"
       },
       '&:focus': {
-        backgroundColor: fade(theme.palette.common.white, .30),
+        backgroundColor: alpha(theme.palette.common.white, .30),
         width: '50ch',
       },
       flex: 1,
@@ -111,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
       border: 0,
       color: "#FFFFFF",
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, .25),
+      backgroundColor: alpha(theme.palette.common.white, .25),
       width: '30ch',
       transition: theme.transitions.create('width'),
       flex: 1,
@@ -227,8 +217,8 @@ const useStyles = makeStyles((theme) => ({
                 setSearchTerm(newValue)
               }}
               autoComplete
-              autoCapitalize
-              autoCorrect
+              //autoCapitalize
+              //autoCorrect
               freeSolo
               disableClearable
               className={classes.autocomplete}
@@ -258,7 +248,6 @@ const useStyles = makeStyles((theme) => ({
           </div>
           </Toolbar>
         </AppBar>
-  
         
       </div>
     );
