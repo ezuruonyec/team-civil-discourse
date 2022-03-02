@@ -27,26 +27,26 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
 
-    passed: {
+    // passed: {
 
-        color: green[700],
-        borderColor: green[700]
+    //     color: green[700],
+    //     borderColor: green[700]
 
-    },
-    notPassed: {
+    // },
+    notPassed: { //page????
 
         color: red[700],
         borderColor: red[700]
     },
-    sectionHeader: {
-        marginTop: 20,
-        fontFamily: "Roboto",
-        fontSize: 20
-    },
-    info: {
-        marginRight: 5,
-        display: "inline-block"
-    }
+    // sectionHeader: {
+    //     marginTop: 20,
+    //     fontFamily: "Roboto",
+    //     fontSize: 20
+    // },
+    // info: {
+    //     marginRight: 5,
+    //     display: "inline-block"
+    // }
 
 }))
 
@@ -65,24 +65,25 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 fontSize: "48px",
                 fontFamily: "Courier" //font change from Ariel
             }}> 
-                <center>
-                    {name}
+                <center> 
+                   - {name} 
 
                     <ReactCountryFlag
                         countryCode={two_digit}
-                        style={{
+                        style={{ //dashes added
                             width: '1.2em',
                             height: '1.2em',
                             marginLeft: 10
-                        }}
-                        svg />
-                </center>
-            </h1>
+                        }} 
+                        svg /> - 
+                </center> 
+            </h1> 
             <h2  style ={{ //font changes
                 fontFamily: "Courier"
             }}> Civil Discourse Ranking: {cd_ranking} </h2>
             <h2  style ={{ //font changes
-                fontFamily: "Courier"
+                fontFamily: "Courier",
+                //backgroundColor: "grey"
                 }}> Population: {numeral(population).format('0,0')} </h2>
             
 

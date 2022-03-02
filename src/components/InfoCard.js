@@ -3,13 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
-    root: { /*basic information for each aspect of country data*/ 
+    root: { /*basic information for each aspect of country data box*/ 
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: theme.spacing(3),
+        padding: theme.spacing(1),
         fontFamily: "Courier ",
-        height: 200
+        height: 200,
+        //backgroundColor: "white"
     }, //height added, evened out box sizes
     title: { /*info titles*/
         fontSize: theme.spacing(5),
