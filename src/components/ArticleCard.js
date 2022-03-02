@@ -13,13 +13,12 @@ import { withStyles } from "@material-ui/core/styles";
 //import {Link} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-root:{
+root:{ //article boxes
     maxWidth: 345,
     height: 500
-    
-}, //height added
+}, //height added, evened out box sizes
 
-media: {
+media: { //photos
     height: 100, //height change added
     paddingTop: '75.00%',
 },

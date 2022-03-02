@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         padding: theme.spacing(3),
         fontFamily: "Courier ",
-    },
+        height: 200
+    }, //height added, evened out box sizes
     title: { /*info titles*/
         fontSize: theme.spacing(5),
         textAlign: "center",
