@@ -45,7 +45,14 @@ export const unsubscribe = (listenerToCall) => {
 }
 //for color blindness and accessibility
 export const fallbackColor = "#757575";
-export const defaultColors = ["#ffffcc", "#c7e9b4", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494"];
+
+//Default Color Schemes + Changes
+    /** Purple -> Light Blue */
+//export const defaultColors = ["#edf8fb", "#bfd3e6", "#9ebcda", "#8c96c6", "#8856a7", "#810f7c"];
+    /** Purple -> Pink */
+export const defaultColors = ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1", "#c51b8a", "#7a0177"];
+/* export const defaultColors = ["#ffffcc", "#c7e9b4", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494"];
+*/
 export const greyscaleColors = ["#FAFAFA", "#E9E9E9", "#C8C8C8", "#969696", "#646464", "#323232"];
 export const deuterColors = ["#eff3ff", "#c6dbef", "#9ecae1", "#6baed6", "#3182bd", "#08519c"];
 export const tritanColors = ["#F8FF01", "#FFE002", "#FE9D00", "#FF6501", "#FF2301", "#D50002"];
