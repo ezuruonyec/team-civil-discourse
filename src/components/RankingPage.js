@@ -10,10 +10,10 @@ const useStyles = makeStyles({
         "width": '100%',
         "& .MuiDataGrid-renderingZone": {
             "& .MuiDataGrid-row": {
-                backgroundColor: '#51A6B990',
+                backgroundColor: '#8c96c6',
                 "&:hover": {
-                    backgroundColor: '#06BBE380'
-                }
+                    backgroundColor: '#bfd3e6'
+                } //color changes
             }
         }
     }
