@@ -108,11 +108,11 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
             <Grid container spacing={1} justify="center">
                 
-                <Grid item xs={12} sm={3}>  
+                {/* <Grid item xs={12} sm={3}>  
                     <InfoCard title={Gdi_Value} detail="Average Global Disinformation Index Rating" subDetail=""/>
                     <a href={'https://disinformationindex.org/research/'} ><Button style={{ fontFamily: "Courier New" //font changed
                         }}> Visit GDI's site to see a country-level report... </Button></a> 
-                </Grid> 
+                </Grid>  */} 
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
@@ -177,7 +177,12 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
                     </Grid>
                     
-            }
+            } 
+
+            <a href={'https://disinformationindex.org/research/'} ><Button style={{ fontFamily: "Courier New" 
+            // button moved below headlines
+                        }}> Visit GDI's site to see a country-level report... </Button></a>
+                        
              <h2 style= {{
                 fontSize: "30px", 
                 fontFamily: "Courier"
