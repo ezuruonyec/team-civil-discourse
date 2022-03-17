@@ -100,29 +100,31 @@ export default function RankingPage() {
         },
     ];
 
-    const colorCodeRows = ranking => {
+    const colorCodeRows = ranking => { //Rank colors
         let color;
         if (ranking <= 28) {
-            color = '#00FF00';
+            color = "#edf8fb";
         } else if (ranking > 28 && ranking <= 57) {
-            color = '#A3FF00';
+            color = "#bfd3e6";
         } else if (ranking > 57 && ranking <= 87) {
-            color = '#FFFC00';
+            color = "#9ebcda";
         } else if (ranking > 87 && ranking <= 116) {
-            color = '#FF8000';
+            color = "#8c96c6";
         } else if (ranking > 116 && ranking <= 145) {
-            color = '#FF4F00';
+            color = "#8856a7";
         } else if (ranking > 145) {
-            color = '#EB1414';
+            color = "#810f7c";
         } else {
-            color = '#999999';
+            color = "#999999";
         }
         return color;
     }
 
-    return (
-        <div style={{ height: '100%' }}>
-            <h2 align="center">Country-Level Rankings</h2>
+    return ( //Page Title
+        <div style={{ height: '100%',
+        fontFamily: "Courier"
+        }}>
+            <h2 align="center"> - Country-Level Rankings - </h2>
             <div className={classes.root}>
                 <DataGrid
                     rows={mappedRows[0]}
