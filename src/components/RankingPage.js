@@ -13,7 +13,7 @@ const useStyles = makeStyles({
                 backgroundColor: '#8c96c6',
                 "&:hover": {
                     backgroundColor: '#bfd3e6'
-                } //color changes
+                } //display color changes
             }
         }
     }
@@ -100,7 +100,7 @@ export default function RankingPage() {
         },
     ];
 
-    const colorCodeRows = ranking => { //Rank colors
+    const colorCodeRows = ranking => { //Rank colors?
         let color;
         if (ranking <= 28) {
             color = "#edf8fb";

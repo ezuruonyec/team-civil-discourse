@@ -56,7 +56,7 @@ export const defaultColors = ["#edf8fb", "#bfd3e6", "#9ebcda", "#8c96c6", "#8856
     /** Reds */
 //export const defaultColors = ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#a50f15"];
     /** Orange/Browns */
-//export const defaultColors = ["#ffffd4", "#fee391", "#fec44f", "#fe9929", "#d95f0e", "#993404"];
+export const orangeColors = ["#ffffd4", "#fee391", "#fec44f", "#fe9929", "#d95f0e", "#993404"];
 /* Original: */
 // export const defaultColors = ["#ffffcc", "#c7e9b4", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494"];
 
@@ -79,6 +79,16 @@ export const getActiveColorScheme = () => {
 export const setColorDefault = () => {
     activeColor.colorScreen = 0;
     activeColor.colorTheme = defaultColors;
+
+    if (callOnColorChange !== null && callOnColorChange !== undefined) {
+        callOnColorChange.fire(activeColor);
+    }
+};
+
+//orange colors option added
+export const setColorOrange = () => {
+    activeColor.colorScreen = 0;
+    activeColor.colorTheme = orangeColors;
 
     if (callOnColorChange !== null && callOnColorChange !== undefined) {
         callOnColorChange.fire(activeColor);

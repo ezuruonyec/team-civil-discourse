@@ -48,6 +48,11 @@ const Legend = () => {
     ColorScheme.setColorDefault();
   };
 
+  const Orange = (e) => { //orange/brown colors!
+    setAnchorEl(null);
+    ColorScheme.setColorOrange();
+  };
+
   const Greyscale = (e) => {
     setAnchorEl(null);
     ColorScheme.setColorGreyscale();
@@ -71,7 +76,7 @@ const Legend = () => {
   return (
     <div className="info">
       <div className="legend">
-        <span className="title"> Civil Discourse Ranking
+        <span className="title"> - Civil Discourse Ranking -
         <Button title="Theme Selection" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
             <MoreVertIcon />
           </Button> 
@@ -84,6 +89,7 @@ const Legend = () => {
             TransitionComponent={Fade}
           > 
             <MenuItem onClick={Default}>Default</MenuItem>
+            <MenuItem onClick={Orange}>Orange</MenuItem>
             <MenuItem onClick={Greyscale}>Greyscale</MenuItem>
             <MenuItem onClick={Deutran}>Deutran</MenuItem>
             <MenuItem onClick={Tritan}>Tritan</MenuItem>
