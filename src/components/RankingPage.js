@@ -67,6 +67,7 @@ export default function RankingPage() {
             field: 'id',
             headerName: 'Country',
             width: 140,
+            fontFamily: "Courier",
         },
         {
             field: 'population',
