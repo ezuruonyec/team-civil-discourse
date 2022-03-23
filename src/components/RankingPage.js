@@ -14,7 +14,10 @@ const useStyles = makeStyles({
                 "&:hover": {
                     backgroundColor: '#bfd3e6'
                 } //main display color changes
-            }
+            },
+            fontFamily: "Courier",
+            fontSize: 16,
+            textAlign: "center",
         }
     }
 });
@@ -66,7 +69,7 @@ export default function RankingPage() {
         {
             field: 'id',
             headerName: 'Country',
-            width: 140,
+            width: 180,
         },
         {
             field: 'population',
@@ -124,7 +127,7 @@ export default function RankingPage() {
         <div style={{ height: '100%',
         fontFamily: "Courier"
         }}>
-            <h2 align="center"> - Country-Level Rankings - </h2>
+            <h2 align="center"> - Country Level Rankings - </h2>
             <div className={classes.root}>
                 <DataGrid
                     rows={mappedRows[0]}
