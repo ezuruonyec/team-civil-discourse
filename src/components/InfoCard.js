@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
 })) 
 
 function InfoCard({title, detail, subDetail}) {
-
     const classes = useStyles();
 
     return(

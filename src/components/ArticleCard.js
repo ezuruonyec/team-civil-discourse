@@ -34,7 +34,7 @@ focusHighlight: {
 }))
 
 function ArticleCard({title, description, date, articleUrl, author, imageUrl}) {
-
+    
     const classes = useStyles();
 
     return(
