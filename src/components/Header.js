@@ -202,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
 
             {/* Home Title Button */}
             <Typography variant="h6" className={classes.title}>
-              <a href="/" title="Global Discourse Map" style={{textDecoration: "none", color: "white", fontFamily: "courier" }}>Global Civil Discourse Map</a>
+              <a href="/" title="Global Discourse Map" style={{textDecoration: "none", fontWeight: 'bold', color: "white", fontFamily: "courier" }}>Global Civil Discourse Map</a>
             </Typography>
 
             <Link to="/rankings" title="Country-Level Metrics" style={{color: "white", textDecoration: "none"}}>
