@@ -46,7 +46,8 @@ export function AboutUs() {
                     The IDS 350 class taught by Professor Kelly Lowenstein contributed all of the information used in the Civil Discourse Map. We would like to recognize each student in the class, the seven computer science students who worked on the web application, and Computer Science Professor Jonathan Englesma.
                 </p>
                 <p style = {{ fontFamily: "Verdana"}}>
-                    The IDS class: Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
+                    The IDS class of 2020: Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, 
+                        Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
                     <Grid container spacing={1}>
                         <img src={team1Image} alt="Fall 2020 CIS Team" max-width="50%" height="300"></img>
                     </Grid>
@@ -55,6 +56,9 @@ export function AboutUs() {
                     The CIS students during the Fall 2020 semester: Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
                 </p>
                 <p style = {{ fontFamily: "Verdana"}}>
+                    {/* <h3>
+                        The CIS students during the Winter 2021 semester:
+                    </h3> */}
                     The CIS students during the Winter 2021 semester: Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
                     <Grid container spacing={1}>
                         <img src={team2Image} alt="Winter 2021 CIS Team" max-width="50%" height="300"></img>
@@ -62,7 +66,8 @@ export function AboutUs() {
                 </p>
 
                 <p style = {{ fontFamily: "Verdana"}}>
-                    The IDS 350 Class of Fall 2021
+                    The IDS 350 Class of Fall 2021: Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
+                        Brianna Haywood, Olivia Hernalsteen,, Garrett Koss, Lindsay Marcil, Brianna McKinney, Sky Overton-Wier, Zach Pierangeli, Tierra Sheets, Guadalupe Solis, Rebecca Wilcox.
                     <Grid container spacing={1}>
                         <img src = "IMG-1728.jpg" alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
                     </Grid> 
