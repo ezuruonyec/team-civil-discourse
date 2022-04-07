@@ -8,6 +8,13 @@ const useStyles = makeStyles({
     root: {
         "height": 800,
         "width": '100%',
+        "& .MuiDataGrid-columnHeaderTitle":{
+            fontFamily: "Courier",
+            fontSize: 16,
+            textAlign: "center",
+            fontWeight: 'bold', 
+            textDecoration: 'underline'
+        },
         "& .MuiDataGrid-renderingZone": {
             "& .MuiDataGrid-row": {
                 backgroundColor: '#8c96c6',
@@ -16,7 +23,7 @@ const useStyles = makeStyles({
                 } //main display color changes
             },
             fontFamily: "Courier",
-            fontSize: 16,
+            fontSize: 15,
             textAlign: "center",
         } //still editing
     }
@@ -70,6 +77,7 @@ export default function RankingPage() {
             field: 'id',
             headerName: 'Country',
             width: 180,
+            
         },
         {
             field: 'population',
@@ -125,7 +133,9 @@ export default function RankingPage() {
 
     return ( //Page Title
         <div style={{ height: '100%',
-        fontFamily: "Courier"
+        fontFamily: "Courier",
+        //textDecoration: 'underline',
+        textAlign: "center",
         }}>
             <h2 align="center"> - Country Level Rankings - </h2>
             <div className={classes.root}>

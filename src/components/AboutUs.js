@@ -47,18 +47,26 @@ export function AboutUs() {
                 </p>
                 <p style = {{ fontFamily: "Verdana"}}>
                     The IDS class: Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
+                    <Grid container spacing={1}>
+                        <img src={team1Image} alt="Fall 2020 CIS Team" max-width="50%" height="300"></img>
+                    </Grid>
                 </p>
                 <p style = {{ fontFamily: "Verdana"}}>
                     The CIS students during the Fall 2020 semester: Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
                 </p>
                 <p style = {{ fontFamily: "Verdana"}}>
                     The CIS students during the Winter 2021 semester: Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
+                    <Grid container spacing={1}>
+                        <img src={team2Image} alt="Winter 2021 CIS Team" max-width="50%" height="300"></img>
+                    </Grid>
                 </p>
 
-                <Grid container spacing={1}>
-                    <img src={team1Image} alt="Fall 2020 CIS Team" max-width="50%" height="375"></img>
-                    <img src={team2Image} alt="Winter 2021 CIS Team" max-width="50%" height="375"></img>
-                </Grid>
+                <p style = {{ fontFamily: "Verdana"}}>
+                    The IDS 350 Class of Fall 2021
+                    <Grid container spacing={1}>
+                        <img src = "IMG-1728.jpg" alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
+                    </Grid> 
+                </p>
 
                 <h1 style = {{ fontFamily: "Average"}}>Next Steps</h1> 
                 <p style = {{ fontFamily: "Verdana"}}> 
