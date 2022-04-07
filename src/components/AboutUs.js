@@ -12,7 +12,7 @@ export function AboutUs() {
         <> 
             <Header/>
             <Container> 
-                <h1 style = {{ fontFamily: "Average"}}>Background</h1>
+                <h1 style = {{ fontFamily: "Average", textDecoration: 'underline'}}>Background</h1>
                 <p style = {{ fontFamily: "Verdana"}}>
                     The Padnos/Sarosik Civil Discourse Program was founded through the generous gift of Shelley E. Padnos and Carol Sarosik to help create “more inclusive, tolerant, and peaceful communities."(GVSU 2020).
                     Current Padnos/Sarosik Endowed Professor of Civil Discourse Jeff Kelly Lowenstein noticed that there was no global map ranking the level of civil discourse by country.
@@ -20,7 +20,7 @@ export function AboutUs() {
                     With the help of students from GVSU, this map seeks to communicate the implications for civil discourse of the tension between those people working to share accurate information and those individuals, organizations and governments seeking to misinform and disinform the public.
                     We hope this tool will play a positive role in helping people engage in civil discourse and have thought-provoking conversations.
                 </p> 
-                <h1 style = {{ fontFamily: "Average"}}>Methodology</h1>
+                <h1 style = {{ fontFamily: "Average", textDecoration: 'underline'}}>Methodology</h1>
                 <p style = {{ fontFamily: "Verdana"}}>
                     We went through an extensive process to identify the variables we used for each country’s civil discourse rating.
                     We sought to find variables that would illustrate the intersection between national commitments to freedom of speech and media with the reality residents experience in the areas of press freedom, internet access and online censorship.
@@ -40,7 +40,7 @@ export function AboutUs() {
                 <p style = {{ fontFamily: "Verdana"}}>
                     Eventually, we decided to include the Reporters Without Borders Press Freedom Index, the level of internet access, the online censorship level and whether the country signed the Millennium Declaration.  After discussing the relative weight each variable should receive, we decided that that the press freedom index should be 37.5% of the score, the internet access should be 30% of the score, the online censorship should be 22.5% of the score, and the Millennium Declaration signature should be 10% of the score.  Since each of the variables used different scales, we based our calculation on the country’s ranking on that variable relative to other countries. We included the country’s population in its individual profile, but did not include them in the final calculation.
                 </p>
-                <h1 style = {{ fontFamily: "Average"}}>Contributors</h1>
+                <h1 style = {{ fontFamily: "Average", textDecoration: 'underline'}}>Contributors</h1>
                 <p style = {{ fontFamily: "Verdana"}}>
                     This project began in the summer of 2020, when Padnos/Sarosik Intern Samantha Johnson and Lanthorn Editor-In-Chief Nicholas Moran looking up and entering information about each country’s national and international promises of press and media freedoms.
                 </p>
@@ -88,16 +88,16 @@ export function AboutUs() {
                     <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
                         The CIS Students of Fall 2021
                     </h3>
-                        James ...
+                        James Weitzmann, Nathan Banaszak, Felix Clinthorne, Rebecca Trap.
                     <Grid container spacing={1}>
-                        <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300"></img>
+                        <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" display = "block" margin-left = "auto" margin-right ="auto"></img>
                     </Grid> 
                 </p>
 
-                <h1 style = {{ fontFamily: "Average"}}>Next Steps</h1> 
+                <h1 style = {{ fontFamily: "Average", textDecoration: 'underline'}}>Next Steps</h1> 
                 <p style = {{ fontFamily: "Verdana"}}> 
-                    This is an ongoing project. Next steps include adding news articles for more countries, interview videos in which journalists speak about living and working in their country. 
-                        Grand Valley French and Spanish faculty are planning to collaborate on this aspect of the project and relay videos over to the CIS teams.  
+                    This is an ongoing project. Next steps include adding news articles for countries, interview videos in which journalists speak about living and working in their country. 
+                        Grand Valley French and Spanish faculty are planning to collaborate on this aspect of the project and relay videos over to the CIS teams for implementation.  
                 </p>
             </Container>
         </>
