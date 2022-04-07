@@ -1,13 +1,26 @@
 import React, { useRef } from 'react';
 import world from "../geoJson/world.json"
-import { MapContainer, TileLayer, GeoJSON, Pane } from 'react-leaflet';
+import { MapContainer, TileLayer, GeoJSON, Pane,  } from 'react-leaflet';
 import { connect } from "react-redux"
 import * as actions from "../actions"
 import Legend from "./Legend"
 import numeral from "numeral"
 import * as ColorScheme from "../ColorScheme.js"
+import "../App.css"
+import { makeStyles } from '@mui/styles';
+import L from 'leaflet';
+
+const useStyles = makeStyles({
+  popup: {
+    fontSize: '44',
+
+
+  }
+})
 
 const ColorMap = ({ allCountries }) => {
+
+  const cssClasses = useStyles();
 
   var jsonReference = useRef(null);
 
@@ -78,7 +91,7 @@ const ColorMap = ({ allCountries }) => {
   }
 
   return (
-    <MapContainer
+     <MapContainer
       style={{ margin: "auto", zIndex: "1", marginTop: -10, height: "calc(100% - 61px)" }}
       className="map"
       center={[20, 0]}
@@ -110,15 +123,15 @@ const ColorMap = ({ allCountries }) => {
 
         onEachFeature={(feature, layer) => {
 
-          // popup for onclick
+          //popup for onclick
           layer.bindPopup(
-            '<h5>' + feature.properties.name + '</h5>' +
+            ('<h5>' + feature.properties.name + '</h5>' +
             '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
             '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
             '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
               '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
             //'<p>GDI Average Rating: 79' + '</p>' +
-            '<a href="/search/' + feature.properties.name + '">View more</a>'
+            '<a href="/search/' + feature.properties.name + '">View more</a>')
           );
 
           layer.on('mouseover', function () {
@@ -133,9 +146,9 @@ const ColorMap = ({ allCountries }) => {
             });
           });
         }}
-      />
+       />
 
-    </MapContainer>
+     </MapContainer>
   )
 }
 

@@ -101,3 +101,13 @@ code {
   border-radius:0px;
   box-shadow: 0 0px 0px;
 }
+.leaflet-popup-content-wrapper{
+  position: "bottomLeft";
+  width: fit-content;
+  height: fit-content;
+  margin-top: 5em;
+  margin-right: 5em;
+}
+.leaflet-popup-tip {
+  visibility: hidden;
+}
