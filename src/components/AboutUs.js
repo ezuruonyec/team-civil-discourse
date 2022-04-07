@@ -3,6 +3,8 @@ import Header from "./Header"
 import Container from '@material-ui/core/Container';
 import team1Image from "../images/Team1.png";
 import team2Image from "../images/Team2.png";
+import IDSTeamFall2021 from "../images/Team4.png";
+import CISTeamFall2021 from "../images/Team4CIS.png";
 import Grid from '@material-ui/core/Grid';
 
 export function AboutUs() {
@@ -72,10 +74,23 @@ export function AboutUs() {
                 </p>
 
                 <p style = {{ fontFamily: "Verdana"}}>
-                    The IDS 350 Class of Fall 2021: Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
+                    <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                        The IDS 350 Class of Fall 2021
+                    </h3>
+                    Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
                         Brianna Haywood, Olivia Hernalsteen,, Garrett Koss, Lindsay Marcil, Brianna McKinney, Sky Overton-Wier, Zach Pierangeli, Tierra Sheets, Guadalupe Solis, Rebecca Wilcox.
                     <Grid container spacing={1}>
-                        <img src = "IMG-1728.jpg" alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
+                        <img src = {IDSTeamFall2021} alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
+                    </Grid> 
+                </p>
+
+                <p style = {{ fontFamily: "Verdana"}}>
+                    <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                        The CIS Students of Fall 2021
+                    </h3>
+                        James ...
+                    <Grid container spacing={1}>
+                        <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300"></img>
                     </Grid> 
                 </p>
 
