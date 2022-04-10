@@ -10,24 +10,24 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(1),
         fontFamily: "Courier ",
         height: 200,
-        //backgroundColor: "grey"
+        //backgroundColor: "#edf8fb"
     }, //height added, evened out box sizes
     title: { /*info titles*/
         fontSize: theme.spacing(5),
         textAlign: "center",
         fontFamily: "Georgia",
         fontWeight: 300,
-        //backgroundColor: "grey"
+        //backgroundColor: "#edf8fb"
     }, /*font change from Roboto */
     detail: { 
         fontSize: theme.spacing(2),
         textAlign: "center",
-        //backgroundColor: "grey"
+        //backgroundColor: "#edf8fb"
     },
     subDetail: { //"As of ..."
         fontSize: theme.spacing(2),
         textAlign: "center",
-        //backgroundColor: "grey"
+        //backgroundColor: "#edf8fb"
     },
 })) 
 
