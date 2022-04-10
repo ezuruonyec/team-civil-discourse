@@ -49,16 +49,9 @@ export const fallbackColor = "#757575";
 //Default Color Schemes + Changes
     /** Purple -> Light Blue */
 export const defaultColors = ["#edf8fb", "#bfd3e6", "#9ebcda", "#8c96c6", "#8856a7", "#810f7c"];
-    /** Purple -> Pink */
-//export const defaultColors = ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1", "#c51b8a", "#7a0177"];
-    /** Burgundy -> Pink -> Purple */
-//export const defaultColors = ["#f1eef6", "#d4b9da", "#c994c7", "#df65b0", "#dd1c77", "#980043"];
-    /** Reds */
-//export const defaultColors = ["#fee5d9", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#a50f15"];
-    /** Orange/Browns */
+   /** Orange/Browns */
 export const orangeColors = ["#ffffd4", "#fee391", "#fec44f", "#fe9929", "#d95f0e", "#993404"];
 /* Original: */
-// export const defaultColors = ["#ffffcc", "#c7e9b4", "#7fcdbb", "#41b6c4", "#2c7fb8", "#253494"];
 
 //for color blindness and accessibility
 export const greyscaleColors = ["#FAFAFA", "#E9E9E9", "#C8C8C8", "#969696", "#646464", "#323232"];

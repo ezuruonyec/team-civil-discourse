@@ -93,7 +93,7 @@ const ColorMap = ({ allCountries }) => {
     >
       <Pane
         name="labels"
-        style={{ zIndex: 650, pointerEvents: "none", opacity: .7 }}
+        style={{ zIndex: 650, pointerEvents: "none", opacity: .7, }}
       >
         <TileLayer
           url='https://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}{r}.png'
@@ -118,18 +118,20 @@ const ColorMap = ({ allCountries }) => {
             '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
               '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
             //'<p>GDI Average Rating: 79' + '</p>' +
-            '<a href="/search/' + feature.properties.name + '">View more</a>'
+            '<a href="/search/' + feature.properties.name + '"> Click to View More</a>'
           );
 
           layer.on('mouseover', function () {
             this.setStyle({
-              'fillOpacity': 0.8
+              'fillOpacity': 0.5, 
+              color: 'white' //changes country outlines on mouseover
             });
           });
 
           layer.on('mouseout', function () {
             this.setStyle({
-              'fillOpacity': 1
+              'fillOpacity': 1,
+              color: 'black'
             });
           });
         }}
