@@ -106,7 +106,7 @@ export default function RankingPage() {
         },
         {
             field: 'millenium',
-            headerName: 'Millenium Declaration',
+            headerName: 'Millennium Declaration',
             width: 225,
         },
     ];
