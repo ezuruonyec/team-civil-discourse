@@ -76,7 +76,7 @@ const Legend = () => {
   return (
     <div className="info">
       <div className="legend">
-        <span className="title"> - Civil Discourse Rankings -
+        <span className="title" > - Civil Discourse Rankings -
         <Button title="Theme Selection" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
             <MoreVertIcon />
           </Button> 

@@ -122,7 +122,7 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
 
              {  <Grid item xs={12} sm={3}>
-                    <InfoCard title={`${Lit_Rate}%`} detail="Literacy Rate"  subDetail={'As of '+ Lit_Year} />
+                    <InfoCard title={`${Lit_Rate}%`} detail= "Literacy Rate"  subDetail={'As of '+ Lit_Year} />
                 </Grid>
 
                 
