@@ -76,13 +76,13 @@ export default function RankingPage() {
         {
             field: 'id',
             headerName: 'Country',
-            width: 180,
+            width: 200,
             
         },
         {
             field: 'population',
             headerName: 'Population',
-            width: 150,
+            width: 200,
         },
         {
             field: 'discourse',
@@ -97,17 +97,17 @@ export default function RankingPage() {
         {
             field: 'internet',
             headerName: 'Internet Access',
-            width: 190,
+            width: 200,
         },
         {
             field: 'rwb',
             headerName: 'RWB Rating',
-            width: 160,
+            width: 200,
         },
         {
             field: 'millenium',
             headerName: 'Millennium Declaration',
-            width: 225,
+            width: 200,
         },
     ];
 
