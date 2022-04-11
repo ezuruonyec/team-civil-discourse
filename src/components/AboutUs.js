@@ -7,6 +7,7 @@ import IDSTeamFall2021 from "../images/Team4.png";
 import CISTeamFall2021 from "../images/Team4CIS.png";
 import Grid from '@material-ui/core/Grid';
 
+
 export function AboutUs() {
     return (
         <> 
@@ -47,62 +48,63 @@ export function AboutUs() {
                 <p style = {{ fontFamily: "Verdana"}}>
                     The IDS 350 class taught by Professor Kelly Lowenstein contributed all of the information used in the Civil Discourse Map. We would like to recognize each student in the class, the seven computer science students who worked on the web application, and Computer Science Professor Jonathan Englesma.
                 </p>
-                <p style = {{ fontFamily: "Verdana"}}>
-                    <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
-                        The IDS Students During the Fall 2020 Semester
-                    </h3>
-                        <p>
-                            Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, 
-                                Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
-                        </p>
-                    <Grid container spacing={1}>
-                        <img src={team1Image} alt="Fall 2020 CIS Team" max-width="50%" height="300"></img>
-                    </Grid>
-                </p>
-                <p style = {{ fontFamily: "Verdana"}}>
-                    <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
-                        The CIS Students During the Fall 2020 Semester
-                    </h3>
-                    <p>
-                        Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
-                    </p>
-                </p>
-                <p style = {{ fontFamily: "Verdana"}}>
-                    <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
-                        The CIS Students During the Winter 2021 Semester
-                    </h3>
-                    <p>
-                        Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
-                    </p>
-                    <Grid container spacing={1}>
-                        <img src={team2Image} alt="Winter 2021 CIS Team" max-width="50%" height="300"></img>
-                    </Grid>
-                </p>
 
-                <p style = {{ fontFamily: "Verdana"}}>
-                    <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
-                        The IDS 350 Class of Fall 2021
-                    </h3>
-                        <p>
-                            Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
-                            Brianna Haywood, Olivia Hernalsteen,, Garrett Koss, Lindsay Marcil, Brianna McKinney, Sky Overton-Wier, Zach Pierangeli, Tierra Sheets, Guadalupe Solis, Rebecca Wilcox.
-                        </p>
-                    <Grid container spacing={1}>
-                        <img src = {IDSTeamFall2021} alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
-                    </Grid> 
-                </p>
+                <center>
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                            The IDS Students During the Fall 2020 Semester
+                        </h3>
+                            <p>
+                                Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, 
+                                    Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
+                            </p>
+                            <img src={team1Image} alt="Fall 2020 CIS Team" max-width="50%" height="300"></img>
+                    </p>
 
-                <p style = {{ fontFamily: "Verdana"}}>
-                    <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
-                        The CIS Students of Fall 2021
-                    </h3>
+                
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                            The CIS Students During the Fall 2020 Semester
+                        </h3>
                         <p>
-                            James Weitzmann, Nathan Banaszak, Felix Clinthorne, Rebecca Trap.
+                            Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
                         </p>
-                    <Grid container spacing={1}>
-                        <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px"></img>
-                    </Grid> 
-                </p>
+                    </p>
+
+                
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                            The CIS Students During the Winter 2021 Semester
+                        </h3>
+                        <p>
+                            Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
+                        </p>
+                            <img src={team2Image} alt="Winter 2021 CIS Team" max-width="50%" height="300"></img>
+                    </p>
+                
+                
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                            The IDS 350 Class of Fall 2021
+                        </h3>
+                            <p>
+                                Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
+                                Brianna Haywood, Olivia Hernalsteen,, Garrett Koss, Lindsay Marcil, Brianna McKinney, Sky Overton-Wier, Zach Pierangeli, Tierra Sheets, Guadalupe Solis, Rebecca Wilcox.
+                            </p>
+                            <img src = {IDSTeamFall2021} alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
+                    </p>
+
+                
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                            The CIS Students of Fall 2021
+                        </h3>
+                            <p>
+                                James Weitzmann, Nathan Banaszak, Felix Clinthorne, Rebecca Trap.
+                            </p>
+                            <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px"></img>
+                    </p>
+                </center>
 
             </Container>
         </>
