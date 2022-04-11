@@ -15,12 +15,14 @@ import { withStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
 root:{ //article boxes
     maxWidth: 345,
-    height: 500
+    height: 500,
+    backgroundColor: "#edf8fb"
 }, //height added, evened out box sizes
 
 media: { //photos
     height: 100, //height change added
     paddingTop: '75.00%',
+    backgroundColor: "#edf8fb"
 },
 // actionArea: {
 //     "&:hover $focusHighlight": {
