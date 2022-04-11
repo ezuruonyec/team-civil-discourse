@@ -132,13 +132,11 @@ export default function RankingPage() {
         return color;
     }
 
-    return ( //Page Title
-        <div style={{ height: '100%',
-            fontFamily: "Courier",
-            textDecoration: 'underline',
-            textAlign: "center",
-        }}>
-            <h2 align="center"> - Country Level Rankings - </h2>
+    return ( 
+        <div style={{ height: '90%',
+        }}> 
+            <h2 align="center" style = {{ fontFamily: "Courier", backgroundColor: "#bfd3e6" }}> 
+                - Country Level Rankings - </h2>
             <div className={classes.root}>
                 <DataGrid
                     rows={mappedRows[0]}
