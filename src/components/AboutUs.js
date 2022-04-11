@@ -94,11 +94,6 @@ export function AboutUs() {
                     </Grid> 
                 </p>
 
-                <h1 style = {{ fontFamily: "Average", textDecoration: 'underline'}}>Next Steps</h1> 
-                <p style = {{ fontFamily: "Verdana"}}> 
-                    This is an ongoing project. Next steps include adding news articles for countries, interview videos in which journalists speak about living and working in their country. 
-                        Grand Valley French and Spanish faculty are planning to collaborate on this aspect of the project and relay videos over to the CIS teams for implementation.  
-                </p>
             </Container>
         </>
     )
