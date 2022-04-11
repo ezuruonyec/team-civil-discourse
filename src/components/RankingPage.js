@@ -8,6 +8,9 @@ const useStyles = makeStyles({
     root: {
         "height": 800,
         "width": '100%',
+        "& .MuiDataGrid-cell.MuiDataGrid-cell--textLeft":{
+            textAlign: "center",
+        },
         "& .MuiDataGrid-columnHeaderTitle":{
             fontFamily: "Courier",
             fontSize: 16,
@@ -133,8 +136,7 @@ export default function RankingPage() {
     }
 
     return ( 
-        <div style={{ height: '90%',
-        }}> 
+        <div style={{ height: '90%'}}> 
             <h2 align="center" style = {{ fontFamily: "Courier", backgroundColor: "#bfd3e6" }}> 
                 - Country Level Rankings - </h2>
             <div className={classes.root}>
@@ -145,6 +147,7 @@ export default function RankingPage() {
                     rowsPerPageOptions={[50]}
                     disableSelectionOnClick
                 />
+                
             </div>
         </div>
     )
