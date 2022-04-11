@@ -91,7 +91,7 @@ export function AboutUs() {
                                 Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
                                 Brianna Haywood, Olivia Hernalsteen,, Garrett Koss, Lindsay Marcil, Brianna McKinney, Sky Overton-Wier, Zach Pierangeli, Tierra Sheets, Guadalupe Solis, Rebecca Wilcox.
                             </p>
-                            <img src = {IDSTeamFall2021} alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
+                            <img src = {IDSTeamFall2021} alt = "IDS 350 Fall 2021" max-width="50%" height="300" border = "5px"></img>
                     </p>
 
                 
@@ -102,7 +102,7 @@ export function AboutUs() {
                             <p>
                                 James Weitzmann, Nathan Banaszak, Felix Clinthorne, Rebecca Trap.
                             </p>
-                            <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px"></img>
+                            <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
                     </p>
                 </center>
 
