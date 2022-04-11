@@ -188,7 +188,13 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                 fontFamily: "Courier"
                 }}> - Included Interviews - </h2>
                 <p> - Soon to be included.... </p>
-
+                <footer style = {{ backgroundColor: "#bfd3e6"}}>
+                    <p style = {{ color: "#bfd3e6", fontSize: 15}}> 
+                        page ending background color footer text only added so the footer shows,
+                         so it's given the same font color as the background - not visible on the page, 
+                         proper footer may be added later.
+                    </p>
+                </footer>
         </Container>
     )
 }

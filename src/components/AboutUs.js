@@ -107,7 +107,7 @@ export function AboutUs() {
                 </center>
 
                 <footer style = {{ backgroundColor: "#bfd3e6"}}>
-                    <p style = {{ color: "#bfd3e6"}}> 
+                    <p style = {{ color: "#bfd3e6", fontSize: 15}}> 
                         page ending background color footer text only added so the footer shows,
                          so it's given the same font color as the background - not visible on the page, 
                          proper footer may be added later.
