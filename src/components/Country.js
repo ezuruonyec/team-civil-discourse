@@ -61,9 +61,10 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
     return (
         <Container>
-            <h1 style={{
+            <h1 style={{ //header
                 fontSize: "48px",
-                fontFamily: "Courier" //font change from Ariel
+                fontFamily: "Courier", //font change from Ariel
+                backgroundColor: "#edf8fb"
             }}> 
                 <center> 
                    - {name} 
@@ -116,24 +117,19 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
 
                 <Grid item xs={12} sm={3}>
                     <InfoCard title={rwb_rank} detail="Reporters W/O Borders Ranking" subDetail="Out of 180 Countries" />
-                    <a href={'https://rsf.org/en'} ><Button style={{ fontFamily: "Courier New" //font changed
-                        }}> Visit RSF's site for more information... </Button></a>
+                   
                 </Grid>
-
 
              {  <Grid item xs={12} sm={3}>
                     <InfoCard title={`${Lit_Rate}%`} detail= "Literacy Rate"  subDetail={'As of '+ Lit_Year} />
-                </Grid>
-
-                
-
-                /*<Grid item xs={12} sm={3}>
-                    <InfoCard title="Not available" detail="Freedom of Speech" subDetail="" />
-                </Grid>
-                    */}
-
-		
+                </Grid> 
+                }
             </Grid>
+            <center> 
+                        <a href={'https://rsf.org/en'} ><Button style={{ fontFamily: "Courier New" //font changed
+                            }}> Visit RSF's site for more information... </Button>
+                        </a>
+                </center>
 		
             <br></br>
 
@@ -178,10 +174,12 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                     </Grid>
                     
             } 
-
-            <a href={'https://disinformationindex.org/research/'} ><Button style={{ fontFamily: "Courier New" 
-            // button moved below headlines
-                        }}> Visit GDI's site to see a country-level report... </Button></a>
+            <center> 
+                <a href={'https://disinformationindex.org/research/'} >
+                    <Button style={{ fontFamily: "Courier New" }}> 
+                    Visit GDI's site to see a country-level report... </Button>
+                </a>
+            </center>
                         
              <h2 style= {{
                 fontSize: "30px", 
