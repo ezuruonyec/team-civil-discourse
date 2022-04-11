@@ -51,7 +51,7 @@ export function AboutUs() {
 
                 <center>
                     <p style = {{ fontFamily: "Verdana"}}>
-                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
                             The IDS Students During the Fall 2020 Semester
                         </h3>
                             <p>
@@ -63,7 +63,7 @@ export function AboutUs() {
 
                 
                     <p style = {{ fontFamily: "Verdana"}}>
-                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
                             The CIS Students During the Fall 2020 Semester
                         </h3>
                         <p>
@@ -73,7 +73,7 @@ export function AboutUs() {
 
                 
                     <p style = {{ fontFamily: "Verdana"}}>
-                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
                             The CIS Students During the Winter 2021 Semester
                         </h3>
                         <p>
@@ -84,7 +84,7 @@ export function AboutUs() {
                 
                 
                     <p style = {{ fontFamily: "Verdana"}}>
-                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
                             The IDS 350 Class of Fall 2021
                         </h3>
                             <p>
@@ -96,7 +96,7 @@ export function AboutUs() {
 
                 
                     <p style = {{ fontFamily: "Verdana"}}>
-                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
                             The CIS Students of Fall 2021
                         </h3>
                             <p>
@@ -105,6 +105,14 @@ export function AboutUs() {
                             <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px"></img>
                     </p>
                 </center>
+
+                <footer style = {{ backgroundColor: "#bfd3e6"}}>
+                    <p style = {{ color: "#bfd3e6"}}> 
+                        page ending background color footer text only added so the footer shows,
+                         so it's given the same font color as the background - not visible on the page, 
+                         proper footer may be added later.
+                    </p>
+                </footer>
 
             </Container>
         </>
