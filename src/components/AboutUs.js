@@ -51,9 +51,11 @@ export function AboutUs() {
                     <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
                         The IDS Students During the Fall 2020 Semester
                     </h3>
-                    Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, 
-                        Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
-                    <Grid container spacing={.6}>
+                        <p>
+                            Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, 
+                                Chase Meulebrouck, Nicholas Reid, Grace Stille, Jenia Thompson, Michael Thorsen, and Kellen Voss.
+                        </p>
+                    <Grid container spacing={1}>
                         <img src={team1Image} alt="Fall 2020 CIS Team" max-width="50%" height="300"></img>
                     </Grid>
                 </p>
@@ -61,14 +63,18 @@ export function AboutUs() {
                     <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
                         The CIS Students During the Fall 2020 Semester
                     </h3>
-                    Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
+                    <p>
+                        Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
+                    </p>
                 </p>
                 <p style = {{ fontFamily: "Verdana"}}>
                     <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
                         The CIS Students During the Winter 2021 Semester
                     </h3>
-                    Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
-                    <Grid container spacing={.6}>
+                    <p>
+                        Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
+                    </p>
+                    <Grid container spacing={1}>
                         <img src={team2Image} alt="Winter 2021 CIS Team" max-width="50%" height="300"></img>
                     </Grid>
                 </p>
@@ -77,9 +83,11 @@ export function AboutUs() {
                     <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
                         The IDS 350 Class of Fall 2021
                     </h3>
-                    Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
-                        Brianna Haywood, Olivia Hernalsteen,, Garrett Koss, Lindsay Marcil, Brianna McKinney, Sky Overton-Wier, Zach Pierangeli, Tierra Sheets, Guadalupe Solis, Rebecca Wilcox.
-                    <Grid container spacing={.6}>
+                        <p>
+                            Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
+                            Brianna Haywood, Olivia Hernalsteen,, Garrett Koss, Lindsay Marcil, Brianna McKinney, Sky Overton-Wier, Zach Pierangeli, Tierra Sheets, Guadalupe Solis, Rebecca Wilcox.
+                        </p>
+                    <Grid container spacing={1}>
                         <img src = {IDSTeamFall2021} alt = "IDS 350 Fall 2021" max-width="50%" height="300"></img>
                     </Grid> 
                 </p>
@@ -88,9 +96,11 @@ export function AboutUs() {
                     <h3 style = {{ fontFamily: "Verdana", textAlign: 'center'}}>
                         The CIS Students of Fall 2021
                     </h3>
-                        James Weitzmann, Nathan Banaszak, Felix Clinthorne, Rebecca Trap.
-                    <Grid container spacing={.6}>
-                        <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" display = "block" margin-left = "auto" margin-right ="auto"></img>
+                        <p>
+                            James Weitzmann, Nathan Banaszak, Felix Clinthorne, Rebecca Trap.
+                        </p>
+                    <Grid container spacing={1}>
+                        <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px"></img>
                     </Grid> 
                 </p>
 
