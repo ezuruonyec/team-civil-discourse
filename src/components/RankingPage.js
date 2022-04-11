@@ -72,6 +72,7 @@ export default function RankingPage() {
     }
     )];
 
+    //main table title columns 
     const columns = [
         {
             field: 'id',
@@ -133,9 +134,9 @@ export default function RankingPage() {
 
     return ( //Page Title
         <div style={{ height: '100%',
-        fontFamily: "Courier",
-        //textDecoration: 'underline',
-        textAlign: "center",
+            fontFamily: "Courier",
+            textDecoration: 'underline',
+            textAlign: "center",
         }}>
             <h2 align="center"> - Country Level Rankings - </h2>
             <div className={classes.root}>
