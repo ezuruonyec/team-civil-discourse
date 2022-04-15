@@ -71,6 +71,7 @@ export default function RankingPage() {
             millenium: country.MilleniumDeclarationRatified ?
                 `Signed in ${parseInt(country.MilleniumDeclarationYear)}` :
                 'Not signed',
+                
         })
     }
     )];
@@ -111,6 +112,11 @@ export default function RankingPage() {
         {
             field: 'millenium',
             headerName: 'Millennium Declaration',
+            width: 200,
+        },
+        {
+            field: 'Literacy Rate',
+            headerName: 'Literacy Rate',
             width: 200,
         },
     ];
