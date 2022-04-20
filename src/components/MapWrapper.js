@@ -10,7 +10,10 @@ const MapWrapper = ({ country: world, getCountry }) => {
 
   useEffect(() => {
     getCountry()
+    
   }, [])
+
+
 
 
   return (

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import world from "../geoJson/world.json"
 import { MapContainer, TileLayer, GeoJSON, Pane,  } from 'react-leaflet';
 import { connect } from "react-redux"
@@ -7,27 +7,30 @@ import Legend from "./Legend"
 import numeral from "numeral"
 import * as ColorScheme from "../ColorScheme.js"
 import "../App.css"
-import { makeStyles } from '@mui/styles';
-import L from 'leaflet';
+import MapInfo from "./mapInfo";
+import {AppContext} from './AppContext';
 
-const useStyles = makeStyles({
-  popup: {
-    fontSize: '44',
-
-
-  }
-})
 
 const ColorMap = ({ allCountries }) => {
-
-  const cssClasses = useStyles();
+  // var [data, setData] = useState(null);
 
   var jsonReference = useRef(null);
+  const globalData = useContext(AppContext);
+  const [cName, setCname] = useState("United States");
 
+
+  // const changeValues = (feature) => {
+  //   setName(feature.properties.name);
+  //   setRank(getRank(feature.properties.name))
+  // }
   const onColorChange = () => {
     if (jsonReference.current !== null && jsonReference.current !== undefined)
       return jsonReference.current.setStyle(geoJsonStyle);
   }
+  // function sendData(f) {
+  //   console.log(f.properties.name);
+  //   newMapfeature(f);
+  // }
 
   ColorScheme.subscribe(onColorChange);
 
@@ -78,6 +81,9 @@ const ColorMap = ({ allCountries }) => {
     var matchingCountries = getMatchingCountries(name);
     return 11 - (matchingCountries.map(filtered => Math.trunc(filtered["CensorshipLevel"])))
   }
+  // function sendDatatoInfo(a){
+  //   setData(a);
+  // }
 
   function geoJsonStyle(country) {
     return {
@@ -116,6 +122,7 @@ const ColorMap = ({ allCountries }) => {
         />
       </Pane>
       <Legend />
+      {/* <MapInfo CountryObj={CountryObj}/> */}
       <GeoJSON
         data={world}
         ref={jsonReference}
@@ -123,16 +130,22 @@ const ColorMap = ({ allCountries }) => {
 
         onEachFeature={(feature, layer) => {
 
-          //popup for onclick
-          layer.bindPopup(
-            ('<h5>' + feature.properties.name + '</h5>' +
-            '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
-            '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
-            '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
-              '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
-            //'<p>GDI Average Rating: 79' + '</p>' +
-            '<a href="/search/' + feature.properties.name + '">View more</a>')
-          );
+          // popup for onclick
+          // layer.bindPopup(
+          //   ('<h5>' + feature.properties.name + '</h5>' +
+          //   '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
+          //   '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
+          //   '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
+          //     '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
+          //   //'<p>GDI Average Rating: 79' + '</p>' +
+          //   '<a href="/search/' + feature.properties.name + '">View more</a>')
+          // );
+          // layer.on('click', sendData(feature));
+          layer.on('click', function() {
+            setCname(feature.properties.name.toString());
+            globalData.setName(feature.properties.name);
+          });
+          
 
           layer.on('mouseover', function () {
             this.setStyle({
@@ -153,3 +166,4 @@ const ColorMap = ({ allCountries }) => {
 }
 
 export default connect(null, actions)(ColorMap)
+

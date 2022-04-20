@@ -101,13 +101,17 @@ code {
   border-radius:0px;
   box-shadow: 0 0px 0px;
 }
-.leaflet-popup-content-wrapper{
-  position: "bottomLeft";
-  width: fit-content;
-  height: fit-content;
-  margin-top: 5em;
-  margin-right: 5em;
+.leaflet-pane {
+  position: fixed !important;
+}
+/* .leaflet-popup {
+  position: absolute !important;
+  transform: none !important;
+  left: 1em !important;
+  top: 475px !important;
+  bottom: 0 !important;
+  z-index: 999999 !important;
 }
 .leaflet-popup-tip {
   visibility: hidden;
-}
+} */
