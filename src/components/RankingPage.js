@@ -71,6 +71,10 @@ export default function RankingPage() {
             millenium: country.MilleniumDeclarationRatified ?
                 `Signed in ${parseInt(country.MilleniumDeclarationYear)}` :
                 'Not signed',
+            literacy_rate: `${country.Lit_Rate}%`,
+            literacy_year: country.Lit_Year ?
+            `As of ${country.Lit_Year}`:
+            'Data Unavailable',
                 
         })
     }
@@ -115,7 +119,7 @@ export default function RankingPage() {
             width: 200,
         },
         {
-            field: 'Literacy Rate',
+            field: 'literacy_rate',
             headerName: 'Literacy Rate',
             width: 200,
         },
