@@ -121,7 +121,6 @@ export function AboutUs() {
                             <img src = {CISTeamWinter2022} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
                     </p>
 
-
                 </center>
 
                 <footer style = {{ backgroundColor: "#bfd3e6"}}>
