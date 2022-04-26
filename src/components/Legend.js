@@ -73,11 +73,11 @@ const Legend = () => {
     ColorScheme.setColorProtan();
   };
 
-  return (
-    <div className="info">
-      <div className="legend">
-        <span className="title" > - Civil Discourse Rankings -
-        <Button title="Theme Selection" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
+  return ( //Map Color Menu 
+    <div className="info" style = {{fontFamily: "Courier"}}>
+      <div className="legend"> 
+        <span className="title" style = {{fontWeight: 'bold', fontSize: 17}}> - Civil Discourse Rankings -
+        <Button title= "Theme Selection" aria-controls= "fade-menu" aria-haspopup= "true" onClick={handleClick}>
             <MoreVertIcon />
           </Button> 
           <Menu
@@ -88,12 +88,12 @@ const Legend = () => {
             onClose={handleClose}
             TransitionComponent={Fade}
           > 
-            <MenuItem onClick={Default}>Default</MenuItem>
-            <MenuItem onClick={Orange}>Orange</MenuItem>
-            <MenuItem onClick={Greyscale}>Greyscale</MenuItem>
-            <MenuItem onClick={Deutran}>Deutran</MenuItem>
-            <MenuItem onClick={Tritan}>Tritan</MenuItem>
-            <MenuItem onClick={Protan}>Protan</MenuItem>
+            <MenuItem onClick={Default} style = {{fontFamily: "Courier"}}>Default</MenuItem>
+            <MenuItem onClick={Orange} style = {{fontFamily: "Courier"}}>Orange</MenuItem>
+            <MenuItem onClick={Greyscale} style = {{fontFamily: "Courier"}}>Greyscale</MenuItem>
+            <MenuItem onClick={Deutran} style = {{fontFamily: "Courier"}}>Deutran</MenuItem>
+            <MenuItem onClick={Tritan} style = {{fontFamily: "Courier"}}>Tritan</MenuItem>
+            <MenuItem onClick={Protan} style = {{fontFamily: "Courier"}}>Protan</MenuItem>
           </Menu>
         </span>
 

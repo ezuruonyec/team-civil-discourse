@@ -114,8 +114,7 @@ const ColorMap = ({ allCountries }) => {
         style={geoJsonStyle}
 
         onEachFeature={(feature, layer) => {
-
-          // popup for onclick
+          // popup info box for onclick
           layer.bindPopup(
             '<h5>' + feature.properties.name + '</h5>' +
             '<p>Civil Discourse Ranking: ' + getRank(feature.properties.name) + '</p>' +
@@ -124,13 +123,13 @@ const ColorMap = ({ allCountries }) => {
               '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
               '<p>Literacy Rate: '+ getLiteracyRate(feature.properties.name) + '%</p>'+
             //'<p>GDI Average Rating: 79' + '</p>' +
-            '<a href="/search/' + feature.properties.name + '"> Click to View More</a>'
+            '<a href="/search/' + feature.properties.name + '"> Click Here to View More </a>'
           );
 
           layer.on('mouseover', function () {
             this.setStyle({
-              'fillOpacity': 0.5, 
-              color: 'white' //changes country outlines on mouseover
+              'fillOpacity': 0.75, 
+              color: 'blue' //changes country outlines on mouseover
             });
           });
 
