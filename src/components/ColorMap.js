@@ -61,6 +61,11 @@ const ColorMap = ({ allCountries }) => {
     return matchingCountries.map(filtered => Math.trunc(filtered["InternetAccessPercent"]))
   }
 
+  function getLiteracyRate(name){
+    var matchingCounties = getMatchingCountries(name);
+    return matchingCounties.map(filtered => filtered["LitRate"])
+  }
+
   function getCensorshipLevel(name) {
     var matchingCountries = getMatchingCountries(name);
     return 11 - (matchingCountries.map(filtered => Math.trunc(filtered["CensorshipLevel"])))
@@ -117,6 +122,7 @@ const ColorMap = ({ allCountries }) => {
             '<p>Population: ' + numeral(getPopulation(feature.properties.name)).format('0,0') + '</p>' +
             '<p>Internet Access: ' + getInternetPercent(feature.properties.name) + '%</p>' +
               '<p>Online Censorship Level: ' + getCensorshipLevel(feature.properties.name) + '</p>' +
+              '<p>Literacy Rate: '+ getLiteracyRate(feature.properties.name) + '%</p>'+
             //'<p>GDI Average Rating: 79' + '</p>' +
             '<a href="/search/' + feature.properties.name + '"> Click to View More</a>'
           );

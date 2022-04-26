@@ -23,7 +23,7 @@ export function AboutUs() {
                 </p> 
                 <h1 style = {{ fontFamily: "Average", textDecoration: 'underline', backgroundColor: "#bfd3e6"}}>Methodology</h1>
                 <p style = {{ fontFamily: "Verdana", textAlign: 'justify'}}>
-                    We went through an extensive process to identify the variables we used for each country’s civil discourse rating.
+                    We went through an extensive process in the fall of 2020 to identify the variables we used for each country’s civil discourse rating.
                     We sought to find variables that would illustrate the intersection between national commitments to freedom of speech and media with the reality residents experience in the areas of press freedom, internet access and online censorship.
                 </p>
                 <p style = {{ fontFamily: "Verdana", textAlign: 'justify'}}>
@@ -41,6 +41,13 @@ export function AboutUs() {
                 <p style = {{ fontFamily: "Verdana", textAlign: 'justify'}}>
                     Eventually, we decided to include the Reporters Without Borders Press Freedom Index, the level of internet access, the online censorship level and whether the country signed the Millennium Declaration.  After discussing the relative weight each variable should receive, we decided that that the press freedom index should be 37.5% of the score, the internet access should be 30% of the score, the online censorship should be 22.5% of the score, and the Millennium Declaration signature should be 10% of the score.  Since each of the variables used different scales, we based our calculation on the country’s ranking on that variable relative to other countries. We included the country’s population in its individual profile, but did not include them in the final calculation.
                 </p>
+                <p style = {{ fontFamily: "Verdana", textAlign: 'justify'}}>
+                We continued to refine the civil discourse ranking in the fall of 2021, adding countries’ literacy rates into the variable.  After much discussion we decided that the press freedom index should be 35% of the score, internet access should be 32.5% of the score, online censorship should be 20% of the score, literacy rate should be 7.5% of the score, and the Millennium Declaration signature should be 5% of the score.
+                </p>
+                <p style = {{ fontFamily: "Verdana", textAlign: 'justify'}}>
+                With the support of a Teaching Innovation Grant from the  Pew Faculty Teaching and Learning Center (FTLC) at Grand Valley, we collaborated with French, Spanish, and Multimedia Journalism faculty and students to record, translate, and edit interviews with French- and Spanish-speaking journalists about their experiences with misinformation and their strategies to combat it.  These interviews are embedded on the profiles for the following countries: Benin, Cameroon, Chile, Colombia, Cuba, Ecuador, France, Mali, Peru, and Senegal. 
+                </p>
+
                 <h1 style = {{ fontFamily: "Average", textDecoration: 'underline', backgroundColor: "#bfd3e6"}}>Contributors</h1>
                 <p style = {{ fontFamily: "Verdana", textAlign: 'justify'}}>
                     This project began in the summer of 2020, when Padnos/Sarosik Intern Samantha Johnson and Lanthorn Editor-In-Chief Nicholas Moran looking up and entering information about each country’s national and international promises of press and media freedoms.

@@ -36,6 +36,7 @@ export default function RankingPage() {
     const [allCountries, setAllCountries] = useState([]);
     const classes = useStyles();
     
+    
     useEffect(() => {
         let isMounted = true;
         const fetchData = async () => {
@@ -59,11 +60,14 @@ export default function RankingPage() {
         fetchData();
         return () => { isMounted = false };
     }, []);
-
+    
     const mappedRows = [allCountries.map((country) => {
+        
         return ({
             id: country.CountryName,
-            population: numeral(country.Population).format('0,0'),
+            population: country.Population ?
+            numeral(country.Population).format('0,0') :
+            'Unavailable',
             discourse: parseInt(country.DiscourseRanking),
             censorship: (11-(country.CensorshipLevel)).toFixed(2),
             internet: `${country.InternetAccessPercent}%`,
@@ -71,6 +75,10 @@ export default function RankingPage() {
             millenium: country.MilleniumDeclarationRatified ?
                 `Signed in ${parseInt(country.MilleniumDeclarationYear)}` :
                 'Not signed',
+            literacy_rate: country.LitRate ?
+            `${country.LitRate}%`:
+            'unavailable',
+
         })
     }
     )];
@@ -111,6 +119,11 @@ export default function RankingPage() {
         {
             field: 'millenium',
             headerName: 'Millennium Declaration',
+            width: 200,
+        },
+        {
+            field: 'literacy_rate',
+            headerName: 'Literacy Rate',
             width: 200,
         },
     ];

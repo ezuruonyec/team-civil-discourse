@@ -174,18 +174,18 @@ function Country({ id, name, two_digit, three_digit, population, millenium_dec_r
                     </Grid>
                     
             } 
-            <center> 
+            {/*<center> 
                 <a href={'https://disinformationindex.org/research/'} >
                     <Button style={{ fontFamily: "Courier New" }}> 
                     Visit GDI's site to see a country-level report... </Button>
                 </a>
-            </center>
+        </center>*/}
                         
              <h2 style= {{
                 fontSize: "30px", 
                 fontFamily: "Courier"
                 }}> - Included Interviews - </h2>
-                <p> - Soon to be included.... </p>
+                <p> - Coming in a future version... </p>
                 <footer style = {{ backgroundColor: "#bfd3e6"}}>
                     <p style = {{ color: "#bfd3e6", fontSize: 15}}> 
                         page ending background color footer text only added so the footer shows,
