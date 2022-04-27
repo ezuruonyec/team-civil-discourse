@@ -5,7 +5,10 @@ import team1Image from "../images/Team1.png";
 import team2Image from "../images/Team2.png";
 import IDSTeamFall2021 from "../images/Team4.png";
 import CISTeamFall2021 from "../images/Team4CIS.png";
-import CISTeamWinter2022 from "../images/TeamCivil.png"
+import CISTeamWinter2022 from "../images/TeamCivil.png";
+import IDSTeamWinter2022 from "../images/TeamIDS.jpeg";
+import Journalism22 from "../images/JournalismWinter22.jpg";
+import Christopher from "../images/ChristopherTortorelli.png";
 import Grid from '@material-ui/core/Grid';
 
 
@@ -59,7 +62,7 @@ export function AboutUs() {
                 <center>
                     <p style = {{ fontFamily: "Verdana"}}>
                         <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
-                            The IDS Students During the Fall 2020 Semester
+                            - The IDS Students During the Fall 2020 Semester -
                         </h3>
                             <p>
                                 Deleon Brown, Ashley Bylsma, Madelyne Crace, Colin DeYoung, Jayce Efting, Olivia Fellows, Lauren Hasse, Trevor Hubert, Rachel Jongsma, Toria Keyes, Ariel Mejia, 
@@ -71,7 +74,7 @@ export function AboutUs() {
                 
                     <p style = {{ fontFamily: "Verdana"}}>
                         <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
-                            The CIS Students During the Fall 2020 Semester
+                            - The CIS Students During the Fall 2020 Semester -
                         </h3>
                         <p>
                             Josh Lowell, Carson Uecker-Herman, and Olivia Vitali.
@@ -81,7 +84,7 @@ export function AboutUs() {
                 
                     <p style = {{ fontFamily: "Verdana"}}>
                         <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
-                            The CIS Students During the Winter 2021 Semester
+                            - The CIS Students During the Winter 2021 Semester -
                         </h3>
                         <p>
                             Aaron Bager, Stephen Kiser, Nicholas Sheehan, and Omar Tiba.
@@ -92,7 +95,7 @@ export function AboutUs() {
                 
                     <p style = {{ fontFamily: "Verdana"}}>
                         <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
-                            The IDS 350 Class of Fall 2021
+                            - The IDS 350 Class of Fall 2021 -
                         </h3>
                             <p>
                                 Allysa Babcock, Jake Brewer, Brea Buchan, Nolan Carr, Jennastasia Chapa, Emma DeBoer, Genevieve Doctor, Keely Duehmig, Marta Grabowski, 
@@ -104,21 +107,44 @@ export function AboutUs() {
                 
                     <p style = {{ fontFamily: "Verdana"}}>
                         <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
-                            The CIS Students of Fall 2021
+                            - The CIS Students of Fall 2021 -
                         </h3>
                             <p>
                                 James Weitzmann, Nathan Banaszak, Felix Clinthorne, Rebecca Trap.
                             </p>
                             <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
                     </p>
+
                     <p style = {{ fontFamily: "Verdana"}}>
                         <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
-                            The CIS Students of Winter 2022
+                            - The IDS Students of Winter 2022 -
+                        </h3>
+                            <p>
+                                Andrea Basulto, Denise Cabrera, Jordan Caples, Maddison Carey, Tavin Fiser, Abby Goodyke, Vera Grix, Holly Heathfield, Alena Kamp, William Leahy, 
+                                Celine Linares, Braelyn Myers, Omar Perez-Correa, Emily Raak, Kathryn Rainwater, Lisa Reynolds, Emma Steeby, Edwin Tomas, Erika Willson.
+                            </p>
+                            <img src = {IDSTeamWinter2022} alt = "IDS Team Winter 2022" max-width="50%" height="300" margin = "1px" border = "5px"></img>
+                    </p>
+
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
+                            - The CIS Students of Winter 2022 -
                         </h3>
                             <p>
                                 Luke Bonner, Chiamaka Ezuruonye, Hayden Garrett.
                             </p>
-                            <img src = {CISTeamWinter2022} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
+                            <img src = {CISTeamWinter2022} alt = "CIS Team Winter 2022" max-width="50%" height="300" margin = "1px" border = "5px"></img>
+                    </p>
+
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
+                            - The Journalism Students of Winter 2022 -
+                        </h3>
+                            <p>
+                                Christopher Tortorelli, Audrey Whitaker, Brielle Meyer, Jack Caron, and Lauren Formosa.
+                            </p>
+                            <img src = {Christopher} alt = "CT Journalism Winter 2022" max-width="50%" height="300" margin = "1px" border = "5px"></img>
+                            <img src = {Journalism22} alt = "Journalism Winter 2022" max-width="50%" height="300" margin = "1px" border = "5px"></img>
                     </p>
 
                 </center>
