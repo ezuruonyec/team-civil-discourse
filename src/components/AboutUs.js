@@ -5,6 +5,10 @@ import team1Image from "../images/Team1.png";
 import team2Image from "../images/Team2.png";
 import IDSTeamFall2021 from "../images/Team4.png";
 import CISTeamFall2021 from "../images/Team4CIS.png";
+import TeamCivil from "../images/TeamCivil.png";
+import Christopher from "../images/ChristopherTortorelli.png";
+import Journalism22 from "../images/JournalismWinter22.jpg";
+
 import Grid from '@material-ui/core/Grid';
 
 
@@ -111,6 +115,27 @@ export function AboutUs() {
                             </p>
                             <img src = {CISTeamFall2021} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
                     </p>
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
+                            The CIS Students of Winter 2022
+                        </h3>
+                            <p>
+                                Luke Bonner, Chiamaka Ezuruonye, Hayden Garrett.
+                            </p>
+                            <img src = {TeamCivil} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
+                    </p>
+                    <p style = {{ fontFamily: "Verdana"}}>
+                        <h3 style = {{ fontFamily: "Verdana", textAlign: 'center', backgroundColor: "#edf8fb"}}>
+                            The Journalism Students of Winter 2022
+                        </h3>
+                            <p>
+                                Christopher Tortorelli, Audrey Whitaker, Brielle Meyer, Jack Caron, and Lauren Formosa.
+                            </p>
+                            <img src = {Christopher} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
+                            <img src = {Journalism22} alt = "CIS Team Fall 2021" max-width="50%" height="300" margin = "1px" border = "5px"></img>
+                    
+                    </p>
+
                 </center>
 
                 <footer style = {{ backgroundColor: "#bfd3e6"}}>
